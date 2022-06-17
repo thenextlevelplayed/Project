@@ -1,3 +1,9 @@
- .wrapper{
-    text-size-adjust: 123;
- }  
+*{
+    font-family: serif;
+    position: relative;
+    border: 1px solid black;
+}
+
+body, html {
+    position: relative;
+  }
