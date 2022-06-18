@@ -1,0 +1,35 @@
+/* 全域設定 */
+
+*{
+    /* background-color: gray; */
+    border: 1px solid black;
+    position: relative;
+}
+
+/* 通用設定 */
+.browserHeight{
+    height: 100vh;
+}
+.height90{
+    height: 90vh;
+}
+.height70{
+    height: 70vh;
+}
+.height50{
+    height: 50vh;
+}
+.height30{
+    height: 30vh;
+}
+
+/* 最新消息 */
+
+/* 產品新訊 */
+
+/* 服務項目 */
+/* .cardHeight{
+    height: 30%;
+} */
+
+/* 客戶個案 */
