@@ -27,3 +27,19 @@ body, html {
 .rounded-circle{
     margin: 50px;
 }
+
+.left{
+    border: red 1px solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    display: inline-block;
+}
+
+.right{
+    border: red 1px solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    display: inline-block;
+}
