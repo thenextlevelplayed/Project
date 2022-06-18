@@ -1,0 +1,62 @@
+div{
+    border: 2px solid gray;
+}
+
+.banner{
+    background-size: cover;
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.banner-pic{
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    justify-items: center;
+}
+.banner-text{
+    width: 300px;
+    align-items: center;
+    justify-content:center;
+    display: flex;
+    position: absolute;
+}
+.slogan{
+    background-size: cover;
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.slogan-text{
+    align-items: center;
+    justify-content:center;
+    display: flex;
+    position: absolute;
+}
+.service{
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.video1{
+    flex-direction: row-reverse;
+}
+.news{
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.col-md-6{
+    display: flex;
+    align-items: center;
+}
+.about{
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
