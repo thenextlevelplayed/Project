@@ -24,12 +24,60 @@
                 <h1>WHAT'S NEW.</h1>
                 <h3>最新消息</h3>
             </div>
-            <div class="row">
-                <img class="col-sm-6" src="https://fakeimg.pl/400x300/" alt="最新消息">
-                <p class="col-sm-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti qui incidunt
-                    necessitatibus vel
-                    autem saepe tempora architecto tempore consequuntur, sit perspiciatis nihil veritatis labore,
-                    cupiditate ullam doloremque temporibus pariatur perferendis.</p>
+
+            <!-- 幻燈片 -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                
+                <!-- 輪播內容 -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <img src="https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_412_8.jpg" class="height50 col-sm-6"
+                                alt="最新消息1">
+                            <p class="col-sm-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto natus quia amet ut
+                                incidunt perspiciatis, dolorum sed accusamus fugiat at nulla perferendis temporibus
+                                adipisci quas in sequi. Molestiae, impedit assumenda!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <img src="http://farm4.staticflickr.com/3795/9269794168_3ac58fc15c_b.jpg" class="height50 col-sm-6"
+                                alt="最新消息2">
+                            <p class="col-sm-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto natus quia amet ut
+                                incidunt perspiciatis, dolorum sed accusamus fugiat at nulla perferendis temporibus
+                                adipisci quas in sequi. Molestiae, impedit assumenda!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <img src="https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_3266_19.jpg" class="height50 col-sm-6"
+                                alt="最新消息3">
+                            <p class="col-sm-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto natus quia amet ut
+                                incidunt perspiciatis, dolorum sed accusamus fugiat at nulla perferendis temporibus
+                                adipisci quas in sequi. Molestiae, impedit assumenda!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="height10" >
+
+                <!-- 輪播進度提示 -->
+                <div class="carousel-indicators">
+                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0" class="active" aria-label="Slide 1"></button>
+                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="1"></button>
+                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="2"></button>
+                </div>
+
+                <!-- 左右箭頭 -->
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <!-- <span class="visually-hidden">Previous</span> -->
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <!-- <span class="visually-hidden">Next</span> -->
+                </button>
             </div>
         </div>
 
@@ -114,7 +162,8 @@
                     <img class="rounded card-img" src="https://fakeimg.pl/200x120/" alt="2">
                     <div class="card-img-overlay">
                         <h3 class="card-title">雲端銷售服務</h3>
-                        <p class="card-text">凱茂資訊為微軟的雲端服務供應商(CSP),提供Azure、O365、M365、私有雲、混合雲、備份雲的規劃、導入與教育訓練,整合企業内外的Web AP及應用。</p>
+                        <p class="card-text">凱茂資訊為微軟的雲端服務供應商(CSP),提供Azure、O365、M365、私有雲、混合雲、備份雲的規劃、導入與教育訓練,整合企業内外的Web
+                            AP及應用。</p>
                     </div>
                 </div>
                 <div class="col-sm-4 card bg-secondary text-light">
