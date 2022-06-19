@@ -98,3 +98,7 @@ body, html {
     display: none;
 }
 
+.carousel-item .row .col-md-2 a img{
+    margin-inline: 190px;
+}
+/* thunb */

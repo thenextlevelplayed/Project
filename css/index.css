@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Futura Heavy';
     src: url('../fonts/Futura\ Heavy\ font.ttf') format("truetype"),
@@ -17,9 +18,6 @@
     font-family: 'Futura Heavy';
     font-size: 70px;
     color:rgb(0,90,175);
-    transition: color .2s ease-in-out;
-    animation: animated_text 2s ease-in-out infinite;
-    
 }
 
 
@@ -28,8 +26,7 @@
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 600;
     font-size: 32px;
-    color:rgb(0,90,175);
-    
+    color:rgb(0,90,175);   
 }
 
 .indexh3{
@@ -92,4 +89,89 @@
 }
 .show.active{
 display: block;
+}
+
+.footer{
+    background-color: #b8b8b8;
+    color:#CCCCCC;
+    margin-bottom:-25px;
+    height:300px;
+  }
+  
+  
+  .footer a{
+    color:#4d4d4d;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer a:hover{
+    color:#ffffff;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  
+
+div{
+    border: 2px solid gray;
+}
+
+.banner{
+    background-size: cover;
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.banner-pic{
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    justify-items: center;
+}
+.banner-text{
+    width: 300px;
+    align-items: center;
+    justify-content:center;
+    display: flex;
+    position: absolute;
+}
+.slogan{
+    background-size: cover;
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.slogan-text{
+    align-items: center;
+    justify-content:center;
+    display: flex;
+    position: absolute;
+}
+.service{
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.video1{
+    flex-direction: row-reverse;
+}
+.news{
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+.col-md-6{
+    display: flex;
+    align-items: center;
+}
+.about{
+    max-width: 100%;
+    min-width: 100vh;
+    height: 100vh;
+    position: relative;
+
 }
