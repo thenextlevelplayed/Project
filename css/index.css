@@ -1,7 +1,8 @@
 @font-face {
     font-family: 'Futura Heavy';
-    src: url('../fonts/Futura\ Heavy\ font.ttf') format("truetype"),
-        url('../fonts/Futura\ Heavy\ font.woff') format("woff"),
+    src: url('../fonts/FuturaHeavyfont.ttf') format("truetype"),
+        url('../fonts/FuturaHeavyfont.woff') format("woff"),
+        url('../fonts/FuturaHeavyfont.woff2') format("woff2"),
 }
 
 .intro {
