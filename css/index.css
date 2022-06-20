@@ -15,7 +15,8 @@
 }
 
 .indexh1 {
-    font-family: 'Futura Heavy';
+    font-family: 'Jost';
+    font-weight:700;
     font-size: 70px;
     color: rgb(0, 90, 175);
 }
