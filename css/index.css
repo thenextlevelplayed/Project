@@ -1,62 +1,192 @@
-div{
+@font-face {
+    font-family: 'Futura Heavy';
+    src: url('../fonts/FuturaHeavyfont.ttf') format("truetype"),
+        url('../fonts/FuturaHeavyfont.woff') format("woff"),
+        url('../fonts/FuturaHeavyfont.woff2') format("woff2"),
+}
+
+.intro {
+
+    background-color: rgb(255, 255, 255);
+    background-image: url('../img/index/intro.jpg');
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+}
+
+.indexh1 {
+    font-family: 'Jost';
+    font-weight:700;
+    font-size: 70px;
+    color: rgb(0, 90, 175);
+}
+
+
+.indexh2 {
+    margin-top: 25px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: rgb(0, 90, 175);
+}
+
+.indexh3 {
+    margin-top: 25px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(0, 90, 175);
+
+}
+
+.indexp {
+    margin-top: 30px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: rgb(90, 90, 90);
+}
+
+.indexContent {
+    padding-top: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.roundbutton {
+    margin-top: 45px;
+    width: 200px;
+    border-radius: 50px;
+    text-align: center;
+    padding: 8px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 90, 175);
+    transition: 0.5s;
+}
+
+.roundbutton:hover {
+    margin-top: 45px;
+    width: 200px;
+    border-radius: 50px;
+    text-align: center;
+    padding: 8px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 132, 255);
+}
+
+/* ANIMATION */
+.reveal {
+    position: relative;
+    opacity: 0.2;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    opacity: 1;
+}
+
+.show {
+    display: none;
+}
+
+.show.active {
+    display: block;
+}
+
+.footer {
+    background-color: #b8b8b8;
+    color: #CCCCCC;
+    margin-bottom: -25px;
+    height: 300px;
+}
+
+
+.footer a {
+    color: #4d4d4d;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+
+div {
     border: 2px solid gray;
 }
 
-.banner{
+.banner {
     background-size: cover;
     max-width: 100%;
     min-width: 100vh;
     height: 100vh;
     position: relative;
 }
-.banner-pic{
+
+.banner-pic {
     width: 100%;
     height: 300px;
+    display: flex;
     align-items: center;
     justify-items: center;
 }
-.banner-text{
+
+.banner-text {
     width: 300px;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     display: flex;
     position: absolute;
 }
-.slogan{
+
+.slogan {
     background-size: cover;
     max-width: 100%;
     min-width: 100vh;
     height: 100vh;
     position: relative;
 }
-.slogan-text{
+
+.slogan-text {
+    display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     display: flex;
     position: absolute;
 }
-.service{
+
+.service {
     max-width: 100%;
     min-width: 100vh;
     height: 100vh;
     position: relative;
 }
-.video1{
+
+.video1 {
     flex-direction: row-reverse;
 }
-.news{
+
+.news {
     max-width: 100%;
     min-width: 100vh;
     height: 100vh;
     position: relative;
 }
-.col-md-6{
+
+.col-md-6 {
     display: flex;
     align-items: center;
 }
-.about{
+
+.about {
     max-width: 100%;
     min-width: 100vh;
     height: 100vh;
     position: relative;
+
 }
