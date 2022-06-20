@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'Futura Heavy';
-    src: url('../fonts/FuturaHeavyfont.ttf') format("truetype"),
-        url('../fonts/FuturaHeavyfont.woff') format("woff"),
-        url('../fonts/FuturaHeavyfont.woff2') format("woff2"),
-}
+
 
 .intro {
 
@@ -113,11 +108,6 @@
     color: #ffffff;
     text-decoration: none;
     transition: 0.5s;
-}
-
-
-div {
-    border: 2px solid gray;
 }
 
 .banner {
