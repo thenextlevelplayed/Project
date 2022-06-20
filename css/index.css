@@ -129,6 +129,7 @@ div {
 .banner-pic {
     width: 100%;
     height: 300px;
+    display: flex;
     align-items: center;
     justify-items: center;
 }
@@ -150,6 +151,7 @@ div {
 }
 
 .slogan-text {
+    display: flex;
     align-items: center;
     justify-content: center;
     display: flex;
