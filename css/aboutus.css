@@ -1,36 +1,39 @@
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     border: 1px solid black;
 }
 
-body, html {
+body,
+html {
     position: relative;
-  }
+}
 
 /* .givePadding{
     padding: 1%;
 } */
 
-.aboutUs{
+.aboutUs {
     border: red 1px solid;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.a1, .a2{
+.a1,
+.a2 {
     width: 100%;
     display: inline-block;
 
 }
 
-.rounded-circle{
+.rounded-circle {
     margin: 50px;
 }
 
-.carousel-item .row .col-md-2 a img{
+.carousel-item .row .col-md-2 a img {
     margin-inline: 125px;
 }
+
 /* thunb */
 
 .carousel-control-next {
@@ -59,4 +62,4 @@ body, html {
 .carousel-item .row .col-md-2 a img {
     /* color: white;
     box-shadow: 2px 2px 2px  #615d5d ; */
-  }
+}
