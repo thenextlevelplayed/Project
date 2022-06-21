@@ -9,22 +9,6 @@ html {
     position: relative;
 }
 
-/* .givePadding{
-    padding: 1%;
-} */
-
-.aboutUs {
-    border: red 1px solid;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.a1,
-.a2 {
-    width: 100%;
-    display: inline-block;
-
-}
 
 .rounded-circle {
     margin: 50px;
