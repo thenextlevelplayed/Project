@@ -17,15 +17,9 @@
     margin:80px;
 }
 
-.wapperContent img {
-    width:80px;
-    position: absolute;
-    position:  0px 0px;
-}
 
 .wapperContentWord{
     text-align: end;
-
 }
 
 
@@ -34,7 +28,7 @@
 .wapperContentWord a{
     text-decoration: none;
     font-family: 'Jost';
-    font-size: 80px;
+    font-size: 75px;
     font-weight: 500;
     text-align: end;
     color: #fff;
@@ -72,7 +66,6 @@
         color: #fff;
         line-height: 150%;
         opacity: 0.5;
-        transition: 0.3s;
     
     }
 
@@ -291,9 +284,11 @@ input[type="checkbox"] {
 }
 
 .indexContent {
+    margin-top: 100px;
     padding-top: 30px;
     padding-left: 80px;
     padding-right: 80px;
+    opacity: 0.3;
 }
 
 .indexAbout {
