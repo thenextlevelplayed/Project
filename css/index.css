@@ -26,7 +26,7 @@
 }
 
 .indexh3 {
-    margin-top: 25px;
+    margin-top: 15px;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 600;
     font-size: 20px;
@@ -42,10 +42,29 @@
     color: rgb(90, 90, 90);
 }
 
+.indexp2 {
+    margin-top: 15px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(119, 118, 118);
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    overflow:hidden;
+}
+
 .indexContent {
     padding-top: 30px;
     padding-left: 80px;
     padding-right: 80px;
+}
+
+.indexAbout{
+    height: 700px;
+    width:100%;
+    background-image: url(../img/index/chairs-2181919_1920.jpg);
 }
 
 .roundbutton {
@@ -91,7 +110,7 @@
 }
 
 .footer {
-    background-color: #b8b8b8;
+    background-color: #cbcbcb;
     color: #CCCCCC;
     margin-bottom: -25px;
     height: 300px;
@@ -109,6 +128,11 @@
     text-decoration: none;
     transition: 0.5s;
 }
+
+
+/* div {
+    border: 2px solid gray;
+} */
 
 .banner {
     background-size: cover;
