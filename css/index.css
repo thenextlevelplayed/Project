@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'Futura Heavy';
-    src: url('../fonts/FuturaHeavyfont.ttf') format("truetype"),
-        url('../fonts/FuturaHeavyfont.woff') format("woff"),
-        url('../fonts/FuturaHeavyfont.woff2') format("woff2"),
-}
+
 
 .intro {
 
@@ -115,7 +110,7 @@
 }
 
 .footer {
-    background-color: #b8b8b8;
+    background-color: #cbcbcb;
     color: #CCCCCC;
     margin-bottom: -25px;
     height: 300px;
