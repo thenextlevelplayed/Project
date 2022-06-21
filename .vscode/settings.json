@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.showOnStatusbar": false
+    "liveServer.settings.showOnStatusbar": false,
+    "liveServer.settings.port": 5501
 }
