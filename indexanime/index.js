@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     const kaimauCover = document.querySelector('.kaimau__cover');
 
     let kaimauHeight = kaimau.clientHeight;
-    let scaleRatio = Math.pow(400, 1/kaimauHeight);
+    let scaleRatio = Math.pow(500, 1/kaimauHeight);
 
     window.addEventListener('scroll', () => {
         let scrollPosition = window.scrollY;
@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
         if(scaleAmount < 200) {  
             kaimauTitle.style.transform = `scale(${scaleAmount})`;
         } else {
-            kaimauTitle.style.transform = `scale(400)`;
+            kaimauTitle.style.transform = `scale(500)`;
         }
     });
 });
