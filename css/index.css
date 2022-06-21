@@ -10,22 +10,16 @@
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
     /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
     transition: all 0.6s ease-in-out;
-    z-index: 2;
+    z-index: 99;
 }
 
 .wapperContent{
     margin:80px;
 }
 
-.wapperContent img {
-    width:80px;
-    position: absolute;
-    position:  0px 0px;
-}
 
 .wapperContentWord{
     text-align: end;
-
 }
 
 
@@ -34,7 +28,7 @@
 .wapperContentWord a{
     text-decoration: none;
     font-family: 'Jost';
-    font-size: 80px;
+    font-size: 75px;
     font-weight: 500;
     text-align: end;
     color: #fff;
@@ -72,7 +66,6 @@
         color: #fff;
         line-height: 150%;
         opacity: 0.5;
-        transition: 0.3s;
     
     }
 
@@ -91,7 +84,7 @@
 
 .menu-btn {
     position: fixed;
-    z-index: 3;
+    z-index: 100;
     right: 20px;
     /*left: 20px; */
     top: 20px;
@@ -291,9 +284,20 @@ input[type="checkbox"] {
 }
 
 .indexContent {
+    margin-top: 100px;
     padding-top: 30px;
     padding-left: 80px;
     padding-right: 80px;
+    opacity: 0.3;
+}
+
+.smallDate{
+    color:#a8a8a8;
+}
+
+#indexImg{
+    width:100%;
+    object-fit: contain;
 }
 
 .indexAbout {
@@ -362,7 +366,7 @@ input[type="checkbox"] {
     color: #ffffff;
     text-decoration: none;
     transition: 0.5s;
-}
+}z
 
 
 /* div {

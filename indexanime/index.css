@@ -1,0 +1,133 @@
+/* * {
+    margin: 0;
+    padding: 0;
+}
+.kaimau{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+
+/* }
+
+.kaimau img{
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 100vh;
+    background-size: cover; 
+} */
+/* .kaimau svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+} */
+/* .kaimau_svg{
+    display: block;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .kaimau #k{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #fff url(index.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 500px;
+} */
+
+body {
+  margin: 0;
+  font-family: "Mulish", sans-serif;
+}
+
+.kaimau {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+.kaimau .kaimau__content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  
+}
+.kaimau h1 {
+  color: #fff;
+  font-size: 5vw;
+  margin: 0;
+  transform-origin: 65% center;
+}
+.kaimau .kaimau__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  mix-blend-mode: multiply;
+  
+
+}
+.kaimau .kaimau__cover {
+  position: absolute;
+  transition: 0.2s ease-in-out;
+}
+.kaimau .kaimau__cover.hidden {
+  opacity: 0;
+}
+
+.scroll-placeholder {
+  width: 0;
+  height: 200vh;
+  /* z-index: -2; */
+}
+.kaimau__logo{
+  width: 50vw;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+}
+.back{
+  position: relative;
+}
+.mid{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,350%);
+
+}
+
+.content {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  z-index: 1;
+}
+
+@media screen and (min-aspect-ratio: 16/9) {
+  .kaimau .kaimau__image {
+    width: 100%;
+    height: auto;
+  }
+}
