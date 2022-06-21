@@ -13,9 +13,6 @@ $(window).on("scroll touchmove", function () {
   if ($(document).scrollTop() < (($("#Service01").position().top)+600)) {
     console.log($("#Service01").position().top);
     $('#indexImg').attr('src', '../img/index/index-01.png')
-    
-  }else{
-    
   }
 
   if ($(document).scrollTop() > ($("#Service01").position().top+600) && $(document).scrollTop() < ($("#Service02").position().top+600)) {
