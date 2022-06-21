@@ -1,0 +1,32 @@
+.indexh1 {
+    font-family: 'Jost';
+    font-weight:700;
+    font-size: 70px;
+    color: rgb(0, 90, 175);
+}
+
+
+.indexh2 {
+    margin-top: 25px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: rgb(0, 90, 175);
+}
+
+.indexh3 {
+    margin-top: 25px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(0, 90, 175);
+
+}
+
+.indexp {
+    margin-top: 30px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: rgb(90, 90, 90);
+}
