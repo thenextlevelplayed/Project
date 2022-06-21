@@ -284,9 +284,11 @@ input[type="checkbox"] {
 }
 
 .indexContent {
+    margin-top: 100px;
     padding-top: 30px;
     padding-left: 80px;
     padding-right: 80px;
+    opacity: 0.3;
 }
 
 .indexAbout {
