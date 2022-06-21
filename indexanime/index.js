@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
         let scrollPosition = window.scrollY;
         let scaleAmount = Math.pow(scaleRatio, scrollPosition);
         
+        // console.log(scrollPosition);
         if(scrollPosition > 0) {
             kaimauCover.classList.add('hidden');
         } else {
