@@ -16,7 +16,7 @@
     border: 1px solid red;
 }
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -145,4 +145,25 @@ body{
 }
 .posters {
     width: 100%;  height: auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #cbcbcb;
+    color: #CCCCCC;
+    margin-bottom: -25px;
+    height: 300px;
+}
+
+
+.footer a {
+    color: #818181;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
 }
