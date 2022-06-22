@@ -169,23 +169,20 @@ button>svg{
     color: black;
 }
 
-/* .carousel-indicators .active{ 
-    margin-top: 10px !important;
-} */
-
-/* ol {
-    margin-top: 100px
-} */
-.carousel-caption {
-    /* position: relative;
-    left: auto;
-    right: auto; */
-    /* top: 90%; */
-}
-
 
 .carousel-item .row {
     margin-left: 13%;
+}
+
+.img-thumbnail{
+    padding:.25rem;
+    background-color:#fff;
+    border:1px solid #dee2e6;
+    border-radius:.25rem;
+    /* max-width:100%; */
+    width: 100px;
+    height: 100px;
+    /* height:auto */
 }
 
 /* cube */
@@ -294,7 +291,8 @@ button>svg{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(#000,#005AAF);
+    /* background: linear-gradient(#000,#005AAF); */
+    background: linear-gradient(#005AAF,#000);
     transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
 }
 .top{
