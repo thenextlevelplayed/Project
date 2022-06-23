@@ -252,7 +252,7 @@ input[type="checkbox"] {
 }
 
 .indexp {
-    margin-top: 30px;
+    margin-top: 20px;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 400;
     font-size: 17px;
@@ -355,7 +355,7 @@ input[type="checkbox"] {
     color: #ffffff;
     text-decoration: none;
     transition: 0.5s;
-}z
+}
 
 
 /* div {

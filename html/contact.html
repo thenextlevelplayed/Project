@@ -7,8 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <style>
+        @import url('[https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap)');
+        @import url('[https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&display=swap](https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&display=swap)');
+    </style>
+
+
     <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/paragraph.css">
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
@@ -25,34 +33,46 @@
             <p>聯絡我們</p>
         </div>
     </div>
-    <div id="content" class="container">
+    <div id="content" class="container mb-5">
         <div id="contactContent" class="container row">
-            <div id="contactForm" class="col-sm">
-                <form action="GET">
-                    <label>姓名<span>*</span><br />
-                        <input type="text" name="Name" placeholder="Name">
-                    </label><br />
-                    <label>公司<span>*</span><br />
-                        <input type="text" name="Company" placeholder="Company">
-                    </label><br />
-                    <label>聯絡電話<span>*</span><br />
-                        <input type="text" name="Tel" placeholder="Phone Number">
-                    </label><br />
-                    <label>電子郵件<span>*</span><br />
-                        <input type="text" name="Email" placeholder="E-mail">
-                    </label><br />
-                    <label>諮詢內容<span>*</span><br />
-                        <textarea name="Content" placeholder="Messages">
+            <div id="contactForm" class="col-sm rounded border mx-auto p-3">
+                <p> 諮詢與服務表單：</p>
+                <form method="get" action="form.php">
+                    <div class="form-group">
+                        <label for="FormName" class="pl-2">姓名 <span>*</span></label>
+                        <input type="text" name="Name" id="FormName" class="form-control" placeholder="Name">
 
-                        </textarea>
-                    </label><br />
-                    <label>驗證碼<span>*</span><br />
-                        <input type="text" name="Content" placeholder="Messages">
-                    </label><br />
+                    </div>
+                    <div class="form-group">
+                        <label for="FormCompany" class="pl-2">公司 <span>*</span></label>
+                        <input type="text" name="Company" id="FormCompany" class="form-control" placeholder="Company">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="FormTel" class="pl-2">聯絡電話 <span>*</span></label>
+                        <input type="text" name="Tel" id="FormTel" class="form-control" placeholder="Phone Number">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="FormEmail" class="pl-2">電子郵件 <span>*</span> </label>
+                        <input type="email" name="Email" id="FormEmail" class="form-control" placeholder="E-mail">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="FormContent" class="pl-2">諮詢內容 <span>*</span></label>
+                        <textarea name="Content" id="FormContent" class="form-control" placeholder="Messages"
+                            rows="3"></textarea>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="pl-2">驗證碼 <span>*</span></label>
+                        <input type="text" name="Captcha" class="form-control" placeholder="Captcha">
+
+                    </div>
                     <input type="submit" value="SEND">
                 </form>
             </div>
-            <div id="map" class="col-sm">
+            <div id="map" class="col-sm w-75 p-3 mx-auto">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.9510216505255!2d120.65267762474834!3d24.13835813450139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70a0914b%3A0xc15f47247005141c!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2sus!4v1655799360204!5m2!1szh-TW!2sus"
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
@@ -65,9 +85,23 @@
         </div>
 
     </div>
-    <div id="footer">
+    <footer>
+        <div class="container-fluid footer p-5">
+            <div style="text-align:center; width:100% ;margin:auto;">
+                <img src="../images/logo-gray.png" style="height: 40px; margin:20px">
+                <hr>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Home</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">About</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Services</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Contact</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Product</a>
+                <br>
+                <br>
+                <p style="font-size:14px; color:#a2a2a2">&copy; 2022 凱茂資訊 </p>
+            </div>
+        </div>
+    </footer>
 
-    </div>
 </body>
 
 </html>

@@ -2,13 +2,19 @@
     /* position:relative; */
     width: 100%;
     height: 100vh;
-    border: 2px solid red;
     text-align: center;
-    
+    background-image: url(/資訊圖庫/A24.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
-#headerContent{
+
+#headerContent {
     position: relative;
-    top:50%;
+    top: 50%;
+    color: #fff;
+
 }
 
 #content {
@@ -18,25 +24,49 @@
 }
 
 /* #contactContent {
-    position: relative;
-    top: 20%;
-    display: grid;
-    grid-template-columns: 40% 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } */
 
 #map {
-    margin-left: 50px;
-    border: 1px solid black;
-    width: 100%;
-    height: 100%;
+    /* margin-left: 50px; */
+    justify-content: center;
+    /* width: 100%;
+    height: 100%; */
+}
+
+#map p {
+    text-align: center;
 }
 
 #contactForm {
-    border: 1px solid black;
     width: 100%;
     height: 100%;
 }
 
-#contactForm span{
+#contactForm span {
     color: red;
+}
+
+/* 以下 Footer */
+
+.footer {
+    background-color: #cbcbcb;
+    color: #CCCCCC;
+    margin-bottom: -25px;
+    height: 300px;
+}
+
+
+.footer a {
+    color: #818181;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
 }
