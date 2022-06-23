@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AboutUs</title>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/uxl/popper.min.js"></script>
     <script src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -13,71 +14,161 @@
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/aboutus.css">
     <link rel="stylesheet" type="text/css" href="../css/timeline.css">
-    
+
 </head>
+
 <body>
-    <div class="container">
-        <div class="row" >
-            <div class="col-xl-5 ">
-                <h1 class="indexh1  about-title-en">ABOUT <br /> US.</h1>
-                <h3 class="indexh2  about-title-cn">關於凱茂</h3>
-                <!-- <img src="../img/index/aboutus00.png" class="col-xl-6 float-xl-end mb-3 ms-xl-3 " alt="圖片 "> -->
-                <p class="indexp">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凱茂資訊 成立於 2 0 0 9年，迄今已成為多家知名軟、硬體大廠之大型客戶承銷商。目前除了臺中總部，服務耕耘客群也遍及全國北中南。
-                </p>
-                <p class="indexp">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凱茂團隊以即時且反應迅速服務機制，協助客戶於最快時間獲得問題解答與排除，以及在需求時間內到場技術支援服務，另外針對客戶不同需求來提供相對應解決方案的顧問服務及專案建置。
-                </p>
 
-                
-                
+    <!-- hamberger -->
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <!-- <ul>
+            <li><img src = "../img/logo/logo-white.png" style = "width:200px"></li>
+            <br>
+            <li><a href="#">回到首頁 Home</a></li>
+            <li><a href="#">關於凱茂 About</a></li>
+            <li><a href="#">服務項目 Services</a></li>
+            <li><a href="#">產品資訊 Product</a></li>
+            <li><a href="#">聯絡我們 Contact</a></li>
+        </ul> -->
+        <div class="wapperContent">
+            <img src="../img/logo/only-logo.png" style="width:80px;position: absolute;position:0px 0px;">
+
+            <div class="wapperContentWord">
+                <a href="./index.html">HOME</a><br>
+                <a href="./aboutus.html">ABOUT</a><br>
+                <a href="./service.html">SERVICES</a><br>
+                <a href="./product.html">PRODUCTS</a><br>
+                <a href="./contact.html">CONTACT</a>
             </div>
 
-            <div class="col-xl-7" style="height: 100vh; overflow: hidden;">
-                <img src="../img/index/aboutus00.png" alt="圖片 " class="KAIMAUImage"> 
+
+        </div>
+
+
+    </div>
+
+    <!-- about us -->
+    <div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-xl-5 mt">
+                    <h1 class="indexh1  about-title-en">ABOUT <br /> US.</h1>
+                    <h3 class="indexh2  about-title-cn">關於凱茂</h3>
+                    <!-- <img src="../img/index/aboutus00.png" class="col-xl-6 float-xl-end mb-3 ms-xl-3 " alt="圖片 "> -->
+                    <p class="indexp">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凱茂資訊 成立於 2 0 0
+                        9年，迄今已成為多家知名軟、硬體大廠之大型客戶承銷商。目前除了臺中總部，服務耕耘客群也遍及全國北中南。
+                    </p>
+                    <p class="indexp">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凱茂團隊以即時且反應迅速服務機制，協助客戶於最快時間獲得問題解答與排除，以及在需求時間內到場技術支援服務，另外針對客戶不同需求來提供相對應解決方案的顧問服務及專案建置。
+                    </p>
+
+
+
+                </div>
+
+                <div class="col-xl-7" style="height: 100vh; overflow: hidden;">
+                    <img src="../img/index/aboutus00.png" alt="圖片 " class="KAIMAUImage">
+                </div>
             </div>
+
         </div>
 
         <!-- 理念 -->
-        <div class="slogon givePadding">
-            <h3 class="indexh2 ">凱茂理念</h3>
-            <h1 class="indexh1">Take KAIMAU<br/>Take the Future.</h1>
-            <p class="indexp">
-                資安議題日漸受重視，資訊安全的威脅無所不在，不論是企業或是政府組織，潛藏在暗處的惡意攻擊者都是一視同仁，凱茂資訊洞察產業趨勢與眾多資訊安全系統的原廠及代理商合作，針對不同產業對資安的需求，依照客戶的情境提出精準完整的解決方案。
-            </p>
-            <div class="cube ">
-                <div class="top"></div>
+        <div class="slogon givePadding" style="height: 170vh; overflow-x: hidden;">
+            <div class="row">
+
+                <div class="concept">
+                    <h2 class="indexh2 ">凱茂理念</h2>
+                    <!-- <h1 class="indexh1">Take KAIMAU<br/>Take the Future.</h1> -->
+                    <p class="indexp">
+                        資安議題日漸受重視，資訊安全的威脅無所不在，不論是企業或是政府組織，潛藏在暗處的惡意攻擊者都是一視同仁，凱茂資訊洞察產業趨勢與眾多資訊安全系統的原廠及代理商合作，針對不同產業對資安的需求，依照客戶的情境提出精準完整的解決方案。
+                    </p>
+                </div>
+                <div class="cube ">
+                    <div class="top"></div>
                     <div>
-                        <span style="--i:0">                            <h2>1</h2>
-                            <h2>1</h2>
-                            <h2>1</h2></span>
-                        <span style="--i:1"></span>
-                            <h2>2</h2>
-                        <span style="--i:2"></span>
-                            <h2>3</h2>
-                        <span style="--i:3"></span>
-                            <h2>4</h2>
+                        <span style="--i:0">
+                            <h4>Take the Future</h4>
+                            <h4>Take the Future</h4>
+                        </span>
+                        <span style="--i:1">
+                            <h4>Take KAIMAU</h4>
+                            <h4>Take KAIMAU</h4>
+                        </span>
+
+                        <span style="--i:2">
+                            <h4>Take the Future</h4>
+                            <h4>Take the Future</h4>
+                        </span>
+
+                        <span style="--i:3">
+                            <h4>Take KAIMAU</h4>
+                            <h4>Take KAIMAU</h4>
+                        </span>
+
                     </div>
+                </div>
                 
-               
+
+
+                <div class="cube1 ">
+                    <div class="top1"></div>
+                    <div>
+                        <span style="--i:0">
+                            <h2>Take <br /> the<br /> Future</h2>
+                            <h2>Take <br /> the<br /> Future</h2>
+                        </span>
+                        <span style="--i:1">
+                            <h2>Take KAIMAU</h2>
+                            <h2>Take KAIMAU</h2>
+                        </span>
+
+                        <span style="--i:2">
+                            <h2>Take <br /> the<br /> Future</h2>
+                            <h2>Take <br /> the<br /> Future</h2>
+                        </span>
+
+                        <span style="--i:3">
+                            <h2>Take KAIMAU</h2>
+                            <h2>Take KAIMAU</h2>
+                        </span>
+                    </div>
+
+
+                </div>
             </div>
 
-            <div class="cube1 ">
-                <div class="top"></div>
-                    <div>
-                        <span style="--i:0"></span>
-                            <h2>1</h2>
-                        <span style="--i:1"></span>
-                            <h2>2</h2>
-                        <span style="--i:2"></span>
-                            <h2>3</h2>
-                        <span style="--i:3"></span>
-                            <h2>4</h2>
-                    </div>
-                
-               
+            <div class="cube2 ">
+                <div class="top2"></div>
+                <div>
+                    <span style="--i:0">
+                        <h2>Take <br /> the<br /> Future</h2>
+                        <h2>Take <br /> the<br /> Future</h2>
+                    </span>
+                    <span style="--i:1">
+                        <h2>Take <br /> KAIMAU</h2>
+                        <h2>Take <br /> KAIMAU</h2>
+                    </span>
+
+                    <span style="--i:2">
+                        <h2>Take <br /> the<br /> Future</h2>
+                        <h2>Take <br /> the<br /> Future</h2>
+                    </span>
+
+                    <span style="--i:3">
+                        <h2>Take <br /> KAIMAU</h2>
+                        <h2>Take <br /> KAIMAU</h2>
+                    </span>
+                </div>
+
+
             </div>
-            <!-- <div>
+        </div>
+        <!-- <div>
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
                     <title>Placeholder</title>
                     <rect width="100%" height="100%" fill="#eee"></rect>
@@ -85,7 +176,7 @@
                 </svg>
                 <img src="" alt="">
             </div> -->
-            <!-- <div>
+        <!-- <div>
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
                     <title>Placeholder</title>
                     <rect width="100%" height="100%" fill="#eee"></rect>
@@ -93,316 +184,279 @@
                 </svg>
                 <img src="" alt="">
             </div> -->
-            <!-- <div><img src="" alt=""></div> -->
+        <!-- <div><img src="" alt=""></div> -->
+
+    </div>
+
+    <!-- 合作夥伴 -->
+    <div class="container partner givePadding ">
+
+        <h3 class="text-center container indexh2 mt-5">合作夥伴</h3>
+        <p class="text-center container indexp mt-5" style="width:65% ;">
+            我們與各領域的科技廠商密切合作，提供符合您架構的解決方案，協助您為客戶創造更多價值。這些合作當中，包含了策略聯盟與技術聯盟兩種合作夥伴。
+            <br />確保在產品安裝與使用過程當中都能維持順暢的客戶體驗。
+        </p>
+        <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel" data-interval="1000000">
+
+
+            <!-- ASUS, HP, DELL, CISCO, PALO ALTO, CHECK POINT,  FORTIGATE,  
+                            DVC,  MICROSOFT,  VMWARE,  中芯數據,  ARUBA,  LENOVO,  Nutanix -->
+            <div class="carousel-inner container mt-5">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleControls1" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleControls1" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleControls1" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-item active ">
+                    <div class="row ">
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="../資訊圖庫/合作夥伴logo/ausu.jpg" alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="../資訊圖庫/合作夥伴logo/DELL.png" alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="../資訊圖庫/合作夥伴logo/Dell2.svg.png" alt="Image"
+                                    class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1 ">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item ">
+                    <div class="row">
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-xl-2 mx-1">
+                            <a href="#">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ"
+                                    alt="Image" class="rounded shadow img-thumbnail">
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
 
         </div>
 
-        <!-- 合作夥伴 -->
-        <div class="partner givePadding ">
-            <h3 class="indexh2 text-center mt-5">合作夥伴</h3>
-            <p class="text-center container indexp mt-5" style="width:65% ;">我們與各領域的科技廠商密切合作，提供符合您架構的解決方案，協助您為客戶創造更多價值。這些合作當中，包含了策略聯盟與技術聯盟兩種合作夥伴。 
-                <br/>確保在產品安裝與使用過程當中都能維持順暢的客戶體驗。 </p>
-            <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel" data-interval ="1000000">
 
-               
-                <!-- ASUS, HP, DELL, CISCO, PALO ALTO, CHECK POINT,  FORTIGATE,  
-                        DVC,  MICROSOFT,  VMWARE,  中芯數據,  ARUBA,  LENOVO,  Nutanix -->
-                <div class="carousel-inner mt-5">
 
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleControls1" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleControls1" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleControls1" data-slide-to="2"></li>
-                    </ol>
+        <button class="carousel-control-prev mt-auto" type="button" data-target="#carouselExampleControls1"
+            data-slide="prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+            <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next mt-auto" type="button" data-target="#carouselExampleControls1"
+            data-slide="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+            </svg>
+            <span class="sr-only">Next</span>
+        </button>
 
-                    <div class="carousel-item active ">
-                        <div class="row ">
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="../資訊圖庫/合作夥伴logo/ausu.jpg" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="../資訊圖庫/合作夥伴logo/DELL.png" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="../資訊圖庫/合作夥伴logo/Dell2.svg.png" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1 ">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            
-                        </div>
+
+    </div>
 
 
 
-                        
+
+
+
+    <!-- 里程碑 -->
+    <div class="milestone givePadding mt-5">
+
+        <h3 class="indexh2 text-center container mt-5">里程碑</h3>
+        <!-- <p class="text-center container indexp mt-5" style="width:65% ;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat neque est reiciendis dolorum totam, beatae, dolorem saepe nostrum eum debitis adipisci natus nemo hic cum nulla quisquam nisi necessitatibus quia.</p> -->
+        <div class="container">
+            <div class="timeline">
+                <div class="line"></div>
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content-timeline" style="text-align: right" >
+                        <!-- <img src="./HP_image/timeline/c01.png"> -->
+                        <h2 class='indexh2'>2009年</h2>
+                        <p class="indexp" >
+                            凱茂資訊股份有限公司成立。
+
+                        </p>
                     </div>
-
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-item ">
-                        <div class="row">
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-xl-2 mx-1">
-                                <a href="#">
-                                    <img src="https://media-exp1.licdn.com/dms/image/C510BAQEcP_LWsvCTNQ/company-logo_200_200/0/1543462444857?e=2147483647&v=beta&t=0v20GB-lP9VTebvpZ6dxahc-QosfMvbIMH7dB2ZUWtQ" alt="Image"  class="rounded shadow img-thumbnail">
-                                </a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                    
                 </div>
-                
+
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content-timeline" style="margin-left: -30%;">
+                        <!-- <img src="./HP_image/timeline/c02.png"> -->
+                        <h2 class='indexh2'>2010年</h2>
+                        <p>
+                            成為華碩卓越黃金經銷夥伴。
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content-timeline" style="text-align: right" >
+                        <!-- <img src="./HP_image/timeline/c03.png"> -->
+                        <h2 class='indexh2'>2013年</h2>
+                        <p>成為Microsoft Gold Partner Network微軟金級合作伙伴。</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content-timeline" style="margin-left: -30%;">
+                        <!-- <img src="./HP_image/timeline/c04.png"> -->
+                        <h2 class='indexh2'>2014年</h2>
+                        <p>
+                            成為Intel Technology Provider Gold Partner。
+
+
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content-timeline" style="text-align: right">
+                        <!-- <img src="./HP_image/timeline/c05.png"> -->
+                        <h2 class='indexh2'>2019年</h2>
+                        <p>
+                            購置台中辦公室(現址)。
+
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="bead"></div>
+                    <div class="content-timeline" style="margin-left: -30%;">
+                        <!-- <img src="./HP_image/timeline/c06.png"> -->
+                        <h2 class='indexh2'>2021年</h2>
+                        <p>
+                            營業額連續三年成長20%。
+
+                        </p>
+                    </div>
+                </div>
+
             </div>
-
-            
-
-            <button class="carousel-control-prev mt-auto" type="button" data-target="#carouselExampleControls1" data-slide="prev" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-                  </svg>
-                <span class="sr-only">Previous</span>
-            </button>
-            <button class="carousel-control-next mt-auto" type="button" data-target="#carouselExampleControls1" data-slide="next" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-                  </svg>
-                <span class="sr-only">Next</span>
-            </button>
-
-          
-
-            
         </div>
 
- 
-              
-                
-                
-                
-            
-        <div class="milestone givePadding mt-5">
-            <h3 class="indexh2 text-center mt-5">里程碑</h3>
-            <p class="text-center container indexp mt-5" style="width:65% ;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat neque est reiciendis dolorum totam, beatae, dolorem saepe nostrum eum debitis adipisci natus nemo hic cum nulla quisquam nisi necessitatibus quia.</p>
-            <!-- <div>https://tier4.jp/opensource/</div> -->
 
-            <!-- <div class="section_chunk">
-                <section class="section section2">
-                  <div class="section_child">
-                    <h2><span class="tit"><span>AS A</span><span>服務項目</span></span></h2>
-                    <div class="cont">
-                      <div class="left" style="top: -167.5px;"><img class="show" src="https://tier4.jp/assets/img/opensource/autoware-step1.png" alt="" loading="lazy"><img src="https://tier4.jp/assets/img/opensource/autoware-step2.png" alt="" loading="lazy" class=""><img src="https://tier4.jp/assets/img/opensource/autoware-step3.png" alt="" loading="lazy" class=""><img src="https://tier4.jp/assets/img/opensource/autoware-step4.png" alt="" loading="lazy" class=""><img src="https://tier4.jp/assets/img/opensource/autoware-step5.png" alt="" loading="lazy" class=""><img src="https://tier4.jp/assets/img/opensource/autoware-step6.png" alt="" loading="lazy" class=""><img src="https://tier4.jp/assets/img/opensource/autoware-step7.png" alt="" loading="lazy" class=""><img src="https://tier4.jp/assets/img/opensource/autoware-step8.png" alt="" loading="lazy" class=""></div>
-                      <div class="right">
-                        <div class="chunk clearify">
-                          <div class="txt font2">微軟授權、防毒軟體、Adobe授權、繪圖軟體授權、虛擬化軟體、開發工具軟體、網站開發服務、備份備援、郵件伺服務器及其他等規劃與採購服務。</div>
-                          <div class="img sp"><img src="https://tier4.jp/assets/img/opensource/autoware-step1.png" alt="軟體銷售服務" loading="lazy"></div>
-                        </div>
-                        <div class="chunk">
-                          <h3>SENSING</h3>
-                          <div class="txt font2">凱茂資訊為微軟的雲端服務供應商(CSP),提供Azure、O365、M365、私有雲、混合雲、備份雲的規劃、導入與教育訓練,整合企業内外的Web AP及應用。</div>
-                          <div class="img sp"><img src="https://tier4.jp/assets/img/opensource/autoware-step2.png" alt="雲端銷售服務" loading="lazy"></div>
-                        </div>
-                        <div class="chunk">
-                          <h3>LOCALIZATION</h3>
-                          <div class="txt font2">整合客戶現有資訊架構,根據客戶規模規劃建置適合之資訊系統。</div>
-                          <div class="img sp"><img src="https://tier4.jp/assets/img/opensource/autoware-step3.png" alt="系統整合服務" loading="lazy"></div>
-                        </div>
-                        <div class="chunk">
-                          <h3>PERCEPTION</h3>
-                          <div class="txt font2">以安全層面考量為客戶進行網路架構規畫網路核心設備、建置設備監控主控台, 並包含機房機櫃等規劃及建置。</div>
-                          <div class="img sp"><img src="https://tier4.jp/assets/img/opensource/autoware-step4.png" alt="網路規劃服務" loading="lazy"></div>
-                        </div>
-                        <div class="chunk">
-                          <h3>PLANNING</h3>
-                          <div class="txt font2">因應資安法規,協助客戶資安健檢、弱點掃描、滲透測試、社交工程演練等。提供資安軟硬體產品銷售及資安服務與課程。</div>
-                          <div class="img sp"><img src="https://tier4.jp/assets/img/opensource/autoware-step5.png" alt="資訊安全服務" loading="lazy"></div>
-                        </div>
-                        <div class="chunk">
-                          <h3>CONTROL</h3>
-                          <div class="txt font2">擁有專業的技術團隊,協助客戶規劃與建置安全網路、機房維與相關軟體售前與售後顧問服務。</div>
-                          <div class="img sp"><img src="https://tier4.jp/assets/img/opensource/autoware-step6.png" alt="技術維護服務" loading="lazy"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div> -->
-              <div class="container">
-                <div class="timeline">
-                    <div class="line"></div>
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c01.png">
-                            <h2 >2009年</h2>
-                            <p><b>
-                                    <li>凱茂資訊股份有限公司成立。</li>
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c02.png">
-                            <h2>2010</h2>
-                            <p><b>
-                                    <li>成為華碩卓越黃金經銷夥伴。</li><br>
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c03.png">
-                            <h2><b>2013年</b></h2>
-                            <p><b>
-                                    <li>成為Microsoft Gold Partner Network微軟金級合作伙伴。</li><br>
-                                    
-        
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c04.png">
-                            <h2><b>2014年</b></h2>
-                            <p><b>
-                                    <li>成為Intel Technology Provider Gold Partner。</li><br>
-                                    
-        
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c05.png">
-                            <h2><b>2019年</b></h2>
-                            <p><b>
-                                    <li>購置台中辦公室(現址)。</li><br>
-        
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c06.png">
-                            <h2><b>2021年</b></h2>
-                            <p><b>
-                                    <li>營業額連續三年成長20%。</li><br>
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <!-- <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c07.png">
-                            <h2><b>1997年</b></h2>
-                            <p><b>
-                                    <li>食死人入侵霍格華茲，與該校教授及鳳凰會成員激戰。</li><br>
-                                    <li>霍格華茲校長阿不思·鄧不利多於該校天文塔上，遭塞佛勒斯·石內卜殺害。</li>
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c08.png">
-                            <h2><b>1998年</b></h2>
-                            <p><b>
-                                    <li>哈利波特、榮恩·衛斯理、妙麗·格蘭傑與妖精拉環變裝闖入古靈閣巫師銀行，
-                                        從雷斯壯家金庫偷走已被變成分靈體的赫夫帕夫金杯。</li><br>
-                                    <li>霍格華茲戰役，佛地魔王率眾進攻霍格華茲，與該校師生、鳳凰會成員、活米村居民展開決戰。
-                                        哈利波特在決鬥中擊敗佛地魔王，第二次巫師戰爭結束。</li>
-                                </b></p>
-                        </div>
-                    </div>
-        
-                    <div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <img src="./HP_image/timeline/c09.png">
-                            <h2><b>2017年</b></h2>
-                            <p><b>
-                                    <li>《被詛咒的孩子》故事開始。</li><br>
-                                </b></p>
-                        </div>
-                    </div> -->
-                </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid footer p-5">
+            <div style="text-align:center; width:100% ;margin:auto;">
+                <img src="../images/logo-gray.png" style="height: 40px; margin:20px">
+                <hr>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Home</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">About</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Services</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Contact</a>
+                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Product</a>
+                <br>
+                <br>
+                <p style="font-size:14px; color:#a2a2a2">&copy; 2022 凱茂資訊 </p>
             </div>
-
-      </div>
+        </div>
+    </footer>
 </body>
+
 </html>
 <script src="../js/timeline.js"></script>
 <script src="../js/jquery.min.js"></script>
