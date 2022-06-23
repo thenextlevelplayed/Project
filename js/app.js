@@ -12,12 +12,12 @@
 $(window).on("scroll touchmove", function () {
   if ($(document).scrollTop() < (($("#Service01").position().top)+600)) {
     console.log($("#Service01").position().top);
-    $('#indexImg').attr('src', '../img/index/index01.png')
+    $('#indexImg').attr('src', '../img/index/index01.png');
   }
 
   if ($(document).scrollTop() > ($("#Service01").position().top+600) && $(document).scrollTop() < ($("#Service02").position().top+600)) {
     console.log($("#Service02").position().top);
-    $('#indexImg').attr('src', '../img/index/index02.png')
+    $('#indexImg').attr('src', '../img/index/index02.png').fadeIn();
     $('#Service01').css('opacity', '1')
   }else{
     $('#Service01').css('opacity', '0.2');
