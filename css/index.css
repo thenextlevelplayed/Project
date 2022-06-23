@@ -302,13 +302,13 @@ input[type="checkbox"] {
     height:900px;
     position:sticky;
     top:0;
-    display: none;
+    display: block;
 }
 
-@media only screen and (max-width: 996px) {
+@media only screen and (max-width: 992px) {
 
     .indexImgDiv{
-        display: none;
+        display:none !important;
     }
     
 }
