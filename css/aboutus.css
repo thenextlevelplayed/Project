@@ -92,6 +92,19 @@ padding-left: 100px;
     height: 100vh;
 }
 /* 合作夥伴 */
+
+.carousel {
+    position: relative;
+    height: 180px;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 70%;
+}
+
 .carousel-indicators{
     position:absolute;
     right:0;
@@ -103,6 +116,7 @@ padding-left: 100px;
     -ms-flex-pack:center;
     justify-content:center;
     padding-left:0;
+    /* padding-top: 5px; */
     margin-right:15%;
     margin-left:16%;
     list-style:none;
@@ -118,11 +132,13 @@ padding-left: 100px;
     height: 3px;
     margin-right: 3px;
     margin-left: 3px;
-    /* padding-top: 1%; */
+    /* padding-top: 10px; */
+    padding-top: 10%;
     /* width: 0;
     height: 0;
     margin-right: 0;
     margin-left:0; */
+    margin-bottom: -10%;
     text-indent: -999px;
     cursor: pointer;
     background-color: black;
@@ -150,6 +166,7 @@ padding-left: 100px;
   opacity: 0.3;
   transition: opacity 0.15s ease;
   border: 0;
+  background: 0;
 }
 
 
@@ -157,15 +174,14 @@ padding-left: 100px;
 .carousel-control-next {
     width: 3%;
     /* height: 136px; */
-    height: 34%;
-
+    height: 55%;
     margin-right: 7.2%;
 }
 
 .carousel-control-prev {
     width: 3%;
     /* height: 136px; */
-    height: 34%;
+    height: 55%;
     margin-left: 10%;
 
 }
