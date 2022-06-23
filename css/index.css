@@ -280,6 +280,15 @@ input[type="checkbox"] {
     opacity: 0.3;
 }
 
+.indexicon{
+    width:90px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+}
+
 .smallDate{
     color:#a8a8a8;
 }
@@ -287,6 +296,21 @@ input[type="checkbox"] {
 #indexImg{
     width:100%;
     object-fit: contain;
+}
+
+.indexImgDiv{
+    height:900px;
+    position:sticky;
+    top:0;
+    display: none;
+}
+
+@media only screen and (max-width: 996px) {
+
+    .indexImgDiv{
+        display: none;
+    }
+    
 }
 
 .indexAbout {
