@@ -11,11 +11,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
     <script src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../js/app.js">
-    </script>
+    <script src="../js/app.js"></script>
+    <script src="../js/index-animetion.js"></script>
     <script src="https://unpkg.com/scrollreveal@4"></script>
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index-animetion.css">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap');
@@ -59,10 +60,31 @@
 
 
         </div>
-        <div class="intro"></div>
+        <div class="intro">
+            <div class="back">
+                <section class="kaimau">
+                    <div class="kaimau__content">
+                        <h1 class="kaimau__title">WELCOME，KAIMAU</h1>
+                        <img src="../indexanime/002.jpg" alt="" class="kaimau__image">
+                        <h1 class="kaimau__cover">WELCOME，KAIMAU</h1>
+                    </div>
+                </section>
+        
+                <section class="scroll-placeholder"></section>
+        
+                <div class="mid">
+                    <img src="../indexanime/logo/logo-white.png"  class="kaimau__logo">
+                </div>
+            </div>
+        
+            <!-- <section class="content1">
+                good.
+            </section> -->
+        </div>
 
         <!-- 服務項目 -->
-        <div class="container" style=margin-top:100px>
+        <div class="container-fluid" style="background-color: #ffffff; background-size: cover;">
+        <div class="container" style="margin-top:1200px">
             <div class="row">
                 <div class="col-lg-6">
                     <div style="padding:80px; margin-top: 100px;margin-bottom: 50px;">
@@ -90,12 +112,12 @@
                     <div  id = "Service04" class="indexContent">
                         <img class ="indexicon" src="../img/index/icon04.png">
                         <h3 class="indexh3">網路規劃服務</h3>
-                        <p class="indexp">以安全層面考量為客戶進行網路架構規畫網路核心設備、建置設備監控主控台， 並包含機房機櫃等規劃及建置。</p>
+                        <p class="indexp">以安全層面考量為客戶進行網路架構規畫網路核心設備、建置設備監控主控台，並包含機房機櫃等規劃及建置。</p>
                     </div>
                     <div  id = "Service05" class="indexContent">
                         <img class ="indexicon" src="../img/index/icon05.png">
                         <h3 class="indexh3">資訊安全服務</h3>
-                        <p class="indexp">因應資安法規，協助客戶資安健檢、 弱點掃描、滲透測試、社交工程演練等。提供資安軟硬體產品銷售及資安服務與課程。</p>
+                        <p class="indexp">因應資安法規，協助客戶資安健檢、弱點掃描、滲透測試、社交工程演練等。提供資安軟硬體產品銷售及資安服務與課程。</p>
                     </div>
                     <div  id = "Service06" class="indexContent">
                         <img class ="indexicon" src="../img/index/icon06.png">
@@ -111,6 +133,7 @@
                 </div>
             </div>
 
+        </div>
         </div>
 
         <!-- 最新消息 -->
@@ -197,7 +220,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center"style="background-color: #ffffff; ">
                     <div class="m-5 p-4" style="width: 500px;">
                         <h1 class="indexh1">ABOUT<br>US.
                             <h2 class="indexh2">關於我們</h2>
