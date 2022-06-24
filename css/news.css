@@ -143,32 +143,17 @@ body{
 
 
 /* 客戶個案 */
+.brand-block{
 
-.gallery{
-    /* border: 1px solid blue; */
-    width: 100vw;
-    height: auto;
-    /* padding: 3% 0; */
-    overflow-X: scroll;
-    white-space: nowrap;
 }
-/* 自訂滾動條樣式! */
-.gallery::-webkit-scrollbar{
-    height: 8px;
+.level1{
+
 }
-.gallery::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 90, 175);
-    border-radius: 4px;  
-  }
-.posterBox{
-    width: 20%;
-    /* border: 3px solid red; */
-    margin: 0 3%;
-    display: inline-block;
-    white-space:pre-wrap;
+.brand-info{
+
 }
-.posters {
-    width: 100%;  height: auto;
+.flex-box{
+    
 }
 
 /* Footer */
