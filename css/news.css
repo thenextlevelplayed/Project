@@ -8,12 +8,8 @@
 
 * {
     /* background-color: gray; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: relative;
-}
-
-.border {
-    border: 1px solid red;
 }
 body{
     overflow-x: hidden;
@@ -51,7 +47,9 @@ body{
     font-size: 17px;
     color: rgb(90, 90, 90);
 }
-
+a:hover{
+    text-decoration: none;
+}
 .px-30 {
     padding-right: 30%;
     padding-left: 30%;
@@ -62,11 +60,8 @@ body{
 .vh-50{
     height: 50vh;
 }
-.vh-25{
-    height: 25vh;
-}
-.browserHeight {
-    height: 100vh;
+.vh-30{
+    height: 30vh;
 }
 
 .show100{
@@ -128,11 +123,26 @@ body{
     bottom: 0;
     left: 0;
     color: #fff;
-    background-color: rgb(0, 90, 175);
+    background-color: rgba(0, 90, 175, .7);
     border-radius: 0.25rem; 
     padding: 2rem;
     opacity: 0; 
     transition: opacity .5s;
+}
+.card-img-overlay .indexh3 {
+    margin-top: 5px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: #fff;
+}
+.card-img-overlay .indexp {
+    margin-top: 30px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: #fff;
 }
 .card-img-overlay a{
     color: #fff;
@@ -143,18 +153,21 @@ body{
 
 
 /* 客戶個案 */
-.brand-block{
+.card-img-overlay .indexh2 {
+    margin-top: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #fff;
+}
+.rec300{
+    height: 300px;
+    width: 300px;
+    padding: 25px;
+    /* border: 1px solid #818181; */
+}
 
-}
-.level1{
 
-}
-.brand-info{
-
-}
-.flex-box{
-    
-}
 
 /* Footer */
 .footer {
