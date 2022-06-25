@@ -252,9 +252,30 @@ a:hover{
     color: #fff;
 }
 .rec300{
+    position: relative;
     height: 300px;
     width: 300px;
-    padding: 25px;
+    /* border: 1px solid #818181; */
+}
+.center{
+    width: 100%;
+    height: auto;
+    padding-left: 10%;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid #818181; */
+}
+.center2{
+    width: 100%;
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
     /* border: 1px solid #818181; */
 }
 
