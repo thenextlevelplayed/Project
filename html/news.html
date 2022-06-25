@@ -16,22 +16,30 @@
 </head>
 
 <body>
+
     <div>
         <!-- 最新消息 -->
-        <div class="container my-5">
-            <div class="text-center">
+        <div class="my-5">
+            <div class="container text-center">
                 <h1 class="indexh1 mt-5">WHAT'S NEW.</h1>
-                <h2 class="indexh2 mt-1">最新消息</h2>
+                <h2 class="indexh2 mb-5">最新消息</h2>
             </div>
 
             <!-- 幻燈片 -->
-            <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <!-- 左右箭頭 -->
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
                 <!-- 輪播內容 -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row mt-3">
-                            <img src="../資訊圖庫/A11.jpg" class="height50 col-sm-6" alt="最新消息1">
-                            <div class="col-sm-6">
+                <div class="carousel-inner px-10 txtIn">
+                    <div class="carousel-item active ">
+                        <div class="row">
+                            <img src="../資訊圖庫/A11.jpg" class="w-100 h-auto col-xl-6" alt="最新消息1">
+                            <div class="col-xl-6">
                                 <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
                                 <p class="indexp">
                                     數位轉型已然企業追求永續成長的必要策略，在全新的商業模式與工作型態中，網路所扮演的角色越來越吃重，企業對連網機制的高度依賴，也同時升高了駭客的攻擊慾望。
@@ -43,9 +51,9 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row mt-3">
-                            <img src="../資訊圖庫/A22.jpg" class="height50 col-sm-6" alt="最新消息2">
-                            <div class="col-sm-6">
+                        <div class="row">
+                            <img src="../資訊圖庫/A22.jpg" class="w-100 h-auto col-xl-6" alt="最新消息2">
+                            <div class="col-xl-6">
                                 <h3 class="indexh3">微軟IE瀏覽器終止服務 全球2800萬人還在用。</h3>
                                 <p class="indexp">
                                     微軟Internet
@@ -59,9 +67,9 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row mt-3">
-                            <img src="../資訊圖庫/A10.jpg" class="height50 col-sm-6" alt="最新消息3">
-                            <div class="col-sm-6">
+                        <div class="row">
+                            <img src="../資訊圖庫/A10.jpg" class="w-100 h-auto col-xl-6" alt="最新消息3">
+                            <div class="col-xl-6">
                                 <h3 class="indexh3">微軟推出個人版Defender，同時支援Windows、macOS、Android與iPhone裝置。</h3>
                                 <p class="indexp">
                                     微軟近期發表的Microsoft Defender for individuals個人安全工具，將成為Microsoft 365 Personal（個人版）與
@@ -73,9 +81,9 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row mt-3">
-                            <img src="../資訊圖庫/A20.jpg" class="height50 col-sm-6" alt="最新消息4">
-                            <div class="col-sm-6">
+                        <div class="row">
+                            <img src="../資訊圖庫/A20.jpg" class="w-100 h-auto col-xl-6" alt="最新消息4">
+                            <div class="col-xl-6">
                                 <h3 class="indexh3">PC用戶注意！駭客勒索病毒假冒「Windows Update」更新檔入侵電腦！</h3>
                                 <p class="indexp">
                                     Magniber 勒索軟體近日再度現身流竄，且這次瞄準的是一般消費者用戶，而非企業用戶，且發動攻擊的範圍遍及全球各地。
@@ -87,9 +95,9 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row mt-3">
-                            <img src="../資訊圖庫/A17.jpg" class="height50 col-sm-6" alt="最新消息5">
-                            <div class="col-sm-6">
+                        <div class="row">
+                            <img src="../資訊圖庫/A17.jpg" class="w-100 h-auto col-xl-6" alt="最新消息5">
+                            <div class="col-xl-6">
                                 <h3 class="indexh3">思科打造Cisco Security Cloud開放的安全雲端平台。</h3>
                                 <p class="indexp">
                                     思科公布將建立一個全球雲端交付綜合平台，以確保所有大小、規模的企業安全和連接。思科正打造思科安全雲端（Cisco Security
@@ -100,36 +108,26 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- 幻燈片控制icon -->
-            <div class="vh-10">
-                <!-- 點選控制 -->
-                <div class="carousel-indicators">
-                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"
+                <!-- 指標控制 -->
+                <div class="carousel-indicators mt-3">
+                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0" class="active indicators"
                         aria-label="Slide 1"></button>
-                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="1"></button>
-                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="2"></button>
-                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="3"></button>
-                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="4"></button>
+                    <button type="button" class="indicators" data-target="#carouselExampleIndicators" data-slide-to="1"></button>
+                    <button type="button" class="indicators" data-target="#carouselExampleIndicators" data-slide-to="2"></button>
+                    <button type="button" class="indicators" data-target="#carouselExampleIndicators" data-slide-to="3"></button>
+                    <button type="button" class="indicators" data-target="#carouselExampleIndicators" data-slide-to="4"></button>
                 </div>
-                <!-- 左右箭頭 -->
-                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators"
-                    data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators"
-                    data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
 
             </div>
+
         </div>
 
         <!-- 服務項目 -->
         <div class="container my-5">
             <div class="mt-5">
+                <h1 class="indexh1 mt-5 text-center">WHAT'S WE DO.</h1>
                 <h2 class="indexh2 mt-5 text-center">服務項目</h2>
-                <p class="indexp mt-3 px-30">　　凱茂資訊，能依客戶實際需求規劃最適合的解決方案，如主機虛擬化、郵件伺服器、備份備援、雲端運算、端點管理、網通架構、資訊安全等規劃......
+                <p class="indexp mt-3 px-30 txtIn">凱茂資訊，能依客戶實際需求規劃最適合的解決方案，如主機虛擬化、郵件伺服器、備份備援、雲端運算、端點管理、網通架構、資訊安全等規劃......
                 </p>
             </div>
 
@@ -138,7 +136,7 @@
                     <img class="card-img" src="../資訊圖庫/A22.jpg" alt="1">
                     <div class="card-img-overlay">
                         <h3 class="card-title indexh3">軟體銷售服務</h3>
-                        <p class="card-text indexp">微軟授權、防毒軟體、Adobe授權、繪圖軟體授權、虛擬化軟體、開發工具軟體、網站開發服務、備份備援、郵件伺服務器及其他等規劃與採購服務。
+                        <p class="card-text indexp txtIn">微軟授權、防毒軟體、Adobe授權、繪圖軟體授權、虛擬化軟體、開發工具軟體、網站開發服務、備份備援、郵件伺服務器及其他等規劃與採購服務。
                         </p>
                     </div>
                 </div>
@@ -146,7 +144,7 @@
                     <img class="card-img" src="../資訊圖庫/A10.jpg" alt="2">
                     <div class="card-img-overlay">
                         <h3 class="card-title indexh3">雲端銷售服務</h3>
-                        <p class="card-text indexp">
+                        <p class="card-text indexp txtIn">
                             凱茂資訊為微軟的雲端服務供應商(CSP),提供Azure、O365、M365、私有雲、混合雲、備份雲的規劃、導入與教育訓練,整合企業内外的Web
                             AP及應用。</p>
                     </div>
@@ -155,28 +153,28 @@
                     <img class="card-img" src="../資訊圖庫/A01.jpg" alt="3">
                     <div class="card-img-overlay">
                         <h3 class="card-title indexh3">系統整合服務</h3>
-                        <p class="card-text indexp">整合客戶現有資訊架構,根據客戶規模規劃建置適合之資訊系統。</p>
+                        <p class="card-text indexp txtIn">整合客戶現有資訊架構,根據客戶規模規劃建置適合之資訊系統。</p>
                     </div>
                 </div>
                 <div class="col-xl-4 card py-3">
                     <img class=" card-img" src="../資訊圖庫/A24.jpg" alt="4">
                     <div class="card-img-overlay">
                         <h3 class="card-title indexh3">網路規劃服務</h3>
-                        <p class="card-text indexp">以安全層面考量為客戶進行網路架構規畫網路核心設備、建置設備監控主控台, 並包含機房機櫃等規劃及建置。</p>
+                        <p class="card-text indexp txtIn">以安全層面考量為客戶進行網路架構規畫網路核心設備、建置設備監控主控台, 並包含機房機櫃等規劃及建置。</p>
                     </div>
                 </div>
                 <div class="col-xl-4 card py-3">
                     <img class="card-img" src="../資訊圖庫/A11.jpg" alt="5">
                     <div class="card-img-overlay">
                         <h3 class="card-title indexh3">資訊安全服務</h3>
-                        <p class="card-text indexp">因應資安法規,協助客戶資安健檢、弱點掃描、滲透測試、社交工程演練等。提供資安軟硬體產品銷售及資安服務與課程。</p>
+                        <p class="card-text indexp txtIn">因應資安法規,協助客戶資安健檢、弱點掃描、滲透測試、社交工程演練等。提供資安軟硬體產品銷售及資安服務與課程。</p>
                     </div>
                 </div>
                 <div class="col-xl-4 card py-3">
                     <img class="card-img" src="../資訊圖庫/A21.jpg" alt="6">
                     <div class="card-img-overlay">
                         <h3 class="card-title indexh3">技術維護服務</h3>
-                        <p class="card-text indexp">擁有專業的技術團隊,協助客戶規劃與建置安全網路、機房維與相關軟體售前與售後顧問服務。</p>
+                        <p class="card-text indexp txtIn">擁有專業的技術團隊,協助客戶規劃與建置安全網路、機房維與相關軟體售前與售後顧問服務。</p>
                     </div>
                 </div>
 
@@ -187,7 +185,7 @@
         <div class="container my-5">
             <div>
                 <h2 class="indexh2 mt-5 text-center">客戶個案</h2>
-                <p class="indexp mt-3 px-30">　　凱茂業界深耕多年，具備專業且豐富建置經驗，
+                <p class="indexp mt-3 px-30 txtIn">凱茂業界深耕多年，具備專業且豐富建置經驗，
                     熟悉原廠及代理通路最新，且能確切執行並解決客戶需求之能力。提供客戶完整解決方案，無論是何種產業別，均能量身規劃，滿足各種跨整合需求。</p>
             </div>
 
@@ -200,7 +198,7 @@
                     <div class="card-img-overlay mx-3">
                         <a href="#">
                             <h2 class="card-title indexh2">華碩ASUS</h2>
-                            <p class="card-text indexp">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            <p class="card-text indexp txtIn">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                                 Obcaecati,
                                 odio ducimus nobis sapiente porro modi. Error doloribus recusandae reiciendis unde vitae
                                 laudantium, eos adipisci omnis soluta rerum atque, voluptas id.</p>
@@ -209,7 +207,7 @@
                 </div>
                 <div class="col-xl-6 card align-items-center">
                     <div class="h-100">
-                        <img class="card-img w-100 h-auto" src="../資訊圖庫/合作夥伴logo/DELL.png" alt="補圖">
+                        <img class="card-img w-100 h-auto txtIn" src="../資訊圖庫/合作夥伴logo/DELL.png" alt="補圖">
                     </div>
 
                     <div class="card-img-overlay mx-3">
@@ -231,7 +229,7 @@
                 <div class="col-xl-6">
                     <h1 class="indexh1">OUR<br />PRODUCT</h1>
                     <h2 class="indexh2">產品資訊</h2>
-                    <p class="indexp">青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。</p>
+                    <p class="indexp txtIn">凱茂資訊，能依客戶實際需求規劃最適合的解決方案，如主機虛擬化、郵件伺服器、備份備援、雲端運算、端點管理、網通架構、資訊安全等規劃......。</p>
                 </div>
 
                 <div class="col-xl-6">
@@ -280,13 +278,13 @@
                     <div class="bg-light">
                         <a href="#">
                             <div class="row">
-                                <div class="col-xl-6 rec300">
-                                    <img class="w-100 h-auto" src="" alt="補圖" />
+                                <div class="col-xl-6 align-self-center rec300">
+                                    <img class="w-100 h-auto " src="" alt="補圖" />
                                 </div>
                                 <div class="col-xl-6">
                                     <h2 class="indexh2">ASUS</h2>
                                     <p class="indexp">
-                                        商用桌機<br />商用筆電<br />顯示器<br />主機板/零組件<br />網通產品<br />伺服器<br />工作站<br />ACC
+                                        商用桌機、商用筆電<br />顯示器<br />主機板/零組件<br />網通產品<br />伺服器<br />工作站<br />ACC
                                         (ASUS CONTROL CENTER)</p>
                                 </div>
                             </div>
@@ -302,11 +300,8 @@
                                     <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Dell2.svg.png" alt="" />
                                 </div>
                                 <div class="col-xl-6">
-                                    <div class="">
-                                        <h2 class="indexh2">DELL</h2>
-                                        <p class="indexp">
-                                            VxRail超融合<br />商用桌機<br />商用筆電<br />顯示器<br />伺服器<br />工作站<br />STORAGE</p>
-                                    </div>
+                                    <h2 class="indexh2">DELL</h2>
+                                    <p class="indexp">VxRail超融合<br />商用桌機<br />商用筆電<br />顯示器<br />伺服器<br />工作站<br />STORAGE</p>
                                 </div>
                             </div>
                         </a>
@@ -442,9 +437,6 @@
             </div>
         </div>
 
-
-
-
         <!-- Footer -->
         <footer>
             <div class="container-fluid footer p-5">
@@ -465,12 +457,7 @@
     </div>
 
     <script>
-        // Wheel事件:滾輪向下滑動時,內容左右滑動
-        var gallery = document.querySelector(".gallery");
-        gallery.addEventListener("wheel", (event) => {
-            event.preventDefault;
-            gallery.scrollLeft += (event.deltaY) * 3;
-        });
+        
     </script>
 </body>
 
