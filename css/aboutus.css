@@ -2,40 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&display=swap');
 
 * {
-    font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    /* overflow-x: hidden */
     /* border: 1px solid black; */
 }
 
 body,
 html {
-    position: relative;
+    /* overflow-x: hidden; */
 }
 
-.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    overflow: hidden;
-  }
-
-
-  /* 關於凱茂 */
-.rounded-circle {
-    margin: 50px;
-}
-
-/* 字形 */
+/* 字型 */
 .indexh1 {
     font-family: 'Jost';
     font-weight: 700;
     font-size: 70px;
     color: rgb(0, 90, 175);
 }
-
 .indexh2 {
     margin-top: 25px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -43,7 +25,6 @@ html {
     font-size: 32px;
     color: rgb(0, 90, 175);
 }
-
 .indexh3 {
     margin-top: 25px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -51,7 +32,6 @@ html {
     font-size: 20px;
     color: rgb(0, 90, 175);
 }
-
 .indexp {
     margin-top: 30px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -59,38 +39,35 @@ html {
     font-size: 17px;
     color: rgb(90, 90, 90);
 }
-
-.container .row .col-xl-6{
-padding-left: 100px;
+.txtIn{
+    text-indent: 2em;
 }
+.px-30 {
+    padding-right: 30%;
+    padding-left: 30%;
+}
+
 /* 關於凱茂 */
 .KAIMAUDiv{
-    height: 100vh;
+    /* border: 1px solid black; */
     overflow: hidden;
-    
 }
 
 .KAIMAUImage{
-    max-width:100%;
-    height: 95%;
-    position: relative;
-    left: 0%;
-    top: 10%;
-
+    /* border: 1px solid red; */
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
-.about-title-en {
-    margin-top: 20%;
-}
 
-.about-title-cn{
-    margin-top: 5%;
 
-}
+/* 凱茂理念 */
 
-.col-xl-5{
-    height: 100vh;
-}
+
+
 /* 合作夥伴 */
 
 .carousel {
@@ -208,9 +185,10 @@ button>svg{
 
 /* cube */
 .cube{
-    margin-left: 75%;
-    margin-top: 10%;
-    position: relative;
+    /* border: 1px solid red; */
+    margin-left: 70%;
+    margin-top: 20%;
+    position: absolute;
     width: 175px;
     height: 175px;
     transform-style: preserve-3d;
@@ -230,8 +208,7 @@ button>svg{
     }
 }
 
-.cube div
-{
+.cube div{
     position: absolute;
     top: 0;
     left: 0;
@@ -299,8 +276,10 @@ button>svg{
 
 /* cube1 */
 .cube1{
-    margin-left: 55%;
-    position: relative;
+    position: absolute;
+    margin-left: 30%;    
+    margin-top: 45%;
+    
     width: 150px;
     height: 150px;
     transform-style: preserve-3d;
@@ -388,14 +367,14 @@ button>svg{
 
 /* cube2 */
 .cube2{
-    margin-top: 0%;
-    margin-left: 76%;
-    position: relative;
+    position: absolute;
+    margin-top: 85%;
+    margin-left: 60%;
     width: 100px;
     height: 100px;
     transform-style: preserve-3d;
     /* transform: rotateX(-30deg); */
-    animation: animate-left 4s linear infinite;
+    animation: animate-left 3.5s linear infinite;
 }
 
 @keyframes animate-left
@@ -487,21 +466,7 @@ button>svg{
     0 0 500px rgba(0, 0, 225, 1);
 } */
 
-/* 理念 */
-.concept .container{
-    /* margin-top: -30%;
-    /* margin-right: 70%; */
-    /* margin-left: 14%; */. */
 
-}
-
-.concept .indexp{
-    margin-top: 5%;
-
-    margin-left: 15%;
-    margin-right: 50%;
-   
-}
 
 /* hamburger */
 
@@ -524,13 +489,9 @@ button>svg{
     margin:80px;
 }
 
-
 .wapperContentWord{
     text-align: end;
 }
-
-
-
 
 .wapperContentWord a{
     text-decoration: none;
@@ -550,20 +511,14 @@ button>svg{
 }
 
 @media only screen and (max-width: 768px) {
-
     .wapperContent img {
         position: absolute;
         margin-top: -150px;
-        width:60px;
-    
+        width:60px;    
     }
-
-
     .wapperContentWord {
-        margin-top: 200px;
-    
+        margin-top: 200px;    
     }
-
     .wapperContentWord a{
         text-decoration: none;
         font-family: 'Jost';
@@ -572,17 +527,12 @@ button>svg{
         text-align: center;
         color: #fff;
         line-height: 150%;
-        opacity: 0.5;
-    
+        opacity: 0.5;    
     }
-
     .wapperContentWord img{
         display: none;
     }
-
-
 }
-
 
 #active:checked~.wrapper {
     /*left: 0;*/
@@ -628,7 +578,6 @@ button>svg{
 .menu-btn:after {
     transform: translateY(8px);
 }
-
 
 .close {
     z-index: 1;
@@ -682,8 +631,6 @@ button>svg{
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
     width:300px;
 }
-
-
 
 .wrapper ul li a:hover:after {
     transform: scaleY(1);

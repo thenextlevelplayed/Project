@@ -7,7 +7,6 @@
 /* 全域設定 */
 
 * {
-    /* background-color: gray; */
     /* border: 1px solid black; */
     position: relative;
 }
@@ -170,15 +169,6 @@ a:hover{
     transition: opacity 0.6s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .carousel-indicators li {
-        transition: none;
-    }
-    }
-
-.carousel-indicators .active {
-    opacity: 1;
-}
 /* 新增控制button藍色方塊樣式 */
 .indicators{
     height: 10px;
