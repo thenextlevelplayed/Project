@@ -34,53 +34,69 @@
         </div>
     </div>
     <div id="content" class="container mb-5">
-        <div id="contactContent" class="container row">
-            <div id="contactForm" class="col-sm rounded border mx-auto p-3">
-                <p> 諮詢與服務表單：</p>
-                <form method="get" action="form.php">
+        <div class="row mt-5">
+            <div id="contactForm" class="col-xl rounded border p-3 shadow m-3 ">
+                <p class="indexh3"> 諮詢與服務表單：</p>
+                <form method="post" action="http://localhost:3000/php/form.php">  <!-- 使用VScode PHP server -->
                     <div class="form-group">
-                        <label for="FormName" class="pl-2">姓名 <span>*</span></label>
+                        <label for="FormName" class="pl-2 titleFont">姓名 <span>*</span></label>
                         <input type="text" name="Name" id="FormName" class="form-control" placeholder="Name">
 
                     </div>
                     <div class="form-group">
-                        <label for="FormCompany" class="pl-2">公司 <span>*</span></label>
+                        <label for="FormCompany" class="pl-2 titleFont">公司 <span>*</span></label>
                         <input type="text" name="Company" id="FormCompany" class="form-control" placeholder="Company">
 
                     </div>
                     <div class="form-group">
-                        <label for="FormTel" class="pl-2">聯絡電話 <span>*</span></label>
+                        <label for="FormTel" class="pl-2 titleFont">聯絡電話 <span>*</span></label>
                         <input type="text" name="Tel" id="FormTel" class="form-control" placeholder="Phone Number">
 
                     </div>
                     <div class="form-group">
-                        <label for="FormEmail" class="pl-2">電子郵件 <span>*</span> </label>
+                        <label for="FormEmail" class="pl-2 titleFont">電子郵件 <span>*</span> </label>
                         <input type="email" name="Email" id="FormEmail" class="form-control" placeholder="E-mail">
 
                     </div>
                     <div class="form-group">
-                        <label for="FormContent" class="pl-2">諮詢內容 <span>*</span></label>
+                        <label for="FormContent" class="pl-2 titleFont">諮詢內容 <span>*</span></label>
                         <textarea name="Content" id="FormContent" class="form-control" placeholder="Messages"
                             rows="3"></textarea>
 
                     </div>
+                    <div  class="form-group">
+                        <img class="border" id="check" src="http://localhost:3000/php/captcha.php"> <!-- 使用VScode PHP server -->
+                        <div id="refresh" class="ml-2">
+                            <img id="refreshIcon" src="/資訊圖庫/icon/refresh-1.png" width="20px" height="20px">
+                            <span class="CaptchaFont ml-2 ">更新驗證碼</span>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label class="pl-2">驗證碼 <span>*</span></label>
+                        <label class="pl-2 titleFont">驗證碼 <span>*</span></label>
                         <input type="text" name="Captcha" class="form-control" placeholder="Captcha">
 
                     </div>
-                    <input type="submit" value="SEND">
+                    <input type="submit" class="btn btn-primary btn-block" value="SEND">
                 </form>
             </div>
-            <div id="map" class="col-sm w-75 p-3 mx-auto">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.9510216505255!2d120.65267762474834!3d24.13835813450139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70a0914b%3A0xc15f47247005141c!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2sus!4v1655799360204!5m2!1szh-TW!2sus"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                <p>
-                    TEL:04-2375 8388 FAX:04-23759399
-                </p>
+            <div class="col-xl p-3 mt-5">
+                <div id="map" class="border">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.9510216505255!2d120.65267762474834!3d24.13835813450139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70a0914b%3A0xc15f47247005141c!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2sus!4v1655799360204!5m2!1szh-TW!2sus"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div id="mapContent" class="m-3">
+                    <span class="m-2">
+                        <img src="/資訊圖庫/icon/phone.png" width="30px" height="30px">
+                        <span class="mapContentFont">TEL:04-2375 8388</span>
+                    </span>
+                    <span class="m-2">
+                        <img src="/資訊圖庫/icon/fax.png" width="30px" height="30px">
+                        <span class="mapContentFont">FAX:04-23759399</span>
+                    </span>
+                </div>
             </div>
         </div>
 
@@ -101,6 +117,28 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+
+
+        $(function () {
+
+            // 驗證碼動起來
+            var d = 1;
+
+            $('#refresh').on({  
+                'click': function () {
+                    $('#check').attr("src", "http://localhost:3000/php/captcha.php"); // 使用VScode PHP server
+                    $('#refreshIcon').css('transform', `rotateZ(${-d * 360}deg)`);
+                    d++;
+                },
+            })
+
+        })
+
+
+    </script>
 
 </body>
 

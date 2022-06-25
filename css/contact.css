@@ -18,26 +18,50 @@
 }
 
 #content {
-    border: 2px solid red;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
-/* #contactContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+
+/* 以下MAP */
 
 #map {
-    /* margin-left: 50px; */
-    justify-content: center;
-    /* width: 100%;
-    height: 100%; */
+    width: 100%;
+    height: 400px;
 }
 
-#map p {
+#mapContent {
     text-align: center;
+}
+
+/* 電話傳真字形 */
+.mapContentFont {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(0, 90, 175);
+}
+
+/* --- Map --- */
+
+
+
+/* 以下 Form */
+
+/* Form title字形 */
+.titleFont {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(0, 90, 175);
+}
+
+/* 更新驗證碼字形 */
+.CaptchaFont {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(0, 90, 175);
 }
 
 #contactForm {
@@ -45,9 +69,21 @@
     height: 100%;
 }
 
-#contactForm span {
+.form-group label span {
     color: red;
 }
+
+#refresh {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#refreshIcon {
+    transition: all 0.5s ease;
+}
+
+/* --- Form--- */
+
 
 /* 以下 Footer */
 
@@ -70,3 +106,5 @@
     text-decoration: none;
     transition: 0.5s;
 }
+
+/* --- Footer --- */
