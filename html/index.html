@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/index-animetion.css">
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap');
@@ -146,7 +149,7 @@
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="col-lg-5">
+                    <div data-aos="fade-left" class="col-lg-5">
                         <div style="padding:80px; margin-top: 20px;margin-bottom: 10px;">
                             <h1 class="indexh1">WHAT's<br>NEWS.
                                 <h2 class="indexh2">最新消息</h2>
@@ -161,8 +164,8 @@
 
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
                         <div class="col">
-                            <div class="card shadow-sm px-3 py-2">
-                                <div class="card-body">
+                            <div class="card shadow-sm px-3 py-2" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card-body" >
                                     <h3 class="indexh3">標題標題</h3>
                                     <hr>
                                     <p class="indexp2">
@@ -178,8 +181,8 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card shadow-sm px-3 py-2">
-                                <div class="card-body">
+                            <div class="card shadow-sm px-3 py-2" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card-body" >
                                     <h3 class="indexh3">標題標題</h3>
                                     <hr>
                                     <p class="indexp2">
@@ -195,8 +198,8 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card shadow-sm px-3 py-2">
-                                <div class="card-body">
+                            <div class="card shadow-sm px-3 py-2" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card-body" >
                                     <h3 class="indexh3">標題標題</h3>
                                     <hr>
                                     <p class="indexp2">
@@ -220,9 +223,9 @@
         <!-- aboutus -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center justify-content-center"style="background-color: #ffffff; ">
-                    <div class="m-5 p-4" style="width: 500px;">
-                        <h1 class="indexh1">ABOUT<br>US.
+                <div  class="col-lg-6 d-flex align-items-center justify-content-center"style="background-color: #ffffff; ">
+                    <div data-aos="fade-right" class="m-5 p-4" style="width: 500px;">
+                        <h1 class="indexh1" >ABOUT<br>US.
                             <h2 class="indexh2">關於我們</h2>
                             <p class="indexp">青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。
                             </p>
@@ -261,5 +264,8 @@
 
 
     </body>
+    <script>
+        AOS.init();
+      </script>
 
 </html>
