@@ -111,6 +111,19 @@ body{
 
 /* 凱茂理念 */
 
+.carousel-02{
+    display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-01 {
+        display: none !important;
+    }
+    .carousel-02{
+        display: block !important;
+    } 
+}
+
 .carousel {
     position: relative;
     /* border: 1px solid green; */
