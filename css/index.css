@@ -61,9 +61,9 @@
     }
 
 
-    .wapperContentWord {
-        margin-top: 200px;
-    
+    .wapperContentWord a{
+        
+        font-size: 10vw;
     }
 
 
@@ -94,12 +94,13 @@
     font-size: 20px;
     cursor: pointer;
     background: rgb(9,0,168);
-    background: linear-gradient(90deg, rgba(9,0,168,1) 0%, rgba(94,228,255,1) 100%);
+    background: linear-gradient(45deg, rgba(9,0,168,1) 0%, rgba(94,228,255,1) 100%);
     /*color: #fff;*/
     /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
     /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
     transition: all 0.3s ease-in-out;
+    box-shadow: -1px 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .menu-btn span,
@@ -349,6 +350,12 @@ input[type="checkbox"] {
     padding-bottom: 80px;
 }
 
+.ServiceContent{
+    padding:80px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
 .roundbutton {
     margin-top: 45px;
     width: 200px;
@@ -392,21 +399,21 @@ input[type="checkbox"] {
 }
 
 .footer {
-    background-color: #cbcbcb;
+    background-color: #e6e6e6;
     color: #CCCCCC;
-    margin-bottom: -25px;
-    height: 300px;
+    height: 350px;
+    padding:70px
 }
 
 
 .footer a {
-    color: #818181;
+    color: #7c7c7c;
     text-decoration: none;
     font-size: 14px;
 }
 
 .footer a:hover {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     transition: 0.5s;
 }
