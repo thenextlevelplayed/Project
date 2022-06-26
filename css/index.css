@@ -2,24 +2,33 @@
     position: fixed;
     top: 0;
     /*left: -100%;*/
-    right: -100%;
+    right: -500px;
     height: 100%;
-    width: 100%;
+    width: 500px;
     background: rgba(12, 13, 18, 0.9);
     /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
     /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
-    transition: all 0.6s ease-in-out;
+    transition: all 0.5s ease-in-out;
     z-index: 99;
+    
 }
 
 .wapperContent{
     margin:80px;
 }
 
+.wapperContent img {
+    position: absolute;
+    margin-top: -150px;
+    width:60px;
+
+}
+
 
 .wapperContentWord{
     text-align: end;
+    margin-top: 200px;
 }
 
 
@@ -28,7 +37,7 @@
 .wapperContentWord a{
     text-decoration: none;
     font-family: 'Jost';
-    font-size: 60px;
+    font-size: 4vw;
     font-weight: 500;
     text-align: end;
     color: #fff;
@@ -74,16 +83,18 @@
 .menu-btn {
     position: fixed;
     z-index: 100;
-    right: 20px;
+    right: -20px;
     /*left: 20px; */
-    top: 20px;
-    height: 60px;
-    width: 70px;
+    top: -20px;
+    height: 100px;
+    width: 100px;
     text-align: center;
     line-height: 50px;
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
+    background: rgb(9,0,168);
+    background: linear-gradient(90deg, rgba(9,0,168,1) 0%, rgba(94,228,255,1) 100%);
     /*color: #fff;*/
     /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
@@ -96,10 +107,10 @@
 .menu-btn:after {
     content: "";
     position: absolute;
-    top: calc(50% - 1px);
-    left: 30%;
+    top: calc(53% - 1px);
+    left: 25%;
     width: 40%;
-    border-bottom: 2px solid #000;
+    border-bottom: 2.5px solid rgb(255, 255, 255);
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -187,7 +198,7 @@ input[type="checkbox"] {
     z-index: -1;
     text-align: center;
     width: 100%;
-    color: #202020;
+    color: #ffffff;
 }
 
 .content .title {
@@ -317,6 +328,25 @@ input[type="checkbox"] {
     height: 700px;
     width: 100%;
     background-image: url(../img/index/chairs-2181919_1920.jpg);
+}
+
+.indexNews{
+    background-image: url(../img/index/earth.png);
+    background-position:bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f3f3f3;
+    padding-bottom:100px;
+
+}
+
+.indexService{
+    background-image: url(../img/index/line-bg01.png),url(../img/index/line-bg02.png);
+    background-position: top center,bottom center;
+    background-color: #ffffff;
+    background-size: contain,contain;
+    background-repeat: no-repeat;
+    padding-bottom: 80px;
 }
 
 .roundbutton {

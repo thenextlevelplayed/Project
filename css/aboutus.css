@@ -10,6 +10,25 @@ body{
     overflow-x: hidden;
 }
 
+.aboutBanner{
+    
+    background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('../img/index/chairs-2181919_1920.jpg');
+    background-color: rgb(255, 255, 255);
+    background-position: center;
+    width:100%; 
+    height: 450px;
+    background-size: cover;
+}
+
+.aboutBanner img{
+    
+    width:100px;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+
+}
+
 /* 字型 */
 .indexh1 {
     font-family: 'Jost';
@@ -44,6 +63,13 @@ body{
 .px-30 {
     padding-right: 30%;
     padding-left: 30%;
+}
+
+@media only screen and (max-width: 992px) {
+    .px-30{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 }
 .txtR{
     text-align: right;
@@ -100,15 +126,15 @@ body{
     box-sizing: content-box;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     margin: 10px;
     cursor: pointer;
     background-color: #005aaf;
     background-clip: padding-box;
     border-top: 0 solid transparent;
     border-bottom: 0 solid transparent;
-    opacity: .5;
+    opacity: .3;
     transition: opacity 0.6s ease;
   }
 
@@ -155,6 +181,11 @@ body{
     border-radius:.5rem;
     width: 100%;
     height: auto;
+}
+
+/* 里程碑 */
+.milestone{
+    background-color: #f3f3f3;
 }
 
 /* cube */
