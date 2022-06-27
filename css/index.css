@@ -36,14 +36,16 @@
 
 .wapperContentWord a{
     text-decoration: none;
+    position: relative;
+    left: 400px;
     font-family: 'Jost';
     font-size: 4vw;
     font-weight: 500;
     text-align: end;
     color: #fff;
     line-height: 140%;
-    opacity: 0.5;
     transition: 0.3s;
+    opacity: 0.5;
 }
 
 .wapperContentWord a:hover{
@@ -82,9 +84,9 @@
 .menu-btn {
     position: fixed;
     z-index: 100;
-    right: -20px;
+    right: 5px;
     /*left: 20px; */
-    top: -20px;
+    top: 5px;
     height: 100px;
     width: 100px;
     text-align: center;
@@ -92,13 +94,13 @@
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
-    background: linear-gradient(45deg, rgba(9,0,168,1) 0%, rgba(94,228,255,1) 100%);
+    /* background: linear-gradient(45deg, rgba(9,0,168,1) 0%, rgba(94,228,255,1) 100%); */
     /*color: #fff;*/
     /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
     /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
     transition: all 0.3s ease-in-out;
-    box-shadow: -1px 4px 8px 0 rgba(0, 0, 0, 0.4);
+    /* box-shadow: -1px 4px 8px 0 rgba(0, 0, 0, 0.4); */
 }
 
 .menu-btn span,
@@ -109,7 +111,7 @@
     top: calc(53% - 1px);
     left: 25%;
     width: 40%;
-    border-bottom: 2.5px solid rgb(255, 255, 255);
+    border-bottom: 3px solid rgb(68, 68, 68);
     transition: transform .6s cubic-bezier(.215, 0.61, 0.355, 1);
     
 }
