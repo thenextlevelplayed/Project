@@ -46,6 +46,14 @@ body{
     font-size: 17px;
     color: rgb(90, 90, 90);
 }
+
+.indexp2 {
+    margin-top: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: rgb(90, 90, 90);
+}
 .txtIn{
     text-indent: 2em;
 }
@@ -215,6 +223,7 @@ a:hover{
     left: 0;
     color: #fff;
     background-color: rgba(0, 90, 175, .7);
+    margin:1em;
     border-radius: 0.25rem; 
     padding: 2rem;
     opacity: 0; 
@@ -258,7 +267,7 @@ a:hover{
     /* border: 1px solid #818181; */
 }
 .center{
-    width: 100%;
+    width: 80%;
     height: auto;
     padding-left: 10%;
     position: absolute;
