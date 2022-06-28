@@ -9,10 +9,38 @@
 //     })
 // });
 
+//主視覺動畫
+
+let bg = document.querySelector("#animation-bg");
+window.addEventListener('scroll', function () {
+  let value = window.scrollY;
+  
+  bg.style.backgroundSize = 700 + value*120 +'px';
+});
+
+$(window).scroll(function(){
+  if(($(document).scrollTop() == 0)){
+    $('.h2intro').fadeIn();
+  }else{
+    $('.h2intro').fadeOut();
+  }
+
+  if(($(document).scrollTop() > 600)){
+    $('#animation-bg').fadeOut();
+  }else{
+    $('#animation-bg').fadeIn();
+  }
+  })
+
+
+
 
 //首頁圖片動畫
 
 $(window).on("scroll touchmove", function () {
+
+  
+
   if ($(document).scrollTop() < (($("#Service01").position().top)+1700)) {
     console.log($("#Service01").position().top);
     $('#indexImg').attr('src', '../img/index/index01.png');
@@ -89,3 +117,4 @@ $(window).on("scroll touchmove", function () {
         }
     })
 })
+

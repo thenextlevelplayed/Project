@@ -1,3 +1,6 @@
+/*NAVBAR*/
+
+
 .wrapper {
     position: fixed;
     top: 0;
@@ -200,7 +203,7 @@ input[type="checkbox"] {
     font-weight: 600;
 }
 
-
+/*NAVBAR*/
 
 .intro {
 
@@ -209,6 +212,20 @@ input[type="checkbox"] {
     width: 100%;
     height: 100vh;
     background-position: center;
+}
+
+.h2intro{
+    position: absolute;
+    text-align: center;
+    top: 65%;
+    left:50.7%;
+    transform: translate(-50%, -50%);
+    margin-top: 25px;
+    font-family: 'Jost';
+    font-weight: 600;
+    font-size: 32px;
+    color: rgb(0, 90, 175);
+
 }
 
 .indexh1 {
