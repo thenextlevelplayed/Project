@@ -16,7 +16,9 @@ window.addEventListener('scroll', function () {
   let value = window.scrollY;
   
   bg.style.backgroundSize = 700 + value*120 +'px';
+  
 });
+$('.overlay').hide();
 
 $(window).scroll(function(){
   if(($(document).scrollTop() == 0)){
@@ -27,8 +29,10 @@ $(window).scroll(function(){
 
   if(($(document).scrollTop() > 600)){
     $('#animation-bg').fadeOut();
+    $('.overlay').fadeIn();
   }else{
     $('#animation-bg').fadeIn();
+    $('.overlay').hide();
   }
   })
 
