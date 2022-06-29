@@ -30,9 +30,9 @@ function scrollHandler(e) {
         line.style.bottom = `calc(100% - ${set}px)`
     }
 
-    if (dist > timeline.offsetHeight + 50 && !full) {
+    if (dist > timeline.offsetHeight + -100 && !full) {
         full = true;
-        line.style.bottom = `-50px`
+        line.style.bottom = `100px`
     }
 
     sections.forEach(item => {

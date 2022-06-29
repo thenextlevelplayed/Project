@@ -15,7 +15,7 @@ let bg = document.querySelector("#animation-bg");
 window.addEventListener('scroll', function () {
   let value = window.scrollY;
   
-  bg.style.backgroundSize = 700 + value*120 +'px';
+  bg.style.backgroundSize = 700 + value*50 +'px';
   
 });
 $('.overlay').hide();

@@ -1,5 +1,6 @@
 
 .top-section {
+  
   letter-spacing: 2px;
   line-height: 1.8;
   text-indent: 36px;
@@ -82,10 +83,17 @@
 
 
 .content-timeline img {
-  width: 300px;
+  width: 50%;
   height: auto;
   position: relative;
-  /* z-index: -100; */
+  border-radius: 10px;
+  
+}
+
+@media only screen and (max-width:768px) {
+  .content-timeline img {
+    width: 100%;
+  }
   
 }
 
@@ -93,5 +101,6 @@
   transform: none;
   opacity: 1;
 }
+
 
 
