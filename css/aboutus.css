@@ -222,7 +222,7 @@ body{
     /* border: 1px solid red; */
     margin-left: 70%;
     margin-top: 30%;
-    position: absolute;
+    position: relative;
     width: 175px;
     height: 175px;
     transform-style: preserve-3d;
@@ -308,9 +308,9 @@ body{
 
 /* cube1 */
 .cube1{
-    position: absolute;
-    margin-left: 25%;    
-    margin-top: 50%;
+    position: relative;
+    margin-left: 30%;    
+    margin-top: -8%;
     
     width: 150px;
     height: 150px;
@@ -398,8 +398,8 @@ body{
 
 /* cube2 */
 .cube2{
-    position: absolute;
-    margin-top: 85%;
+    position: relative;
+    margin-top: 0%;
     margin-left: 60%;
     width: 100px;
     height: 100px;
