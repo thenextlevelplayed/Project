@@ -46,7 +46,7 @@ $(window).on("scroll touchmove", function () {
   
 
   if ($(document).scrollTop() < (($("#Service01").position().top)+1700)) {
-    console.log($("#Service01").position().top);
+    
     $('#indexImg').attr('src', '../img/index/index01.png');
   }
 
