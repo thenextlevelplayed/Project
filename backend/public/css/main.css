@@ -1,0 +1,46 @@
+#body {
+    background-color: #E8EDF0;
+    height: 100vh;
+}
+
+h1 {
+    color: #2F5B7C;
+}
+
+.row1 a,
+.row2 a {
+    background-color: white;
+    text-decoration: none;
+}
+
+.row1 a:hover,
+.row2 a:hover {
+    background-color: #2F5B7C;
+}
+
+.row1 a:hover p,
+.row2 a:hover p {
+    color: white;
+}
+
+p {
+    font-size: 24px;
+    color: #2F5B7C;
+}
+
+.row1 {
+    height: 60vh;
+}
+
+.row2 {
+    height: 15vh;
+}
+
+#logout {
+    font-size: 30px;
+    color: #0080F0;
+}
+
+#logout a{
+    text-decoration: none;
+}
