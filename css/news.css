@@ -62,9 +62,7 @@ body{
     font-size: 17px;
     color: rgb(255, 255, 255);
 }
-.txtIn{
-    text-indent: 2em;
-}
+
 
 a:hover{
     text-decoration: none;
@@ -127,13 +125,15 @@ a:hover{
 /* 最新消息 */
 .Carousel{
     left:50%;
+    transform: translateX(-50%);
 }
 
 
 .carouselCard {
+
+    height:50vh;
+    width:100%;
     background: #fff;
-    margin-left: 10px;
-    margin-right: 10px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
@@ -143,8 +143,9 @@ a:hover{
 
 
   .carouselCardImage img {
-    max-width: 100%;
-    height: 100%;
+
+    width: 100%;
+    max-height: 100%;
     object-fit: cover;
     position: absolute;
     top:0;
@@ -175,6 +176,12 @@ a:hover{
 
   .carouselCardContent h4 {
     margin: 5px 0;
+  }
+
+  .carousel-item{
+    position: relative;
+    float: left;
+
   }
 
 /* 固定幻燈片高度為 50vh */
