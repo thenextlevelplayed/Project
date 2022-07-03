@@ -27,27 +27,27 @@ class BackendController extends Controller
 
     function erp(){
         //進銷存
-
+        return view('main.erp');
     }
 
     function quote(){
         //報價
-
+        return view('main.quote');
     }
 
     function order(){
         //訂單
-
+        return view('main.order');
     }
 
     function manufacture(){
         //製造
-
+        return view('main.manufacture');
     }
 
     function deliver(){
         //出貨
-
+        return view('main.deliver');
     }
 
 }
