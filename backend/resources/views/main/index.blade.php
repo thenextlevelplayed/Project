@@ -21,23 +21,23 @@
         <div class="container">
             <h1> 凱茂資訊</h1>
             <div class="row row1">
-                <a class="col m-1 " href="">
+                <a class="col m-1 " href="/main/erp">
                     <p>0</p>
                     <p>進銷存管理</p>
                 </a>
-                <a class="col m-1 " href="">
+                <a class="col m-1 " href="/main/quote">
                     <p>1</p>
                     <p>報價</p>
                 </a>
-                <a class="col m-1" href="">
+                <a class="col m-1" href="/main/order">
                     <p>2</p>
                     <p>訂單</p>
                 </a>
-                <a class="col m-1" href="">
+                <a class="col m-1" href="/main/manufacture">
                     <p>3</p>
                     <p>製造</p>
                 </a>
-                <a class="col m-1" href="">
+                <a class="col m-1" href="/main/deliver">
                     <p>4</p>
                     <p>出貨</p>
                 </a>
@@ -48,6 +48,9 @@
                 </a>
                 <a class="col  m-1" href="">
                     <p>員工基本資料</p>
+                </a>
+                <a class="col  m-1" href="">
+                    <p>發票管理</p>
                 </a>
                 <a class="col  m-1" href="">
                     <p>客戶管理</p>
