@@ -56,22 +56,18 @@
                     <p>客戶管理</p>
                 </a>
             </div>
-            <div id="logout" class="text-right mt-3">
-                {{-- 判斷權限,沒權限不會有這個功能 --}}
-                @if (session('power'))  
-                    <a href="/member/create">新增帳號</a>
-                @endif
-                <a href="/member/logout">登出</a>
-            </div>
+        </div>
+        <div id="logout" class="text-right mt-3">
+            {{-- 判斷權限,沒權限不會有這個功能 --}}
+            @if (session('power'))
+                <a href="/member/create">新增帳號</a>
+            @endif
+            <a href="/member/logout">登出</a>
         </div>
     </div>
 
 
-    <script>
-
-
-
-    </script>
+    <script></script>
 
 
 </body>
