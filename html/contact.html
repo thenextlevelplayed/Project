@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact</title>
 
     <style>
         @import url('[https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap)');
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/paragraph.css">
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/utilities.css">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -25,8 +26,26 @@
 </head>
 
 <body>
+
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+        <div class="wapperContent">
+            <img src="../img/logo/only-logo.png" style="width:80px;position: absolute;position:0px 0px;">
+
+            <div class="wapperContentWord">
+                <a href="./index.html">HOME</a><br>
+                <a href="./aboutus.html">ABOUT</a><br>
+                <a href="./news.html">NEWS</a><br>
+                <a href="./contact.html">CONTACT</a>
+            </div>
+        </div>
+    </div>
+
     <div id="header">
         <div id="headerContent">
+            <img src="../img/logo/verticle01.png">
             <h1>
                 GET IN TOUCH
             </h1>
@@ -104,15 +123,14 @@
 
     </div>
     <footer>
-        <div class="container-fluid footer p-5">
+        <div class="container-fluid footer">
             <div style="text-align:center; width:100% ;margin:auto;">
                 <img src="../images/logo-gray.png" style="height: 40px; margin:20px">
                 <hr>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Home</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">About</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Services</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Contact</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Product</a>
+                <a href="./index.html" class="m-2">HOME</a>
+                <a href="./aboutus.html" class="m-2">ABOUT</a>
+                <a href="./news.html" class="m-2">NEWS</a>
+                <a href="./contact.html" class="m-2">CONTACT</a>
                 <br>
                 <br>
                 <p style="font-size:14px; color:#a2a2a2">&copy; 2022 凱茂資訊 </p>
@@ -156,7 +174,7 @@
 
 
     </script>
-
+    <script src="../js/navbar.js"></script>
 </body>
 
 </html>

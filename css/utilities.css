@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&display=swap');
+
 /*NAVBAR*/
 
 
@@ -110,7 +113,7 @@
     top: calc(53% - 1px);
     left: 25%;
     width: 40%;
-    border-bottom: 3px solid rgb(68, 68, 68);
+    border-bottom: 3px solid rgb(35, 35, 35);
     transition: transform .6s cubic-bezier(.215, 0.61, 0.355, 1);
     
 }
