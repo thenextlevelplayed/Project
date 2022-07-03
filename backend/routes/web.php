@@ -36,6 +36,20 @@ Route::get('/member/create', "App\Http\Controllers\memberController@create");
 //後台主畫面
 Route::get('/main', "App\Http\Controllers\BackendController@index");
 
+//進銷存
+Route::get('/main/erp', "App\Http\Controllers\BackendController@erp");
+
+//報價
+Route::get('/main/quote', "App\Http\Controllers\BackendController@quote");
+
+//訂單
+Route::get('/main/order', "App\Http\Controllers\BackendController@order");
+
+//製造
+Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
+
+//出貨
+Route::get('/main/deliver', "App\Http\Controllers\BackendController@deliver");
 
 
 
