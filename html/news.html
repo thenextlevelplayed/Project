@@ -7,15 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
 
+    <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/news.css">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../css/slick.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
     <script src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 
 <body>
@@ -30,8 +33,7 @@
             <div class="wapperContentWord">
                 <a href="./index.html">HOME</a><br>
                 <a href="./aboutus.html">ABOUT</a><br>
-                <a href="./service.html">SERVICES</a><br>
-                <a href="./product.html">PRODUCTS</a><br>
+                <a href="./news.html">NEWS</a><br>
                 <a href="./contact.html">CONTACT</a>
             </div>
         </div>
@@ -41,128 +43,103 @@
         <img src="../img/logo/verticle01.png">
     </div>
 
-    <div>
-        <!-- 最新消息 -->
-        <div class="mb-5">
+
+    <div class="container-fluid newsMain">
+        <div class="mb-5 pt-5">
             <div class="container text-center">
-                <h1 class="indexh1 mt-5">WHAT'S NEW.</h1>
+                <h1 class="indexh1">WHAT'S NEW.</h1>
                 <h2 class="indexh2 mb-5">最新消息</h2>
             </div>
-
-            <!-- 幻燈片 -->
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <!-- 左右箭頭 -->
-                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators"
-                    data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators"
-                    data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-                <!-- 輪播內容 -->
-                <div class="carousel-inner px-10">
-                    <div class="carousel-item active rounded Carousel border">
-                        <div class="row border carouselCard">
-                            <div class="carouselCardImage col-lg-6">
-                                <img src="../資訊圖庫/A11.jpg" alt="最新消息1">
-                            </div>
-
-                            <div class="col-lg-6 carouselCardContent">
-                                <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
-                                <p class="indexp">
-                                    數位轉型已然企業追求永續成長的必要策略，在全新的商業模式與工作型態中，網路所扮演的角色越來越吃重，企業對連網機制的高度依賴，也同時升高了駭客的攻擊慾望。
-                                    <br />除了持續增強的外部威脅，為了降低資安攻擊對產業帶來的衝擊，多國政府也制定了相關法規，像是台灣證交所近期就發布了「上市上櫃公司資通安全管控指引」，要求上市櫃公司必須配置適當的人力資源與設備，並有完整的資通安全制度與作為。
-                                    <br />對大型企業來說，推動資安的關鍵力量已經從內部 IT 規劃，升級到法遵層級。
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="carousel-item border">
-                        <div class="container">
-                            <div class="col-lg-12">
-                                <div class="carouselCard row">
-                                    <div class="carouselCardImage col-lg-6 border">
-                                        <img src="../資訊圖庫/A01.jpg">
-                                    </div>
-                                    <div class="carouselCardContent col-lg-6">
-                                        <h4>
-                                            Title Goes Here
-                                        </h4>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row border rounded" style="width:90%; position: relative;">
-                            <img src="../資訊圖庫/A10.jpg" class="w-100 h-auto col-lg-6" alt="最新消息3">
-                            <div class="col-lg-6">
-                                <h3 class="indexh3">微軟推出個人版Defender，同時支援Windows、macOS、Android與iPhone裝置。</h3>
-                                <p class="indexp">
-                                    微軟近期發表的Microsoft Defender for individuals個人安全工具，將成為Microsoft 365 Personal（個人版）與
-                                    Family（家用版）的內建功能。
-                                    <br />Microsoft
-                                    Defender提供持續的防毒與防網釣保護，用戶自單一的儀表板就能管理及檢視不同裝置的安全性，也能辨識及檢視系統上諸如Norton或McAfee等既有的安全保護，並把對Windows的支援延伸到macOS、Android與iPhone等裝置上，用戶還可接收即時的安全通知、解決策略或是專家提示。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <img src="../資訊圖庫/A20.jpg" class="w-100 h-auto col-xl-6" alt="最新消息4">
-                            <div class="col-xl-6">
-                                <h3 class="indexh3">PC用戶注意！駭客勒索病毒假冒「Windows Update」更新檔入侵電腦！</h3>
-                                <p class="indexp">
-                                    Magniber 勒索軟體近日再度現身流竄，且這次瞄準的是一般消費者用戶，而非企業用戶，且發動攻擊的範圍遍及全球各地。
-                                    <br />據外媒 BleepingComputer 報導，近日已接獲數起遭勒索病毒 Magniber惡意感染的案例。
-                                    <br />此次Magniber 勒索軟體是利用偽裝成由 Windows 10 作業系統提供的「Windows Update」更新檔名義，並透過如 Warez
-                                    這類專門提供盜版軟體下載的非法網站進行惡意散播。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <img src="../資訊圖庫/A17.jpg" class="w-100 h-auto col-xl-6" alt="最新消息5">
-                            <div class="col-xl-6">
-                                <h3 class="indexh3">思科打造Cisco Security Cloud開放的安全雲端平台。</h3>
-                                <p class="indexp">
-                                    思科公布將建立一個全球雲端交付綜合平台，以確保所有大小、規模的企業安全和連接。思科正打造思科安全雲端（Cisco Security
-                                    Cloud），使其成為開放的平台，保護整個IT生態圈的完整性，避免公有雲的框限。
-                                    <br />思科安全雲端將提供整合體驗，使各地的用戶及設備能安全地連接到任何地方的應用程式和資料。透過統一管理，開放平台將提供大規模的威脅預防、檢測、響應和修復能力。思科也將持續致力實現安全雲端，分享其安全產品組合的創新進展。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 指標控制 -->
-                <div class="carousel-indicators mt-3">
-                    <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0"
-                        class="active indicators" aria-label="Slide 1"></button>
-                    <button type="button" class="indicators" data-target="#carouselExampleIndicators"
-                        data-slide-to="1"></button>
-                    <button type="button" class="indicators" data-target="#carouselExampleIndicators"
-                        data-slide-to="2"></button>
-                    <button type="button" class="indicators" data-target="#carouselExampleIndicators"
-                        data-slide-to="3"></button>
-                    <button type="button" class="indicators" data-target="#carouselExampleIndicators"
-                        data-slide-to="4"></button>
-                </div>
-
-            </div>
-
         </div>
+
+        <div class="slick container">
+            <div class="container">
+                <div class="row border carouselCard">
+                    <div class="col-lg-6 carouselImage">
+                        <img src="../資訊圖庫/A01.jpg">
+                    </div>
+                    <div class="col-lg-6 carouselContent">
+                        <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
+                        <p class="indexp">
+                            數位轉型已然企業追求永續成長的必要策略，在全新的商業模式與工作型態中，網路所扮演的角色越來越吃重，企業對連網機制的高度依賴，也同時升高了駭客的攻擊慾望。
+                            <br />除了持續增強的外部威脅，為了降低資安攻擊對產業帶來的衝擊，多國政府也制定了相關法規，像是台灣證交所近期就發布了「上市上櫃公司資通安全管控指引」，要求上市櫃公司必須配置適當的人力資源與設備，並有完整的資通安全制度與作為。
+                            <br />對大型企業來說，推動資安的關鍵力量已經從內部 IT 規劃，升級到法遵層級。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row border carouselCard">
+                    <div class="col-lg-6 carouselImage">
+                        <img src="../資訊圖庫/A10.jpg">
+                    </div>
+                    <div class="col-lg-6 carouselContent">
+                        <h3 class="indexh3">微軟推出個人版Defender，同時支援Windows、macOS、Android與iPhone裝置。</h3>
+                        <p class="indexp">
+                            微軟近期發表的Microsoft Defender for individuals個人安全工具，將成為Microsoft 365 Personal（個人版）與
+                            Family（家用版）的內建功能。
+                            <br />Microsoft
+                            Defender提供持續的防毒與防網釣保護，用戶自單一的儀表板就能管理及檢視不同裝置的安全性，也能辨識及檢視系統上諸如Norton或McAfee等既有的安全保護，並把對Windows的支援延伸到macOS、Android與iPhone等裝置上，用戶還可接收即時的安全通知、解決策略或是專家提示。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row border carouselCard">
+                    <div class="col-lg-6 carouselImage">
+                        <img src="../資訊圖庫/A20.jpg">
+                    </div>
+                    <div class="col-lg-6 carouselContent">
+                        <h3 class="indexh3">PC用戶注意！駭客勒索病毒假冒「Windows Update」更新檔入侵電腦！</h3>
+                        <p class="indexp">
+                            Magniber 勒索軟體近日再度現身流竄，且這次瞄準的是一般消費者用戶，而非企業用戶，且發動攻擊的範圍遍及全球各地。
+                            <br />據外媒 BleepingComputer 報導，近日已接獲數起遭勒索病毒 Magniber惡意感染的案例。
+                            <br />此次Magniber 勒索軟體是利用偽裝成由 Windows 10 作業系統提供的「Windows Update」更新檔名義，並透過如 Warez
+                            這類專門提供盜版軟體下載的非法網站進行惡意散播。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row border carouselCard">
+                    <div class="col-lg-6 carouselImage">
+                        <img src="../資訊圖庫/A03.jpg">
+                    </div>
+                    <div class="col-lg-6 carouselContent">
+                        <h3 class="indexh3">思科打造Cisco Security Cloud開放的安全雲端平台。</h3>
+                        <p class="indexp">
+                            思科公布將建立一個全球雲端交付綜合平台，以確保所有大小、規模的企業安全和連接。思科正打造思科安全雲端（Cisco Security
+                            Cloud），使其成為開放的平台，保護整個IT生態圈的完整性，避免公有雲的框限。
+                            <br />思科安全雲端將提供整合體驗，使各地的用戶及設備能安全地連接到任何地方的應用程式和資料。透過統一管理，開放平台將提供大規模的威脅預防、檢測、響應和修復能力。思科也將持續致力實現安全雲端，分享其安全產品組合的創新進展。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row border carouselCard">
+                    <div class="col-lg-6 carouselImage">
+                        <img src="../資訊圖庫/A21.jpg">
+                    </div>
+                    <div class="col-lg-6 carouselContent">
+                        <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
+                        <p class="indexp">
+                            數位轉型已然企業追求永續成長的必要策略，在全新的商業模式與工作型態中，網路所扮演的角色越來越吃重，企業對連網機制的高度依賴，也同時升高了駭客的攻擊慾望。
+                            <br />除了持續增強的外部威脅，為了降低資安攻擊對產業帶來的衝擊，多國政府也制定了相關法規，像是台灣證交所近期就發布了「上市上櫃公司資通安全管控指引」，要求上市櫃公司必須配置適當的人力資源與設備，並有完整的資通安全制度與作為。
+                            <br />對大型企業來說，推動資安的關鍵力量已經從內部 IT 規劃，升級到法遵層級。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid newsServices">
 
         <!-- 服務項目 -->
         <div class="container mb-5">
-            <div class="mt-5">
+            <div>
                 <h1 class="indexh1 mt-5 text-center">WHAT WE DO.</h1>
                 <h2 class="indexh2 mt-5 text-center">服務項目</h2>
                 <p class="indexp mt-3 px-30 text-center">
@@ -223,9 +200,11 @@
 
             </div>
         </div>
+    </div>
 
-        <!-- 客戶個案 -->
-        <div class="container mb-5">
+    <!-- 客戶個案 -->
+    <div class="container-fluid mb-5 newsCase">
+        <div class="container">
             <div class="mt-5">
                 <h2 class="indexh2 text-center">客戶個案</h2>
                 <p class="indexp px-30 txtIn">
@@ -264,191 +243,192 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <!-- 產品資訊 -->
-        <div class="container mb-5">
-            <!-- 產品影片 -->
-            <div class="row col-lg-12 mt-5">
-                <div class="col-lg-5">
-                    <div class="col-lg-10">
-                        <h1 class="indexh1">OUR<br />PRODUCT</h1>
-                        <h2 class="indexh2">產品資訊</h2>
-                        <p class="indexp txtIn">凱茂資訊，能依客戶實際需求規劃最適合的解決方案，如主機虛擬化、郵件伺服器、備份備援、雲端運算、端點管理、網通架構、資訊安全等規劃......。
-                        </p>
-                    </div>
-
+    <!-- 產品資訊 -->
+    <div class="container mb-5 newsProduct">
+        <!-- 產品影片 -->
+        <div class="row col-lg-12 mt-5">
+            <div class="col-lg-5">
+                <div class="col-lg-10">
+                    <h1 class="indexh1">OUR<br />PRODUCT</h1>
+                    <h2 class="indexh2">產品資訊</h2>
+                    <p class="indexp txtIn">凱茂資訊，能依客戶實際需求規劃最適合的解決方案，如主機虛擬化、郵件伺服器、備份備援、雲端運算、端點管理、網通架構、資訊安全等規劃......。
+                    </p>
                 </div>
 
+            </div>
 
-                <div class="col-lg-7 videobox">
-                    <iframe class="show100" src="https://www.youtube.com/embed/sr_VSS_gnGE" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+
+            <div class="col-lg-7 videobox">
+                <iframe class="show100" src="https://www.youtube.com/embed/sr_VSS_gnGE" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <!-- 合作廠商產品列表 -->
+
+        <div class="row my-5">
+            <div class="col-lg-6 p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-75 h-auto" src="../資訊圖庫/合作夥伴logo/LENOVO-1.jpg" alt="補圖" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">LENOVO </h2>
+                                <p class="indexp ">商用桌機<br />商用筆電<br />顯示器<br />伺服器<br />工作站<br />STORAGE</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <!-- 合作廠商產品列表 -->
+            <div class="col-lg-6 p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-75 h-auto" src="../資訊圖庫/合作夥伴logo/microsoft.png" alt="補圖" />
+                                </div>
 
-            <div class="row my-5">
-                <div class="col-lg-6 p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-75 h-auto" src="../資訊圖庫/合作夥伴logo/LENOVO-1.jpg" alt="補圖" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">LENOVO </h2>
-                                    <p class="indexp ">商用桌機<br />商用筆電<br />顯示器<br />伺服器<br />工作站<br />STORAGE</p>
-                                </div>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-75 h-auto" src="../資訊圖庫/合作夥伴logo/microsoft.png" alt="補圖" />
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">MICROSOFT</h2>
-                                    <p class="indexp">作業系統<br />授權軟體<br />辦公軟體</p>
-                                </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">MICROSOFT</h2>
+                                <p class="indexp">作業系統<br />授權軟體<br />辦公軟體</p>
                             </div>
-                        </a>
-                    </div>
-
+                        </div>
+                    </a>
                 </div>
 
-                <div class="col-lg-6 p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/ASUS.png" alt="補圖" />
-                                    </div>
+            </div>
 
+            <div class="col-lg-6 p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/ASUS.png" alt="補圖" />
                                 </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">ASUS</h2>
-                                    <p class="indexp">
-                                        商用桌機、商用筆電<br />顯示器<br />主機板/零組件<br />網通產品<br />伺服器<br />工作站<br />ACC
-                                        (ASUS CONTROL CENTER)</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
 
-                </div>
-                <div class="col-lg-6 p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Dell_Logo.png" alt="" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">DELL</h2>
-                                    <p class="indexp">
-                                        VxRail超融合<br />商用桌機<br />商用筆電<br />顯示器<br />伺服器<br />工作站<br />STORAGE</p>
-                                </div>
                             </div>
-                        </a>
-                    </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">ASUS</h2>
+                                <p class="indexp">
+                                    商用桌機、商用筆電<br />顯示器<br />主機板/零組件<br />網通產品<br />伺服器<br />工作站<br />ACC
+                                    (ASUS CONTROL CENTER)</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="col-lg-6 p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6  rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto"
-                                            src="../資訊圖庫/合作夥伴logo/checkpoint-logo-stacked-large.png" alt="" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">Check Point</h2>
-                                    <p class="indexp">FIREWALL<br />Harmony保護使用者與存取權限</p>
-
+            </div>
+            <div class="col-lg-6 p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Dell_Logo.png" alt="" />
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">DELL</h2>
+                                <p class="indexp">
+                                    VxRail超融合<br />商用桌機<br />商用筆電<br />顯示器<br />伺服器<br />工作站<br />STORAGE</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-lg-6  p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto"
-                                            src="../資訊圖庫/合作夥伴logo/Hewlett_Packard_Enterprise_logo.svg.png" alt="" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">HPE</h2>
-                                    <p class="indexp">
-                                        超融合(SIMPLIVITY)<br />伺服器<br />STORAGE<br />商用桌機<br />商用筆電<br />工作站<br />HPE網路設備
-                                    </p>
+            </div>
+
+            <div class="col-lg-6 p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6  rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/checkpoint-logo-stacked-large.png"
+                                        alt="" />
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">Check Point</h2>
+                                <p class="indexp">FIREWALL<br />Harmony保護使用者與存取權限</p>
 
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="col-lg-6  p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6  rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Cisco-logo.png" alt="" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">CISCO</h2>
-                                    <p class="indexp">超融合基礎架構(HCI)：HyperFlex<br />防火牆<br />WEBEX視訊會議<br />CISCO網路設備</p>
+            </div>
+            <div class="col-lg-6  p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto"
+                                        src="../資訊圖庫/合作夥伴logo/Hewlett_Packard_Enterprise_logo.svg.png" alt="" />
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">HPE</h2>
+                                <p class="indexp">
+                                    超融合(SIMPLIVITY)<br />伺服器<br />STORAGE<br />商用桌機<br />商用筆電<br />工作站<br />HPE網路設備
+                                </p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-lg-6 p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/aruba.svg" alt="" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">Aruba</h2>
-                                    <p class="indexp">SWITCH<br />控制器<br />AP</p>
+
+            </div>
+
+            <div class="col-lg-6  p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6  rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Cisco-logo.png" alt="" />
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">CISCO</h2>
+                                <p class="indexp">超融合基礎架構(HCI)：HyperFlex<br />防火牆<br />WEBEX視訊會議<br />CISCO網路設備</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="col-lg-6 p-2">
+            </div>
+            <div class="col-lg-6 p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/aruba.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">Aruba</h2>
+                                <p class="indexp">SWITCH<br />控制器<br />AP</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- <div class="col-lg-6 p-2">
                     <div class="bg-light">
                         <a href="#">
                             <div class="row Cooperate">
@@ -464,77 +444,86 @@
                             </div>
                         </a>
                     </div>
-
-                </div>
-                <div class="col-lg-6  p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Fortinet-Logo.png" alt="補圖" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">FORTIGATE</h2>
-                                    <p class="indexp">防火牆<br />SWITCH<br />AP</p>
+                </div> -->
+            <div class="col-lg-6  p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Fortinet-Logo.png" alt="補圖" />
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6  p-2">
-                    <div class="bg-light">
-                        <a href="#">
-                            <div class="row Cooperate">
-                                <div class="col-lg-6 rec300">
-                                    <div class="center">
-                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/DVC.svg" alt="補圖" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pl-4">
-                                    <h2 class="indexh2">DVC</h2>
-                                    <p class="indexp">文件加密保險系統</p>
-                                </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">FORTIGATE</h2>
+                                <p class="indexp">防火牆<br />SWITCH<br />AP</p>
                             </div>
-                        </a>
-                    </div>
-
+                        </div>
+                    </a>
                 </div>
-
-
 
             </div>
+
+            <div class="col-lg-6  p-2">
+                <div class="bg-light">
+                    <a href="#">
+                        <div class="row Cooperate">
+                            <div class="col-lg-6 rec300">
+                                <div class="center">
+                                    <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/DVC.svg" alt="補圖" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 pl-4">
+                                <h2 class="indexh2">DVC</h2>
+                                <p class="indexp">文件加密保險系統</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+
         </div>
+    </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="container-fluid footer p-5">
+        <div class="container-fluid footer">
             <div style="text-align:center; width:100% ;margin:auto;">
                 <img src="../images/logo-gray.png" style="height: 40px; margin:20px">
                 <hr>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Home</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">About</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Services</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Contact</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Product</a>
+                <a href="./index.html" class="m-2">HOME</a>
+                <a href="./aboutus.html" class="m-2">ABOUT</a>
+                <a href="./news.html" class="m-2">NEWS</a>
+                <a href="./contact.html" class="m-2">CONTACT</a>
                 <br>
                 <br>
                 <p style="font-size:14px; color:#a2a2a2">&copy; 2022 凱茂資訊 </p>
             </div>
         </div>
     </footer>
-    </div>
+    
 
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script type="text/javascript" src="../js/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slick').slick({
+                dots: true,
+            });
+        })
+    </script>
 </body>
+
 <script>
-    $(document).ready(function(){
-  $(".owl-carousel").owlCarousel();
-});
+
 </script>
+
 
 
 </html>

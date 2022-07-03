@@ -14,12 +14,13 @@
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/aboutus.css">
     <link rel="stylesheet" type="text/css" href="../css/timeline.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/utilities.css">
 
 </head>
 
 <body>
 
-    <!-- hamberger -->
     <input type="checkbox" id="active">
     <label for="active" class="menu-btn"><span></span></label>
     <label for="active" class="close"></label>
@@ -30,8 +31,7 @@
             <div class="wapperContentWord">
                 <a href="./index.html">HOME</a><br>
                 <a href="./aboutus.html">ABOUT</a><br>
-                <a href="./service.html">SERVICES</a><br>
-                <a href="./product.html">PRODUCTS</a><br>
+                <a href="./news.html">NEWS</a><br>
                 <a href="./contact.html">CONTACT</a>
             </div>
         </div>
@@ -64,14 +64,14 @@
 
     <!-- 合作夥伴 -->
     <div class="container mt-5 pb-5">
-        <div class="py-3">
+        <div data-aos="fade-up" class="py-3">
             <h2 class="text-center indexh2 mt-5">合作夥伴</h2>
             <p class="indexp px-30 txtIn">
                 我們與各領域的科技廠商密切合作，提供符合您架構的解決方案，協助您為客戶創造更多價值。這些合作當中，包含了策略聯盟與技術聯盟兩種合作夥伴。確保在產品安裝與使用過程當中都能維持順暢的客戶體驗。</p>
         </div>
 
         <!-- 幻燈片 -->
-        <div id="carouselExampleControls1" class="carousel slide carousel-01" data-ride="carousel"
+        <div id="carouselExampleControls1" class="carousel slide carousel-01" data-ride="carousel" data-aos="fade-up"
             data-interval="1000000">
             <!-- 輪播內容 -->
             <div class="carousel-inner">
@@ -331,7 +331,7 @@
     <div class="container-fluid" style="background-color: #ffffff;">
         <div class="container mt-5 aboutContent">
             <div class="row">
-                <div class="col-lg-6">
+                <div data-aos="fade-right"  class="col-lg-6">
                     <h2 class="indexh2">凱茂理念</h2>
                     <h1 class="indexh1">Take KAIMAU<br />Take the Future.</h1>
                     <p class="indexp txtIn">
@@ -339,7 +339,7 @@
                     </p>
                 </div>
 
-                <div class="col-lg-6">
+                <div  data-aos="zoom-out-left" data-aos-delay="200" class="col-lg-6">
                     <div class="cube">
                         <div class="top"></div>
                         <div>
@@ -504,15 +504,14 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container-fluid footer p-5">
+        <div class="container-fluid footer">
             <div style="text-align:center; width:100% ;margin:auto;">
                 <img src="../images/logo-gray.png" style="height: 40px; margin:20px">
                 <hr>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Home</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">About</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Services</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Contact</a>
-                <a href="https://www.google.com.tw/?hl=zh_TW" class="m-2">Product</a>
+                <a href="./index.html" class="m-2">HOME</a>
+                <a href="./aboutus.html" class="m-2">ABOUT</a>
+                <a href="./news.html" class="m-2">NEWS</a>
+                <a href="./contact.html" class="m-2">CONTACT</a>
                 <br>
                 <br>
                 <p style="font-size:14px; color:#a2a2a2">&copy; 2022 凱茂資訊 </p>
@@ -520,11 +519,17 @@
         </div>
     </footer>
 
+    
+    <script src="../js/navbar.js"></script>
     <script src="../js/timeline.js"></script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.7.1.min.js"></script>
     <script src="../js/jquery.timelinr-0.9.4.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
 
 </body>
 
