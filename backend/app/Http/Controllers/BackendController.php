@@ -24,4 +24,30 @@ class BackendController extends Controller
         //     return view('main.index');
         // }
     }
+
+    function erp(){
+        //進銷存
+
+    }
+
+    function quote(){
+        //報價
+
+    }
+
+    function order(){
+        //訂單
+
+    }
+
+    function manufacture(){
+        //製造
+
+    }
+
+    function deliver(){
+        //出貨
+
+    }
+
 }
