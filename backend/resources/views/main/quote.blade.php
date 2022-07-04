@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">    
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/erp.css">
     {{-- <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" /> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -29,60 +28,66 @@
         <div class="sidebar" data-color="orange">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                    CT
+                    K
                 </a>
                 <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Creative Tim
+                    凱茂資訊
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="../examples/dashboard.html">
+                        <a href="/main/erp">
                             <i class="now-ui-icons design_app"></i>
                             <p>進銷存管理</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="../examples/icons.html">
+                    <li class="active">
+                        <a href="/main/quote">
                             <i class="now-ui-icons education_atom"></i>
                             <p>報價單管理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/map.html">
+                        <a href="/main/order">
                             <i class="now-ui-icons location_map-big"></i>
                             <p>訂單管理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/notifications.html">
+                        <a href="/main/manufacture">
                             <i class="now-ui-icons ui-1_bell-53"></i>
                             <p>工單管理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/user.html">
+                        <a href="/main/delivery">
                             <i class="now-ui-icons users_single-02"></i>
-                            <p>User Profile</p>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="../examples/tables.html">
-                            <i class="now-ui-icons design_bullet-list-67"></i>
-                            <p>Table List</p>
+                            <p>出貨單管理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/typography.html">
+                        <a href="">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>發票管理</p>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="">
+                            <i class="now-ui-icons design_bullet-list-67"></i>
+                            <p>客戶管理</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
                             <i class="now-ui-icons text_caps-small"></i>
-                            <p>Typography</p>
+                            <p>前台消息管理</p>
                         </a>
                     </li>
                     <li class="active-pro">
-                        <a href="../examples/upgrade.html">
+                        <a href="">
                             <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                            <p>Upgrade to PRO</p>
+                            <p>員工基本資料</p>
                         </a>
                     </li>
                 </ul>
@@ -100,7 +105,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">Table List</a>
+                        <a class="navbar-brand" href="#pablo">報價單管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -110,34 +115,13 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱查詢">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
                             </div>
                         </form>
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <i class="now-ui-icons media-2_sound-wave"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Stats</span>
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="now-ui-icons location_world"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Some Actions</span>
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#pablo">
                                     <i class="now-ui-icons users_single-02"></i>
@@ -156,10 +140,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title"> Simple Table</h4>
-                            </div>
+                        <div class="card">                            
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -183,13 +164,13 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    Dakota Rice
+                                                    KMQ20220623001
                                                 </td>
                                                 <td>
-                                                    Niger
+                                                    華碩
                                                 </td>
                                                 <td>
-                                                    Oud-Turnhout
+                                                    KMO20220624001
                                                 </td>
                                                 <td class="text-right">
                                                     $36,738
@@ -197,13 +178,13 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Minerva Hooper
+                                                    KMQ20220623002
                                                 </td>
                                                 <td>
-                                                    Curaçao
+                                                    iSpan
                                                 </td>
                                                 <td>
-                                                    Sinaai-Waas
+                                                    KMO20220624002
                                                 </td>
                                                 <td class="text-right">
                                                     $23,789
@@ -211,13 +192,12 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Sage Rodriguez
+                                                    KMQ20220623003
                                                 </td>
                                                 <td>
-                                                    Netherlands
+                                                    華碩
                                                 </td>
                                                 <td>
-                                                    Baileux
                                                 </td>
                                                 <td class="text-right">
                                                     $56,142
@@ -225,13 +205,13 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Philip Chaney
+                                                    KMQ20220624001
                                                 </td>
                                                 <td>
-                                                    Korea, South
+                                                    Dell
                                                 </td>
                                                 <td>
-                                                    Overland Park
+                                                    KMO20220625001
                                                 </td>
                                                 <td class="text-right">
                                                     $38,735
@@ -239,14 +219,12 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Doris Greene
+                                                    KMQ20220624001
                                                 </td>
                                                 <td>
-                                                    Malawi
+                                                    Dell
                                                 </td>
-                                                <td>
-                                                    Feldkirchen in Kärnten
-                                                </td>
+                                                <td></td>
                                                 <td class="text-right">
                                                     $63,542
                                                 </td>
@@ -254,6 +232,12 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                            <div class="card-header">
+                                <a href="">
+                                    <i class="now-ui-icons design_app"></i>
+                                    <span>新增報價單</span>
+                                </a>
                             </div>
                         </div>
                     </div>
