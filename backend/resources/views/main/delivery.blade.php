@@ -182,7 +182,7 @@
                                         <tbody>
                                             <tr>
                                                 {{-- {{$d->firstName}} --}}
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 {{-- {{$d->firstName}} --}}
                                                 <td>華碩</td>
                                                  <td >
@@ -197,7 +197,7 @@
                                             
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>華碩</td>
                                                 <td >
                                                     <div class="btn-group">
@@ -210,7 +210,7 @@
                                                 <td><span class="badge bg-danger">未出貨</span> </td>
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>華碩</td>
                                                  <td >
                                                     <div class="btn-group">
@@ -223,7 +223,7 @@
                                                 <td><span class="badge bg-success">已出貨</span> </td>
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>iSpan</td>
                                                  <td >
                                                     <div class="btn-group">
