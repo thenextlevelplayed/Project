@@ -101,9 +101,13 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
+<<<<<<< HEAD
                         <h4>
                             <a class="navbar-brand" href="">報價單管理</a>
                         </h4>                        
+=======
+                        <a class="navbar-brand" href="#pablo">報價單管理</a>
+>>>>>>> df954c3615fd548fefc90f2f5a494860f32a0bc7
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
