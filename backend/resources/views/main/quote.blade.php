@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">    
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/erp.css">
+    {{-- <link rel="stylesheet" href="/css/erp.css"> --}}
     {{-- <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" /> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
