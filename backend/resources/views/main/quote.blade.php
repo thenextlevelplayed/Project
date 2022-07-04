@@ -105,7 +105,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">Table List</a>
+                        <a class="navbar-brand" href="#pablo">報價單管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -140,10 +140,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">報價單管理</h4>
-                            </div>
+                        <div class="card">                            
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -235,6 +232,12 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                            <div class="card-header">
+                                <a href="">
+                                    <i class="now-ui-icons design_app"></i>
+                                    <span>新增報價單</span>
+                                </a>
                             </div>
                         </div>
                     </div>
