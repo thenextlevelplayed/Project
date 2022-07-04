@@ -45,7 +45,17 @@ class BackendController extends Controller
         return view('main.manufacture');
     }
 
+    // function delivery($id){
+        
+    //     //出貨
+    //     $d = Employee::find($id);
+    //     $d->all();
+    //     $employeeDetails = Employee::all();
+    //     return view('main.delivery', compact('d'));
+    // }
+
     function delivery(){
+        
         //出貨
         return view('main.delivery');
     }
