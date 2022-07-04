@@ -51,6 +51,9 @@ Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufact
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
 
+//發票receipt
+Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
+
 
 
 // 創建測試帳號密碼

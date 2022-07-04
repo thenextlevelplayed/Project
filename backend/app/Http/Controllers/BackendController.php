@@ -60,4 +60,12 @@ class BackendController extends Controller
         return view('main.delivery');
     }
 
+    function receipt(){
+        
+        //發票
+        return view('main.receipt');
+    }
+
+    
+
 }
