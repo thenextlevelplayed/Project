@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li >
-                        <a href="">
+                        <a href="/main/customer">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>客戶管理</p>
                         </a>
@@ -197,7 +197,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未開立發票</td>
+                                                <td><span class="badge bg-danger">發票未開</span> </td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
@@ -211,7 +211,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未開立發票</td>
+                                                <td><span class="badge bg-danger">發票未開</span> </td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
@@ -225,7 +225,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已開立發票</td>
+                                                <td><span class="badge bg-success">發票已開立</span> </td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
@@ -239,7 +239,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已開立發票</td>
+                                                <td><span class="badge bg-success">發票已開立</span> </td>
                                             </tr>
                                         </tbody>
                                     </table>
