@@ -13,15 +13,11 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">    
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />   
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    {{-- <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" /> --}}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
-    <script src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
+
 
 <body class="">
     <div class="wrapper ">
@@ -105,7 +101,9 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="">報價單管理</a>
+                        <h4>
+                            <a class="navbar-brand" href="">報價單管理</a>
+                        </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -144,7 +142,7 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <thead class=" text-primary">
+                                        <thead class="text-primary">
                                             <th>
                                                 報價單編號
                                             </th>
@@ -172,11 +170,16 @@
                                                 <td>
                                                     KMO20220624001
                                                 </td>
-                                                <td class="btn btn-success">
-                                                    已成立訂單
-                                                </td>
                                                 <td>
-                                                    <i class="now-ui-icons design_bullet-list-67"></i>
+                                                    <span class="badge bg-success">
+                                                        已成立訂單
+                                                    </span> 
+                                                </td>
+                                                <td class="btn btn-link">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                      </svg>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -189,11 +192,16 @@
                                                 <td>
                                                     KMO20220624002
                                                 </td>
-                                                <td class="btn btn-success">
-                                                    已成立訂單
-                                                </td>
                                                 <td>
-                                                    <i class="now-ui-icons design_bullet-list-67"></i>
+                                                    <span class="badge bg-success">
+                                                        已成立訂單
+                                                    </span> 
+                                                </td>
+                                                <td class="btn btn-link">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                      </svg>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -205,11 +213,16 @@
                                                 </td>
                                                 <td>
                                                 </td>
-                                                <td class="btn btn-warning">
-                                                    未成立訂單
-                                                </td>
                                                 <td>
-                                                    <i class="now-ui-icons design_bullet-list-67"></i>
+                                                    <span class="badge bg-danger">
+                                                        未成立訂單
+                                                    </span> 
+                                                </td>
+                                                <td class="btn btn-link">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                      </svg>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -222,11 +235,16 @@
                                                 <td>
                                                     KMO20220625001
                                                 </td>
-                                                <td class="btn btn-success">
-                                                    已成立訂單
-                                                </td>
                                                 <td>
-                                                    <i class="now-ui-icons design_bullet-list-67"></i>
+                                                    <span class="badge bg-success">
+                                                        已成立訂單
+                                                    </span> 
+                                                </td>
+                                                <td class="btn btn-link">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                      </svg>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -237,11 +255,16 @@
                                                     Dell
                                                 </td>
                                                 <td></td>
-                                                <td class="btn btn-warning">
-                                                    未成立訂單
-                                                </td>
                                                 <td>
-                                                    <i class="now-ui-icons design_bullet-list-67"></i>
+                                                    <span class="badge bg-danger">
+                                                        未成立訂單
+                                                    </span> 
+                                                </td>
+                                                <td class="btn btn-link">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                      </svg>
                                                 </td>
                                             </tr>
                                         </tbody>
