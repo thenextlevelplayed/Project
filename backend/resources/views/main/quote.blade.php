@@ -27,10 +27,10 @@
     <div class="wrapper ">
         <div class="sidebar" data-color="orange">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                <a href="/main" class="simple-text logo-mini">
                     K
                 </a>
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <a href="/main" class="simple-text logo-normal">
                     凱茂資訊
                 </a>
             </div>
