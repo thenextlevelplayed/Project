@@ -23,65 +23,68 @@
 <body class="">
     <div class="wrapper ">
         <div class="sidebar" data-color="orange">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                    CT
+                    K
                 </a>
                 <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Creative Tim
+                    凱茂資訊
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="../examples/dashboard.html">
+                        <a href="/main/erp">
                             <i class="now-ui-icons design_app"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../examples/icons.html">
-                            <i class="now-ui-icons education_atom"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../examples/map.html">
-                            <i class="now-ui-icons location_map-big"></i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../examples/notifications.html">
-                            <i class="now-ui-icons ui-1_bell-53"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../examples/user.html">
-                            <i class="now-ui-icons users_single-02"></i>
-                            <p>User Profile</p>
+                            <p>進銷存管理</p>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="../examples/tables.html">
-                            <i class="now-ui-icons design_bullet-list-67"></i>
-                            <p>Table List</p>
+                        <a href="/main/quote">
+                            <i class="now-ui-icons education_atom"></i>
+                            <p>報價單管理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/typography.html">
+                        <a href="/main/order">
+                            <i class="now-ui-icons location_map-big"></i>
+                            <p>訂單管理</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/main/manufacture">
+                            <i class="now-ui-icons ui-1_bell-53"></i>
+                            <p>工單管理</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/main/delivery">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>出貨單管理</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="now-ui-icons users_single-02"></i>
+                            <p>發票管理</p>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="">
+                            <i class="now-ui-icons design_bullet-list-67"></i>
+                            <p>客戶管理</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
                             <i class="now-ui-icons text_caps-small"></i>
-                            <p>Typography</p>
+                            <p>前台消息管理</p>
                         </a>
                     </li>
                     <li class="active-pro">
-                        <a href="../examples/upgrade.html">
+                        <a href="">
                             <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                            <p>Upgrade to PRO</p>
+                            <p>員工基本資料</p>
                         </a>
                     </li>
                 </ul>
@@ -99,7 +102,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">Table List</a>
+                        <a class="navbar-brand" href="#pablo">出貨單管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -109,7 +112,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱查詢">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
@@ -157,7 +160,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Simple Table</h4>
+                                <h4 class="card-title"> 出貨單管理</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
