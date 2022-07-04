@@ -1,0 +1,25 @@
+gmail
+account: KMMsgSend@gmail.com
+password: km_msg_pwd
+
+***php.ini***
+
+
+
+SMTP=stmp.gmail.com
+smtp_port=587
+sendmail_from = KMMsgSend@gmail.com
+sendmail_path ="\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+
+
+***sendmail.ini*** 
+(檔案在 C:\xampp\sendmail)
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+smtp_ssl=auto
+default_domain=gmail.com
+auth_username=KMMsgSend@gmail.com
+auth_password=uasxpydscvbzjwmb
+force_sender=KMMsgSend@gmail.com
