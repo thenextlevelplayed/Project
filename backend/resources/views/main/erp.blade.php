@@ -39,6 +39,26 @@
                             <i class="now-ui-icons design_app"></i>
                             <p>進銷存管理</p>
                         </a>
+                        <ul class="nav">
+                            <li >
+                                <a href="/main/quote">
+                                    <i class="now-ui-icons"></i>
+                                    <p>進貨管理</p>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/main/quote">
+                                    <i class="now-ui-icons"></i>
+                                    <p>銷貨管理</p>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/main/quote">
+                                    <i class="now-ui-icons"></i>
+                                    <p>庫存管理</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li >
                         <a href="/main/quote">
@@ -306,5 +326,10 @@
 <script src="../assets/js/now-ui-dashboard.js?v=1.0.1"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
+
+<script>
+
+    
+</script>
 
 </html>
