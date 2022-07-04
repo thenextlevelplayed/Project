@@ -49,7 +49,7 @@ Route::get('/main/order', "App\Http\Controllers\BackendController@order");
 Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
 
 //出貨
-Route::get('/main/deliver', "App\Http\Controllers\BackendController@deliver");
+Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
 
 
 
