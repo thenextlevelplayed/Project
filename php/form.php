@@ -12,19 +12,20 @@
 
         $date = date("Y/m/d H:i:s");
 
-        var_dump($date);
+        // var_dump($date);
 
 
-        // $to = "a159856a@gmail.com";
-        // $subject= "諮詢表單";
+        $to = "a159856a@gmail.com";
+        $subject= "諮詢表單";
         $msg = "
+                    表單日期:{$date} \n
                     姓名:{$name} \n
                     公司:{$company} \n
                     電話:{$tel} \n
-                    Email:{$email} \n
+                    電子郵件:{$email} \n
                     詢問內容:{$content} \n  
             ";
-        // mail($to,$subject,$msg);
+        mail($to,$subject,$msg);
 
 
 
