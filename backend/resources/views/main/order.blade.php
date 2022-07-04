@@ -38,7 +38,7 @@
                             <p>進銷存管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/quote">
                             <i class="now-ui-icons education_atom"></i>
                             <p>報價單管理</p>
