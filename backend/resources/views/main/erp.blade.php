@@ -65,13 +65,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/main/receipt">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>發票管理</p>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/main/receipt">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>客戶管理</p>
                         </a>

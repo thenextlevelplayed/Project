@@ -49,10 +49,10 @@
                 <a class="col  m-1" href="">
                     <p>員工基本資料</p>
                 </a>
-                <a class="col  m-1" href="">
+                <a class="col  m-1" href="/main/receipt">
                     <p>發票管理</p>
                 </a>
-                <a class="col  m-1" href="">
+                <a class="col  m-1" href="/main/customer">
                     <p>客戶管理</p>
                 </a>
             </div>

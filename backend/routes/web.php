@@ -51,8 +51,11 @@ Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufact
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
 
-//發票receipt
+//發票
 Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
+
+//客戶管理
+Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
 
 
 
