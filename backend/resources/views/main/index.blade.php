@@ -37,7 +37,7 @@
                     <p>3</p>
                     <p>製造</p>
                 </a>
-                <a class="col m-1" href="/main/deliver">
+                <a class="col m-1" href="/main/delivery">
                     <p>4</p>
                     <p>出貨</p>
                 </a>
