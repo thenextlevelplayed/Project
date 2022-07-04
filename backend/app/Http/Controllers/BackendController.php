@@ -45,9 +45,9 @@ class BackendController extends Controller
         return view('main.manufacture');
     }
 
-    function deliver(){
+    function delivery(){
         //出貨
-        return view('main.deliver');
+        return view('main.delivery');
     }
 
 }
