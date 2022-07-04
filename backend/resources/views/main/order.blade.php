@@ -44,7 +44,7 @@
                             <p>報價單管理</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/main/order">
                             <i class="now-ui-icons location_map-big"></i>
                             <p>訂單管理</p>
@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/main/receipt">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>發票管理</p>
                         </a>
