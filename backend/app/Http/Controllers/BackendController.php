@@ -34,6 +34,10 @@ class BackendController extends Controller
         //報價
         return view('main.quote');
     }
+    function quotePDF(){
+        //報價
+        return view('main.quotePDF');
+    }
 
     function order(){
         //訂單

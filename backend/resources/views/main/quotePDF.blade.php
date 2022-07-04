@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>報價管理</title>
+    <title>報價單內容</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -135,7 +135,10 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">                            
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title text-center"> 凱茂資訊 報價單</h4>
+                            </div>                            
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
@@ -181,71 +184,6 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    KMQ20220623002
-                                                </td>
-                                                <td>
-                                                    iSpan
-                                                </td>
-                                                <td>
-                                                    KMO20220624002
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">
-                                                        已成立訂單
-                                                    </span> 
-                                                </td>
-                                                <td class="btn btn-link">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    KMQ20220623003
-                                                </td>
-                                                <td>
-                                                    華碩
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-danger">
-                                                        未成立訂單
-                                                    </span> 
-                                                </td>
-                                                <td class="btn btn-link">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    KMQ20220624001
-                                                </td>
-                                                <td>
-                                                    Dell
-                                                </td>
-                                                <td>
-                                                    KMO20220625001
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">
-                                                        已成立訂單
-                                                    </span> 
-                                                </td>
-                                                <td class="btn btn-link">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     KMQ20220624001
                                                 </td>
                                                 <td>
@@ -267,14 +205,37 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div class="text-right mr-5 mb-3">
-                                <a class="btn btn-primary" href="/main/quotePDF">
-                                    <i class="now-ui-icons files_single-copy-04"></i>
-                                    <span>新增報價單</span>
-                                </a>
+
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <a class="btn btn-primary mr-3" href="">
+                            <span>預覽</span>
+                        </a>
+                        <a class="btn btn-primary" href="">
+                            <span>存檔</span>
+                        </a>
+                    </div>
+                    <div class="col-md-12 mt-5">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title text-center"> E-mail</h4>
+                            </div>                            
+                            <div class="card-body">
+                                <textarea name="" id="" cols="100" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <a class="btn btn-primary" href="">
+                            <span>發送Email和報價單PDF至客戶信箱</span>
+                        </a>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <a class="btn btn-primary" href="">
+                            <span>報價成立，轉為訂單</span>
+                        </a>
                     </div>
                 </div>
             </div>

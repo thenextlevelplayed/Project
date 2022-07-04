@@ -41,6 +41,7 @@ Route::get('/main/erp', "App\Http\Controllers\BackendController@erp");
 
 //報價
 Route::get('/main/quote', "App\Http\Controllers\BackendController@quote");
+Route::get('/main/quotePDF', "App\Http\Controllers\BackendController@quotePDF");
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\BackendController@order");
