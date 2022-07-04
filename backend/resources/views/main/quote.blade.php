@@ -157,7 +157,7 @@
                                             <th>
                                                 成立訂單
                                             </th>
-                                            <th class="text-right">
+                                            <th>
                                                 編輯
                                             </th>
                                         </thead>
@@ -172,11 +172,11 @@
                                                 <td>
                                                     KMO20220624001
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
+                                                <td class="btn btn-success">
+                                                    已成立訂單
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
+                                                <td>
+                                                    <i class="now-ui-icons design_bullet-list-67"></i>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -189,11 +189,11 @@
                                                 <td>
                                                     KMO20220624002
                                                 </td>
-                                                <td class="text-right">
-                                                    $23,789
+                                                <td class="btn btn-success">
+                                                    已成立訂單
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
+                                                <td>
+                                                    <i class="now-ui-icons design_bullet-list-67"></i>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -205,11 +205,11 @@
                                                 </td>
                                                 <td>
                                                 </td>
-                                                <td class="text-right">
-                                                    $56,142
+                                                <td class="btn btn-warning">
+                                                    未成立訂單
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
+                                                <td>
+                                                    <i class="now-ui-icons design_bullet-list-67"></i>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -222,11 +222,11 @@
                                                 <td>
                                                     KMO20220625001
                                                 </td>
-                                                <td class="text-right">
-                                                    $38,735
+                                                <td class="btn btn-success">
+                                                    已成立訂單
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
+                                                <td>
+                                                    <i class="now-ui-icons design_bullet-list-67"></i>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -237,20 +237,20 @@
                                                     Dell
                                                 </td>
                                                 <td></td>
-                                                <td class="text-right">
-                                                    $63,542
+                                                <td class="btn btn-warning">
+                                                    未成立訂單
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
+                                                <td>
+                                                    <i class="now-ui-icons design_bullet-list-67"></i>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="card-header">
-                                <a href="">
-                                    <i class="now-ui-icons design_app"></i>
+                            <div class="text-right">
+                                <a class="btn btn-primary" href="">
+                                    <i class="now-ui-icons design_bullet-list-67"></i>
                                     <span>新增報價單</span>
                                 </a>
                             </div>
