@@ -23,8 +23,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
     <script src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="shortcut icon" href="../img/logo/favicon.ico"/>
-    <link rel="bookmark" href="../img/logo/favicon.ico"/>
+    <link rel="shortcut icon" href="../img/logo/favicon.ico" />
+    <link rel="bookmark" href="../img/logo/favicon.ico" />
 
 
 </head>
@@ -60,32 +60,36 @@
         <div class="row mt-5">
             <div id="contactForm" class="col-xl rounded border p-3 shadow m-3 ">
                 <p class="indexh3"> 諮詢與服務表單：</p>
-                <form method="post" action="http://localhost:3000/php/form.php">
+                <form method="post" action="http://localhost:3000/php/form.php" onsubmit="SubmitForm()">
                     <!-- 使用VScode PHP server -->
                     <div class="form-group">
                         <label for="FormName" class="pl-2 titleFont">姓名 <span>*</span><span id="NameIfo"></span></label>
-                        <input type="text" name="Name" id="FormName" class="form-control" placeholder="Name" required autocomplete="off"> 
+                        <input type="text" name="Name" id="FormName" class="form-control" placeholder="Name" required
+                            autocomplete="off">
 
                     </div>
                     <div class="form-group">
                         <label for="FormCompany" class="pl-2 titleFont">公司 <span>*</span></label>
-                        <input type="text" name="Company" id="FormCompany" class="form-control" placeholder="Company" required autocomplete="off">
+                        <input type="text" name="Company" id="FormCompany" class="form-control" placeholder="Company"
+                            required autocomplete="off">
 
                     </div>
                     <div class="form-group">
                         <label for="FormTel" class="pl-2 titleFont">聯絡電話 <span>*</span></label>
-                        <input type="text" name="Tel" id="FormTel" class="form-control" placeholder="Phone Number" required autocomplete="off">
+                        <input type="text" name="Tel" id="FormTel" class="form-control" placeholder="Phone Number"
+                            required autocomplete="off">
 
                     </div>
                     <div class="form-group">
                         <label for="FormEmail" class="pl-2 titleFont">電子郵件 <span>*</span> </label>
-                        <input type="email" name="Email" id="FormEmail" class="form-control" placeholder="E-mail" required autocomplete="off">
+                        <input type="email" name="Email" id="FormEmail" class="form-control" placeholder="E-mail"
+                            required autocomplete="off">
 
                     </div>
                     <div class="form-group">
                         <label for="FormContent" class="pl-2 titleFont">諮詢內容 <span>*</span></label>
-                        <textarea name="Content" id="FormContent" class="form-control" placeholder="Messages"
-                            rows="3" required autocomplete="off"></textarea>
+                        <textarea name="Content" id="FormContent" class="form-control" placeholder="Messages" rows="3"
+                            required autocomplete="off"></textarea>
 
                     </div>
                     <div class="form-group">
@@ -98,7 +102,8 @@
                     </div>
                     <div class="form-group">
                         <label class="pl-2 titleFont">驗證碼 <span>*</span></label>
-                        <input type="text" name="Captcha" class="form-control" placeholder="Captcha" required autocomplete="off">
+                        <input type="text" name="Captcha" class="form-control" placeholder="Captcha" required
+                            autocomplete="off">
 
                     </div>
                     <input type="submit" class="btn btn-primary btn-block" value="SEND">
@@ -144,7 +149,10 @@
 
 
     <script>
-
+        
+        function SubmitForm() {
+            alert("非常感謝您的來信,本公司將儘快回覆，謝謝！");
+        }
 
         $(function () {
 
@@ -158,6 +166,8 @@
                     d++;
                 },
             })
+
+
 
 
             // 表單提交前驗證欄位是否已填寫
