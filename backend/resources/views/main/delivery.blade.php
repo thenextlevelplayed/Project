@@ -193,7 +193,8 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未出貨</td>
+                                                <td><span class="badge bg-danger">未出貨</span> </td>
+                                            
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
@@ -206,7 +207,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未出貨</td>
+                                                <td><span class="badge bg-danger">未出貨</span> </td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
@@ -219,7 +220,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已出貨</td>
+                                                <td><span class="badge bg-success">已出貨</span> </td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
@@ -232,7 +233,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已出貨</td>
+                                                <td><span class="badge bg-success">已出貨</span> </td>
                                             </tr>
                                         </tbody>
                                     </table>
