@@ -10,7 +10,8 @@
     /* border: 1px solid black; */
 
 }
-body{
+
+body {
     overflow-x: hidden;
 }
 
@@ -64,178 +65,184 @@ body{
 }
 
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
+
 .px-30 {
     transform: translateX(-50%);
     position: relative;
-    left:50%;
+    left: 50%;
     padding-left: 10%;
-    padding-right:10%;
-    width:600px;
+    padding-right: 10%;
+    width: 600px;
 }
 
-@media only screen and (max-width:992px)  {
+@media only screen and (max-width:992px) {
     .px-30 {
-        width:90%;
+        width: 90%;
     }
-    
+
 }
+
 .px-10 {
     padding-right: 10%;
     padding-left: 10%;
 }
-.vh-10{
+
+.vh-10 {
     height: 10vh;
 }
-.vh-50{
+
+.vh-50 {
     height: 50vh;
 }
-.vh-30{
+
+.vh-30 {
     height: 30vh;
 }
 
-.show100{
+.show100 {
     width: 100%;
     height: 100%;
 }
 
 /* Banner */
-.newsBanner{
+.newsBanner {
 
-    background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('../img/news/architecture.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/news/architecture.jpg');
     background-color: rgb(255, 255, 255);
     background-position: center;
-    width:100%; 
+    width: 100%;
     height: 450px;
     background-size: cover;
 
 }
 
-.newsBanner img{
-    
-    width:100px;
+.newsBanner img {
+
+    width: 100px;
     position: relative;
-    left:50%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
 }
+
 /* 最新消息 */
 
-.newsMain{
+.newsMain {
 
-    background-position: top center,bottom center;
+    background-position: top center, bottom center;
     background-color: #f3f3f3;
-    background-size: contain,contain;
+    background-size: contain, contain;
     background-repeat: no-repeat;
     padding-bottom: 150px;
     padding-top: 50px;
 }
 
-.Carousel{
-    left:50%;
+.Carousel {
+    left: 50%;
     transform: translateX(-50%);
 }
 
-.carouselImage{
-    
-    overflow: hidden; 
-    display:grid; 
+.carouselImage {
+
+    overflow: hidden;
+    display: grid;
 }
 
-.carouselContent{
+.carouselContent {
     padding: 40px;
 }
 
-.carouselImage img{
+.carouselImage img {
     max-width: 120%;
     height: 100%;
     object-fit: cover;
-    margin:auto;
+    margin: auto;
     transform: translateX(-5%);
-
 }
 
 
 .carouselCard {
-    height:500px;
+    height: 500px;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
-    margin:10px;
+    margin: 10px;
     overflow-y: scroll;
-  }
+}
 
-@media only screen and (max-width:992px){
+@media only screen and (max-width:992px) {
 
     .indexh3 {
         margin-top: 0px;
     }
 
     .carouselCard {
-    height:70vh;
-      }
-
-      .carouselImage{   
-        height:35%;
+        height: 70vh;
     }
 
-    .carouselContent{
+    .carouselImage {
+        height: 35%;
+    }
+
+    .carouselContent {
         padding: 25px;
     }
 
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width:768px) {
     .carouselCard {
-    height:80vh;
-      }
+        height: 80vh;
+    }
 }
 
-  .carouselCardImage img {
+.carouselCardImage img {
 
     width: 100%;
     max-height: 100%;
     object-fit: cover;
     position: absolute;
-    top:0;
-    left:0;
-  }
-  
+    top: 0;
+    left: 0;
+}
 
-  @media only screen and (max-width: 992px) {
-    .carouselCardImage{
+
+@media only screen and (max-width: 992px) {
+    .carouselCardImage {
         width: 100%;
     }
-    .carouselCardImage img{
-        width: 100%;
-        position:absolute;
-        top:0;
-        left:0;
-    }
-    
-  }
 
-  .carouselCardContent {
+    .carouselCardImage img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+}
+
+.carouselCardContent {
     float: left;
     height: 100%;
     width: 100%;
     overflow: hidden;
     padding: 40px;
-  }
+}
 
-  .carouselCardContent h4 {
+.carouselCardContent h4 {
     margin: 5px 0;
-  }
+}
 
-  .carousel-item{
+.carousel-item {
     position: relative;
     float: left;
 
-  }
+}
 
 /* 固定幻燈片高度為 50vh */
 /* .carousel-item {
@@ -265,7 +272,7 @@ a:hover{
     object-fit: cover;
 } */
 
-  /* 箭頭區塊調整為 width: 10%; */
+/* 箭頭區塊調整為 width: 10%; */
 .carousel-control-prev,
 .carousel-control-next {
     position: absolute;
@@ -281,7 +288,7 @@ a:hover{
     width: 10%;
     text-align: center;
     border: none;
-    
+
     transition: opacity 0.15s ease;
 }
 
@@ -304,7 +311,8 @@ a:hover{
 }
 
 .carousel-indicators {
-    height: 20px;     /* 控制列 height: 20px; */
+    height: 20px;
+    /* 控制列 height: 20px; */
     right: 0;
     bottom: 0;
     left: 0;
@@ -314,12 +322,14 @@ a:hover{
     -ms-flex-pack: center;
     justify-content: center;
     padding-left: 0;
-    margin-right: 10%;      /* 調整為10% */
-    margin-left: 10%;      /* 調整為10% */
+    margin-right: 10%;
+    /* 調整為10% */
+    margin-left: 10%;
+    /* 調整為10% */
     list-style: none;
     /* border: 1px solid red; */
 }
-  
+
 .carousel-indicators li {
     box-sizing: content-box;
     -ms-flex: 0 1 auto;
@@ -339,7 +349,7 @@ a:hover{
 }
 
 /* 新增控制button藍色方塊樣式 */
-.indicators{
+.indicators {
     height: 10px;
     width: 10px;
     margin: 5px;
@@ -350,7 +360,7 @@ a:hover{
 
 /* 服務項目 */
 
-.newsServices{
+.newsServices {
     background-color: #ffffff;
     padding-top: 30px;
     padding-bottom: 50px;
@@ -367,23 +377,24 @@ a:hover{
     background-color: #ffffff;
     background-clip: border-box;
     border: 0;
-    border-radius: 0.25rem; 
-    height:30vh;
-    width:auto;
+    border-radius: 0.25rem;
+    height: 30vh;
+    width: auto;
     overflow: hidden;
     object-fit: cover;
 }
 
 .card-img,
 .card-img-bottom {
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
 
-  
+
 }
+
 .card-img-overlay {
     position: absolute;
     top: 0;
@@ -392,11 +403,12 @@ a:hover{
     left: 0;
     color: #fff;
     background-color: rgba(0, 90, 175, .7);
-    margin:1em;
-    border-radius: 0.25rem; 
-    opacity: 0; 
+    margin: 1em;
+    border-radius: 0.25rem;
+    opacity: 0;
     transition: opacity .5s;
 }
+
 .card-img-overlay .indexh3 {
     margin-top: 5px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -405,6 +417,7 @@ a:hover{
     font-size: 20px;
     color: #fff;
 }
+
 .card-img-overlay .indexp {
     margin-top: 30px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -412,43 +425,45 @@ a:hover{
     font-size: 17px;
     color: #fff;
 }
-.card-img-overlay a{
+
+.card-img-overlay a {
     color: #fff;
 }
+
 .card-img-overlay:hover {
-    opacity: 1; 
+    opacity: 1;
 }
 
 
 /* 客戶個案 */
-.newsCase{
+.newsCase {
     background-color: #f3f3f3;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
-.newsCard{
-    height:400px;
+.newsCard {
+    height: 400px;
 
 }
 
 .videobox {
     position: relative;
-    width:100%;
+    width: 100%;
     height: auto;
-    
+
 }
 
-  @media only screen and (max-width: 992px) {
-    .videobox{
+@media only screen and (max-width: 992px) {
+    .videobox {
         left: 54%;
         margin-top: 20px;
         padding-bottom: 56.25%;
         transform: translateX(-50%);
-        
+
     }
-    
-  }
+
+}
 
 .videobox iframe {
     position: absolute;
@@ -467,52 +482,56 @@ a:hover{
     font-size: 32px;
     color: #fff;
 }
-.rec300{
+
+.rec300 {
     position: relative;
     height: 300px;
     width: 300px;
     /* border: 1px solid #818181; */
 }
-.center{
+
+.center {
     width: 80%;
     height: auto;
     padding-left: 10%;
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* border: 1px solid #818181; */
 }
-.center2{
+
+.center2 {
     width: 100%;
     height: auto;
     padding-left: 10%;
     padding-right: 10%;
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* border: 1px solid #818181; */
 }
 
-@media only screen and (max-width: 992px){
-    .Cooperate{
+@media only screen and (max-width: 992px) {
+    .Cooperate {
         align-items: center;
         text-align: center;
-        padding:20px
+        padding: 20px
     }
-    .rec300{
+
+    .rec300 {
         transform: translateX(-50%);
         left: 50%;
-        width:400px
+        width: 400px
     }
-    .center{
+
+    .center {
         padding-left: 0%;
     }
 }
 
 /*產品資訊*/
-.newsProduct{
+.newsProduct {
     padding-top: 30px;
 }
-
