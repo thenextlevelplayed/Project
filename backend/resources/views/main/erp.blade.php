@@ -17,7 +17,37 @@
 
 <body>
 
+
     <div id="body">
+        <div id="navbar">
+            <a class="row">
+                進銷存管理
+            </a>
+            <a class="row">
+                報價單管理
+            </a>
+            <a class="row">
+                訂單管理
+            </a>
+            <a class="row">
+                工單管理
+            </a>
+            <a class="row">
+                出貨單管理
+            </a>
+            <a class="row">
+                客戶管理
+            </a>
+            <a class="row">
+                發票管理
+            </a>
+            <a class="row">
+                前台消息管理
+            </a>
+            <a class="row">
+                員工基本資料
+            </a>
+        </div>
         <div class="container">
             <h1> 凱茂資訊</h1>
             <div class="row row1">

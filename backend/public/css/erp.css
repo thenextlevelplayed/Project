@@ -1,6 +1,14 @@
+/* bootstrap background 鎖定白色,所以自己設Body */
 #body {
     background-color: #E8EDF0;
     height: 100vh;
+}
+
+#navbar {
+    position: absolute;
+    right: 0px;
+    border: 1px red solid;
+    width: 100%;
 }
 
 h1 {
@@ -44,6 +52,6 @@ p {
     color: #0080F0;
 }
 
-#logout a{
+#logout a {
     text-decoration: none;
 }
