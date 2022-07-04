@@ -35,6 +35,11 @@ class BackendController extends Controller
         return view('main.quote');
     }
 
+    function createQuote(){
+        //新增報價單
+        return view('main.quote');
+    }
+
     function order(){
         //訂單
         return view('main.order');
@@ -54,10 +59,19 @@ class BackendController extends Controller
     //     return view('main.delivery', compact('d'));
     // }
 
+
     function delivery(){
         
         //出貨
         return view('main.delivery');
+    }
+    
+    public function editDelivery (Request $request) {
+        //edit delivery
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        
+        // (...) do something with $var1 and $var2
     }
 
     function receipt(){
@@ -71,6 +85,7 @@ class BackendController extends Controller
         //客戶
         return view('main.customer');
     }
+
 
     
 

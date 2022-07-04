@@ -16,7 +16,7 @@
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link href="../css/delivery.css" rel="stylesheet" />
+    <link href="../css/customer.css" rel="stylesheet" />
 
 </head>
 
@@ -178,7 +178,7 @@
                                                 
                                                 
                                                 {{-- {{$d->firstName}} --}}
-                                                <td>華碩</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">APPLE</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -190,7 +190,7 @@
                                             </tr>
                                             <tr>
                                                 {{-- {{$d->firstName}} --}}
-                                                <td>華碩</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ACER</td>
                                                 <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -201,7 +201,7 @@
                                                 </td>
                                             </tr>
                                             <tr>                                                
-                                                <td>華碩</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ASUS</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -212,7 +212,7 @@
                                                 </td>
                                             </tr>
                                             <tr>                                                
-                                                <td>iSpan</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ispan</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}

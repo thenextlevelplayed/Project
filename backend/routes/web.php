@@ -58,6 +58,34 @@ Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
 Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
 
 
+//新增報價單
+Route::get('/main/quote', "App\Http\Controllers\BackendController@createQuote");
+
+
+
+//編輯進銷存
+//進貨 銷貨 庫存
+//Route::post('/main/erp', "App\Http\Controllers\BackendController@editerp");
+
+//編輯報價
+Route::post('/main/quote', "App\Http\Controllers\BackendController@editQuote");
+
+//編輯訂單
+Route::post('/main/order', "App\Http\Controllers\BackendController@editOrder");
+
+//編輯製造
+Route::post('/main/manufacture', "App\Http\Controllers\BackendController@editManufacture");
+
+//編輯出貨
+Route::post('/main/delivery', "App\Http\Controllers\BackendController@editDelivery");
+
+//編輯發票
+Route::post('/main/receipt', "App\Http\Controllers\BackendController@editReceipt");
+
+//編輯客戶管理
+Route::post('/main/customer', "App\Http\Controllers\BackendController@editCustomer");
+
+
 
 // 創建測試帳號密碼
 // Route::get('/test', function(){

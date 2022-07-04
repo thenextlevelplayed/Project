@@ -1,0 +1,27 @@
+svg{
+    overflow: visible !important;
+}
+
+
+.btn{display:inline-block;
+    font-weight:400;
+    text-align:center;
+    white-space:nowrap;
+    vertical-align:middle;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    border:1px solid transparent;
+    padding:.5rem .155rem;
+    padding-left: 0px;
+    font-size:14px;
+    line-height:1.25;
+    border-radius:.25rem;
+    transition:all .15s ease-in-out}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 12px ;
+    padding-right: 200px;
+    vertical-align: middle;
+}
