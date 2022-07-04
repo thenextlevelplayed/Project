@@ -63,13 +63,13 @@
                             <p>出貨單管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/receipt">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>發票管理</p>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="/main/customer">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>客戶管理</p>
@@ -102,7 +102,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">發票管理</a>
+                        <a class="navbar-brand" href="#pablo">客戶管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -112,7 +112,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱查詢">
+                                <input type="text" value="" class="form-control" placeholder="輸入客戶名稱查詢">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
@@ -160,35 +160,25 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> 發票管理</h4>
+                                <h4 class="card-title"> 客戶管理</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
-                                                出貨單編號
-                                            </th>
-                                            <th>
                                                 客戶名稱
-                                            </th>
-                                            <th>
-                                                發票號碼
                                             </th>
                                             <th>
                                                 編輯
                                             </th>
-                                            <th>
-                                                狀態
-                                            </th>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                {{-- {{$d->firstName}} --}}
-                                                <td>KMD20220623001</td>
+                                                
+                                                
                                                 {{-- {{$d->firstName}} --}}
                                                 <td>華碩</td>
-                                                <td>KMY878787</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -197,12 +187,10 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-danger">發票未開</span> </td>
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                {{-- {{$d->firstName}} --}}
                                                 <td>華碩</td>
-                                                <td>KMY878787</td>
                                                 <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -211,12 +199,9 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-danger">發票未開</span> </td>
                                             </tr>
-                                            <tr>
-                                                <td>KMD20220623001</td>
+                                            <tr>                                                
                                                 <td>華碩</td>
-                                                <td>KMY878787</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -225,12 +210,9 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-success">發票已開立</span> </td>
                                             </tr>
-                                            <tr>
-                                                <td>KMD20220623001</td>
+                                            <tr>                                                
                                                 <td>iSpan</td>
-                                                <td>KMY878787</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -239,7 +221,6 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-success">發票已開立</span> </td>
                                             </tr>
                                         </tbody>
                                     </table>
