@@ -16,13 +16,13 @@
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link href="../css/delivery.css" rel="stylesheet" />
+    <link href="../css/customer.css" rel="stylesheet" />
 
 </head>
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="orange">
+        <div class="sidebar" data-color="green">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text logo-mini">
                     K
@@ -57,7 +57,7 @@
                             <p>工單管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/delivery">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>出貨單管理</p>
@@ -69,7 +69,7 @@
                             <p>發票管理</p>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="/main/customer">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>客戶管理</p>
@@ -102,7 +102,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">出貨單管理</a>
+                        <a class="navbar-brand" href="#pablo">客戶管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -112,7 +112,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱查詢">
+                                <input type="text" value="" class="form-control" placeholder="輸入客戶名稱查詢">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
@@ -160,31 +160,25 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> 出貨單管理</h4>
+                                <h4 class="card-title"> 客戶管理</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <th>
-                                                出貨單編號
-                                            </th>
-                                            <th>
                                                 客戶名稱
                                             </th>
                                             <th>
                                                 編輯
                                             </th>
-                                            <th>
-                                                狀態
-                                            </th>
                                         </thead>
                                         <tbody>
                                             <tr>
+                                                
+                                                
                                                 {{-- {{$d->firstName}} --}}
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
-                                                {{-- {{$d->firstName}} --}}
-                                                <td>華碩</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">APPLE</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -193,12 +187,10 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-danger">未出貨</span> </td>
-                                            
                                             </tr>
                                             <tr>
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
-                                                <td>華碩</td>
+                                                {{-- {{$d->firstName}} --}}
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ACER</td>
                                                 <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -207,11 +199,9 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-danger">未出貨</span> </td>
                                             </tr>
-                                            <tr>
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
-                                                <td>華碩</td>
+                                            <tr>                                                
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ASUS</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -220,11 +210,9 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-success">已出貨</span> </td>
                                             </tr>
-                                            <tr>
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
-                                                <td>iSpan</td>
+                                            <tr>                                                
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ispan</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -233,7 +221,6 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td><span class="badge bg-success">已出貨</span> </td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -39,6 +39,7 @@ class BackendController extends Controller
         return view('main.quotePDF');
     }
 
+
     function order(){
         //訂單
         return view('main.order');
@@ -49,19 +50,29 @@ class BackendController extends Controller
         return view('main.manufacture');
     }
 
-    // function delivery($id){
-        
-    //     //出貨
-    //     $d = Employee::find($id);
-    //     $d->all();
-    //     $employeeDetails = Employee::all();
-    //     return view('main.delivery', compact('d'));
-    // }
-
     function delivery(){
         
         //出貨
         return view('main.delivery');
+    }
+
+    function deliveryInfo($deliveryId){
+        
+        //出貨
+        // $d = Employee::find($deliveryId);
+        // $d->all();
+        // $employeeDetails = Employee::all();
+        // return view('main.delivery', compact('d'));
+        return view('delivery.deliveryInfo');
+
+    }
+    
+    public function editDelivery (Request $request) {
+        //edit delivery
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        
+        // (...) do something with $var1 and $var2
     }
 
     function receipt(){
@@ -69,6 +80,13 @@ class BackendController extends Controller
         //發票
         return view('main.receipt');
     }
+
+    function customer(){
+        
+        //客戶
+        return view('main.customer');
+    }
+
 
     
 

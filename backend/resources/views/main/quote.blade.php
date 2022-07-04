@@ -69,8 +69,10 @@
                         </a>
                     </li>
                     <li >
-                        <a href="">
+                        <a href="/main/customer">
                             <i class="now-ui-icons users_circle-08"></i>
+                        <a href="/main/customer">
+                            <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>客戶管理</p>
                         </a>
                     </li>
