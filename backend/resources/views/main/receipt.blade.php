@@ -22,7 +22,7 @@
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="orange">
+        <div class="sidebar" data-color="green">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text logo-mini">
                     K
@@ -57,13 +57,13 @@
                             <p>工單管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/delivery">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>出貨單管理</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/main/receipt">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>發票管理</p>
@@ -102,7 +102,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">出貨單管理</a>
+                        <a class="navbar-brand" href="#pablo">發票管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -160,7 +160,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> 出貨單管理</h4>
+                                <h4 class="card-title"> 發票管理</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -171,6 +171,9 @@
                                             </th>
                                             <th>
                                                 客戶名稱
+                                            </th>
+                                            <th>
+                                                發票號碼
                                             </th>
                                             <th>
                                                 編輯
@@ -185,6 +188,7 @@
                                                 <td>KMD20220623001</td>
                                                 {{-- {{$d->firstName}} --}}
                                                 <td>華碩</td>
+                                                <td>KMY878787</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -193,11 +197,12 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未出貨</td>
+                                                <td class="btn btn-warning text-right">未開立發票</td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
                                                 <td>華碩</td>
+                                                <td>KMY878787</td>
                                                 <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -206,11 +211,12 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未出貨</td>
+                                                <td class="btn btn-warning text-right">未開立發票</td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
                                                 <td>華碩</td>
+                                                <td>KMY878787</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -219,11 +225,12 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已出貨</td>
+                                                <td class="btn btn-success text-right">已開立發票</td>
                                             </tr>
                                             <tr>
                                                 <td>KMD20220623001</td>
                                                 <td>iSpan</td>
+                                                <td>KMY878787</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
@@ -232,7 +239,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已出貨</td>
+                                                <td class="btn btn-success text-right">已開立發票</td>
                                             </tr>
                                         </tbody>
                                     </table>

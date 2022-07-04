@@ -105,7 +105,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="">報價單管理</a>
+                        <a class="navbar-brand" href="#pablo">報價單管理</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -175,9 +175,6 @@
                                                 <td class="text-right">
                                                     $36,738
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -192,9 +189,6 @@
                                                 <td class="text-right">
                                                     $23,789
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -207,9 +201,6 @@
                                                 </td>
                                                 <td class="text-right">
                                                     $56,142
-                                                </td>
-                                                <td class="text-right">
-                                                    $36,738
                                                 </td>
                                             </tr>
                                             <tr>
@@ -225,9 +216,6 @@
                                                 <td class="text-right">
                                                     $38,735
                                                 </td>
-                                                <td class="text-right">
-                                                    $36,738
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -239,9 +227,6 @@
                                                 <td></td>
                                                 <td class="text-right">
                                                     $63,542
-                                                </td>
-                                                <td class="text-right">
-                                                    $36,738
                                                 </td>
                                             </tr>
                                         </tbody>
