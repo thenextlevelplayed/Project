@@ -67,12 +67,13 @@ class BackendController extends Controller
 
     }
     
-    public function editDelivery (Request $request) {
+    public function deliveryInfoEdit (Request $request) {
         //edit delivery
         $var1 = $request->input('var1');
         $var2 = $request->input('var2');
         
         // (...) do something with $var1 and $var2
+        return view('delivery.deliveryInfoEdit');
     }
 
     function receipt(){
