@@ -1,0 +1,19 @@
+/* .div { */
+    /* display :flex; */
+/* } */
+
+
+.goods{
+    /* border: 1px solid black; */
+}
+
+.table-responsive {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+body > div > div.main-panel > div.content > div > div > div > div > div.customerInfo > div:nth-child(n) > div{
+    font-size: medium;
+    margin-left: 10% !important;
+
+}
