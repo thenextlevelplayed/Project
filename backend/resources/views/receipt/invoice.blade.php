@@ -56,13 +56,13 @@
                             <p>工單管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="/main/delivery">
                             <i class="now-ui-icons shopping_delivery-fast"></i>
                             <p>出貨單管理</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/main/receipt">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>發票管理</p>
@@ -102,7 +102,7 @@
                             </button>
                         </div>
                         <h4>
-                            <a class="navbar-brand" href="/main/quote">出貨單管理</a>
+                            <a class="navbar-brand" href="/main/quote">發票管理</a>
                         </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
+                                <input type="text" value="" class="form-control" placeholder="輸入出貨單號、發票或客戶名稱">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
@@ -137,7 +137,7 @@
                     <div class="col-md-12">
                         <form class="card">
                             <div class="card-header">
-                                <h4 class="card-title text-center"> 凱茂資訊 出貨單明細</h4>
+                                <h4 class="card-title text-center"> 凱茂資訊 開立發票</h4>
                             </div>                            
                             <div class="card-body">
                                 {{-- 客戶資訊 --}}
@@ -146,30 +146,42 @@
                                     </div>
                                     <div  class="row mb-3">
                                         <div class="col-lg-6">
-                                            <fieldset disabled>
-                                                <div class="row mb-1">
-                                                    <div class="col-lg-3"><p>出貨單編號</p></div>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" required>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                            <fieldset disabled>
-                                                <div class="row mb-1">
-                                                    <div class="col-lg-3"><p>客戶名稱</p></div>
-                                                    <div class="col-lg-8">
-                                                        <input type="text" required>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
+                                            
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>出貨日期</p></div>
+                                                <div class="col-lg-3"><p>*統一編號</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                        
+                                        
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>*交易暗語</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>*開立形式</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>發票號碼</p></div>
+                                                <div class="col-lg-3"><p>公司負責人</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司傳真</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>業務負責人</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
@@ -177,19 +189,37 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>收貨地址</p></div>
+                                                <div class="col-lg-3"><p>*公司名稱</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>聯絡人員</p></div>
+                                                <div class="col-lg-3"><p>*交易對象</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>聯絡電話</p></div>
+                                                <div class="col-lg-3"><p>*公司信箱</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司電話</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司地址</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>通訊地址</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
@@ -262,94 +292,19 @@
                                         </div>                                 
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="mb-3">
-                                        <h4>凱茂方案</h4>
-                                    </div>
-                                    <div  class="row mb-3">
-                                        <div class="col-lg-6">
-                                            <div class="row mb-1">
-                                                <div class="col-lg-12">
-                                                    <p>企業方案</p>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <input type="text" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row mb-1">
-                                                <div class="col-lg-3"><p>業務專員</p></div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="" required>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-1">
-                                                <div class="col-lg-3"><p>凱茂信箱</p></div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-primary mr-3" href="/main/delivery/1">
-                            <span>預覽</span>
+                        <a class="btn btn-primary " href="#">
+                            <span>匯入客戶資料</span>
                         </a>
-                        <a class="btn btn-primary" href="/main/delivery">
+                        <a class="btn btn-primary" href="/main/receipt">
                             <span>存檔</span>
                         </a>
                     </div>
-                    <div class="col-md-12 mt-5">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title text-center"> E-mail</h4>
-                            </div>                            
-                            <form class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>收件人</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>主旨</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>收件人信箱</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>內容</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <textarea name="" id="" cols="100" rows="10"></textarea>
-                                    </div>
-                                </div>                                
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-right">
-                        <a class="btn btn-primary" href="">
-                            <span>發送Email和出貨單PDF至客戶信箱</span>
-                        </a>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
