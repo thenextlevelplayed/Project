@@ -31,15 +31,15 @@ class BackendController extends Controller
     }
     function purchase(){
         //進銷存-進貨
-        return view('main.purchase');
+        return view('erp.purchase');
     }
     function sales(){
         //進銷存-銷貨
-        return view('main.sales');
+        return view('erp.sales');
     }
     function stock(){
         //進銷存-庫存
-        return view('main.stock');
+        return view('erp.stock');
     }
 
     function quote(){
