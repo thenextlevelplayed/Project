@@ -25,7 +25,7 @@
                 電話:{$tel} \n
                 電子郵件:{$email} \n
                 詢問內容:{$content} \n  
-        ";
+            ";
             mail($to, $subject, $msg);
 
             //php mysqli 串接資料庫
