@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo-color.png">
+    <link rel="kaimau-icon" sizes="76x76" href="../assets/img/logo-color.png">
     <link rel="icon" type="image/png" href="../assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>訂單管理</title>
@@ -16,6 +16,7 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />   
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <link href="../css/order.css" rel="stylesheet" />
 </head>
 
 
@@ -121,7 +122,7 @@
                             </div>
                         </form>
 
-                        {{-- <div class="dropdown">
+                        <div class="dropdown">
                             <button class="btn btn-primary-outline dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="now-ui-icons users_single-02"></i>
                             </button>
@@ -130,9 +131,9 @@
                               <a class="dropdown-item" href="#">會員OOOO</a><hr/>
                               <a class="dropdown-item" href="#">登出</a>
                             </div>
-                          </div> --}}
+                        </div>
 
-                        <ul class="navbar-nav">
+                        {{-- <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#pablo">
                                     <i class="now-ui-icons users_single-02"></i>
@@ -141,7 +142,7 @@
                                     </p>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </nav>
@@ -177,9 +178,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    KMO20220623001
-                                                </td>
+                                                {{-- {{$d->Oid}} --}}
+                                                <td><a href="/main/order" class="link" style="background:0 ; color:#000000">KMO20220623001</td>
+                                                {{-- {{$d->firstName}} --}}
                                                 <td>
                                                     華碩
                                                 </td>
@@ -189,16 +190,22 @@
                                                 <td>
                                                     KMD20220624001
                                                 </td>
+                                                {{-- {{$d->Did}} --}}
                                                 <td>
                                                     <span class="badge bg-success">
-                                                        已成立工單
+                                                        已成立訂單
                                                     </span> 
                                                 </td>
-                                                <td class="btn btn-link"><a href="/main/orderPDF"></a>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
+                                                <td >
+                                                    <div class="btn-group">
+                                                        {{-- {{ url('/home') }} --}}
+                                                        <a href="/main/orderEdit" class="btn" style="background: 0 ; color:rgb(122, 122, 122)">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                        </svg>
+                                                        </a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -216,14 +223,14 @@
                                                 </td>
                                                 <td>
                                                     <span class="badge bg-success">
-                                                        已成立工單
+                                                        已成立訂單
                                                     </span> 
                                                 </td>
                                                 <td class="btn btn-link">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
+                                                    </svg>
                                                 </td>
                                             </tr>
                                             <tr>
