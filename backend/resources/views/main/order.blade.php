@@ -275,7 +275,7 @@
                                                 <td></td>
                                                 <td>
                                                     <span class="badge bg-danger">
-                                                        未成立訂單
+                                                        已取消訂單
                                                     </span> 
                                                 </td>
                                                 <td class="btn btn-link">
