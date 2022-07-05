@@ -41,6 +41,7 @@ Route::get('/main/erp', "App\Http\Controllers\BackendController@erp");
 
 //報價
 Route::get('/main/quote', "App\Http\Controllers\BackendController@quote");
+Route::get('/main/quotePDF', "App\Http\Controllers\BackendController@quotePDF");
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\BackendController@order");
@@ -50,9 +51,16 @@ Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufact
 
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
+Route::get('/main/delivery/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfo");
 
-//發票receipt
+
+//發票
 Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
+
+//客戶管理
+Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
+
+
 
 
 

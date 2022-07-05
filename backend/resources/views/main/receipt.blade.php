@@ -16,7 +16,7 @@
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link href="../css/delivery.css" rel="stylesheet" />
+    <link href="../css/receipt.css" rel="stylesheet" />
 
 </head>
 
@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li >
-                        <a href="">
+                        <a href="/main/customer">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>客戶管理</p>
                         </a>
@@ -185,7 +185,7 @@
                                         <tbody>
                                             <tr>
                                                 {{-- {{$d->firstName}} --}}
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 {{-- {{$d->firstName}} --}}
                                                 <td>華碩</td>
                                                 <td>KMY878787</td>
@@ -197,10 +197,11 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未開立發票</td>
+                                                <td><span class="badge bg-danger">發票未開</span> </td>
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                {{-- {{$d->firstName}} --}}
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>華碩</td>
                                                 <td>KMY878787</td>
                                                 <td >
@@ -211,10 +212,10 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-warning text-right">未開立發票</td>
+                                                <td><span class="badge bg-danger">發票未開</span> </td>
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>華碩</td>
                                                 <td>KMY878787</td>
                                                  <td >
@@ -225,10 +226,10 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已開立發票</td>
+                                                <td><span class="badge bg-success">發票已開立</span> </td>
                                             </tr>
                                             <tr>
-                                                <td>KMD20220623001</td>
+                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>iSpan</td>
                                                 <td>KMY878787</td>
                                                  <td >
@@ -239,7 +240,7 @@
                                                         </a>
                                                       </div>
                                                 </td>
-                                                <td class="btn btn-success text-right">已開立發票</td>
+                                                <td><span class="badge bg-success">發票已開立</span> </td>
                                             </tr>
                                         </tbody>
                                     </table>
