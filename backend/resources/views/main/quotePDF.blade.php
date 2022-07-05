@@ -135,79 +135,148 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
+                        <form class="card">
                             <div class="card-header">
                                 <h4 class="card-title text-center"> 凱茂資訊 報價單</h4>
                             </div>                            
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="text-primary">
-                                            <th>
-                                                報價單編號
-                                            </th>
-                                            <th>
-                                                客戶名稱
-                                            </th>
-                                            <th>
-                                                訂單編號
-                                            </th>
-                                            <th>
-                                                狀態
-                                            </th>
-                                            <th>
-                                                編輯
-                                            </th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    KMQ20220623001
-                                                </td>
-                                                <td>
-                                                    華碩
-                                                </td>
-                                                <td>
-                                                    KMO20220624001
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">
-                                                        已成立訂單
-                                                    </span> 
-                                                </td>
-                                                <td class="btn btn-link">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    KMQ20220624001
-                                                </td>
-                                                <td>
-                                                    Dell
-                                                </td>
-                                                <td></td>
-                                                <td>
-                                                    <span class="badge bg-danger">
-                                                        未成立訂單
-                                                    </span> 
-                                                </td>
-                                                <td class="btn btn-link">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                      </svg>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div  class="mb-3">
+                                        <h5>客戶資訊</h5>
+                                    </div>
+                                    <div  class="row mb-3">
+                                        <div class="col-lg-6">
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>報價單編號</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司名稱</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司統編</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>報價日期</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>聯絡人</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>聯絡電話</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
                                 </div>
-
+                                <div class="row mb-3">
+                                    <div class="col-lg-12">
+                                        <h5>報價明細</h5>
+                                    </div>
+                                    <div class="col-lg-12"> 
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        <th scope="col">商品名稱</th>
+                                                        <th scope="col">商品編號</th>
+                                                        <th scope="col">數量</th>
+                                                        <th scope="col">單價</th>
+                                                        <th scope="col">小計</th>
+                                                        <th scope="col">備註</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                        <td> <input type="text" class="form-control" required></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table> 
+                                        </div>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-2"><p>總計</p></div>
+                                            <div class="col-lg-5">
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>                                 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mb-3">
+                                        <h4>凱茂方案</h4>
+                                    </div>
+                                    <div  class="row mb-3">
+                                        <div class="col-lg-6">
+                                            <div class="row mb-1">
+                                                <div class="col-lg-12">
+                                                    <p>企業方案</p>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>業務專員</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>凱茂信箱</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <div class="col-md-12 text-right">
                         <a class="btn btn-primary mr-3" href="">
@@ -222,9 +291,40 @@
                             <div class="card-header">
                                 <h4 class="card-title text-center"> E-mail</h4>
                             </div>                            
-                            <div class="card-body">
-                                <textarea name="" id="" cols="100" rows="10"></textarea>
-                            </div>
+                            <form class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-lg-2">
+                                        <p>收件人</p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-2">
+                                        <p>主旨</p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-2">
+                                        <p>收件人信箱</p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-2">
+                                        <p>內容</p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <textarea name="" id="" cols="100" rows="10"></textarea>
+                                    </div>
+                                </div>                                
+                            </form>
                         </div>
                     </div>
                     <div class="col-md-12 text-right">
@@ -240,7 +340,8 @@
                 </div>
             </div>
         </div>
-    </div>
+        
+    </div>    
 </body>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.min.js"></script>
