@@ -232,6 +232,9 @@
                     </div>
                     <div class="col-md-12 text-right">
                         <a class="btn btn-primary" href="/main/customer">
+                            <span>返回</span>
+                        </a>
+                        <a class="btn btn-primary" href="/main/customer">
                             <span>存檔</span>
                         </a>
                     </div>

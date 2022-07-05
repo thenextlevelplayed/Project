@@ -296,6 +296,9 @@
                         </form>
                     </div>
                     <div class="col-md-12 text-right">
+                        <a class="btn btn-primary " href="/main/receipt">
+                            <span>返回</span>
+                        </a>
                         <a class="btn btn-primary " href="#">
                             <span>匯入客戶資料</span>
                         </a>

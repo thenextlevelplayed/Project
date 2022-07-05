@@ -16,6 +16,8 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />   
     <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="/assets/demo/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/deliveryInfoEdit.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 
 
@@ -194,6 +196,26 @@
                                                     <input type="text" class="" required>
                                                 </div>
                                             </div>
+                                            {{-- <div class="form-check col-lg-4">
+                                                <input class="form-check-input col-lg-3" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label " for="flexRadioDefault1">
+                                                  已出貨
+                                                </label>
+                                            </div>
+                                            <div class="form-check col-lg-4">
+                                                <input class="form-check-input col-lg-3" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                <label class="form-check-label " for="flexRadioDefault2">
+                                                  未出貨
+                                                </label>
+                                            </div> --}}
+                                            <div class="form-check form-check-inline col-lg-3">
+                                                <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">已出貨</label>
+                                            </div>
+                                            <div class="form-check form-check-inline col-lg-3">
+                                                <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">未出貨</label>
+                                            </div>
                                         </div>
                                     </div>                                    
                                 </div>
@@ -297,14 +319,18 @@
                         </form>
                     </div>
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-primary mr-3" href="/main/delivery/1">
+                        <a class="btn btn-primary " href="/main/delivery">
+                            <span>返回</span>
+                        </a>
+                        <a class="btn btn-primary " href="/main/delivery/1">
                             <span>預覽</span>
                         </a>
                         <a class="btn btn-primary" href="/main/delivery">
                             <span>存檔</span>
                         </a>
+
                     </div>
-                    <div class="col-md-12 mt-5">
+                    {{-- <div class="col-md-12 mt-5">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title text-center"> E-mail</h4>
@@ -349,7 +375,7 @@
                         <a class="btn btn-primary" href="">
                             <span>發送Email和出貨單PDF至客戶信箱</span>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

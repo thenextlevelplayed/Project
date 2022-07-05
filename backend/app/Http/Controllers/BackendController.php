@@ -159,10 +159,12 @@ class BackendController extends Controller
         return view('customer.customerInfo');
     }
 
-    function customerStore(){
+    function customerStore(Request $request){
         
-        //客戶
-        return view('main.customerAdd');
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 
 

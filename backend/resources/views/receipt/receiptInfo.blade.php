@@ -16,6 +16,8 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />   
     <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="/assets/demo/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/receiptInfo.css">
+    
 </head>
 
 
@@ -187,6 +189,14 @@
                                                     </div>
                                                 </div>
                                             </fieldset>
+                                            <div class="form-check form-check-inline col-lg-3">
+                                                <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">發票已開立</label>
+                                            </div>
+                                            <div class="form-check form-check-inline col-lg-3">
+                                                <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">發票未開立</label>
+                                            </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <fieldset disabled>
@@ -299,12 +309,17 @@
                         </form>
                     </div>
                     <div class="col-md-12 text-right">
+                        <a class="btn btn-primary " href="/main/receipt">
+                            <span>返回</span>
+                        </a>
                         <a class="btn btn-primary" href="#政府API">
                             <span>開立發票</span>
                         </a>
                         <a class="btn btn-primary" href="#匯出PDF">
                             <span>匯出發票PDF</span>
                         </a>
+
+  
                     </div>
                     <div class="col-md-12 mt-5">
                         <div class="card">
