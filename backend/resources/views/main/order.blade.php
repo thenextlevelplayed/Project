@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo-color.png">
+    <link rel="icon" type="image/png" href="../assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>訂單管理</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -40,37 +40,37 @@
                     </li>
                     <li>
                         <a href="/main/quote">
-                            <i class="now-ui-icons education_atom"></i>
+                            <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="/main/order">
-                            <i class="now-ui-icons location_map-big"></i>
+                            <i class="now-ui-icons education_paper"></i>
                             <p>訂單管理</p>
                         </a>
                     </li>
                     <li>
                         <a href="/main/manufacture">
-                            <i class="now-ui-icons ui-1_bell-53"></i>
+                            <i class="now-ui-icons ui-2_settings-90"></i>
                             <p>工單管理</p>
                         </a>
                     </li>
                     <li>
                         <a href="/main/delivery">
-                            <i class="now-ui-icons users_single-02"></i>
+                            <i class="now-ui-icons shopping_delivery-fast"></i>
                             <p>出貨單管理</p>
                         </a>
                     </li>
                     <li>
                         <a href="/main/receipt">
-                            <i class="now-ui-icons users_single-02"></i>
+                            <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>發票管理</p>
                         </a>
                     </li>
                     <li >
                         <a href="/main/customer">
-                            <i class="now-ui-icons design_bullet-list-67"></i>
+                            <i class="now-ui-icons users_circle-08"></i>
                             <p>客戶管理</p>
                         </a>
                     </li>
@@ -82,7 +82,7 @@
                     </li>
                     <li class="active-pro">
                         <a href="">
-                            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                            <i class="now-ui-icons business_badge"></i>
                             <p>員工基本資料</p>
                         </a>
                     </li>
