@@ -19,7 +19,7 @@
     <link href="../css/order.css" rel="stylesheet" />
 </head>
 
-
+<!-- 側欄目錄 -->
 <body class="">
     <div class="wrapper ">
         <div class="sidebar" data-color="orange">
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar -->
+            <!-- 上方Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -121,12 +121,12 @@
                                 </span>
                             </div>
                         </form>
-
-                        <div class="dropdown">
-                            <button class="btn btn-primary-outline dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- 會員頭像 -->
+                        <div class="dropdown ">
+                            <button class="btn btn-primary-outline dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="now-ui-icons users_single-02"></i>
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                               <a class="dropdown-item" href="#">會員資訊</a><hr/>
                               <a class="dropdown-item" href="#">會員OOOO</a><hr/>
                               <a class="dropdown-item" href="#">登出</a>
