@@ -29,6 +29,18 @@ class BackendController extends Controller
         //進銷存
         return view('main.erp');
     }
+    function purchase(){
+        //進銷存-進貨
+        return view('erp.purchase');
+    }
+    function sales(){
+        //進銷存-銷貨
+        return view('erp.sales');
+    }
+    function stock(){
+        //進銷存-庫存
+        return view('erp.stock');
+    }
 
     function quote(){
         //報價
@@ -58,7 +70,7 @@ class BackendController extends Controller
 
     function deliveryInfo($deliveryId){
         
-        //出貨
+        //檢視出貨
         // $d = Employee::find($deliveryId);
         // $d->all();
         // $employeeDetails = Employee::all();
@@ -76,16 +88,83 @@ class BackendController extends Controller
         return view('delivery.deliveryInfoEdit');
     }
 
-    function receipt(){
+    public function deliveryInfoUpdate (Request $request) {
+        //edit delivery
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
         
+        // (...) do something with $var1 and $var2
+        return view('delivery.deliveryInfoEdit');
+    }
+
+    function receipt(){
         //發票
         return view('main.receipt');
     }
 
+    function receiptInfo($deliveryId){
+        //檢視發票
+        return view('receipt.receiptInfo');
+    }
+
+    function receiptInforEdit(Request $request){
+        //編輯發票
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('receipt.invoice');
+    }
+
+    function receiptInforUpdate(Request $request){
+        //更新發票內容
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('receipt.invoice');
+    }
+
+
+    function invoiceSomeone(Request $request){
+        //開立發票
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('receipt.invoice');
+    }
+
+    
+    
     function customer(){
         
         //客戶
         return view('main.customer');
+    }
+
+    function customerInfo($customerId){
+        
+        //檢視客戶
+        return view('customer.customerInfo');
+    }
+
+    function customerInfoEdit(Request $request){
+        
+        //編輯客戶
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerEdit');
+    }
+
+    function customerUpdate(Request $request){
+        
+        //更新客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerInfo');
+    }
+
+    function customerStore(Request $request){
+        
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 
 
