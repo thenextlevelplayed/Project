@@ -69,7 +69,7 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="">
+                        <a href="/main/customer">
                             <i class="now-ui-icons users_circle-08"></i>
                             <p>客戶管理</p>
                         </a>
