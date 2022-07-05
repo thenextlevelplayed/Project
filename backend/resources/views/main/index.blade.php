@@ -21,7 +21,7 @@
         <div class="container">
             <h1> 凱茂資訊</h1>
             <div class="row row1">
-                <a class="col m-1 " href="/main/erp">
+                <a class="col m-1 " href="/main/purchase">
                     <p>0</p>
                     <p>進銷存管理</p>
                 </a>

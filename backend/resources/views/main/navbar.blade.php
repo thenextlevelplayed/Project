@@ -36,31 +36,43 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li 
-                        {{-- 判斷 Route 給 active --}}
-                        <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/erp'){
-                                echo  "class='active'";
-                            }
-                        ?>
-                    >
+                    <li>
                         <a id="test">
                             <i class="now-ui-icons design_app" style="pointer-events: none;"></i>
                             <p>進銷存管理</p>
                         </a>
                     </li>
-                    <ul id="testNav" class="text-center" style="display:none ; list-style-type:none;">
-                        <li>
+                    <ul id="testNav" class="text-center" style="list-style-type:none;" >
+                        {{-- 判斷 Route 給 active --}}
+                        <li 
+                            <?php
+                                if($_SERVER['REQUEST_URI'] == '/main/purchase'){
+                                    echo  "class='active'";
+                                }
+                            ?>
+                        >
                             <a href="/main/purchase">
                                 <p>進貨管理</p>
                             </a>
                         </li>
-                        <li>
+                        <li 
+                            <?php
+                                if($_SERVER['REQUEST_URI'] == '/main/sales'){
+                                    echo  "class='active'";
+                                }
+                            ?>
+                        >
                             <a href="/main/sales">
                                 <p>銷貨管理</p>
                             </a>
                         </li>
-                        <li>
+                        <li 
+                            <?php
+                                if($_SERVER['REQUEST_URI'] == '/main/stock'){
+                                    echo  "class='active'";
+                                }
+                            ?>
+                        >
                             <a href="/main/stock">
                                 <p>庫存管理</p>
                             </a>
@@ -227,6 +239,19 @@
         // console.log('ok');
         $('#testNav').toggle('normal');
     })
+
+
+    //進銷存, 控制 display 收合
+    $path = $(location).attr('pathname');
+    if($path == '/main/purchase' || $path == '/main/sales' || $path == '/main/stock'){
+        console.log($(location).attr('pathname'))
+        $('#testNav').css('display','normal');
+    }else{
+        $('#testNav').css('display','none');
+    }
+
+
+
 </script>
 
 
