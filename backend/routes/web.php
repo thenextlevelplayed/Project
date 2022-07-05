@@ -55,6 +55,10 @@ Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufact
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
 Route::get('/main/delivery/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfo");
+Route::get('/main/delivery/{deliveryId}/edit', "App\Http\Controllers\BackendController@deliveryInfoEdit");
+Route::post('/main/delivery/{deliveryId}/edit', "App\Http\Controllers\BackendController@deliveryInfo");
+
+
 
 
 //發票

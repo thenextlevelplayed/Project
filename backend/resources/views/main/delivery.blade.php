@@ -182,13 +182,13 @@
                                         <tbody>
                                             <tr>
                                                 {{-- {{$d->firstName}} --}}
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                                <td><a href="/main/delivery/1" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 {{-- {{$d->firstName}} --}}
                                                 <td>華碩</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/delivery/1/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
@@ -197,12 +197,12 @@
                                             
                                             </tr>
                                             <tr>
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                                <td><a href="/main/delivery/1" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>華碩</td>
                                                 <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/delivery/1/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
@@ -210,12 +210,12 @@
                                                 <td><span class="badge bg-danger">未出貨</span> </td>
                                             </tr>
                                             <tr>
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                                <td><a href="/main/delivery/1" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>華碩</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/delivery/1/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
@@ -223,12 +223,12 @@
                                                 <td><span class="badge bg-success">已出貨</span> </td>
                                             </tr>
                                             <tr>
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                                <td><a href="/main/delivery/1" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
                                                 <td>iSpan</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/delivery/1/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
