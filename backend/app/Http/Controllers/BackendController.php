@@ -46,9 +46,9 @@ class BackendController extends Controller
         return view('erp.stock');
     }
 
-    function quote(){
+    function quotation(){
         //報價
-        return view('main.quote');
+        return view('main.quotation');
     }
     function quotePDF(){
         //報價

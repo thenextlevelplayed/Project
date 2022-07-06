@@ -25,7 +25,7 @@
                     <p>0</p>
                     <p>進銷存管理</p>
                 </a>
-                <a class="col m-1 " href="/main/quote">
+                <a class="col m-1 " href="/main/quotation">
                     <p>1</p>
                     <p>報價</p>
                 </a>
