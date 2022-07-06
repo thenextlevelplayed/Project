@@ -166,10 +166,12 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h4>
-                            {{-- 藍藍navbar title --}}
+
+                        {{-- 藍藍navbar title --}}
+                        @yield('navTitle')
+                        {{-- <h4>    
                             <a class="navbar-brand" href="/main/quote">報價單管理</a>
-                        </h4>
+                        </h4> --}}
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -181,7 +183,9 @@
                         <form>
                             <div class="input-group no-border">
                                 {{-- 搜尋列 --}}
-                                <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱">
+                                @yield('searchBox')
+                                {{-- <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱"> --}}
+                                
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
