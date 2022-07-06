@@ -59,7 +59,9 @@
                                     <label for="exampleFormControlTextarea1">Example textarea</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                                 </div>
-
+                            </div>
+                            <div class="col-md-12 card-title text-center">
+                                <h4>工單商品內容</h4>
                             </div>
                         </div>
 

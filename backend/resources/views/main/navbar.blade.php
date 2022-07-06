@@ -53,7 +53,7 @@
                             ?>
                         >
                             <a href="/main/purchase">
-                                <p>進貨管理</p>
+                                <p>• 進貨管理</p>
                             </a>
                         </li>
                         <li 
@@ -64,7 +64,7 @@
                             ?>
                         >
                             <a href="/main/sales">
-                                <p>銷貨管理</p>
+                                <p>• 銷貨管理</p>
                             </a>
                         </li>
                         <li 
@@ -75,7 +75,7 @@
                             ?>
                         >
                             <a href="/main/stock">
-                                <p>庫存管理</p>
+                                <p>• 庫存管理</p>
                             </a>
                         </li>
                     </ul>
