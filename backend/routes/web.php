@@ -49,35 +49,38 @@ Route::get('/main/quotePDF', "App\Http\Controllers\BackendController@quotePDF");
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\BackendController@order");
-Route::get('/main/order/{orderId}/edit', "App\Http\Controllers\BackendController@orderEdit"); //編輯
+Route::get('/main/order/{orderId}', "App\Http\Controllers\BackendController@orderInfo");  //檢視
+Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\BackendController@orderEdit"); //編輯
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
+Route::get('main/manufacture/edit/', "App\Http\Controllers\BackendController@manufactureEdit");
 
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
-Route::get('/main/delivery/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfo");  //檢視
-Route::get('/main/delivery/{deliveryId}/edit', "App\Http\Controllers\BackendController@deliveryInfoEdit"); //編輯
-Route::put('/main/delivery/{deliveryId}/edit', "App\Http\Controllers\BackendController@deliveryInfoUpdate"); //編輯
+Route::get('/delivery/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfo");  //檢視
+Route::get('/delivery/edit/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfoEdit"); //編輯
+Route::put('/delivery/edit/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfoUpdate"); //編輯
 
 
 
 
 //發票
 Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
-Route::get('/main/receipt/{deliveryId}', "App\Http\Controllers\BackendController@receiptInfo");//檢視
-Route::get('/main/receipt/{deliveryId}/edit', "App\Http\Controllers\BackendController@receiptInforEdit"); //編輯
-Route::put('/main/receipt/{deliveryId}/edit', "App\Http\Controllers\BackendController@receiptInforUpdate"); //編輯表單
-Route::post('/main/receipt/create', "App\Http\Controllers\BackendController@invoiceSomeone"); //開立發票
+Route::get('/receipt/{deliveryId}', "App\Http\Controllers\BackendController@receiptInfo");//檢視表單
+Route::get('/receipt/edit/{deliveryId}', "App\Http\Controllers\BackendController@receiptInforEdit"); //編輯表單
+Route::put('/receipt/edit/{deliveryId}', "App\Http\Controllers\BackendController@receiptInforUpdate"); //更新表單
+Route::post('/receipt/create', "App\Http\Controllers\BackendController@invoiceSomeone"); //開立發票
 
 
 
 //客戶管理
 Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
-Route::get('/main/customer/{customerId}', "App\Http\Controllers\BackendController@customerInfo");//檢視
-Route::get('/main/customer/{customerId}/edit', "App\Http\Controllers\BackendController@customerInfoEdit");//編輯
-Route::put('/main/customer/{customerId}/edit', "App\Http\Controllers\BackendController@customerUpdate");//編輯表單
-Route::post('/main/customer/create', "App\Http\Controllers\BackendController@customerStore");//新增
+Route::get('/customer/{customerId}', "App\Http\Controllers\BackendController@customerInfo");//檢視表單
+Route::get('/customer/edit/{customerId}', "App\Http\Controllers\BackendController@customerInfoEdit");//編輯表單
+Route::put('/customer/edit/{customerId}', "App\Http\Controllers\BackendController@customerUpdate");//更新表單
+Route::get('/customer/create', "App\Http\Controllers\BackendController@customerAdd");//檢視表單
+Route::post('/customer/create', "App\Http\Controllers\BackendController@customerStore");//新增表單
 
 
 
