@@ -159,7 +159,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    KMQ20220623001
+                                                    <a href="/main/quotation/1">KMQ20220623001</a>                                                    
                                                 </td>
                                                 <td>
                                                     華碩

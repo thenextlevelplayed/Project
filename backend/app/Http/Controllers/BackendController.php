@@ -54,6 +54,14 @@ class BackendController extends Controller
         //報價
         return view('quotation.quotationCreate');
     }
+    function quotationInfo(){
+        //報價資訊
+        return view('quotation.quotationInfo');
+    }
+    function quotationEdit(){
+        //報價編輯
+        return view('quotation.quotationEdit');
+    }
 
 
     function order(){
