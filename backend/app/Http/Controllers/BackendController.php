@@ -73,6 +73,10 @@ class BackendController extends Controller
         //製造
         return view('main.manufacture');
     }
+    function manufactureEdit(){
+        //製造
+        return view('manufacture.manufactureEdit');
+    }
 
     function delivery(){
         
@@ -169,6 +173,14 @@ class BackendController extends Controller
         $var1 = $request->input('var1');
         $var2 = $request->input('var2');
         return view('customer.customerInfo');
+    }
+
+    function customerAdd(Request $request){
+        
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 
     function customerStore(Request $request){
