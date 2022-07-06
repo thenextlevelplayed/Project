@@ -56,8 +56,8 @@
                             </div>
                             <div class="row m-3">
                                 <div class="col-md-12">
-                                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                    <label for="exampleFormControlTextarea1">工單備註</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12 card-title text-center">
