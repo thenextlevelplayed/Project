@@ -27,31 +27,31 @@
                             <div class="row m-3">
                                 <div class="col-md-6">
                                     <label for="validationCustom01">工單編號</label>
-                                    <input class="form-control" type="text" placeholder="工單編號" disabled>
+                                    <input class="form-control" type="text" placeholder="工單編號" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom01">客戶聯絡人</label>
-                                    <input class="form-control" type="text" placeholder="工單編號" disabled>
+                                    <input class="form-control" type="text" placeholder="工單編號" readonly>
                                 </div>
                             </div>
                             <div class="row m-3">
                                 <div class="col-md-6">
                                     <label for="validationCustom01">客戶名稱</label>
-                                    <input class="form-control" type="text" placeholder="工單編號" disabled>
+                                    <input class="form-control" type="text" placeholder="工單編號" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom01">客戶信箱</label>
-                                    <input class="form-control" type="text" placeholder="工單編號" disabled>
+                                    <input class="form-control" type="text" placeholder="工單編號" readonly>
                                 </div>
                             </div>
                             <div class="row m-3">
                                 <div class="col-md-6">
                                     <label for="validationCustom01">客戶統編</label>
-                                    <input class="form-control" type="text" placeholder="工單編號" disabled>
+                                    <input class="form-control" type="text" placeholder="工單編號" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom01">工單成立日期</label>
-                                    <input class="form-control" type="text" placeholder="工單編號" disabled>
+                                    <input class="form-control" type="text" placeholder="工單編號" readonly>
                                 </div>
                             </div>
                             <div class="row m-3">
