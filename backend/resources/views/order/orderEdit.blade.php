@@ -184,7 +184,7 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/main/order">
+                <a class="btn btn-primary mr-3" href="/main/order">
                     <span>返回</span>
                 </a>
                 <a class="btn btn-primary mr-3" href="">
