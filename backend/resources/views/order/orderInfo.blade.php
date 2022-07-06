@@ -81,12 +81,12 @@
                             <p>前台消息管理</p>
                         </a>
                     </li>
-                    <li class="active-pro">
+                    {{-- <li class="active-pro">
                         <a href="">
                             <i class="now-ui-icons arrows-1_cloud-download-93"></i>
                             <p>員工基本資料</p>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -295,12 +295,15 @@
                                             <div class="col-md-2 text-center goods">00000000000</div>
                                         </div>
                                         <br />
-                                        <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
+                                        <br />
                                         <br />
                                         <br />
                                         <div class=" row justify-content-end">
                                             <div class="col-md-4 text-center goods">收貨人簽章:   ___________________</div>
                                         </div>
+                                        <br />
+                                        <br />
+                                        <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
                                     </div>
                                 </div>
                             </div>
