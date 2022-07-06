@@ -178,11 +178,11 @@
                                                 
                                                 
                                                 {{-- {{$d->firstName}} --}}
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">APPLE</td>
+                                                <td><a href="/main/customer/{customerId}" class="btn" style="background: 0 ; color:black">APPLE</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/customer/{customerId}/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
@@ -190,33 +190,33 @@
                                             </tr>
                                             <tr>
                                                 {{-- {{$d->firstName}} --}}
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ACER</td>
+                                                <td><a href="/main/customer/{customerId}" class="btn" style="background: 0 ; color:black">ACER</td>
                                                 <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/customer/{customerId}/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
                                                 </td>
                                             </tr>
                                             <tr>                                                
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ASUS</td>
+                                                <td><a href="/main/customer/{customerId}" class="btn" style="background: 0 ; color:black">ASUS</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/customer/{customerId}/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
                                                 </td>
                                             </tr>
                                             <tr>                                                
-                                                <td><a href="#" class="btn" style="background: 0 ; color:black">ispan</td>
+                                                <td><a href="/main/customer/{customerId}" class="btn" style="background: 0 ; color:black">ispan</td>
                                                  <td >
                                                     <div class="btn-group">
                                                         {{-- {{ url('/home') }} --}}
-                                                        <a href="#" class="btn" style="background: 0 ; color:black">
+                                                        <a href="/main/customer/{customerId}/edit" class="btn" style="background: 0 ; color:black">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                                         </a>
                                                       </div>
@@ -224,6 +224,12 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div class="text-right mr-5 mb-3">
+                                        <a class="btn btn-primary" href="/main/customer/create">
+                                            <i class="now-ui-icons files_single-copy-04"></i>
+                                            <span>新增客戶資料</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

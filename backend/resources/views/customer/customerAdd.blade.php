@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="kaimau-icon" sizes="76x76" href="../assets/img/logo-color.png">
-    <link rel="icon" type="image/png" href="../assets/img/logo-color.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>報價單內容</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -13,9 +13,9 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     
     <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />   
-    <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />   
+    <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 
@@ -38,7 +38,7 @@
                             <p>進銷存管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/quote">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
@@ -56,7 +56,7 @@
                             <p>工單管理</p>
                         </a>
                     </li>
-                    <li>
+                    <li >
                         <a href="/main/delivery">
                             <i class="now-ui-icons shopping_delivery-fast"></i>
                             <p>出貨單管理</p>
@@ -68,8 +68,8 @@
                             <p>發票管理</p>
                         </a>
                     </li>
-                    <li >
-                        <a href="">
+                    <li class="active">
+                        <a href="/main/customer">
                             <i class="now-ui-icons users_circle-08"></i>
                             <p>客戶管理</p>
                         </a>
@@ -102,7 +102,7 @@
                             </button>
                         </div>
                         <h4>
-                            <a class="navbar-brand" href="/main/quote">報價單管理</a>
+                            <a class="navbar-brand" href="/main/quote">客戶管理</a>
                         </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱">
+                                <input type="text" value="" class="form-control" placeholder="輸入客戶名稱">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
@@ -137,49 +137,89 @@
                     <div class="col-md-12">
                         <form class="card">
                             <div class="card-header">
-                                <h4 class="card-title text-center"> 凱茂資訊 報價單</h4>
+                                <h4 class="card-title text-center"> 凱茂資訊 客戶資訊</h4>
                             </div>                            
                             <div class="card-body">
+                                {{-- 客戶資訊 --}}
                                 <div class="table-responsive">
                                     <div  class="mb-3">
-                                        <h5>客戶資訊</h5>
                                     </div>
                                     <div  class="row mb-3">
                                         <div class="col-lg-6">
+                                            
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>報價單編號</p></div>
+                                                <div class="col-lg-3"><p>*統一編號</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                        
+                                        
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>*交易暗語</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" required>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>*開立形式</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>公司名稱</p></div>
+                                                <div class="col-lg-3"><p>公司負責人</p></div>
                                                 <div class="col-lg-8">
-                                                    <input type="text" required>
+                                                    <input type="text" class="" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>公司統編</p></div>
+                                                <div class="col-lg-3"><p>公司傳真</p></div>
                                                 <div class="col-lg-8">
-                                                    <input type="text" required>
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>業務負責人</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>報價日期</p></div>
+                                                <div class="col-lg-3"><p>*公司名稱</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>聯絡人</p></div>
+                                                <div class="col-lg-3"><p>*交易對象</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>聯絡電話</p></div>
+                                                <div class="col-lg-3"><p>*公司信箱</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司電話</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>公司地址</p></div>
+                                                <div class="col-lg-8">
+                                                    <input type="text" class="" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-lg-3"><p>通訊地址</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
@@ -187,156 +227,19 @@
                                         </div>
                                     </div>                                    
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-12">
-                                        <h5>報價明細</h5>
-                                    </div>
-                                    <div class="col-lg-12"> 
-                                        <div>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col"></th>
-                                                        <th scope="col">商品名稱</th>
-                                                        <th scope="col">商品編號</th>
-                                                        <th scope="col">數量</th>
-                                                        <th scope="col">單價</th>
-                                                        <th scope="col">小計</th>
-                                                        <th scope="col">備註</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                        <td> <input type="text" class="form-control" required></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table> 
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-2"><p>總計</p></div>
-                                            <div class="col-lg-5">
-                                                <input type="text" class="form-control" required>
-                                            </div>
-                                        </div>                                 
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="mb-3">
-                                        <h4>凱茂方案</h4>
-                                    </div>
-                                    <div  class="row mb-3">
-                                        <div class="col-lg-6">
-                                            <div class="row mb-1">
-                                                <div class="col-lg-12">
-                                                    <p>企業方案</p>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <input type="text" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row mb-1">
-                                                <div class="col-lg-3"><p>業務專員</p></div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="" required>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-1">
-                                                <div class="col-lg-3"><p>凱茂信箱</p></div>
-                                                <div class="col-lg-8">
-                                                    <input type="text" class="" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-primary mr-3" href="">
-                            <span>預覽</span>
+                        <a class="btn btn-primary " href="#">
+                            <span>匯入客戶資料</span>
                         </a>
-                        <a class="btn btn-primary" href="">
+                        <a class="btn btn-primary" href="/main/receipt">
                             <span>存檔</span>
                         </a>
                     </div>
-                    <div class="col-md-12 mt-5">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title text-center"> E-mail</h4>
-                            </div>                            
-                            <form class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>收件人</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>主旨</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>收件人信箱</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-2">
-                                        <p>內容</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <textarea name="" id="" cols="100" rows="10"></textarea>
-                                    </div>
-                                </div>                                
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-right">
-                        <a class="btn btn-primary" href="">
-                            <span>發送Email和報價單PDF至客戶信箱</span>
-                        </a>
-                    </div>
-                    <div class="col-md-12 text-right">
-                        <a class="btn btn-primary" href="">
-                            <span>報價成立，轉為訂單</span>
-                        </a>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>

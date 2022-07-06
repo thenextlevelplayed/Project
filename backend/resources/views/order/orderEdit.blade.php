@@ -6,7 +6,7 @@
     <link rel="kaimau-icon" sizes="76x76" href="../assets/img/logo-color.png">
     <link rel="icon" type="image/png" href="../assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>報價單內容</title>
+    <title>訂單內容</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -16,6 +16,7 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />   
     <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
     <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <link href="../css/orderEdit.css" rel="stylesheet" />
 </head>
 
 
@@ -80,12 +81,12 @@
                             <p>前台消息管理</p>
                         </a>
                     </li>
-                    <li class="active-pro">
+                    {{-- <li class="active-pro">
                         <a href="">
                             <i class="now-ui-icons business_badge"></i>
                             <p>員工基本資料</p>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -102,7 +103,7 @@
                             </button>
                         </div>
                         <h4>
-                            <a class="navbar-brand" href="/main/quote">報價單管理</a>
+                            <a class="navbar-brand" href="/main/quote">訂單管理</a>
                         </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,20 +114,32 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱">
+                                <input type="text" value="" class="form-control" placeholder="輸入訂單編號或客戶名稱">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
                             </div>
                         </form>
-                        <ul class="navbar-nav">
+
+                        <div class="dropdown">
+                            <button class="btn btn-primary-outline dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="now-ui-icons users_single-02"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">會員資訊</a><hr/>
+                              <a class="dropdown-item" href="#">會員OOOO</a><hr/>
+                              <a class="dropdown-item" href="#">登出</a>
+                            </div>
+                        </div>
+
+                        {{-- <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="/member/login">
                                     <span>登入/登出</span>
                                     <i class="now-ui-icons users_single-02"></i>                                   
                                 </a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </nav>
@@ -137,7 +150,7 @@
                     <div class="col-md-12">
                         <form class="card">
                             <div class="card-header">
-                                <h4 class="card-title text-center"> 凱茂資訊 報價單</h4>
+                                <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
                             </div>                            
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -147,7 +160,7 @@
                                     <div  class="row mb-3">
                                         <div class="col-lg-6">
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>報價單編號</p></div>
+                                                <div class="col-lg-3"><p>訂單編號</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" required>
                                                 </div>
@@ -167,7 +180,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="row mb-1">
-                                                <div class="col-lg-3"><p>報價日期</p></div>
+                                                <div class="col-lg-3"><p>建立日期</p></div>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="" required>
                                                 </div>
@@ -189,7 +202,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-lg-12">
-                                        <h5>報價明細</h5>
+                                        <h5>訂單明細</h5>
                                     </div>
                                     <div class="col-lg-12"> 
                                         <div>
@@ -329,12 +342,12 @@
                     </div>
                     <div class="col-md-12 text-right">
                         <a class="btn btn-primary" href="">
-                            <span>發送Email和報價單PDF至客戶信箱</span>
+                            <span>發送Email和訂單PDF至客戶信箱</span>
                         </a>
                     </div>
                     <div class="col-md-12 text-right">
                         <a class="btn btn-primary" href="">
-                            <span>報價成立，轉為訂單</span>
+                            <span>訂單成立，轉為工單</span>
                         </a>
                     </div>
                 </div>
