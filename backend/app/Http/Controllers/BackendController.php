@@ -60,6 +60,10 @@ class BackendController extends Controller
         //訂單
         return view('main.order');
     }
+    function orderInfo(){
+        //訂單管理
+        return view('order.orderInfo');
+    }
     function orderEdit(){
         //訂單管理
         return view('order.orderEdit');
