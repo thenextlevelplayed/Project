@@ -56,6 +56,10 @@ class BackendController extends Controller
         //訂單
         return view('main.order');
     }
+    function orderEdit(){
+        //訂單管理
+        return view('order.orderEdit');
+    }
 
     function manufacture(){
         //製造

@@ -13,10 +13,10 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     
     <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />   
-    <link href="../assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
-    <link href="../css/orderEdit.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />   
+    <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />    
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
+    <link href="/css/orderEdit.css" rel="stylesheet" />
 </head>
 
 
@@ -39,13 +39,13 @@
                             <p>進銷存管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/quote">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/main/order">
                             <i class="now-ui-icons education_paper"></i>
                             <p>訂單管理</p>
@@ -293,6 +293,9 @@
                     </div>
                     <div class="col-md-12 text-right">
                         <a class="btn btn-primary mr-3" href="">
+                            <span>取消訂單</span>
+                        </a>
+                        <a class="btn btn-primary mr-3" href="">
                             <span>預覽</span>
                         </a>
                         <a class="btn btn-primary" href="">
@@ -334,7 +337,7 @@
                                         <p>內容</p>
                                     </div>
                                     <div class="col-lg-5">
-                                        <textarea name="" id="" cols="100" rows="10"></textarea>
+                                        <textarea name="" id="" cols="90" rows="10"></textarea>
                                     </div>
                                 </div>                                
                             </form>
