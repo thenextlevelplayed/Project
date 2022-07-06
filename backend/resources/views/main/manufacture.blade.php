@@ -73,8 +73,8 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i></button>
+                                            <a href = "/main/manufacture/edit/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></a>
                                         </td>
                                         <td>
                                             KMP20220622001
