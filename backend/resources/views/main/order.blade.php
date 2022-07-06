@@ -179,7 +179,7 @@
                                         <tbody>
                                             <tr>
                                                 {{-- {{$d->Oid}} --}}
-                                                <td><a href="/main/order" class="link" style="background:0 ; color:#000000">KMO20220623001</td>
+                                                <td><a href="/main/order/1" class="link" style="background:0 ; color:#000000">KMO20220623001</td>
                                                 {{-- {{$d->firstName}} --}}
                                                 <td>
                                                     華碩
