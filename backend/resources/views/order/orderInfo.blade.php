@@ -24,10 +24,10 @@
     <div class="wrapper ">
         <div class="sidebar" data-color="orange">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                <a href="/main" class="simple-text logo-mini">
                     K
                 </a>
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <a href="/main" class="simple-text logo-normal">
                     凱茂資訊
                 </a>
             </div>
@@ -41,37 +41,37 @@
                     </li>
                     <li>
                         <a href="/main/quote">
-                            <i class="now-ui-icons education_atom"></i>
+                            <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/main/order">
-                            <i class="now-ui-icons location_map-big"></i>
+                            <i class="now-ui-icons education_paper"></i>
                             <p>訂單管理</p>
                         </a>
                     </li>
                     <li>
                         <a href="/main/manufacture">
-                            <i class="now-ui-icons ui-1_bell-53"></i>
+                            <i class="now-ui-icons ui-2_settings-90"></i>
                             <p>工單管理</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/main/delivery">
-                            <i class="now-ui-icons users_single-02"></i>
+                            <i class="now-ui-icons shopping_delivery-fast"></i>
                             <p>出貨單管理</p>
                         </a>
                     </li>
                     <li>
                         <a href="/main/receipt">
-                            <i class="now-ui-icons users_single-02"></i>
+                            <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>發票管理</p>
                         </a>
                     </li>
                     <li >
                         <a href="/main/customer">
-                            <i class="now-ui-icons design_bullet-list-67"></i>
+                            <i class="now-ui-icons users_circle-08"></i>
                             <p>客戶管理</p>
                         </a>
                     </li>
@@ -83,7 +83,8 @@
                     </li>
                     {{-- <li class="active-pro">
                         <a href="">
-                            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                            <i class="now-ui-icons business_badge">
+                            </i>
                             <p>員工基本資料</p>
                         </a>
                     </li> --}}
@@ -91,7 +92,7 @@
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar -->
+            <!-- 上方Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -102,7 +103,9 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">訂單明細</a>
+                        <h4>
+                            <a class="navbar-brand" href="">訂單管理</a>
+                        </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -112,34 +115,25 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱查詢">
+                                <input type="text" value="" class="form-control" placeholder="輸入訂單編號或客戶名稱">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
                             </div>
                         </form>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <i class="now-ui-icons media-2_sound-wave"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Stats</span>
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="now-ui-icons location_world"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">Some Actions</span>
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
+                        <!-- 會員頭像 -->
+                        <div class="dropdown ">
+                            <button class="btn btn-primary-outline dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="now-ui-icons users_single-02"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="#">會員資訊</a><hr/>
+                              <a class="dropdown-item" href="#">會員OOOO</a><hr/>
+                              <a class="dropdown-item" href="#">登出</a>
+                            </div>
+                        </div>
+
+                        {{-- <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#pablo">
                                     <i class="now-ui-icons users_single-02"></i>
@@ -148,7 +142,7 @@
                                     </p>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </nav>
