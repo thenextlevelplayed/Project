@@ -39,6 +39,7 @@ Route::get('/main', "App\Http\Controllers\BackendController@index");
 //進銷存
 Route::get('/main/erp', "App\Http\Controllers\BackendController@erp");
 Route::get('/main/purchase', "App\Http\Controllers\BackendController@purchase");
+Route::get('/main/purchaseCreate', "App\Http\Controllers\BackendController@purchaseCreate");
 Route::get('/main/sales', "App\Http\Controllers\BackendController@sales");
 Route::get('/main/stock', "App\Http\Controllers\BackendController@stock");
 
