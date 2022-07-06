@@ -1,5 +1,5 @@
 {{-- navbar引入 --}}
-@extends('main.navbar')
+@extends('.main.navbar')
 
 {{-- head帶入 --}}
 @section('head')
