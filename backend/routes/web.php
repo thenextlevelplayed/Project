@@ -50,7 +50,7 @@ Route::get('/main/quotePDF', "App\Http\Controllers\BackendController@quotePDF");
 //訂單
 Route::get('/main/order', "App\Http\Controllers\BackendController@order");
 Route::get('/main/order/{orderId}', "App\Http\Controllers\BackendController@orderInfo");  //檢視
-Route::get('/main/order/{orderId}/edit', "App\Http\Controllers\BackendController@orderEdit"); //編輯
+Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\BackendController@orderEdit"); //編輯
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
