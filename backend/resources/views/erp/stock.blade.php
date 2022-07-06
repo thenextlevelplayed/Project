@@ -15,16 +15,22 @@
                             <table class="table">
                                 <thead class="text-primary">
                                     <th>
-                                        報價單編號
+                                        品號
                                     </th>
                                     <th>
-                                        客戶名稱
+                                        品名
                                     </th>
                                     <th>
-                                        訂單編號
+                                        單位
                                     </th>
                                     <th>
-                                        狀態
+                                        庫存數量
+                                    </th>
+                                    <th>
+                                        平均成本
+                                    </th>
+                                    <th>
+                                        庫存成本
                                     </th>
                                     <th>
                                         編輯
@@ -33,18 +39,51 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            KMQ20220623001
+                                            A000001
                                         </td>
                                         <td>
-                                            華碩
+                                            筆記型電腦
                                         </td>
                                         <td>
-                                            KMO20220624001
+                                            台
                                         </td>
                                         <td>
-                                            <span class="badge bg-success">
-                                                已成立訂單
-                                            </span>
+                                            15
+                                        </td>
+                                        <td>
+                                            12,345
+                                        </td>
+                                        <td>
+                                            185,175
+                                        </td>
+                                        <td class="btn btn-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            A000002
+                                        </td>
+                                        <td>
+                                            伺服器
+                                        </td>
+                                        <td>
+                                            台
+                                        </td>
+                                        <td>
+                                            11
+                                        </td>
+                                        <td>
+                                            66,666
+                                        </td>
+                                        <td>
+                                            733,326
                                         </td>
                                         <td class="btn btn-link">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -60,15 +99,23 @@
                             </table>
                         </div>
                     </div>
-                    <div class="text-right mr-5 mb-3">
-                        <a class="btn btn-primary" href="/main/quotePDF">
-                            <i class="now-ui-icons files_single-copy-04"></i>
-                            <span>新增報價單</span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 @endsection
+
+
+{{-- 藍藍navbar title --}}
+@section('navTitle')
+    <h4>
+        <a class="navbar-brand" href="">庫存管理</a>
+    </h4>
+@endsection
+
+{{-- 搜尋框 --}}
+@section('searchBox')
+    <input type="text" value="" class="form-control" placeholder="輸入品號或品名">
+@endsection
+
