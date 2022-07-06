@@ -5,6 +5,7 @@
 @section('head')
 @endsection
 
+{{-- 內容代入 --}}
 @section('content')
     <div class="content">
         <div class="row">
