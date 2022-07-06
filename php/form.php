@@ -35,15 +35,16 @@
             $stmt = $mysqli->prepare($sql);
             $stmt->bind_param('ssssss', $name, $company, $tel, $email, $date, $content);
             $stmt->execute();
-            echo "Created successfully!";
+            // echo "Created successfully!";
             $stmt->close();
             $mysqli->close();
 
-            echo "驗證碼正確,$msg";
+            // echo "驗證碼正確,$msg";
             
             header('Location: http://localhost:3000/html/contact.html');
         } else {
-            echo "驗證碼錯誤";
+            // echo "驗證碼錯誤";
+            header('Location: http://localhost:3000/html/contact.html');
         }
     }
 ?>

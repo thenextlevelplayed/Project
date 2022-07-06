@@ -154,19 +154,16 @@
 
 
         function SubmitForm() {
-            alert("非常感謝您的來信,本公司將儘快回覆，謝謝！");
 
-            // var formData = $("form").serializeArray();
-            // $.ajax({
-            //     type: 'POST',
-            //     url: 'php\form.php',
-            //     data: formData,
-            //     success: function (res) {
-
-            //         alert(res)
-            //         // alert("非常感謝您的來信,本公司將儘快回覆，謝謝！"); // 接回成功後會有回傳值
-            //     }
-            // })
+            var formData = $("form").serializeArray();
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/php/check.php',
+                data: formData,
+                success: function (res) {
+                    alert(res)
+                }
+            })
         }
 
         $(function () {
