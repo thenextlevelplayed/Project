@@ -73,6 +73,10 @@ class BackendController extends Controller
         //製造
         return view('main.manufacture');
     }
+    function manufactureEdit(){
+        //製造
+        return view('manufacture.manufactureEdit');
+    }
 
     function delivery(){
         

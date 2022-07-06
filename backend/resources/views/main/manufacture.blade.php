@@ -2,12 +2,12 @@
 @extends('main.navbar')
 
 {{-- head帶入 --}}
-@section('head')
+@section('main.head')
 @endsection
 
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="/main/quote">工單管理</a>
+        <a class="navbar-brand" href="/main/manufacture">工單管理</a>
     </h4>
 @endsection
 @section('searchBox')
@@ -73,8 +73,8 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i></button>
+                                            <a href = "/main/manufacture/edit/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></a>
                                         </td>
                                         <td>
                                             KMP20220622001
