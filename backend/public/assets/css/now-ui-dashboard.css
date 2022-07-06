@@ -1090,8 +1090,8 @@ fieldset[disabled]
   border-left: 0 none; }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background-color: #E3E3E3;
-  color: #888;
+  background-color: #ebeaea;
+  color: rgb(48, 48, 48);
   cursor: not-allowed; }
 
 .input-group-btn .btn {
@@ -1249,7 +1249,7 @@ p.description {
   text-transform: capitalize;
   font-weight: 400;
   color: #9A9A9A;
-  font-size: 0.7142em; }
+  font-size: 1em; }
 
 .card-category {
   font-size: 1em; }
@@ -1580,7 +1580,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
       padding: 5px 15px; }
   .navbar .navbar-nav .nav-link {
     text-transform: uppercase;
-    font-size: 0.7142em;
+    font-size: 1em;
     padding: 0.5rem 0.7rem;
     line-height: 1.625rem;
     margin-right: 3px; }
@@ -2607,7 +2607,8 @@ Created using IcoMoon - icomoon.io
       position: relative;
       text-transform: uppercase;
       cursor: pointer;
-      font-size: 0.7142em;
+      /* navbar字的大小 */
+      font-size: 1.1em;
       padding: 10px 8px;
       line-height: 1.625rem; }
     .sidebar .nav li:first-child > a,
