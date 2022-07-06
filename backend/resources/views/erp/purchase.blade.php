@@ -79,3 +79,15 @@
     </div>
 
 @endsection
+
+{{-- 藍藍navbar title --}}
+@section('navTitle')
+    <h4>
+        <a class="navbar-brand" href="">進貨管理</a>
+    </h4>
+@endsection
+
+{{-- 搜尋框 --}}
+@section('searchBox')
+    <input type="text" value="" class="form-control" placeholder="輸入進貨單號或廠商名稱">
+@endsection
