@@ -33,6 +33,10 @@ class BackendController extends Controller
         //進銷存-進貨
         return view('erp.purchase');
     }
+    function purchaseCreate(){
+        //進銷存-新增進貨
+        return view('erp.purchaseCreate');
+    }
     function sales(){
         //進銷存-銷貨
         return view('erp.sales');
@@ -55,6 +59,14 @@ class BackendController extends Controller
     function order(){
         //訂單
         return view('main.order');
+    }
+    function orderInfo(){
+        //訂單管理
+        return view('order.orderInfo');
+    }
+    function orderEdit(){
+        //訂單管理
+        return view('order.orderEdit');
     }
 
     function manufacture(){

@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="text-right mr-5 mb-3">
-                        <a class="btn btn-primary" href="/main/quotePDF">
+                        <a class="btn btn-primary" href="/main/purchaseCreate">
                             <i class="now-ui-icons files_single-copy-04"></i>
                             <span>新增進貨單</span>
                         </a>

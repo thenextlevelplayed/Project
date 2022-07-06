@@ -12,6 +12,7 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -165,10 +166,12 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <h4>
-                            {{-- 藍藍navbar title --}}
+
+                        {{-- 藍藍navbar title --}}
+                        @yield('navTitle')
+                        {{-- <h4>    
                             <a class="navbar-brand" href="/main/quote">報價單管理</a>
-                        </h4>
+                        </h4> --}}
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -180,7 +183,9 @@
                         <form>
                             <div class="input-group no-border">
                                 {{-- 搜尋列 --}}
-                                <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱">
+                                @yield('searchBox')
+                                {{-- <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱"> --}}
+                                
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>
