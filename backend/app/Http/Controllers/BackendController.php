@@ -50,9 +50,9 @@ class BackendController extends Controller
         //報價
         return view('main.quotation');
     }
-    function quotePDF(){
+    function quotationCreate(){
         //報價
-        return view('main.quotePDF');
+        return view('quotation.quotationCreate');
     }
 
 

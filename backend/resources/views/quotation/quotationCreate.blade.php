@@ -102,7 +102,7 @@
                             </button>
                         </div>
                         <h4>
-                            <a class="navbar-brand" href="/main/quote">報價單管理</a>
+                            <a class="navbar-brand" href="/main/quotation">報價單管理</a>
                         </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/main/quote">
+                        <a href="/main/quotation">
                             <i class="now-ui-icons education_atom"></i>
                             <p>報價單管理</p>
                         </a>
