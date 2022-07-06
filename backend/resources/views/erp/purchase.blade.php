@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class="text-primary">
+                                <thead class="text-primary" style = "overflow:auto">
                                     <th>
                                         進貨單編號
                                     </th>
