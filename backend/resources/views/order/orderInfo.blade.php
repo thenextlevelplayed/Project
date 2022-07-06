@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="kaimau-icon" sizes="76x76" href="../assets/img/logo-color.png">
+    <link rel="icon" type="image/png" href="../assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Now UI Dashboard by Creative Tim</title>
+    <title>訂單明細</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -16,7 +16,7 @@
     <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="/assets/demo/demo.css" rel="stylesheet" />
-    <link href="/css/deliveryInfo.css" rel="stylesheet" />
+    <link href="/css/orderInfo.css" rel="stylesheet" />
 
 </head>
 
@@ -102,7 +102,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo">出貨單明細</a>
+                        <a class="navbar-brand" href="#pablo">訂單明細</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -161,20 +161,20 @@
                         <div class="card">
                             <div class="container-xl">
                                 <div class="customerInfo">
-                                    <h4 class="text-center">凱 茂 資 訊 股 份 有 限 公 司 出 貨 單</h4>
+                                    <h4 class="text-center">凱 茂 資 訊 股 份 有 限 公 司 訂 單</h4>
                                 
-                                    {{-- 出貨日期 --}}
+                                    {{-- 訂單建立日期 --}}
                                     <div class="row row-cols-auto">
-                                        <div class="col pl-5 ml-5 mt-3"><span>出貨日期：{{}}</span></div>                                        
+                                        <div class="col pl-5 ml-5 mt-3"><span>訂單建立日期：{{}}</span></div>                                        
                                     </div>
                                     {{-- 客戶名稱 --}}
                                     <div class="row row-cols-auto">
                                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：</span></div>                                        
                                     </div>
-                                    {{-- 收貨地址 --}}
+                                    {{-- 客戶統編 --}}
                                     <div class="row row-cols-auto">
-                                       <div class="col pl-5 ml-5 mt-3"><span>收貨地址：</span></div>                                        
-                                    </div>
+                                        <div class="col pl-5 ml-5 mt-3"><span>客戶統編：</span></div>                                        
+                                     </div>
                                     {{-- 聯絡人 --}}
                                     <div class="row row-cols-auto">
                                        <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：</span></div>                                        
@@ -184,13 +184,9 @@
                                        <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：</span></div>
                                         
                                     </div>
-                                    {{-- 出貨編號 --}}
+                                    {{-- 訂單編號 --}}
                                     <div class="row row-cols-auto">
                                        <div class="col pl-5 ml-5 mt-3"><span>出貨編號：</span></div>                                        
-                                    </div>
-                                    {{-- 發票號碼 --}}
-                                    <div class="row row-cols-auto">
-                                       <div class="col pl-5 ml-5 mt-3"><span>發票號碼：</span></div>                                        
                                     </div>
                                 
                                 </div>
