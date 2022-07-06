@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="/main/quote">
+                        <a href="/main/quotation">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
@@ -269,7 +269,7 @@
                                 </div>
                             </div>
                             <div class="text-right mr-5 mb-3">
-                                <a class="btn btn-primary" href="/main/quotePDF">
+                                <a class="btn btn-primary" href="/quotation/quotationCreate">
                                     <i class="now-ui-icons files_single-copy-04"></i>
                                     <span>新增報價單</span>
                                 </a>
