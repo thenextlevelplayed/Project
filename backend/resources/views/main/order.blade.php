@@ -115,7 +115,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="輸入訂單編號或客戶名稱查詢">
+                                <input type="text" value="" class="form-control" placeholder="輸入訂單編號或客戶名稱">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>
                                 </span>

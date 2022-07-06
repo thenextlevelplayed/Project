@@ -251,52 +251,52 @@
                                                     <td>beepbeep</td>
                                                     <td>華碩</td>
                                                     <td name="quantity">
-                                                        87
+                                                        00
                                                     </td>
-                                                    <td name="price">87777</td>
-                                                    <td name="total">8787878787</td>
-                                                    <td name="tax">8787878787</td>
-                                                    <td name="remark">8787878787</td>
+                                                    <td name="price">0000</td>
+                                                    <td name="total">000000000</td>
+                                                    <td name="tax">000000000</td>
+                                                    <td name="remark">000000000</td>
                                                 
                                                 </tr>
                                                 <tr>
                                                     <td>beepbeep</td>
                                                     <td>華碩</td>
                                                     <td name="quantity">
-                                                        87
+                                                        00
                                                     </td>
-                                                    <td name="price">87777</td>
-                                                    <td name="total">8787878787</td>
-                                                    <td name="tax">8787878787</td>
-                                                    <td name="remark">8787878787</td>
+                                                    <td name="price">00000</td>
+                                                    <td name="total">000000000</td>
+                                                    <td name="tax">000000000</td>
+                                                    <td name="remark">000000000</td>
                                                 </tr>
                                                 <tr>
                                                     <td>beepbeep</td>
                                                     <td>華碩</td>
                                                     <td name="quantity">
-                                                        87
+                                                        00
                                                     </td>
-                                                    <td name="price">87777</td>
-                                                    <td name="total">8787878787</td>
-                                                    <td name="tax">8787878787</td>
-                                                    <td name="remark">8787878787</td>
+                                                    <td name="price">0000</td>
+                                                    <td name="total">000000000</td>
+                                                    <td name="tax">000000000</td>
+                                                    <td name="remark">000000000</td>
                                                 </tr>
                                                 <tr>
                                                     <td>beepbeep</td>
                                                     <td>華碩</td>
                                                     <td name="quantity">
-                                                        87
+                                                        00
                                                     </td>
-                                                    <td name="price">87777</td>
-                                                    <td name="total">8787878787</td>
-                                                    <td name="tax">8787878787</td>
-                                                    <td name="remark">8787878787</td>
+                                                    <td name="price">0000</td>
+                                                    <td name="total">000000000</td>
+                                                    <td name="tax">000000000</td>
+                                                    <td name="remark">000000000</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div class=" row justify-content-end">
                                             <div class="col-md-1 text-center goods">總計</div>
-                                            <div class="col-md-2 text-center goods">87878878877</div>
+                                            <div class="col-md-2 text-center goods">00000000000</div>
                                         </div>
                                         <br />
                                         <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
@@ -353,7 +353,7 @@
                                             <p>內容</p>
                                         </div>
                                         <div class="col-lg-5">
-                                            <textarea name="" id="" cols="100" rows="10"></textarea>
+                                            <textarea name="" id="" cols="90" rows="10"></textarea>
                                         </div>
                                     </div>                                
                                 </form>
