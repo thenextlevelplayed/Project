@@ -21,6 +21,10 @@
 
 <body class="">
     <div class="wrapper ">
+        {{-- 路由方法 --}}
+        <form class="form-horizontal" action="/customer/create" method="POST" >
+        @csrf
+        <fieldset>
         <div class="sidebar" data-color="orange">
             <div class="logo">
                 <a href="/main" class="simple-text logo-mini">

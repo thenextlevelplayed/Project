@@ -21,6 +21,11 @@
 
 <body class="">
     <div class="wrapper ">
+        {{-- 路由方法 <form class="form-horizontal" method="post" action="/employees/{{$emp->id}}">--}}
+        <form class="form-horizontal" method="post" action="/customer/edit/{customerId}">
+        @csrf
+        @method('PUT')
+        <fieldset>
         <div class="sidebar" data-color="orange">
             <div class="logo">
                 <a href="/main" class="simple-text logo-mini">
