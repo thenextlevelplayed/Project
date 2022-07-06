@@ -17,6 +17,7 @@
     <input type="text" value="" class="form-control" placeholder="輸入銷貨單號或客戶名稱">
 @endsection
 
+{{-- 內容代入 --}}
 @section('content')
     <div class="content">
         <div class="row">

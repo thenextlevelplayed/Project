@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="kaimau-icon" sizes="76x76" href="../assets/img/logo-color.png">
-    <link rel="icon" type="image/png" href="../assets/img/logo-color.png">
+    <link rel="kaimau-icon" sizes="76x76" href="/assets/img/logo-color.png">
+    <link rel="icon" type="image/png" href="/assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>訂單管理</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
