@@ -80,12 +80,6 @@
                             <p>前台消息管理</p>
                         </a>
                     </li>
-                    <li class="active-pro">
-                        <a href="">
-                            <i class="now-ui-icons business_badge"></i>
-                            <p>員工基本資料</p>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>

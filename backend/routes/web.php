@@ -46,7 +46,7 @@ Route::get('/main/stock', "App\Http\Controllers\BackendController@stock");
 //報價
 Route::get('/main/quotation', "App\Http\Controllers\BackendController@quotation");
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\BackendController@quotationCreate"); //新增
-Route::get('/quotation/{quotationId}', "App\Http\Controllers\BackendController@quotationInfo");  //檢視
+Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\BackendController@quotationInfo");  //檢視
 Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\BackendController@quotationEdit"); //編輯
 
 //訂單

@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="/main/quotation">
+                        <a href="/main/quote">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
@@ -80,12 +80,6 @@
                             <p>前台消息管理</p>
                         </a>
                     </li>
-                    <li class="active-pro">
-                        <a href="">
-                            <i class="now-ui-icons business_badge"></i>
-                            <p>員工基本資料</p>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -102,7 +96,7 @@
                             </button>
                         </div>
                         <h4>
-                            <a class="navbar-brand" href="/main/quote">報價單管理</a>
+                            <a class="navbar-brand" href="/main/quotation">報價單管理</a>
                         </h4>                        
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
