@@ -84,6 +84,9 @@ Route::put('/customer/edit/{customerId}', "App\Http\Controllers\BackendControlle
 Route::get('/customer/create', "App\Http\Controllers\BackendController@customerAdd");//檢視表單
 Route::post('/customer/create', "App\Http\Controllers\BackendController@customerStore");//新增表單
 
+//pdf test delivery
+Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\BackendController@createPDF");
+
 
 
 

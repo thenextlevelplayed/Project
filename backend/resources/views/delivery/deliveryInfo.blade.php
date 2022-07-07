@@ -314,7 +314,7 @@
                             <a class="btn btn-primary " href="/main/delivery">
                                 <span>返回</span>
                             </a>
-                            <a class="btn btn-primary " href="#">
+                            <a class="btn btn-primary " href="/delivery/pdf/{deliveryId}">
                                 <span>匯出PDF</span>
                             </a>
                         </div>

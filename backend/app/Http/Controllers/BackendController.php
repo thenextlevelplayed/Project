@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class BackendController extends Controller
@@ -197,6 +198,29 @@ class BackendController extends Controller
         $var1 = $request->input('var1');
         $var2 = $request->input('var2');
         return view('customer.customerAdd');
+    }
+
+    public function createPDF () {
+        // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
+        // PDF ::loadView ('index', '$data');
+        // Retrieve all products from the db
+        // $products = Product::all();
+        // view()->share ('products', $products);
+        // $pdf = PDF ::loadView ('index', $products);
+        // return $pdf->download ('file-pdf.pdf');
+        // $pdf = PDF::loadHTML('12345');
+        // $json = fopen($_SERVER['DOCUMENT_ROOT'] . "\\resources\\views\delivery\deliveryinfo.blade.php", "r");
+        // $json = fopen($_SERVER['DOCUMENT_ROOT'], "r");
+        // $json = fopen($_SERVER['PHP_SELF'], "r");
+
+        // 'delivery.deliveryInfo'
+        // $pdf = PDF::loadView(('welcome'), $data=[] , $encoding = 'utf-8');
+        // return $pdf->download ('file-pdf.pdf');
+        // dd($pdf);
+        // return $pdf->stream();
+    //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
+        $pdf = PDF::loadHTML("");
+        return $pdf->stream();
     }
 
 
