@@ -52,7 +52,7 @@ class BackendController extends Controller
         return view('main.quotation');
     }
     function quotationCreate(){
-        //報價
+        //新增報價單
         return view('quotation.quotationCreate');
     }
     function quotationInfo(){
