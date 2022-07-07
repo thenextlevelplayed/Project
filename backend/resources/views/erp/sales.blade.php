@@ -1,10 +1,11 @@
 {{-- navbar引入 --}}
 @extends('main.navbar')
 
-{{-- head帶入 --}}
+{{-- head代入 --}}
 @section('head')
 @endsection
 
+{{-- 內容代入 --}}
 @section('content')
     <div class="content">
         <div class="row">
@@ -27,7 +28,7 @@
                                         售價
                                     </th>
                                     <th>
-                                        出貨日期
+                                        成本
                                     </th>
                                 </thead>
                                 <tbody>
@@ -41,6 +42,12 @@
                                         <td>
                                             2022/06/12
                                         </td>
+                                        <td>
+                                            70,000
+                                        </td>
+                                        <td>
+                                            66,666
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -51,6 +58,12 @@
                                         </td>
                                         <td>
                                             2022/06/13
+                                        </td>
+                                        <td>
+                                            110,000
+                                        </td>
+                                        <td>
+                                            90,000
                                         </td>
                                     </tr>
                                 </tbody>

@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="kaimau-icon" sizes="76x76" href="/assets/img/logo-color.png">
+    <link rel="icon" type="image/png" href="/assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>報價管理</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
@@ -53,7 +53,7 @@
                             ?>
                         >
                             <a href="/main/purchase">
-                                <p>進貨管理</p>
+                                <p>• 進貨管理</p>
                             </a>
                         </li>
                         <li 
@@ -64,7 +64,7 @@
                             ?>
                         >
                             <a href="/main/sales">
-                                <p>銷貨管理</p>
+                                <p>• 銷貨管理</p>
                             </a>
                         </li>
                         <li 
@@ -75,7 +75,7 @@
                             ?>
                         >
                             <a href="/main/stock">
-                                <p>庫存管理</p>
+                                <p>• 庫存管理</p>
                             </a>
                         </li>
                     </ul>
@@ -86,7 +86,7 @@
                             }
                         ?>
                     >
-                        <a href="/main/quote">
+                        <a href="/main/quotation">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
@@ -194,7 +194,7 @@
                         {{-- 右上人像控制 1. 員工基本資料 2.登出 --}}
                         <div class="navbar-nav">
                             <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                <a class="nav-link dropdown-toggle" href=""
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     <i class="now-ui-icons users_single-02"></i>
@@ -223,20 +223,20 @@
     </div>
 </body>
 <!--   Core JS Files   -->
-<script src="../assets/js/core/jquery.min.js"></script>
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="/assets/js/core/jquery.min.js"></script>
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
-<script src="../assets/js/plugins/chartjs.min.js"></script>
+<script src="/assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<script src="/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/now-ui-dashboard.js?v=1.0.1"></script>
+<script src="/assets/js/now-ui-dashboard.js?v=1.0.1"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="../assets/demo/demo.js"></script>
+<script src="/assets/demo/demo.js"></script>
 
 <script>
     //進銷存 開關 
