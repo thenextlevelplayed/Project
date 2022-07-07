@@ -156,20 +156,21 @@
                                     凱茂信箱：km2468@gmail.com
                                 </div>
                             </div>
-                            <div class = "row justify-content-center mt-5">
-                                <div class="col-md-4 mb-1 p-1">
+                            <div class = "row justify-content-center mt-5 mb-3">
+                                <div class="col-md-4 p-1">
+                                    
                                     <button class = "btn btn-primary btn-block">
-                                        預覽畫面
+                                        <i class="fa-regular fa-eye"></i>  &nbsp;預覽畫面
                                     </button>
                                 </div>
-                                <div class="col-md-4 mb-1 p-1">
+                                <div class="col-md-4 p-1">
                                     <button class = "btn btn-primary btn-block">
-                                        存檔
+                                        <i class="fa-regular fa-floppy-disk"></i>  &nbsp;存檔
                                     </button>
                                 </div>
-                                <div class="col-md-2 mb-1 p-1">
+                                <div class="col-md-2 p-1">
                                     <button class = "btn btn-danger btn-block">
-                                        取消
+                                        <i class="fa-solid fa-x"></i>  &nbsp;取消
                                     </button>
                                 </div>
                             </div>

@@ -237,6 +237,7 @@
 <script src="/assets/js/now-ui-dashboard.js?v=1.0.1"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="/assets/demo/demo.js"></script>
+<script src="https://kit.fontawesome.com/ecf6d354b0.js" crossorigin="anonymous"></script>
 
 <script>
     //進銷存 開關 
