@@ -50,7 +50,11 @@ $(window).scroll(function(){
 
 $(window).on("scroll touchmove", function () {
 
-  
+  // if ($(document).scrollTop() > 450){
+  //   $('.menu-btn span').css('border-color','rgb(255, 255, 255)');
+  //   $('.menu-btn:before').css('border-color','rgb(255, 255, 255)');
+  //   $('.menu-btn:after').css('border-color','rgb(255, 255, 255)');
+  // }
 
   if ($(document).scrollTop() < (($("#Service01").position().top)+1700)) {
     

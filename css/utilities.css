@@ -113,10 +113,19 @@
     top: calc(53% - 1px);
     left: 25%;
     width: 40%;
-    border-bottom: 3px solid rgb(35, 35, 35);
+    border-bottom: 3px solid;
+    border-color: rgb(35, 35, 35);
     transition: transform .6s cubic-bezier(.215, 0.61, 0.355, 1);
     
 }
+
+.menu-btn.change:before{
+    border-color: rgb(255, 255, 255);
+}
+.menu-btn.change:after{
+    border-color: rgb(255, 255, 255);
+}
+
 
 .menu-btn:before {
     transform: translateY(-8px);
