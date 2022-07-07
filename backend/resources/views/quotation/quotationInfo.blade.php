@@ -8,7 +8,7 @@
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">報價明細</a>
+        <a class="navbar-brand" href="">報價資訊</a>
     </h4>
 @endsection
 
@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <form class="card">
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 報價單</h4>
+                        <h4 class="card-title text-center"> 凱茂資訊 報價明細</h4>
                     </div>                            
                     <div class="card-body">
                         <div class="table-responsive">
@@ -32,44 +32,48 @@
                             </div>
                             <div  class="row mb-3">
                                 <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>報價單編號</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" required>
+                                    <fieldset disabled>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>報價單編號</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>公司名稱</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>公司名稱</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>公司統編</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>公司統編</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" required>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </fieldset>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>報價日期</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                    <fieldset disabled>    
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>報價日期</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>聯絡人</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>聯絡人</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>聯絡電話</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>聯絡電話</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="" required>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </fieldset>
                                 </div>
                             </div>                                    
                         </div>
@@ -91,41 +95,118 @@
                                                 <th scope="col">備註</th>
                                             </tr>
                                         </thead>
+                                        
                                         <tbody>
+                                            
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
                                             </tr>
                                             <tr>
+                                                <fieldset disabled>
                                                 <th scope="row">3</th>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                            </tr>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                                <td> 
+                                                    <fieldset disabled>
+                                                        <input type="text" class="form-control" required>
+                                                    </fieldset>
+                                                </td>
+                                            </tr>                                            
                                         </tbody>
                                     </table> 
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-2"><p>總計</p></div>
                                     <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
+                                        <fieldset disabled>
+                                            <input type="text" class="form-control" required>
+                                        </fieldset>
                                     </div>
                                 </div>                                 
                             </div>
@@ -141,7 +222,9 @@
                                             <p>企業方案</p>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" required>
+                                            <fieldset disabled>
+                                                <input type="text" required>
+                                            </fieldset>
                                         </div>
                                     </div>
                                 </div>
@@ -149,13 +232,17 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>業務專員</p></div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <fieldset disabled>
+                                                <input type="text" class="" required>
+                                            </fieldset>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>凱茂信箱</p></div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <fieldset disabled>
+                                                <input type="text" class="" required>
+                                            </fieldset>
                                         </div>
                                     </div>
                                 </div>
@@ -163,65 +250,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-3" href="">
-                    <span>預覽</span>
-                </a>
-                <a class="btn btn-primary" href="">
-                    <span>存檔</span>
-                </a>
-            </div>
-            <div class="col-md-12 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title text-center"> E-mail</h4>
-                    </div>                            
-                    <form class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>主旨</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人信箱</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>內容</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <textarea name="" id="" cols="100" rows="10"></textarea>
-                            </div>
-                        </div>                                
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
-                    <span>發送Email和報價單PDF至客戶信箱</span>
-                </a>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
-                    <span>報價成立，轉為訂單</span>
-                </a>
             </div>
         </div>
     </div>

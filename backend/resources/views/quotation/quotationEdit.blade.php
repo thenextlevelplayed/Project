@@ -8,7 +8,7 @@
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">報價明細</a>
+        <a class="navbar-brand" href="">報價編輯</a>
     </h4>
 @endsection
 
