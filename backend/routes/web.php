@@ -81,8 +81,8 @@ Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
 Route::get('/customer/{customerId}', "App\Http\Controllers\BackendController@customerInfo");//檢視表單
 Route::get('/customer/edit/{customerId}', "App\Http\Controllers\BackendController@customerInfoEdit");//編輯表單
 Route::put('/customer/edit/{customerId}', "App\Http\Controllers\BackendController@customerUpdate");//更新表單
-Route::get('/customer/create', "App\Http\Controllers\BackendController@customerAdd");//檢視表單
-Route::post('/customer/create', "App\Http\Controllers\BackendController@customerStore");//新增表單
+Route::get('/customercreate', "App\Http\Controllers\BackendController@customerAdd");//檢視表單
+Route::post('/customercreate', "App\Http\Controllers\BackendController@customerStore");//新增表單
 
 //pdf test delivery
 Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\BackendController@createPDF");

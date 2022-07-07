@@ -22,7 +22,7 @@
 <body class="">
     <div class="wrapper ">
         {{-- 路由方法 --}}
-        <form class="form-horizontal" action="/customer/create" method="POST" >
+        <form class="form-horizontal" action="/customer/123" method="POST" >
         @csrf
         <fieldset>
         <div class="sidebar" data-color="orange">

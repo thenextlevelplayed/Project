@@ -18,6 +18,23 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
     <link href="/assets/demo/demo.css" rel="stylesheet" />
+    {{-- 各網頁的CSS --}}
+    <?php
+       // GET PUBLIC FOLDER FILES (NAME)
+        // if ($handle = opendir(public_path('css'))) { //打開public資料夾 搜尋css副檔名
+        //     // echo $handle; //Resource id #547
+
+        // while (false !== ($entry = readdir($handle))) {
+        //     if ($entry != "." && $entry != "..") {
+        //         echo "<link href=" . '"'."/css/".$entry.'"'." rel=". '"'."stylesheet".'"'."/>"; // NAME OF THE FILE
+        //         // echo $entry."<br>";
+        //     }
+        // }
+        // closedir($handle);
+        // }
+    ?>
+
+
 
     {{-- head帶入 --}}
     @yield('head')
@@ -139,11 +156,17 @@
                             <p>發票管理</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <i class="now-ui-icons users_circle-08"></i>
+                    <li 
+                            <?php
+                                if($_SERVER['REQUEST_URI'] == '/main/customer'){
+                                    echo  "class='active'";
+                                }
+                            ?>
+                        >
+                            <a href="/main/customer">
+                                <i class="now-ui-icons users_circle-08"></i>
                             <p>客戶管理</p>
-                        </a>
+                            </a>
                     </li>
                     <li>
                         <a href="">
