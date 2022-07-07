@@ -18,16 +18,24 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
     <link href="/assets/demo/demo.css" rel="stylesheet" />
+
+    
     {{-- 各網頁的CSS --}}
     <?php
-       // GET PUBLIC FOLDER FILES (NAME)
+    //    GET PUBLIC FOLDER FILES (NAME)
         // if ($handle = opendir(public_path('css'))) { //打開public資料夾 搜尋css副檔名
-        //     // echo $handle; //Resource id #547
+            // echo $handle; //Resource id #547
+            // echo $_SERVER['SCRIPT_FILENAME'];;
 
         // while (false !== ($entry = readdir($handle))) {
-        //     if ($entry != "." && $entry != "..") {
-        //         echo "<link href=" . '"'."/css/".$entry.'"'." rel=". '"'."stylesheet".'"'."/>"; // NAME OF THE FILE
-        //         // echo $entry."<br>";
+            // if ($entry != "." && $entry != "..") {
+                // echo "<link href=" . '"'."/css/".$entry.'"'." rel=". '"'."stylesheet".'"'."/>"; // NAME OF THE FILE
+                // var_dump($entry); // string
+                // echo $entry."<br>";
+                // echo substr( $entry,-3 )."<br>";
+                // if($_SERVER['REQUEST_URI'] == '/main/delivery'){
+                //     echo  "class='active'";
+                // }
         //     }
         // }
         // closedir($handle);

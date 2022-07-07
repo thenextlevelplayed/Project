@@ -3,18 +3,19 @@
 
 {{-- head帶入 --}}
 @section('head')
+<link rel="stylesheet" href="/css/customer">
 @endsection
 
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">訂單明細</a>
+        <a class="navbar-brand" href="">客戶資訊明細</a>
     </h4>
 @endsection
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入銷貨單號或客戶名稱">
+    <input type="text" value="" class="form-control" placeholder="輸入客戶名稱">
 @endsection
 
 {{-- 內容代入 --}}

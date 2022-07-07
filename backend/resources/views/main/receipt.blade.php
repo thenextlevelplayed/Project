@@ -8,13 +8,13 @@
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">訂單明細</a>
+        <a class="navbar-brand" href="">發票明細</a>
     </h4>
 @endsection
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入銷貨單號或客戶名稱">
+    <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱或發票號碼">
 @endsection
 
 {{-- 內容代入 --}}
