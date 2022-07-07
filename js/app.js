@@ -21,10 +21,17 @@ window.addEventListener('scroll', function () {
 $('.overlay').hide();
 
 $(window).scroll(function(){
+  //首頁歡迎字樣消失
   if(($(document).scrollTop() == 0)){
     $('.h2intro').fadeIn();
   }else{
     $('.h2intro').fadeOut();
+  }
+  //首頁滾輪消失
+  if(($(document).scrollTop() == 0)){
+    $('.scroll-downs').fadeIn();
+  }else{
+    $('.scroll-downs').fadeOut();
   }
 
   if(($(document).scrollTop() > 600)){
