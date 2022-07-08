@@ -23,14 +23,10 @@ $(function () {
 
 $(window).on("scroll touchmove", function () {
     if ($(document).scrollTop() < 450) {
-        $('.menu-btn span').addClass('change').attr('data-content','bar');
         $('.menu-btn span').css('border-color', 'rgb(255, 255, 255)');
-        $('.menu-btn span').childcss('border-color', 'rgb(255, 255, 255)');
-
     }
-    else{
+    else {
         $('.menu-btn span').css('border-color', 'rgb(35, 35, 35)');
-
     }
 })
 
