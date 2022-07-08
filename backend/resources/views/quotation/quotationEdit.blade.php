@@ -165,57 +165,13 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-3" href="">
-                    <span>預覽</span>
-                </a>
                 <a class="btn btn-primary" href="">
                     <span>存檔</span>
                 </a>
             </div>
-            <div class="col-md-12 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title text-center"> E-mail</h4>
-                    </div>                            
-                    <form class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>主旨</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人信箱</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>內容</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <textarea name="" id="" cols="100" rows="10"></textarea>
-                            </div>
-                        </div>                                
-                    </form>
-                </div>
-            </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
-                    <span>發送Email和報價單PDF至客戶信箱</span>
+                    <span>匯出PDF</span>
                 </a>
             </div>
             <div class="col-md-12 text-right">
