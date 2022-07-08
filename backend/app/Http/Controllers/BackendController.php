@@ -214,12 +214,12 @@ class BackendController extends Controller
         // $json = fopen($_SERVER['PHP_SELF'], "r");
 
         // 'delivery.deliveryInfo'
-        // $pdf = PDF::loadView(('welcome'), $data=[] , $encoding = 'utf-8');
+        $pdf = PDF::loadView('delivery.deliveryInfo', $data=[]);
         // return $pdf->download ('file-pdf.pdf');
         // dd($pdf);
         // return $pdf->stream();
     //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
-        $pdf = PDF::loadHTML("");
+        // $pdf = PDF::loadHTML("");
         return $pdf->stream();
     }
 

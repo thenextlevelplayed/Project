@@ -1,9 +1,11 @@
+
 {{-- navbar引入 --}}
 @extends('main.navbar')
 
 {{-- head帶入 --}}
 @section('head')
 <link href="/css/deliveryInfo.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 @endsection
 
 {{-- 藍藍navbar title --}}
@@ -17,6 +19,18 @@
 @section('searchBox')
     <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
 @endsection
+
+<style>
+    @font-face {
+    font-family: 'NotoSansTC-Black';
+    font-style: normal;
+    font-weight: normal;
+    src: url({{ storage_path('fonts/NotoSansTC-Black.otf') }}) format('truetype');
+    }
+    body {
+    font-family: NotoSansTC-Black, DejaVu Sans,sans-serif;
+}
+</style>
 
 @section('content')
     <div class="row">
@@ -57,30 +71,6 @@
                         </div>
                     
                     </div>
-                    
-            
-            
-                    {{-- 出貨資訊 --}}
-                    {{-- <div class=" row">
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-6 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                    </div>
-                    <div class=" row">
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-6 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                    </div>
-                    <div class=" row">
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-6 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                    </div>
-                    <div class=" row">
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-6 text-center goods">.col-6 .col-md-4</div>
-                        <div class="col-md-3 text-center goods">.col-6 .col-md-4</div>
-                    </div> --}}
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
