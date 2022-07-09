@@ -86,9 +86,9 @@
 .menu-btn {
     position: fixed;
     z-index: 100;
-    right: 5px;
+    right: 10px;
     /*left: 20px; */
-    top: 5px;
+    top: 25px;
     height: 100px;
     width: 100px;
     text-align: center;
@@ -108,7 +108,7 @@
 .menu-btn span{
     content: "";
     position: absolute;
-    top: calc(53% - 1px);
+    top: calc(58% - 1px);
     left: 25%;
     width: 40%;
     border-bottom: 3px solid;
