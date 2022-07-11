@@ -99,12 +99,8 @@ return array (
   'notosanstc-black' => array(
     'normal' => $fontDir . '/notosanstc_black_normal_83c573750937ede6b8ac589693f8e982',
   ),
-  'font awesome\\ 5 brands' => array(
-    'normal' => $fontDir . '/font_awesome__5_brands_normal_92c3b9ac7fe6cdef7b03c6ec28737444',
-  ),
-  'font awesome\\ 5 free' => array(
-    'normal' => $fontDir . '/font_awesome__5_free_normal_88c1af7c4c5e3f312c3ccc9fd25bceaa',
-    '900' => $fontDir . '/font_awesome__5_free_900_d2d1cb55749accad36c573fd6f5ae5fd',
+  'notosanstc-medium' => array(
+    'normal' => $fontDir . '/notosanstc_medium_normal_2c772d7b5f2820586606743fe28f63f3',
   ),
 );
 }; ?>

@@ -200,7 +200,7 @@ class BackendController extends Controller
         return view('customer.customerAdd');
     }
 
-    public function createPDF () {
+    public function createPDF (Request $request) {
         // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
         // PDF ::loadView ('index', '$data');
         // Retrieve all products from the db
@@ -214,7 +214,7 @@ class BackendController extends Controller
         // $json = fopen($_SERVER['PHP_SELF'], "r");
 
         // 'delivery.deliveryInfo'
-        $pdf = PDF::loadView('delivery.deliveryInfo', $data=[]);
+        $pdf = PDF::loadView('pdf.deliveryInfo', $data=[]);
         // return $pdf->download ('file-pdf.pdf');
         // dd($pdf);
         // return $pdf->stream();
@@ -222,6 +222,7 @@ class BackendController extends Controller
         // $pdf = PDF::loadHTML("");
         return $pdf->stream();
     }
+
 
 
     
