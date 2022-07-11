@@ -220,6 +220,11 @@ class BackendController extends Controller
         // return $pdf->stream();
     //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
         // $pdf = PDF::loadHTML("");
+        return $pdf->download();
+    }
+
+    public function viewPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.deliveryInfo', $data=[]);
         return $pdf->stream();
     }
 

@@ -85,7 +85,9 @@ Route::get('/customercreate', "App\Http\Controllers\BackendController@customerAd
 Route::post('/customercreate', "App\Http\Controllers\BackendController@customerStore");//新增表單
 
 //pdf test delivery
-Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\BackendController@createPDF");
+Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\BackendController@createPDF"); // 下載pdf
+Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\BackendController@viewPDF"); // 預覽pdf
+
 
 
 
