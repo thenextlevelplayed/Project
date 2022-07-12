@@ -4,13 +4,13 @@
 
 <style>
     @font-face {
-    font-family: 'NotoSansTC-Medium';
+    font-family: 'NotoSansTC-Regular';
     font-style: normal;
     font-weight: normal;
-    src: url({{ storage_path('fonts/NotoSansTC-Medium.otf') }}) format('truetype');
+    src: url({{ storage_path('fonts/NotoSansTC-Regular.otf') }}) format('truetype');
     }
     body {
-    font-family: NotoSansTC-Medium, DejaVu Sans,sans-serif;
+    font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;
     border: 0;
 }
 </style>
