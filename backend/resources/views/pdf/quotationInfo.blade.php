@@ -19,12 +19,12 @@
     <div class="col-md-12">
         <form class="card">
             <div class="card-header">
-                <h4 class="card-title text-center"> 凱茂資訊 報價明細</h4>
+                <p class="card-title text-center"> 凱茂資訊 報價明細</p>
             </div>                            
             <div class="card-body">
                 <div class="table-responsive">
                     <div  class="mb-3">
-                        <h5>客戶資訊</h5>
+                        <p>客戶資訊</p>
                     </div>
                     <div  class="row mb-3">
                         <div class="col-lg-6">
@@ -75,27 +75,26 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-12">
-                        <h5>報價明細</h5>
+                        <p>報價明細</p>
                     </div>
                     <div class="col-lg-12"> 
                         <div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col">商品名稱</th>
-                                        <th scope="col">商品編號</th>
-                                        <th scope="col">數量</th>
-                                        <th scope="col">單價</th>
-                                        <th scope="col">小計</th>
-                                        <th scope="col">備註</th>
+                                        <td scope="col"></td>
+                                        <td scope="col">商品名稱</td>
+                                        <td scope="col">商品編號</td>
+                                        <td scope="col">數量</td>
+                                        <td scope="col">單價</td>
+                                        <td scope="col">小計</td>
+                                        <td scope="col">備註</td>
                                     </tr>
                                 </thead>
                                 
-                                <tbody>
-                                    
+                                <tbody>                                    
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <td scope="row">1</td>
                                         <td> 
                                             <fieldset disabled>
                                                 <input type="text" class="form-control" required>
@@ -128,7 +127,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
+                                        <td scope="row">2</td>
                                         <td> 
                                             <fieldset disabled>
                                                 <input type="text" class="form-control" required>
@@ -161,8 +160,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <fieldset disabled>
-                                        <th scope="row">3</th>
+                                        <td scope="row">3</td>
                                         <td> 
                                             <fieldset disabled>
                                                 <input type="text" class="form-control" required>
@@ -209,7 +207,7 @@
                 </div>
                 <div>
                     <div class="mb-3">
-                        <h4>凱茂方案</h4>
+                        <p>凱茂方案</p>
                     </div>
                     <div  class="row mb-3">
                         <div class="col-lg-6">

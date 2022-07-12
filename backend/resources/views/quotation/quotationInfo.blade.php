@@ -165,7 +165,6 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <fieldset disabled>
                                                 <th scope="row">3</th>
                                                 <td> 
                                                     <fieldset disabled>
