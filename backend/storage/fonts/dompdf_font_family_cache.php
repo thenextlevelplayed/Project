@@ -100,7 +100,14 @@ return array (
     'normal' => $fontDir . '/notosanstc_black_normal_83c573750937ede6b8ac589693f8e982',
   ),
   'notosanstc-medium' => array(
+<<<<<<< HEAD
     'normal' => $fontDir . '/notosanstc_medium_normal_0c6225c49267a1cb3c14b3100f60af66',
+=======
+    'normal' => $fontDir . '/notosanstc_medium_normal_89ad164ea195a7b5886012a343724d95',
+  ),
+  'notosanstc-regular' => array(
+    'normal' => $fontDir . '/notosanstc_regular_normal_9f377fcb4ca5ccfa298e649f7f12d781',
+>>>>>>> f75d7547f6d5a870e22b6662c362dd5a192f6b77
   ),
 );
 }; ?>
