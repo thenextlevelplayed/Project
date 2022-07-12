@@ -102,5 +102,8 @@ return array (
   'notosanstc-medium' => array(
     'normal' => $fontDir . '/notosanstc_medium_normal_2c772d7b5f2820586606743fe28f63f3',
   ),
+  'notosanstc-regular' => array(
+    'normal' => $fontDir . '/notosanstc_regular_normal_9f377fcb4ca5ccfa298e649f7f12d781',
+  ),
 );
 }; ?>
