@@ -88,6 +88,9 @@ Route::post('/customercreate', "App\Http\Controllers\BackendController@customerS
 Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\BackendController@createPDF"); // 下載pdf
 Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\BackendController@viewPDF"); // 預覽pdf
 
+Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\BackendController@createQuotationPDF"); // 下載pdf
+Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\BackendController@viewQuotationPDF"); // 預覽pdf
+
 
 
 

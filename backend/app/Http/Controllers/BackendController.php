@@ -228,7 +228,16 @@ class BackendController extends Controller
         return $pdf->stream();
     }
 
+    
 
+    public function createQuotationPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
+        return $pdf->download();
+    }
+    public function viewQuotationPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
+        return $pdf->stream();
+    }
 
     
 
