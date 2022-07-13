@@ -92,6 +92,10 @@ Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\BackendContro
 Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\BackendController@createQuotationPDF"); // 下載pdf
 Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\BackendController@viewQuotationPDF"); // 預覽pdf
 
+//pdf order
+Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\BackendController@createOrderPDF"); // 下載pdf
+Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\BackendController@viewOrderPDF"); // 預覽pdf
+
 
 
 

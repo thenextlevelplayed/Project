@@ -74,7 +74,7 @@ class BackendController extends Controller
         return view('order.orderInfo');
     }
     function orderEdit(){
-        //訂單管理
+        //訂單編輯
         return view('order.orderEdit');
     }
 
@@ -229,7 +229,7 @@ class BackendController extends Controller
     }
 
     
-
+    //匯出報價PDF
     public function createQuotationPDF (Request $request) {
         $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
         return $pdf->download();
@@ -238,7 +238,14 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
         return $pdf->stream();
     }
-
-    
+    //匯出訂單PDF
+    public function createOrderPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        return $pdf->download();
+    }
+    public function viewOrderPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        return $pdf->stream();
+    }
 
 }

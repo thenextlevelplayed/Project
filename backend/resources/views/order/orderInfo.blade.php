@@ -154,11 +154,14 @@
                     <a class="btn btn-primary " href="/main/order">
                         <span>返回</span>
                     </a>
-                    <a class="btn btn-primary " href="#">
+                    <a class="btn btn-primary " href="/order/pdf/view/{orderId}">
+                        <span>預覽PDF</span>
+                    </a>
+                    <a class="btn btn-primary " href="/main/order/pdf/{orderId}">
                         <span>匯出PDF</span>
                     </a>
                 </div>
-                <div class="col-md-12 mt-5">
+                {{-- <div class="col-md-12 mt-5">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title text-center"> E-mail</h4>
@@ -199,13 +202,13 @@
                         </form>
                     </div>
                 </div>
-                {{-- 按鈕 --}}
+                
                 <div class="col-md-12 text-right">
                     <a class="btn btn-primary" href="">
                         <span>發送Email和出貨單PDF至客戶信箱</span>
                     </a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

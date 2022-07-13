@@ -188,13 +188,16 @@
                     <span>返回</span>
                 </a>
                 <a class="btn btn-primary mr-3" href="">
-                    <span>取消訂單</span>
-                </a>
-                <a class="btn btn-primary mr-3" href="">
                     <span>預覽</span>
                 </a>
-                <a class="btn btn-primary" href="">
+                <a class="btn btn-primary mr-3" href="">
                     <span>存檔</span>
+                </a>
+                <a class="btn btn-primary mr-3" href="">
+                    <span>取消訂單</span>
+                </a>
+                <a class="btn btn-primary " href="">
+                    <span>轉為工單</span>
                 </a>
             </div>
         </div>
