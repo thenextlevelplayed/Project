@@ -258,8 +258,6 @@
 <script src="/assets/js/core/popper.min.js"></script>
 <script src="/assets/js/core/bootstrap.min.js"></script>
 <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <script src="/assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
@@ -271,6 +269,7 @@
 <script src="https://kit.fontawesome.com/ecf6d354b0.js" crossorigin="anonymous"></script>
 
 <script>
+
     //進銷存 開關 
     $('#test').on('click', function() {
         // console.log('ok');
@@ -288,8 +287,10 @@
     }
 
 
-
 </script>
+
+@yield('script')
+
 
 
 </html>

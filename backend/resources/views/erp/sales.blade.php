@@ -34,7 +34,9 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            KMD20220623001
+                                            <a href="">
+                                                KMD20220623001
+                                            </a>
                                         </td>
                                         <td>
                                             iSpan
@@ -49,23 +51,6 @@
                                             66,666
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            KMD20220623001
-                                        </td>
-                                        <td>
-                                            華碩
-                                        </td>
-                                        <td>
-                                            2022/06/13
-                                        </td>
-                                        <td>
-                                            110,000
-                                        </td>
-                                        <td>
-                                            90,000
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -74,13 +59,12 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">銷貨管理</a>
+        <a class="navbar-brand" href="">銷貨管理 "出貨單帶過來"</a>
     </h4>
 @endsection
 

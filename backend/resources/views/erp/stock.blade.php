@@ -111,7 +111,7 @@
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">庫存管理</a>
+        <a class="navbar-brand" href="">庫存管理"由出貨帶過來"</a>
     </h4>
 @endsection
 
