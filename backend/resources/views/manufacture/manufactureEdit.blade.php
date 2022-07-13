@@ -58,17 +58,17 @@
                                 <div class="row ">
                                     <div class="col-md-12 mb-3">
                                         <label for="exampleFormControlTextarea1">工單備註</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">客戶施工處危險需注意安全</textarea>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="table-responsive">
                                 <div class="col-md-12 card-title text-center">
                                     <h4>工單商品內容</h4>
                                 </div>
-                                <table class="table">
-                                    <thead class="text-primary" style = "white-space: nowrap">
+                                <table class="table table-hover">
+                                    <thead class="text-primary" style="white-space: nowrap">
                                         <th>
                                             商品名稱
                                         </th>
@@ -76,14 +76,15 @@
                                             商品型號
                                         </th>
                                         <th>
-                                            數量
+                                            商品數量
                                         </th>
                                         <th>
-                                            單價
+                                            工單備註
                                         </th>
                                         <th>
-                                            小計
+                                            完成
                                         </th>
+
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -97,11 +98,14 @@
                                                 666
                                             </td>
                                             <td>
-                                                666
+                                                <div style="width:300px">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">電腦超重需要使用推車</textarea>
+                                                </div>
                                             </td>
-                                            <td>
-                                                666666
+                                            <td style = "text-align: center">
+                                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="">
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td>
@@ -114,39 +118,26 @@
                                                 666
                                             </td>
                                             <td>
-                                                666
+                                                <div style="width:300px">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">平板很貴</textarea>
+                                                </div>
                                             </td>
-                                            <td>
-                                                666666
+                                            <td style = "text-align: center">
+                                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" >
                                             </td>
+
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                            <td>
-                                                總計
-                                            </td>
-                                            <td>
-                                                6666666
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
-                            
-                            <div class = "container-fluid">
+
+                            {{-- <div class = "container-fluid border">
                                 <br>
                                 <br>
                                 <p style = "text-align: end;color:rgb(57, 57, 57)">客戶簽名：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
-                            </div>
-                            <div class = "row">
+                            </div> --}}
+                            <div class="row">
                                 <div class="col-md-6 mb-1 bg-light p-4 border border-white">
                                     企業方案：<br>
                                     週年慶滿千送百
@@ -156,31 +147,35 @@
                                     凱茂信箱：km2468@gmail.com
                                 </div>
                             </div>
-                            <div class = "row justify-content-center mt-5 mb-3">
-                                <div class="col-md-4 p-1">
-                                    
-                                    <button class = "btn btn-primary btn-block">
-                                        <i class="fa-regular fa-eye"></i>  &nbsp;預覽畫面
-                                    </button>
-                                </div>
-                                <div class="col-md-4 p-1">
-                                    <button class = "btn btn-primary btn-block">
-                                        <i class="fa-regular fa-floppy-disk"></i>  &nbsp;存檔
+                            <div class="row justify-content-center mt-5 mb-3">
+                                <div class="col-md-2 p-1">
+                                    <button class="btn btn-primary btn-block">
+                                        <i class="fa-regular fa-eye"></i> &nbsp;預覽畫面
                                     </button>
                                 </div>
                                 <div class="col-md-2 p-1">
-                                    <button class = "btn btn-danger btn-block">
-                                        <i class="fa-solid fa-x"></i>  &nbsp;取消
+                                    <button class="btn btn-primary btn-block">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
+                                    </button>
+                                </div>
+                                <div class="col-md-2 p-1">
+                                    <button class="btn btn-primary btn-block">
+                                        <i class="fa-regular fa-floppy-disk"></i> &nbsp;存檔
+                                    </button>
+                                </div>
+                                <div class="col-md-2 p-1">
+                                    <button class="btn btn-danger btn-block">
+                                        <i class="fa-solid fa-x"></i> &nbsp;取消
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    
+
                 </div>
 
-                
+
             </div>
         </div>
     </div>

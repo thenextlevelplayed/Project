@@ -78,7 +78,7 @@ class BackendController extends Controller
         return view('order.orderInfo');
     }
     function orderEdit(){
-        //訂單管理
+        //訂單編輯
         return view('order.orderEdit');
     }
 
@@ -204,7 +204,7 @@ class BackendController extends Controller
         return view('customer.customerAdd');
     }
 
-    public function createPDF () {
+    public function createPDF (Request $request) {
         // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
         // PDF ::loadView ('index', '$data');
         // Retrieve all products from the db
@@ -218,16 +218,38 @@ class BackendController extends Controller
         // $json = fopen($_SERVER['PHP_SELF'], "r");
 
         // 'delivery.deliveryInfo'
-        $pdf = PDF::loadView('delivery.deliveryInfo', $data=[]);
+        $pdf = PDF::loadView('pdf.deliveryInfo', $data=[]);
         // return $pdf->download ('file-pdf.pdf');
         // dd($pdf);
         // return $pdf->stream();
     //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
         // $pdf = PDF::loadHTML("");
+        return $pdf->download();
+    }
+
+    public function viewPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.deliveryInfo', $data=[]);
         return $pdf->stream();
     }
 
-
     
+    //匯出報價PDF
+    public function createQuotationPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
+        return $pdf->download();
+    }
+    public function viewQuotationPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
+        return $pdf->stream();
+    }
+    //匯出訂單PDF
+    public function createOrderPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        return $pdf->download();
+    }
+    public function viewOrderPDF (Request $request) {
+        $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        return $pdf->stream();
+    }
 
 }

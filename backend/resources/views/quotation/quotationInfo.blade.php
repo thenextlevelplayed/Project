@@ -165,7 +165,6 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <fieldset disabled>
                                                 <th scope="row">3</th>
                                                 <td> 
                                                     <fieldset disabled>
@@ -252,7 +251,10 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
+                <a class="btn btn-primary " href="/quotation/pdf/view/{quotationId}">
+                    <span>預覽PDF</span>
+                </a>
+                <a class="btn btn-primary" href="/main/quotation/pdf/{quotationId}">
                     <span>匯出PDF</span>
                 </a>
             </div>
