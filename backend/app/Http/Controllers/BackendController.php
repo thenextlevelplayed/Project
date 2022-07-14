@@ -87,7 +87,11 @@ class BackendController extends Controller
 
     function order(){
         //訂單
-        return view('main.order');
+        $order = Order::join('quotation','quotation.qid','=','oreder.oid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        return view('main.order',compact('order'));
     }
     function orderInfo(){
         //訂單管理
