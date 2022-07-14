@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Models\book;
-use App\Models\bookdetail;
-use App\Models\customer;
-use App\Models\delivery;
-use App\Models\detaillist;
-use App\Models\inventory;
-use App\Models\invoice;
-use App\Models\invoicedetail;
-use App\Models\manufacture;
-use App\Models\material;
-use App\Models\order;
-use App\Models\quotation;
-use App\Models\rebate;
-use App\Models\staff;
-use App\Models\supplier;
+use App\Models\Book;
+use App\Models\Bookdetail;
+use App\Models\Customer;
+use App\Models\Delivery;
+use App\Models\Detaillist;
+use App\Models\Inventory;
+use App\Models\Invoice;
+use App\Models\Invoicedetail;
+use App\Models\Manufacture;
+use App\Models\Material;
+use App\Models\Order;
+use App\Models\Quotation;
+use App\Models\Rebate;
+use App\Models\Staff;
+use App\Models\Supplier;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 
@@ -108,7 +108,11 @@ class BackendController extends Controller
     }
 
     function delivery(){
-        
+        $delivery = Delivery::all();
+        $delivery->all();
+        $detaillist = Detaillist::all();
+        $detaillist->all();
+        // dd($d);        
         //出貨
         return view('main.delivery');
     }
@@ -117,12 +121,15 @@ class BackendController extends Controller
         
         //檢視出貨
         // $d = book::find($deliveryId);
-        $d = DB::all();
-        $d->all();
+        // $d = book::all();
+        // $d = DB::select("select * from book");
+        // $d->all();
         // $employeeDetails = Employee::all();
         // return view('main.delivery', compact('d'));
-        dd($d);
-        return view('delivery.deliveryInfo' ,compact('d'));
+        // dd($d);
+        // return view('delivery.deliveryInfo' ,compact('d'));
+        return view('delivery.deliveryInfo');
+
 
     }
     

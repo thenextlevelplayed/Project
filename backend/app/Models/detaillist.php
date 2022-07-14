@@ -5,25 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class detaillist extends Model
+class Detaillist extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'dlid',
-            'qid',
-            'iid',
-            'rid',
-            'mname',
-            'quantity',
-            'price',
-            'mspecification',
-            'mnumber',
-            'remark',
-            'pstatus'
-
-
-
-
-        ];
-    }
+    use HasFactory;
+    protected $table = "detaillist";
+    protected $primaryKey = "dlid";
+    public $timestamps = false;
+}

@@ -5,16 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class material extends Model
+class Material extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'mid',
-            'sid',
-            'mname',
-            'mnumber',
-            'mspecification',
-            'cost'
-        ];
-    }
+    use HasFactory;
+}

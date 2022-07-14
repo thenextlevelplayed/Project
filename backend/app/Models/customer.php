@@ -5,16 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class Customer extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'cid',
-            'cname',
-            'ctel',
-            'cmail',
-            'caddress',
-            'clineid'
-        ];
-    }
+    use HasFactory;
+}
