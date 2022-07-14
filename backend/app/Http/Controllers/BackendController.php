@@ -71,9 +71,9 @@ class BackendController extends Controller
     function quotation(){
         //報價
         $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        // ->join('rebate','rebate.rid','=','quotation.rid')
+        // ->join('staff','staff.staffid','=','quotation.staffid')
+        // ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
 
@@ -99,6 +99,7 @@ class BackendController extends Controller
         //訂單
         $order = Order::join('quotation','quotation.qid','=','order.oid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->get();
 
@@ -115,12 +116,21 @@ class BackendController extends Controller
 
     function manufacture(){
         //製造
-        $manufacture = Manufacture::all();
-        dd($manufacture);
-        return view('main.manufacture');
+        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
+        
+        return view('main.manufacture',compact('manufacture'));
     }
     function manufactureEdit(){
         //製造
+        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
         return view('manufacture.manufactureEdit');
     }
 

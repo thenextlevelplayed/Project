@@ -34,13 +34,16 @@
                                         客戶名稱
                                     </th>
                                     <th>
+                                        訂單建立日期
+                                    </th>
+                                    <th>
                                         總計
                                     </th>
                                     <th>
                                         工單編號
                                     </th>
                                     <th>
-                                        成立工單
+                                        訂單狀態
                                     </th>
                                     <th>
                                         編輯
@@ -54,15 +57,18 @@
                                                     {{$od->oid}}
                                             </td>
                                             <td>
-                                                華碩
+                                                {{$od->cname}}
+                                            </td>
+                                            <td>
+                                                {{$od->odate}}
                                             </td>
                                             <td>
                                                 9999
                                             </td>
                                             <td>
-                                                KMD20220624001
+                                                {{$od->mid}}
                                             </td>
-                                            {{-- {{$d->Did}} --}}
+                                            
                                             <td>
                                                 <span class="badge bg-success">
                                                     已成立訂單

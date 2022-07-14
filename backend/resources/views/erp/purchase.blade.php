@@ -35,30 +35,49 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    
+
                                     @foreach ($book as $bk)
                                         <tr>
                                             <td>
                                                 <a href="">
-                                                    {{$bk->bid}}
+                                                    {{ $bk->bid }}
                                                 </a>
                                             </td>
                                             <td>
-                                                {{$bk->sName}}
+                                                {{ $bk->sName }}
                                             </td>
                                             <td>
-                                                {{$bk->bookDate}}
+                                                {{ $bk->bookDate }}
                                             </td>
                                             <td>
-                                                {{$bk->staffName}}
+                                                {{ $bk->staffName }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-success">
-                                                    已入庫
-                                                </span>
+                                                
+                                                <?php
+
+                                                    if($bk->stockIn != "0000-00-00"){
+                                                        echo
+                                                            "<span class='badge bg-success'>
+                                                            已入庫
+                                                            </span>"
+                                                        ;
+                                                        
+                                                    }else {
+                                                        
+                                                        echo
+                                                            "<span class='badge bg-danger'>
+                                                            未入庫
+                                                            </span>"
+                                                        ;
+
+                                                    }
+                                                ?>
+
                                             </td>
+
                                             <td>
-                                                <a href="/purchase/edit/{{$bk->bid}}">
+                                                <a href="/purchase/edit/{{ $bk->bid }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                         <path

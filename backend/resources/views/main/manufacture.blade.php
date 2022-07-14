@@ -40,12 +40,13 @@
                                     </th>
                                 </thead>
                                 <tbody>
+                                    @foreach($manufacture as $manu)
                                     <tr>
                                         <td>
-                                            KMM20220622001
+                                            {{$manu->mid}}
                                         </td>
                                         <td>
-                                            華碩
+                                            {{$manu->cname}}
                                         </td>
                                         <td>
                                             <span class="badge bg-success">
@@ -53,33 +54,16 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i></button>
+                                            <a href = "manufacture/edit/{{$manu->mid}}">
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></button>
+                                            </a>
                                         </td>
                                         <td>
-                                            KMP20220622001
+                                            {{$manu->dlid}}
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            KMM20220622001
-                                        </td>
-                                        <td>
-                                            華碩
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-warning">
-                                                待完成
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <a href = "/main/manufacture/edit/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i></a>
-                                        </td>
-                                        <td>
-                                            KMP20220622001
-                                        </td>
-                                    </tr>
+                                    </tr>                               
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
