@@ -135,10 +135,6 @@
 
 
         {{-- bootstrap對話框 --}}
-        <!-- Button trigger modal -->
-        <div data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -170,7 +166,7 @@
         //明細更改會先在網頁做更新, 存檔後會在寫進資料庫。
 
         //這個會從資料庫出來
-        var ListData = [{
+        let ListData = [{
                 PRname: "筆記型電腦",
                 PRid: "NB001",
                 PRnum: "3",
@@ -250,18 +246,19 @@
                 $('#exampleModal').modal('show');
 
                 //找欄位
-                var row = $(this).closest('tr');
+                let row = $(this).closest('tr');
 
                 //確認後才可以刪除
                 $('#okBtn').click(function() {
-
-                    //刪除Array 
-                    var Pindex = ($(row).find('th').text());
+                    
+                    //刪除Array
+                    let Pindex = ($(row).find('th').text());
                     ListData.splice((Pindex - 1), 1);
                     console.log((Pindex - 1), ListData);
 
                     //關閉Bootstrap對話框
                     $('#exampleModal').modal('hide');
+
                 })
             })
         }
@@ -272,17 +269,17 @@
             $('tr').find('input').on('input', function() {
 
                 //找欄位
-                var row = $(this).closest('tr');
+                let row = $(this).closest('tr');
 
-                var Pname = $(row).find('input').eq(0).val();
-                var Pid = $(row).find('input').eq(1).val();
-                var qty = $(row).find('input').eq(2).val();
-                var price = $(row).find('input').eq(3).val();
-                var Ptot = qty * price;
-                var stockIn = $(row).find('input').eq(5).val();
+                let Pname = $(row).find('input').eq(0).val();
+                let Pid = $(row).find('input').eq(1).val();
+                let qty = $(row).find('input').eq(2).val();
+                let price = $(row).find('input').eq(3).val();
+                let Ptot = qty * price;
+                let stockIn = $(row).find('input').eq(5).val();
 
                 $(row).find('input').eq(4).val(Ptot);
-                var Pindex = ($(row).find('th').text());
+                let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array
                 ListData[(Pindex - 1)].PRname = Pname;
@@ -303,7 +300,7 @@
         //全部總和更新
         function Alltot() {
 
-            var totally = 0;
+            let totally = 0;
 
             ListData.forEach(item => {
                 totally += Number(item.PRtot);
