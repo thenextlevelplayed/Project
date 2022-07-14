@@ -70,7 +70,16 @@ class BackendController extends Controller
 
     function quotation(){
         //報價
-        return view('main.quotation');
+        $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        // dd($quotation);
+
+        return view('main.quotation',compact('quotation'));
     }
     function quotationCreate(){
         //新增報價單
