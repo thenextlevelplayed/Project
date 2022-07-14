@@ -107,13 +107,21 @@ class BackendController extends Controller
     }
 
     function delivery(){
-        $delivery = Delivery::all();
-        $delivery->all();
-        $detaillist = Detaillist::all();
-        $detaillist->all();
+        // Delivery::all() 為二維陣列 要用foreach
+        // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上衣張相同主鍵
+        $delivery = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->select('*')
+        ->get();
+        
+        // $delivery = Delivery::all();
+        // dd($delivery);        
+        // $delivery->all();
+        // $detaillist = Detaillist::all();
+        // $detaillist->all();
         // dd($d);        
         //出貨
-        return view('main.delivery');
+        return view('main.delivery',compact('delivery'));
     }
 
     function deliveryInfo($deliveryId){
