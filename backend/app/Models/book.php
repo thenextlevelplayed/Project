@@ -7,14 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class book extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'bid',
-            'sid',
-            'sname',
-            'bookdate',
-            'staffname',
-            'remark'
-        ];
-    }
+    use HasFactory;
+    public $fillable =
+    [
+        'bid',
+        'sid',
+        'sname',
+        'bookdate',
+        'staffname',
+        'remark'
+    ];
+
+    protected $table = 'book';
+}

@@ -41,12 +41,12 @@ class BackendController extends Controller
         // }
     }
 
-    function erp(){
-        //進銷存
-        return view('main.erp');
-    }
     function purchase(){
         //進銷存-進貨
+        $sql = book::join('bookDetail','bookDetail.bid','=','book.bid')
+        ->select("book.bid","book.sName","bookDetail.stockIn","bookDetail.cost")
+        ->get();
+        dd($sql);
         return view('erp.purchase');
     }
     function purchaseCreate(){
@@ -54,7 +54,7 @@ class BackendController extends Controller
         return view('erp.purchaseCreate');
     }
     function purchaseEdit(){
-        //進銷存-新增進貨
+        //進銷存-編輯進貨
         return view('erp.purchaseEdit');
     }
     function sales(){
@@ -65,6 +65,7 @@ class BackendController extends Controller
         //進銷存-庫存
         return view('erp.stock');
     }
+
 
     function quotation(){
         //報價
