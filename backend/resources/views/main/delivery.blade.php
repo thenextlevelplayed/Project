@@ -47,7 +47,7 @@
                             <tbody>
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
-                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">{{$did}}</td>
                                     {{-- {{$d->firstName}} --}}
                                     <td>{{$delivery->dcontact}}</td>
                                      <td >
