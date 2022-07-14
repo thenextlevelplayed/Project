@@ -43,11 +43,11 @@ class BackendController extends Controller
 
     function purchase(){
         //進銷存-進貨
-        $sql = book::join('bookDetail','bookDetail.bid','=','book.bid')
-        ->select("book.bid","book.sName","bookDetail.stockIn","bookDetail.cost")
+        $book = book::join('bookDetail','bookDetail.bid','=','book.bid')
+        ->select("book.bid","book.sName", "book.bookDate", "book.staffName","bookDetail.stockIn")
         ->get();
-        dd($sql);
-        return view('erp.purchase');
+
+        return view('erp.purchase',compact("book"));
     }
     function purchaseCreate(){
         //進銷存-新增進貨
@@ -113,11 +113,13 @@ class BackendController extends Controller
 
     function delivery(){
         // Delivery::all() 為二維陣列 要用foreach
-        // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上衣張相同主鍵
+        // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
         $delivery = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
         ->join('order','order.oid','=','manufacture.oid')
         ->select('*')
         ->get();
+
+        dd($delivery);
         
         // $delivery = Delivery::all();
         // dd($delivery);        
