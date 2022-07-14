@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Manufacture extends Model
 {
     use HasFactory;
-    
+    protected $table = "manufacture";
+    protected $primaryKey = "mid";
+    public $timestamps = false;
 }

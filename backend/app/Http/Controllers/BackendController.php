@@ -100,6 +100,8 @@ class BackendController extends Controller
 
     function manufacture(){
         //製造
+        $manufacture = Manufacture::all();
+        dd($manufacture);
         return view('main.manufacture');
     }
     function manufactureEdit(){
