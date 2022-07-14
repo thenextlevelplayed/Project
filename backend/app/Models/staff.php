@@ -14,6 +14,6 @@ use HasFactory;
             'password',
             'staffname',
             'stafftel',
-            'staffMail',
+            'staffmail',
         ];
     }

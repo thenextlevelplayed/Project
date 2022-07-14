@@ -13,7 +13,7 @@ use HasFactory;
             'qid',
             'qdate',
             'cid',
-            'qContact',
+            'qcontact',
             'cmail',
             'staffid',
             'dlid',
