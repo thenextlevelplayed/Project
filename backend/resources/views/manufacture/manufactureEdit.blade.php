@@ -15,6 +15,8 @@
 @endsection
 
 @section('content')
+
+
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -28,31 +30,31 @@
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">工單編號</label>
-                                        <input class="form-control" type="text" placeholder="工單編號" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->mid}}" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶聯絡人</label>
-                                        <input class="form-control" type="text" placeholder="工單編號" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->qContact}}" readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶名稱</label>
-                                        <input class="form-control" type="text" placeholder="工單編號" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->cname}}" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶信箱</label>
-                                        <input class="form-control" type="text" placeholder="工單編號" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->cmail}}" readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶統編</label>
-                                        <input class="form-control" type="text" placeholder="工單編號" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->cid}}" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">工單成立日期</label>
-                                        <input class="form-control" type="text" placeholder="工單編號" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->mDate}}" readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -87,6 +89,7 @@
 
                                     </thead>
                                     <tbody>
+                                        
                                         <tr>
                                             <td>
                                                 電腦
@@ -105,28 +108,8 @@
                                             <td style = "text-align: center">
                                                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="">
                                             </td>
-
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                平板
-                                            </td>
-                                            <td>
-                                                TABLET666
-                                            </td>
-                                            <td>
-                                                666
-                                            </td>
-                                            <td>
-                                                <div style="width:300px">
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">平板很貴</textarea>
-                                                </div>
-                                            </td>
-                                            <td style = "text-align: center">
-                                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" >
-                                            </td>
-
-                                        </tr>
+                                        
 
                                     </tbody>
                                 </table>
@@ -180,3 +163,5 @@
         </div>
     </div>
 @endsection
+
+
