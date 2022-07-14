@@ -71,9 +71,9 @@ class BackendController extends Controller
     function quotation(){
         //報價
         $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        // ->join('rebate','rebate.rid','=','quotation.rid')
+        // ->join('staff','staff.staffid','=','quotation.staffid')
+        // ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
 
