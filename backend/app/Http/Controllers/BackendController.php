@@ -116,7 +116,7 @@ class BackendController extends Controller
         
         //檢視出貨
         // $d = book::find($deliveryId);
-        $d = DB::all();
+        $d = Book::all();
         $d->all();
         // $employeeDetails = Employee::all();
         // return view('main.delivery', compact('d'));

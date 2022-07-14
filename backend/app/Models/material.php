@@ -7,14 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class material extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'mid',
-            'sid',
-            'mname',
-            'mnumber',
-            'mspecification',
-            'cost'
-        ];
-    }
+    use HasFactory;
+}
