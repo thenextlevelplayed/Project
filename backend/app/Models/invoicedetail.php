@@ -7,11 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class invoicedetail extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'iid',
-            'invoiceid',
-            'did'
-        ];
-    }
+    use HasFactory;
+}

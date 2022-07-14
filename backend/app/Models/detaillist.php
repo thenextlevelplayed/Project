@@ -7,23 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class detaillist extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'dlid',
-            'qid',
-            'iid',
-            'rid',
-            'mname',
-            'quantity',
-            'price',
-            'mspecification',
-            'mnumber',
-            'remark',
-            'pstatus'
-
-
-
-
-        ];
-    }
+    use HasFactory;
+}

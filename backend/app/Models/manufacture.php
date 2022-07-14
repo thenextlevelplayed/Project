@@ -7,14 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class manufacture extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'mid',
-            'mdate',
-            'mcomplete',
-            'oid',
-            'mremark',
-            'mstatus'
-        ];
-    }
+    use HasFactory;
+}

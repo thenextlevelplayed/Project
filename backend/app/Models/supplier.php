@@ -7,12 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class supplier extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'sid',
-            'sname',
-            'smail',
-            'stel',
-        ];
-    }
+    use HasFactory;
+}

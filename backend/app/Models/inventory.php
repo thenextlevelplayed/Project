@@ -7,22 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class inventory extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'iid',
-            'mid',
-            'mname',
-            'mnumber',
-            'sid',
-            'mspecification',
-            'cost',
-            'sumquantity',
-            'bdetailid',
-            'quantity',
-
-
-
-
-        ];
-    }
+    use HasFactory;
+}

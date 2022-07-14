@@ -7,14 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class customer extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'cid',
-            'cname',
-            'ctel',
-            'cmail',
-            'caddress',
-            'clineid'
-        ];
-    }
+    use HasFactory;
+}

@@ -7,14 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class delivery extends Model
 {
-use HasFactory;
-    public $fillable = 
-        [
-            'did',
-            'dcontact',
-            'dtel',
-            'daddress',
-            'oid',
-            'dstatus'
-        ];
-    }
+    use HasFactory;
+}
