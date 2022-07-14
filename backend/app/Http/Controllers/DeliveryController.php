@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\delivery;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 
 class DeliveryController extends Controller
@@ -41,10 +41,10 @@ class DeliveryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\delivery  $delivery
+     * @param  \App\Models\Delivery  $delivery
      * @return \Illuminate\Http\Response
      */
-    public function show(delivery $delivery)
+    public function show(Delivery $delivery)
     {
         //
     }
@@ -52,10 +52,10 @@ class DeliveryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\delivery  $delivery
+     * @param  \App\Models\Delivery  $delivery
      * @return \Illuminate\Http\Response
      */
-    public function edit(delivery $delivery)
+    public function edit(Delivery $delivery)
     {
         //
     }
@@ -64,10 +64,10 @@ class DeliveryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\delivery  $delivery
+     * @param  \App\Models\Delivery  $delivery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, delivery $delivery)
+    public function update(Request $request, Delivery $delivery)
     {
         //
     }
@@ -75,10 +75,10 @@ class DeliveryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\delivery  $delivery
+     * @param  \App\Models\Delivery  $delivery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(delivery $delivery)
+    public function destroy(Delivery $delivery)
     {
         //
     }

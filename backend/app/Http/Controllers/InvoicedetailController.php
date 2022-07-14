@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\invoicedetail;
+use App\Models\Invoicedetail;
 use Illuminate\Http\Request;
 
 class InvoicedetailController extends Controller
@@ -41,10 +41,10 @@ class InvoicedetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\invoicedetail  $invoicedetail
+     * @param  \App\Models\Invoicedetail  $invoicedetail
      * @return \Illuminate\Http\Response
      */
-    public function show(invoicedetail $invoicedetail)
+    public function show(Invoicedetail $invoicedetail)
     {
         //
     }
@@ -52,10 +52,10 @@ class InvoicedetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\invoicedetail  $invoicedetail
+     * @param  \App\Models\Invoicedetail  $invoicedetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(invoicedetail $invoicedetail)
+    public function edit(Invoicedetail $invoicedetail)
     {
         //
     }
@@ -64,10 +64,10 @@ class InvoicedetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\invoicedetail  $invoicedetail
+     * @param  \App\Models\Invoicedetail  $invoicedetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, invoicedetail $invoicedetail)
+    public function update(Request $request, Invoicedetail $invoicedetail)
     {
         //
     }
@@ -75,10 +75,10 @@ class InvoicedetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\invoicedetail  $invoicedetail
+     * @param  \App\Models\Invoicedetail  $invoicedetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(invoicedetail $invoicedetail)
+    public function destroy(Invoicedetail $invoicedetail)
     {
         //
     }

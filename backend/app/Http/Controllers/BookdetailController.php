@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bookdetail;
+use App\Models\Bookdetail;
 use Illuminate\Http\Request;
 
 class BookdetailController extends Controller
@@ -41,10 +41,10 @@ class BookdetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\bookdetail  $bookdetail
+     * @param  \App\Models\Bookdetail  $bookdetail
      * @return \Illuminate\Http\Response
      */
-    public function show(bookdetail $bookdetail)
+    public function show(Bookdetail $bookdetail)
     {
         //
     }
@@ -52,10 +52,10 @@ class BookdetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\bookdetail  $bookdetail
+     * @param  \App\Models\Bookdetail  $bookdetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(bookdetail $bookdetail)
+    public function edit(Bookdetail $bookdetail)
     {
         //
     }
@@ -64,10 +64,10 @@ class BookdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\bookdetail  $bookdetail
+     * @param  \App\Models\Bookdetail  $bookdetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, bookdetail $bookdetail)
+    public function update(Request $request, Bookdetail $bookdetail)
     {
         //
     }
@@ -75,10 +75,10 @@ class BookdetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\bookdetail  $bookdetail
+     * @param  \App\Models\Bookdetail  $bookdetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(bookdetail $bookdetail)
+    public function destroy(Bookdetail $bookdetail)
     {
         //
     }

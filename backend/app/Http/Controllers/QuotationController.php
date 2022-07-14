@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\quotation;
+use App\Models\Quotation;
 use Illuminate\Http\Request;
 
 class QuotationController extends Controller
@@ -41,10 +41,10 @@ class QuotationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\quotation  $quotation
+     * @param  \App\Models\Quotation  $quotation
      * @return \Illuminate\Http\Response
      */
-    public function show(quotation $quotation)
+    public function show(Quotation $quotation)
     {
         //
     }
@@ -52,10 +52,10 @@ class QuotationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\quotation  $quotation
+     * @param  \App\Models\Quotation  $quotation
      * @return \Illuminate\Http\Response
      */
-    public function edit(quotation $quotation)
+    public function edit(Quotation $quotation)
     {
         //
     }
@@ -64,10 +64,10 @@ class QuotationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\quotation  $quotation
+     * @param  \App\Models\Quotation  $quotation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, quotation $quotation)
+    public function update(Request $request, Quotation $quotation)
     {
         //
     }
@@ -75,10 +75,10 @@ class QuotationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\quotation  $quotation
+     * @param  \App\Models\Quotation  $quotation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(quotation $quotation)
+    public function destroy(Quotation $quotation)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detaillist;
+use App\Models\Detaillist;
 use Illuminate\Http\Request;
 
 class DetaillistController extends Controller
@@ -41,10 +41,10 @@ class DetaillistController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\detaillist  $detaillist
+     * @param  \App\Models\Detaillist  $detaillist
      * @return \Illuminate\Http\Response
      */
-    public function show(detaillist $detaillist)
+    public function show(Detaillist $detaillist)
     {
         //
     }
@@ -52,10 +52,10 @@ class DetaillistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\detaillist  $detaillist
+     * @param  \App\Models\Detaillist  $detaillist
      * @return \Illuminate\Http\Response
      */
-    public function edit(detaillist $detaillist)
+    public function edit(Detaillist $detaillist)
     {
         //
     }
@@ -64,10 +64,10 @@ class DetaillistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\detaillist  $detaillist
+     * @param  \App\Models\Detaillist  $detaillist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detaillist $detaillist)
+    public function update(Request $request, Detaillist $detaillist)
     {
         //
     }
@@ -75,10 +75,10 @@ class DetaillistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\detaillist  $detaillist
+     * @param  \App\Models\Detaillist  $detaillist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detaillist $detaillist)
+    public function destroy(Detaillist $detaillist)
     {
         //
     }
