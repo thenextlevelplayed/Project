@@ -35,6 +35,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
+                                    
                                     @foreach ($book as $bk)
                                         <tr>
                                             <td>
