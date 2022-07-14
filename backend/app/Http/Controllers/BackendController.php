@@ -116,13 +116,20 @@ class BackendController extends Controller
     function manufacture(){
         //製造
         $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->get();
-        dd($manufacture);
-        return view('main.manufacture');
+        
+        return view('main.manufacture',compact('manufacture'));
     }
     function manufactureEdit(){
         //製造
+        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
         return view('manufacture.manufactureEdit');
     }
 
