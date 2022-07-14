@@ -47,7 +47,29 @@
                             <tbody>
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
-                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">
+                                    <?php
+                                        // $id=$delivery->did;
+                                        $id=1;
+
+                                        if($id<10){
+                                            $id = '00'.$id;
+                                            $date=date("Ymd", time());
+                                            echo 'KMD-'.$date.$id;
+                                        }elseif ($id>=10 && $id<100) {
+                                            $id = '0'.$id;
+                                            $date=date("Ymd", time());
+                                            echo 'KMD-'.$date.$id;
+                                        }elseif ($id=100) {
+                                            $id = $id;
+                                            $date=date("Ymd", time());
+                                            echo 'KMD-'.$date.$id;
+                                        }elseif ($id>100){
+                                            trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+                                        }
+                                        // $date=date("Ymd", time());
+                                        // echo 'KMD-'.$date.$id;
+                                    ?></td>
                                     {{-- {{$d->firstName}} --}}
                                     <td>{{$delivery->dcontact}}</td>
                                      <td >

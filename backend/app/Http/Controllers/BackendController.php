@@ -127,19 +127,17 @@ class BackendController extends Controller
     function delivery(){
         // Delivery::all() 為二維陣列 要用foreach
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
-        $delivery = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
         ->join('order','order.oid','=','manufacture.oid')
         ->select('*')
         ->get();
 
-        dd($delivery);
+        foreach ($d as $key => $delivery) {
+            // dd($value);
+            # code...
+        }
+
         
-        // $delivery = Delivery::all();
-        // dd($delivery);        
-        // $delivery->all();
-        // $detaillist = Detaillist::all();
-        // $detaillist->all();
-        // dd($d);        
         //出貨
         return view('main.delivery',compact('delivery'));
     }
