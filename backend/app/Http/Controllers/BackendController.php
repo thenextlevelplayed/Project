@@ -69,16 +69,12 @@ class BackendController extends Controller
 
 
     function quotation(){
-        //報價
+        //報價管理
         $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
-        // ->join('rebate','rebate.rid','=','quotation.rid')
-        // ->join('staff','staff.staffid','=','quotation.staffid')
-        // ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
 
         // dd($quotation);
-
         return view('main.quotation',compact('quotation'));
     }
     function quotationCreate(){
@@ -87,7 +83,15 @@ class BackendController extends Controller
     }
     function quotationInfo(){
         //報價資訊
-        return view('quotation.quotationInfo');
+        $quotationInfo = Quotation::join('customer','customer.cid','=','quotation.cid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        // dd($quotationInfo);
+        return view('quotation.quotationInfo',compact('quotationInfo'));
     }
     function quotationEdit(){
         //報價編輯
