@@ -4,8 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Book;
+use App\Models\Bookdetail;
+use App\Models\Customer;
+use App\Models\Delivery;
+use App\Models\Detaillist;
+use App\Models\Inventory;
+use App\Models\Invoice;
+use App\Models\Invoicedetail;
+use App\Models\Manufacture;
+use App\Models\Material;
+use App\Models\Order;
+use App\Models\Quotation;
+use App\Models\Rebate;
+use App\Models\Staff;
+use App\Models\Supplier;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Facades\DB;
 
 class BackendController extends Controller
 {
@@ -26,20 +41,20 @@ class BackendController extends Controller
         // }
     }
 
-    function erp(){
-        //進銷存
-        return view('main.erp');
-    }
     function purchase(){
         //進銷存-進貨
-        return view('erp.purchase');
+        $book = book::join('bookDetail','bookDetail.bid','=','book.bid')
+        ->select("book.bid","book.sName", "book.bookDate", "book.staffName","bookDetail.stockIn")
+        ->get();
+
+        return view('erp.purchase',compact("book"));
     }
     function purchaseCreate(){
         //進銷存-新增進貨
         return view('erp.purchaseCreate');
     }
     function purchaseEdit(){
-        //進銷存-新增進貨
+        //進銷存-編輯進貨
         return view('erp.purchaseEdit');
     }
     function sales(){
@@ -50,6 +65,7 @@ class BackendController extends Controller
         //進銷存-庫存
         return view('erp.stock');
     }
+
 
     function quotation(){
         //報價
@@ -92,19 +108,38 @@ class BackendController extends Controller
     }
 
     function delivery(){
+        // Delivery::all() 為二維陣列 要用foreach
+        // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
+        $delivery = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->select('*')
+        ->get();
+
+        dd($delivery);
         
+        // $delivery = Delivery::all();
+        // dd($delivery);        
+        // $delivery->all();
+        // $detaillist = Detaillist::all();
+        // $detaillist->all();
+        // dd($d);        
         //出貨
-        return view('main.delivery');
+        return view('main.delivery',compact('delivery'));
     }
 
     function deliveryInfo($deliveryId){
         
         //檢視出貨
-        // $d = Employee::find($deliveryId);
+        // $d = book::find($deliveryId);
+        // $d = book::all();
+        // $d = DB::select("select * from book");
         // $d->all();
         // $employeeDetails = Employee::all();
         // return view('main.delivery', compact('d'));
+        // dd($d);
+        // return view('delivery.deliveryInfo' ,compact('d'));
         return view('delivery.deliveryInfo');
+
 
     }
     

@@ -114,7 +114,8 @@
                                         <p>總計</p>
                                     </div>
                                     <div class="col-lg-5">
-                                        <input type="text" class="form-control" required readonly placeholder="自動算出">
+                                        <input id="AllTot" type="text" class="form-control" required readonly
+                                            value="自動算出">
                                     </div>
                                 </div>
                             </div>
@@ -134,25 +135,23 @@
 
 
         {{-- bootstrap對話框 --}}
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-        </button>
-
+     
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="exampleModalLabel">確定要刪除?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="modal-body">
-                        ...
+                    <div id="modalContent" class="modal-body">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" id="okBtn" class="btn btn-primary">確定</button>
                     </div>
                 </div>
             </div>
@@ -167,13 +166,13 @@
         //明細更改會先在網頁做更新, 存檔後會在寫進資料庫。
 
         //這個會從資料庫出來
-        var ListData = [{
+        let ListData = [{
                 PRname: "筆記型電腦",
                 PRid: "NB001",
                 PRnum: "3",
                 PRprice: "43000",
                 PRtot: "129000",
-                PRcommit: "Y"
+                PRstock: "Y"
             },
             {
                 PRname: "電腦",
@@ -181,71 +180,49 @@
                 PRnum: "1",
                 PRprice: "35000",
                 PRtot: "35000",
-                PRcommit: "N"
+                PRstock: "N"
             }
         ]
-
-        // console.log(ListData.length, ListData, typeof(ListData))
-
-        var Pindex = 1;
 
         //頁面進來,更新畫面
         Refresh()
 
+        //更新頁面
         function Refresh() {
-
-            Pindex = 1;
 
             $('#purchaseTable').find('tbody').empty();
 
             for (let i = 0; i < ListData.length; i++) {
 
                 $('#purchaseTable').find('tbody').append(`
-                <tr>
-                    <th scope="row">${i+1}</th>
-                    <td> <input type="text" class="form-control" required value="${ListData[i].PRname}"></td>
-                    <td> <input type="text" class="form-control" required value="${ListData[i].PRid}"></td>
-                    <td> <input type="number" min="0" class="form-control" required value="${ListData[i].PRnum}" ></td>
-                    <td> <input type="number" min="0" class="form-control" required value="${ListData[i].PRprice}" ></td>
-                    <td> <input type="text" class="form-control" required value="${ListData[i].PRtot}" readonly></td>
-                    <td> <input type="text" class="form-control" required value="${ListData[i].PRcommit}"></td>
-                    <td id="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)" data-index="${i+1}" onclick="Pdelete()"></i></td>
-                </tr>
-            `)
-
-                Pindex++;
-
+                    <tr>
+                        <th scope="row">${i+1}</th>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].PRname}"></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].PRid}"></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].PRnum}" ></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].PRprice}" ></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].PRtot}" readonly></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].PRstock}"></td>
+                        <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
+                    </tr>
+                `)
             }
 
+            //給細項欄位更新Function
+            Ptot()
+
+            //給全部總和更新Function
+            Alltot()
+
+            //給刪除Function
+            Pdel()
+
         }
-
-        // 細項更新
-
-
-
 
         // 細項新增
         function PCreate() {
 
-            $('#purchaseTable').find('tbody').append(`
-                <tr>
-                    <th scope="row">${Pindex}</th>
-                    <td> <input type="text" class="form-control" required></td>
-                    <td> <input type="text" class="form-control" required></td>
-                    <td> <input type="number" min="0" class="form-control" required></td>
-                    <td> <input type="number" min="0" class="form-control" required></td>
-                    <td> <input type="text" class="form-control" required readonly></td>
-                    <td> <input type="text" class="form-control" required></td>
-                    <td id="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"  onclick="Pdelete()"></i></td>
-                </tr>
-            `)
-
-            Pindex++;
-
-            //新的欄位要重新給細項欄位更新function
-            Ptot();
-
-            //新細項寫進矩陣
+            //矩陣增加
             ListData.push({
                 PRname: "",
                 PRid: "",
@@ -255,33 +232,35 @@
                 PRstock: ""
             })
 
-            console.log(ListData.length, ListData)
+            Refresh()
 
+            console.log(ListData)
         }
 
-
         // 細項欄位刪除
-        function Pdelete() {
+        function Pdel() {
 
-            $('tr').find('#Pdel').on('click', function() {
+            $('tr').find('.Pdel').on('click', function() {
+
+                //跳出Bootstrap對話框
+                $('#exampleModal').modal('show');
+
                 //找欄位
-                var row = $(this).closest('tr');
+                let row = $(this).closest('tr');
 
-                //confirm delete
+                //確認後才可以刪除
+                $('#okBtn').click(function() {
+                    
+                    //刪除Array
+                    let Pindex = ($(row).find('th').text());
+                    ListData.splice((Pindex - 1), 1);
+                    console.log((Pindex - 1), ListData);
+                    
+                    //關閉Bootstrap對話框
+                    $('#exampleModal').modal('hide');
 
-
-                //刪除Array 
-                var Pindex = ($(row).find('th').text());
-                ListData.splice((Pindex - 1), 1);
-                console.log((Pindex - 1), ListData);
-
-                //刪除
-                $(row).empty();
-
-                Refresh()
-
+                })
             })
-
         }
 
         // 細項欄位更新
@@ -290,17 +269,17 @@
             $('tr').find('input').on('input', function() {
 
                 //找欄位
-                var row = $(this).closest('tr');
+                let row = $(this).closest('tr');
 
-                var Pname = $(row).find('input').eq(0).val();
-                var Pid = $(row).find('input').eq(1).val();
-                var qty = $(row).find('input').eq(2).val();
-                var price = $(row).find('input').eq(3).val();
-                var Ptot = qty * price;
-                var stockIn = $(row).find('input').eq(5).val();
+                let Pname = $(row).find('input').eq(0).val();
+                let Pid = $(row).find('input').eq(1).val();
+                let qty = $(row).find('input').eq(2).val();
+                let price = $(row).find('input').eq(3).val();
+                let Ptot = qty * price;
+                let stockIn = $(row).find('input').eq(5).val();
 
                 $(row).find('input').eq(4).val(Ptot);
-                var Pindex = ($(row).find('th').text());
+                let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array
                 ListData[(Pindex - 1)].PRname = Pname;
@@ -310,11 +289,25 @@
                 ListData[(Pindex - 1)].PRtot = Ptot;
                 ListData[(Pindex - 1)].PRstock = stockIn;
 
+                //全部總和更新
+                Alltot()
+
                 console.log(ListData)
             })
 
         }
 
-        //內容更新寫進 DataList
+        //全部總和更新
+        function Alltot() {
+
+            let totally = 0;
+
+            ListData.forEach(item => {
+                totally += Number(item.PRtot);
+            });
+
+            $('#AllTot').val(totally);
+        }
+
     </script>
 @endsection
