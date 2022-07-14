@@ -91,8 +91,7 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
-        dd($order);
-        
+
         return view('main.order',compact('order'));
     }
     function orderInfo(){
