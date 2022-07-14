@@ -4,8 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\book;
+use App\Models\bookdetail;
+use App\Models\customer;
+use App\Models\delivery;
+use App\Models\detaillist;
+use App\Models\inventory;
+use App\Models\invoice;
+use App\Models\invoicedetail;
+use App\Models\manufacture;
+use App\Models\material;
+use App\Models\order;
+use App\Models\quotation;
+use App\Models\rebate;
+use App\Models\staff;
+use App\Models\supplier;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Facades\DB;
 
 class BackendController extends Controller
 {
@@ -37,6 +52,10 @@ class BackendController extends Controller
     function purchaseCreate(){
         //進銷存-新增進貨
         return view('erp.purchaseCreate');
+    }
+    function purchaseEdit(){
+        //進銷存-新增進貨
+        return view('erp.purchaseEdit');
     }
     function sales(){
         //進銷存-銷貨
@@ -96,11 +115,13 @@ class BackendController extends Controller
     function deliveryInfo($deliveryId){
         
         //檢視出貨
-        // $d = Employee::find($deliveryId);
-        // $d->all();
+        // $d = book::find($deliveryId);
+        $d = DB::all();
+        $d->all();
         // $employeeDetails = Employee::all();
         // return view('main.delivery', compact('d'));
-        return view('delivery.deliveryInfo');
+        dd($d);
+        return view('delivery.deliveryInfo' ,compact('d'));
 
     }
     

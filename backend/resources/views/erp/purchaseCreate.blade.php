@@ -4,7 +4,6 @@
 @endsection
 
 @section('content')
-
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -15,16 +14,16 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-3">
-                                <h5>客戶資訊</h5>
+                                <h5>廠商資訊</h5>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-lg-6">
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
-                                            <p>報價單編號</p>
+                                            <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required>
+                                            <input type="text" required readonly placeholder="自動算出">
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -47,10 +46,10 @@
                                 <div class="col-lg-6">
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
-                                            <p>報價日期</p>
+                                            <p>進貨日期</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <input type="date" class="" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -74,7 +73,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-lg-12">
-                                <h5>報價明細</h5>
+                                <h5>進貨明細</h5>
                             </div>
                             <div class="col-lg-12">
                                 <div>
@@ -85,7 +84,7 @@
                                                 <th scope="col">商品名稱</th>
                                                 <th scope="col">商品編號</th>
                                                 <th scope="col">數量</th>
-                                                <th scope="col">單價</th>
+                                                <th scope="col">成本</th>
                                                 <th scope="col">小計</th>
                                                 <th scope="col">備註</th>
                                             </tr>
@@ -120,48 +119,16 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <a class="btn btn-primary mr-3" style="right:20px" href="">
+                                        <span>新增</span>
+                                    </a>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-2">
                                         <p>總計</p>
                                     </div>
                                     <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="mb-3">
-                                <h4>凱茂方案</h4>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-12">
-                                            <p>企業方案</p>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <input type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>業務專員</p>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" required>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>凱茂信箱</p>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" required>
-                                        </div>
+                                        <input type="text" class="form-control" required readonly placeholder="自動算出">
                                     </div>
                                 </div>
                             </div>
@@ -177,58 +144,6 @@
                     <span>存檔</span>
                 </a>
             </div>
-            <div class="col-md-12 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title text-center"> E-mail</h4>
-                    </div>
-                    <form class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>主旨</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人信箱</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>內容</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <textarea name="" id="" cols="100" rows="10"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
-                    <span>發送Email和報價單PDF至客戶信箱</span>
-                </a>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
-                    <span>報價成立，轉為訂單</span>
-                </a>
-            </div>
         </div>
     </div>
-
 @endsection

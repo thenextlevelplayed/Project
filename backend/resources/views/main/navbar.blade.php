@@ -6,7 +6,7 @@
     <link rel="kaimau-icon" sizes="76x76" href="/assets/img/logo-color.png">
     <link rel="icon" type="image/png" href="/assets/img/logo-color.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>楷模資訊</title>
+    <title>報價管理</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
     <!--     Fonts and icons     -->
@@ -258,8 +258,6 @@
 <script src="/assets/js/core/popper.min.js"></script>
 <script src="/assets/js/core/bootstrap.min.js"></script>
 <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <script src="/assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
@@ -271,6 +269,7 @@
 <script src="https://kit.fontawesome.com/ecf6d354b0.js" crossorigin="anonymous"></script>
 
 <script>
+
     //進銷存 開關 
     $('#test').on('click', function() {
         // console.log('ok');
@@ -288,8 +287,10 @@
     }
 
 
-
 </script>
+
+@yield('script')
+
 
 
 </html>
