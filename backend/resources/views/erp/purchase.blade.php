@@ -25,10 +25,10 @@
                                         進貨日期
                                     </th>
                                     <th>
-                                        入庫狀態
+                                        採購人員
                                     </th>
                                     <th>
-                                        入庫日期
+                                        入庫狀態
                                     </th>
                                     <th>
                                         編輯
@@ -48,12 +48,12 @@
                                             2022-06-22
                                         </td>
                                         <td>
+                                            Peter
+                                        </td>
+                                        <td>
                                             <span class="badge bg-success">
                                                 已入庫
                                             </span>
-                                        </td>
-                                        <td>
-                                            2022-06-23
                                         </td>
                                         <td>
                                             <a href="/main/purchaseEdit">
