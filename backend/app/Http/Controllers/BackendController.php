@@ -47,6 +47,7 @@ class BackendController extends Controller
         ->select("book.bid","book.sName", "book.bookDate", "book.staffName","bookDetail.stockIn")
         ->get();
 
+
         return view('erp.purchase',compact("book"));
     }
     function purchaseCreate(){
