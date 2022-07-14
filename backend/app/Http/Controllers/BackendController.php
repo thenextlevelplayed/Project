@@ -115,7 +115,9 @@ class BackendController extends Controller
 
     function manufacture(){
         //製造
-        $manufacture = Manufacture::all();
+        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->select('*')
+        ->get();
         dd($manufacture);
         return view('main.manufacture');
     }
