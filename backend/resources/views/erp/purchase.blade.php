@@ -35,7 +35,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    
+
                                     @foreach ($book as $bk)
                                         <tr>
                                             <td>
@@ -53,6 +53,7 @@
                                                 {{$bk->staffName}}
                                             </td>
                                             <td>
+                                                {{$bk->stockIn}}
                                                 <span class="badge bg-success">
                                                     已入庫
                                                 </span>
