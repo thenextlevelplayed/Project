@@ -60,7 +60,7 @@
                                                     {{$od->oid}}
                                             </td>
                                             <td>
-                                                {{$od->cid}}
+                                                {{$od->cname}}
                                             </td>
                                             <td>
                                                 {{$od->odate}}
