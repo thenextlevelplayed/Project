@@ -118,7 +118,7 @@
                             {{-- <div class = "container-fluid border">
                                 <br>
                                 <br>
-                                <p style = "text-align: end;color:rgb(57, 57, 57)">客戶簽名：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+                                
                             </div> --}}
                             <div class="row">
                                 <div class="col-md-6 mb-1 bg-light p-4 border border-white">
