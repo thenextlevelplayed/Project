@@ -133,6 +133,8 @@ class BackendController extends Controller
         ->select('*')
         ->find($manufactureId);
 
+       
+
         
 
         return view('manufacture.manufactureEdit',["manu"=>$manufacture]);

@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶聯絡人</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->qContact}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{$manu->qcontact}}" readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -89,16 +89,16 @@
 
                                     </thead>
                                     <tbody>
-                                        
+                                        @foreach($manu as $mn)
                                         <tr>
                                             <td>
-                                                電腦
+                                                {{$manu->mname}}
                                             </td>
                                             <td>
-                                                COMPU666
+                                                {{$manu->mnumber}}
                                             </td>
                                             <td>
-                                                666
+                                                {{$manu->quantity}}
                                             </td>
                                             <td>
                                                 <div style="width:300px">
@@ -109,7 +109,7 @@
                                                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="">
                                             </td>
                                         </tr>
-                                        
+                                        @endforeach
 
                                     </tbody>
                                 </table>
