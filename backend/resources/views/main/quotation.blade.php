@@ -46,7 +46,7 @@
                                 <tr>
                                     @foreach ($quotation as $q)
                                         <td>
-                                            <a href="/main/quotation/{quotationId}">{{$q->qid}}</a>                                                    
+                                            <a href="/main/quotation/{{$q->qid}}">{{$q->qid}}</a>                                                    
                                         </td>
                                         <td>
                                             {{$q->cid}}
