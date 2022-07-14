@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Quotation extends Model
 {
     use HasFactory;
+    protected $table = "quotation";
+    protected $primaryKey = "qid";
+    public $timestamps = false;
 }
