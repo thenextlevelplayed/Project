@@ -43,11 +43,11 @@ class BackendController extends Controller
 
     function purchase(){
         //進銷存-進貨
-        $sql = book::join('bookDetail','bookDetail.bid','=','book.bid')
-        ->select("book.bid","book.sName","bookDetail.stockIn","bookDetail.cost")
+        $book = book::join('bookDetail','bookDetail.bid','=','book.bid')
+        ->select("book.bid","book.sName", "book.bookDate", "book.staffName","bookDetail.stockIn")
         ->get();
-        dd($sql);
-        return view('erp.purchase');
+
+        return view('erp.purchase',compact("book"));
     }
     function purchaseCreate(){
         //進銷存-新增進貨
