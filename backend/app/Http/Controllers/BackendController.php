@@ -146,10 +146,26 @@ class BackendController extends Controller
             // dd($value);
             # code...
         }
+        $did=$delivery->did;
+        // $did=9999;
 
-        
+        if($did<10){
+            $did = '00'.$did;
+            $date=date("Ymd", time());
+            $did= 'KMD-'.$date.$did;
+        }elseif ($did>=10 && $did<100) {
+            $did = '0'.$did;
+            $date=date("Ymd", time());
+            $did= 'KMD-'.$date.$did;
+        }elseif ($id=100) {
+            $did = $did;
+            $date=date("Ymd", time());
+            $did= 'KMD-'.$date.$did;
+        }elseif ($did>100){
+            trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+        }
         //出貨
-        return view('main.delivery',compact('delivery'));
+        return view('main.delivery',compact('delivery','did'));
     }
 
     function deliveryInfo($deliveryId){
