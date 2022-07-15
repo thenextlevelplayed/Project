@@ -9,70 +9,90 @@
         font-weight: normal;
         src: url({{ storage_path('fonts/NotoSansTC-Regular.otf') }}) format('truetype');
     }
-    body {
-        font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;
+    *{
+        position: relative;
+        box-sizing: border-box;
+        /* border: 1px solid red; */
         padding: 0;
-        border: 1px solid red;
+        margin: 0;
+    }
+    body{
+        font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;      
+    }
+    .paddingY{
+        padding-top: 30px; 
+        padding-bottom: 10px;
+    }
+    .paddingL{
+        padding-left: 30px;
     }
     .col{
-        width: 50%;
+        width: 45%;
         float: left;
+    }
+    .col-inline{
+        width: 35%;
+        display: inline-block;
+    }
+    .positionR0{
+        position: absolute;
+        right: 5%;
+        display: inline-block;
+    }
+    .positionR50{
+        position: absolute;
+        right: 50%;
+        display: inline-block;
     }
 </style>
 
-<div class="container">
-    <div>
-        <p class="text-center">凱茂資訊報價明細</p>
-    </div>
+<div class="">
+    <div class="text-center paddingY">楷模資訊報價明細</div>
     <div>
         <div>
-            <div class="mb-3">
-                <p>||客戶資訊</p>
-            </div>
-            <div  class="mb-3">
+            <div class="paddingY paddingL">||客戶資訊</div>
+            <div  class="paddingL">
                 <div class="col">
                     <div class="">
-                        <div class=""><p>報價單編號</p></div>
-                        <div class="">{{$quotationInfo->qid}}</div>
+                        <div class="col-inline">報價單編號</div>
+                        <div class="col-inline">{{$quotationInfo->qid}}</div>
                     </div>
                     <div class="">
-                        <div class=""><p>客戶名稱</p></div>
-                        <div class="">{{$quotationInfo->cname}}</div>
+                        <div class="col-inline">客戶名稱</div>
+                        <div class="col-inline">{{$quotationInfo->cname}}</div>
                     </div>
                     <div class="">
-                        <div class=""><p>公司統編</p></div>
-                        <div class="">{{$quotationInfo->cid}}</div>
+                        <div class="col-inline">公司統編</div>
+                        <div class="col-inline">{{$quotationInfo->cid}}</div>
                     </div>
                     <div class="">
-                        <div class=""><p>公司電話</p></div>
-                        <div class="">{{$quotationInfo->ctel}}</div>
+                        <div class="col-inline">公司電話</div>
+                        <div class="col-inline">{{$quotationInfo->ctel}}</div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="">
-                        <div class=""><p>報價日期</p></div>
-                        <div class="">{{$quotationInfo->qdate}}</div>
+                        <div class="col-inline">報價日期</div>
+                        <div class="col-inline">{{$quotationInfo->qdate}}</div>
                     </div>
                     <div class="">
-                        <div class=""><p>聯絡人</p></div>
-                        <div class="">{{$quotationInfo->qcontact}}</div>
+                        <div class="col-inline">聯絡人</div>
+                        <div class="col-inline">{{$quotationInfo->qcontact}}</div>
                     </div>
                     <div class="">
-                        <div class=""><p>聯絡人LINE ID</p></div>
-                        <div class="">{{$quotationInfo->clineid}}</div>
+                        <div class="col-inline">聯絡人LINE ID</div>
+                        <div class="col-inline">{{$quotationInfo->clineid}}</div>
                     </div>
                     <div class="">
-                        <div class=""><p>聯絡信箱</p></div>
-                        <div class="">{{$quotationInfo->cmail}}</div>
+                        <div class="col-inline">聯絡信箱</div>
+                        <div class="col-inline">{{$quotationInfo->cmail}}</div>
                     </div>
                 </div>
             </div>                                    
         </div>
-        <div class="row mb-3">
-            <div class="col-lg-12">
-                <p>||報價明細</p>
-            </div>
-            <div class="col-lg-12"> 
+        <div class="">
+            <div class="paddingY paddingL">||報價明細</div>
+            <div> 
                 <div>
                     <table class="table">
                         <thead>
@@ -118,31 +138,27 @@
                         </tbody>
                     </table> 
                 </div>
-                <div class="row mb-1">
-                    <div class="col-lg-8 text-right"><p>總計</p></div>
-                    <div class="col-lg-4"></div>
+                <div class="">
+                    <div class="text-right positionR50">總計</div>
+                    <div class="text-right positionR0">29999</div>
                 </div>                                 
             </div>
         </div>
         <div>
-            <div class="mb-3">
-                <p>||凱茂方案</p>
-            </div>
-            <div  class="row mb-3">
-                <div class="col-lg-6">
-                    <div class="row mb-1">
-                        <div class="col-lg-3"><p>企業方案</p></div>
-                        <div class="col-lg-8">{{$quotationInfo->rid}}</div>
-                    </div>
+            <div class="paddingY paddingL">||楷模方案</div>
+            <div class="paddingL">
+                <div class="col">
+                    <div class="col-inline">企業方案</div>
+                    <div class="col-inline">{{$quotationInfo->rid}}</div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="row mb-1">
-                        <div class="col-lg-3"><p>業務專員</p></div>
-                        <div class="col-lg-8">{{$quotationInfo->staffid}}</div>
+                <div class="col">
+                    <div>
+                        <div class="col-inline">業務專員</div>
+                        <div class="col-inline">{{$quotationInfo->staffid}}</div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-lg-3"><p>凱茂信箱</p></div>
-                        <div class="col-lg-8"><p>kaimoo888.gmail.com</p></div>
+                    <div>
+                        <div class="col-inline">楷模信箱</div>
+                        <div class="col-inline">kaimoo888.gmail.com</div>
                     </div>
                 </div>
             </div>
