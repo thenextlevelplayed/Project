@@ -18,6 +18,8 @@
 @endsection
 
 @section('content')
+<form action="" method="">
+
 <div class="content">
     <div class="row">
         <div class="col-md-12">
@@ -45,9 +47,9 @@
                             <tbody>
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
-                                    <td><a href="/delivery/{deliveryId}" class="btn" style="background: 0 ; color:black">KMD20220623001</td>
+                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">{{$did}}</td>
                                     {{-- {{$d->firstName}} --}}
-                                    <td>華碩</td>
+                                    <td>{{$delivery->dcontact}}</td>
                                      <td >
                                         <div class="btn-group">
                                             {{-- {{ url('/home') }} --}}
@@ -106,6 +108,7 @@
         </div>
     </div>
 </div>
+</form>
 
 
 

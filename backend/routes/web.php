@@ -37,12 +37,11 @@ Route::get('/member/create', "App\Http\Controllers\memberController@create");
 Route::get('/main', "App\Http\Controllers\BackendController@index");
 
 //進銷存
-Route::get('/main/erp', "App\Http\Controllers\BackendController@erp");
-Route::get('/main/purchase', "App\Http\Controllers\BackendController@purchase");
-Route::get('/main/purchaseCreate', "App\Http\Controllers\BackendController@purchaseCreate");
-Route::get('/main/purchaseEdit', "App\Http\Controllers\BackendController@purchaseEdit");
-Route::get('/main/sales', "App\Http\Controllers\BackendController@sales");
-Route::get('/main/stock', "App\Http\Controllers\BackendController@stock");
+Route::get('/main/purchase', "App\Http\Controllers\BackendController@purchase"); //進貨單列表
+Route::get('/main/purchaseCreate', "App\Http\Controllers\BackendController@purchaseCreate"); //進貨單新增
+Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\BackendController@purchaseEdit"); //進貨單編輯
+Route::get('/main/sales', "App\Http\Controllers\BackendController@sales"); //銷貨單列表
+Route::get('/main/stock', "App\Http\Controllers\BackendController@stock"); //庫存列表
 
 //報價
 Route::get('/main/quotation', "App\Http\Controllers\BackendController@quotation");
@@ -57,7 +56,7 @@ Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\BackendController
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
-Route::get('main/manufacture/edit/', "App\Http\Controllers\BackendController@manufactureEdit");
+Route::get('main/manufacture/edit/{manufactureId}', "App\Http\Controllers\BackendController@manufactureEdit");
 
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");

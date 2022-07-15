@@ -135,7 +135,7 @@
 
 
         {{-- bootstrap對話框 --}}
-
+     
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -255,7 +255,7 @@
                     let Pindex = ($(row).find('th').text());
                     ListData.splice((Pindex - 1), 1);
                     console.log((Pindex - 1), ListData);
-
+                    
                     //關閉Bootstrap對話框
                     $('#exampleModal').modal('hide');
 

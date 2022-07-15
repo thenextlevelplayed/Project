@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class bookdetail extends Model
+class Bookdetail extends Model
 {
     use HasFactory;
+    protected $table = 'bookdetail';    
+    protected $primaryKey = 'bDetailId';
+    public $timestamps = false;
 }

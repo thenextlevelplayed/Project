@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\rebate;
+use App\Models\Rebate;
 use Illuminate\Http\Request;
 
 class RebateController extends Controller
@@ -41,10 +41,10 @@ class RebateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\rebate  $rebate
+     * @param  \App\Models\Rebate  $rebate
      * @return \Illuminate\Http\Response
      */
-    public function show(rebate $rebate)
+    public function show(Rebate $rebate)
     {
         //
     }
@@ -52,10 +52,10 @@ class RebateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\rebate  $rebate
+     * @param  \App\Models\Rebate  $rebate
      * @return \Illuminate\Http\Response
      */
-    public function edit(rebate $rebate)
+    public function edit(Rebate $rebate)
     {
         //
     }
@@ -64,10 +64,10 @@ class RebateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\rebate  $rebate
+     * @param  \App\Models\Rebate  $rebate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, rebate $rebate)
+    public function update(Request $request, Rebate $rebate)
     {
         //
     }
@@ -75,10 +75,10 @@ class RebateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\rebate  $rebate
+     * @param  \App\Models\Rebate  $rebate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(rebate $rebate)
+    public function destroy(Rebate $rebate)
     {
         //
     }

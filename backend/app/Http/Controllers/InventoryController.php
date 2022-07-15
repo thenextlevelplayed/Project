@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\inventory;
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -41,10 +41,10 @@ class InventoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\inventory  $inventory
+     * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function show(inventory $inventory)
+    public function show(Inventory $inventory)
     {
         //
     }
@@ -52,10 +52,10 @@ class InventoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\inventory  $inventory
+     * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function edit(inventory $inventory)
+    public function edit(Inventory $inventory)
     {
         //
     }
@@ -64,10 +64,10 @@ class InventoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\inventory  $inventory
+     * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, inventory $inventory)
+    public function update(Request $request, Inventory $inventory)
     {
         //
     }
@@ -75,10 +75,10 @@ class InventoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\inventory  $inventory
+     * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(inventory $inventory)
+    public function destroy(Inventory $inventory)
     {
         //
     }

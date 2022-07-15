@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class delivery extends Model
+class Delivery extends Model
 {
     use HasFactory;
+    protected $table = "delivery";
+    protected $primaryKey = "did";
+    public $timestamps = false;
 }
