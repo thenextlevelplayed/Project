@@ -21,6 +21,7 @@ use App\Models\Staff;
 use App\Models\Supplier;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Foreach_;
 
 class BackendController extends Controller
 {
@@ -169,10 +170,38 @@ class BackendController extends Controller
         ->select('*')
         ->get();
 
+        $number=[];
+
         foreach ($d as $key => $delivery) {
+            $did=$delivery->did;
+            if($did<10){
+                $did = '00'.$did;
+                $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                $did= 'KMD-'.$date.$did;
+            }elseif ($did>=10 && $did<100) {
+                $did = '0'.$did;
+                $date=$delivery->qdate;
+                $date = date("Ymd", $date);
+                $did= 'KMD-'.$date.$did;
+            }elseif ($id=100) {
+                $did = $did;
+                $date=$delivery->qdate; //string
+                $did= 'KMD-'.$date.$did;
+            }elseif ($did>100){
+                trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+            }
+            //出貨
+
+            array_push($number,$did);
+
+            // var_dump($number);
+
+            
             // dd($value);
             # code...
         }
+
 
 
         function generateid($id,$date,$head){
@@ -197,31 +226,31 @@ class BackendController extends Controller
                 trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
             }
             //出貨
-            return view('main.delivery',compact('delivery','did'));
+            return view('main.delivery',compact('delivery','number'));
 
         }
-        $did=$delivery->did;
+        // $did=$delivery->did;
         // $did=9999;
 
-        if($did<10){
-            $did = '00'.$did;
-            $date=$delivery->qdate;
-            $date = preg_replace('/-/','',$date);
-            $did= 'KMD-'.$date.$did;
-        }elseif ($did>=10 && $did<100) {
-            $did = '0'.$did;
-            $date=$delivery->qdate;
-            $date = date("Ymd", $date);
-            $did= 'KMD-'.$date.$did;
-        }elseif ($id=100) {
-            $did = $did;
-            $date=$delivery->qdate; //string
-            $did= 'KMD-'.$date.$did;
-        }elseif ($did>100){
-            trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
-        }
-        //出貨
-        return view('main.delivery',compact('delivery','did','d'));
+        // if($did<10){
+        //     $did = '00'.$did;
+        //     $date=$delivery->qdate;
+        //     $date = preg_replace('/-/','',$date);
+        //     $did= 'KMD-'.$date.$did;
+        // }elseif ($did>=10 && $did<100) {
+        //     $did = '0'.$did;
+        //     $date=$delivery->qdate;
+        //     $date = date("Ymd", $date);
+        //     $did= 'KMD-'.$date.$did;
+        // }elseif ($id=100) {
+        //     $did = $did;
+        //     $date=$delivery->qdate; //string
+        //     $did= 'KMD-'.$date.$did;
+        // }elseif ($did>100){
+        //     trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+        // }
+        // //出貨
+        return view('main.delivery',compact('delivery','number','d','did'));
     }
 
     function deliveryInfo($deliveryId){
@@ -240,14 +269,16 @@ class BackendController extends Controller
 
     }
     
-    public function deliveryInfoEdit (Request $request) {
-        dd($request);
-        //edit delivery
-        $var1 = $request->input('var1');
-        $var2 = $request->input('var2');
-        
-        // (...) do something with $var1 and $var2
-        return view('delivery.deliveryInfoEdit');
+    public function deliveryInfoEdit ($deliveryId) {
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->find($deliveryId);
+
+        return view('delivery.deliveryInfoEdit',compact('deliveryInfo'));
     }
 
     public function deliveryInfoUpdate (Request $request) {

@@ -25,7 +25,7 @@
         <div class="col-md-12">
             <form class="card">
                 <div class="card-header">
-                    <h4 class="card-title text-center"> 凱茂資訊 出貨單明細</h4>
+                    <h4 class="card-title text-center"> 楷模資訊 出貨單明細</h4>
                 </div>                            
                 <div class="card-body">
                     {{-- 客戶資訊 --}}
@@ -38,7 +38,7 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>出貨單編號</p></div>
                                         <div class="col-lg-8">
-                                            <input type="text" required>
+                                            <input type="text" value='{{$deliveryInfo->did}}' required>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -46,20 +46,20 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>客戶名稱</p></div>
                                         <div class="col-lg-8">
-                                            <input type="text" required>
+                                            <input type="text" value='{{$deliveryInfo->cname}}' required>
                                         </div>
                                     </div>
                                 </fieldset>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>出貨日期</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" required>
+                                        <input type="text" value='' required>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>發票號碼</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="" required>
+                                        <input type="text" value='' required>
                                     </div>
                                 </div>
                             </div>
@@ -67,19 +67,19 @@
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>收貨地址</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="" required>
+                                        <input type="text" value='{{$deliveryInfo->daddress}}' required>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>聯絡人員</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="" required>
+                                        <input type="text"value='{{$deliveryInfo->dcontact}}' required>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>聯絡電話</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="" required>
+                                        <input type="text" value='{{$deliveryInfo->dtel}}' required>
                                     </div>
                                 </div>
                                 {{-- <div class="form-check col-lg-4">
@@ -95,11 +95,11 @@
                                     </label>
                                 </div> --}}
                                 <div class="form-check form-check-inline col-lg-3">
-                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Y">
                                     <label class="form-check-label" for="inlineRadio1">已出貨</label>
                                 </div>
                                 <div class="form-check form-check-inline col-lg-3">
-                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N">
                                     <label class="form-check-label" for="inlineRadio2">未出貨</label>
                                 </div>
                             </div>
@@ -128,77 +128,23 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <input type="text" class="form-control" required></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <input type="text" class="form-control" required></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <fieldset disabled><input type="text" class="form-control" required></fieldset></td>
-                                            <td> <input type="text" class="form-control" required></td>
+                                            <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->mname}}' required></fieldset></td>
+                                            <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->mspecification}}' required></fieldset></td>
+                                            <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->quantity}}'  required></fieldset></td>
+                                            <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->price}}'  required></fieldset></td>
+                                            <td> <fieldset disabled><input type="text" class="form-control" value=<?php echo ($deliveryInfo->price)*($deliveryInfo->quantity) ?>  required></fieldset></td>
+                                            <td> <fieldset disabled><input type="text" class="form-control" value=<?php echo round(($deliveryInfo->price)*($deliveryInfo->quantity)*0.05) ?>  required></fieldset></td>
+                                            <td> <input type="text" class="form-control" value='{{$deliveryInfo->remark}}'  required></td>
                                         </tr>
                                     </tbody>
                                 </table> 
                             </div>
-                            <div class="row mb-1">
-                                <div class="col-lg-2"><p>總計</p></div>
-                                <fieldset disabled>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control" required>
-                                    </div>
-                                </fieldset>
-                                
-                            </div>                                 
-                        </div>
-                    </div>
-                    <div>
-                        <div class="mb-3">
-                            <h4>凱茂方案</h4>
-                        </div>
-                        <div  class="row mb-3">
-                            <div class="col-lg-6">
                                 <div class="row mb-1">
-                                    <div class="col-lg-12">
-                                        <p>企業方案</p>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <input type="text" required>
-                                    </div>
+                                        <div class="col-lg-5"><p>總計</p></div>                                        
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" value = <?php echo round(($deliveryInfo->price)*($deliveryInfo->quantity)*1.05) ?> readonly >
+                                            </div>                                    
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>業務專員</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="" required>
-                                    </div>
-                                </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>凱茂信箱</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="" required>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
