@@ -33,13 +33,11 @@
                             <fieldset disabled>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>訂單編號</p></div>
-                                    <div class="col-lg-8">{{$od->oid}}</div>
+                                    <div class="col-lg-8">{{$order->oid}}</div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>公司名稱</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" required>
-                                    </div>
+                                    <div class="col-lg-8"></div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>公司統編</p></div>
