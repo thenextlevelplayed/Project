@@ -173,20 +173,49 @@ class BackendController extends Controller
             // dd($value);
             # code...
         }
+
+
+        function generateid($id,$date,$head){
+            if($id<10){
+                $id = '00'.$id;
+                // $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                
+                $id= "{$head}".'-'.$date.$id;
+            }elseif ($id>=10 && $id<100) {
+                $id = '00'.$id;
+                // $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                
+                $id= "{$head}".'-'.$date.$id;
+            }elseif ($id=100) {
+                $id = '00'.$id;
+                // $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                $id= "{$head}".'-'.$date.$id;
+            }elseif ($id>100){
+                trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+            }
+            //出貨
+            return view('main.delivery',compact('delivery','did'));
+
+        }
         $did=$delivery->did;
         // $did=9999;
 
         if($did<10){
             $did = '00'.$did;
             $date=$delivery->qdate;
+            $date = preg_replace('/-/','',$date);
             $did= 'KMD-'.$date.$did;
         }elseif ($did>=10 && $did<100) {
             $did = '0'.$did;
             $date=$delivery->qdate;
+            $date = date("Ymd", $date);
             $did= 'KMD-'.$date.$did;
         }elseif ($id=100) {
             $did = $did;
-            $date=$delivery->qdate;
+            $date=$delivery->qdate; //string
             $did= 'KMD-'.$date.$did;
         }elseif ($did>100){
             trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
@@ -308,6 +337,18 @@ class BackendController extends Controller
     }
 
     public function createPDF (Request $request) {
+        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
+
+        foreach ($d as $key => $delivery) {
+            // dd($value);
+            # code...
+        }
         // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
         // PDF ::loadView ('index', '$data');
         // Retrieve all products from the db
@@ -321,7 +362,7 @@ class BackendController extends Controller
         // $json = fopen($_SERVER['PHP_SELF'], "r");
 
         // 'delivery.deliveryInfo'
-        $pdf = PDF::loadView('pdf.deliveryInfo', $data=[]);
+        $pdf = PDF::loadView('pdf.deliveryInfo', $data=array());
         // return $pdf->download ('file-pdf.pdf');
         // dd($pdf);
         // return $pdf->stream();
@@ -331,7 +372,19 @@ class BackendController extends Controller
     }
 
     public function viewPDF (Request $request) {
-        $pdf = PDF::loadView('pdf.deliveryInfo', $data=[]);
+        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
+
+        foreach ($d as $key => $delivery) {
+            // dd($value);
+            # code...
+        }
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('delivery'));
         return $pdf->stream();
     }
 
