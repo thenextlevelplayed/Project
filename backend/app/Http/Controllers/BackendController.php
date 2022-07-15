@@ -163,15 +163,15 @@ class BackendController extends Controller
 
         if($did<10){
             $did = '00'.$did;
-            $date=date("Ymd", time());
+            $date=$delivery->qdate;
             $did= 'KMD-'.$date.$did;
         }elseif ($did>=10 && $did<100) {
             $did = '0'.$did;
-            $date=date("Ymd", time());
+            $date=$delivery->qdate;
             $did= 'KMD-'.$date.$did;
         }elseif ($id=100) {
             $did = $did;
-            $date=date("Ymd", time());
+            $date=$delivery->qdate;
             $did= 'KMD-'.$date.$did;
         }elseif ($did>100){
             trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
