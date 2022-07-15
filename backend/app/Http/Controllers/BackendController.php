@@ -47,12 +47,15 @@ class BackendController extends Controller
         ->select("book.bid","book.sName", "book.bookDate", "book.staffName","bookDetail.stockIn")
         ->get();
 
-
         return view('erp.purchase',compact("book"));
     }
     function purchaseCreate(){
         //進銷存-新增進貨
         return view('erp.purchaseCreate');
+    }
+    function purchaseInfo(){
+          //進銷存-檢視進貨
+        return view('erp.purchaseInfo');
     }
     function purchaseEdit(){
         //進銷存-編輯進貨
