@@ -11,10 +11,8 @@
     }
     body {
         font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;
+        padding: 0;
         border: 1px solid red;
-    }
-    .container{
-        margin: 10px;
     }
     .col{
         width: 50%;
@@ -24,7 +22,7 @@
 
 <div class="container">
     <div>
-        <p class="text-center"> 凱茂資訊 報價明細</p>
+        <p class="text-center">凱茂資訊報價明細</p>
     </div>
     <div>
         <div>
