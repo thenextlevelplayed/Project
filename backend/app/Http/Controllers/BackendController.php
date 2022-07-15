@@ -241,6 +241,7 @@ class BackendController extends Controller
     }
     
     public function deliveryInfoEdit (Request $request) {
+        dd($request);
         //edit delivery
         $var1 = $request->input('var1');
         $var2 = $request->input('var2');
