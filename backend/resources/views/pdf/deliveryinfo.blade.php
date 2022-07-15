@@ -28,19 +28,19 @@
                     </div>
                     {{-- 客戶名稱 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$delivery->cname}}</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->cname}}</span></div>                                        
                     </div>
                     {{-- 收貨地址 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>收貨地址：</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>收貨地址：{{$deliveryInfo->daddress}}</span></div>                                        
                     </div>
                     {{-- 聯絡人 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->dcontact}}</span></div>                                        
                     </div>
                     {{-- 聯絡電話 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：</span></div>
+                        <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：{{$deliveryInfo->dtel}}</span></div>
                         
                     </div>
                     {{-- 出貨編號 --}}
@@ -83,49 +83,26 @@
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
                                     {{-- {{$d->firstName}} --}}
-                                    <td>beepbeep</td>
-                                    <td>華碩</td>
+                                    <td>{{$deliveryInfo->mname}}</td>
+                                    <td>{{$deliveryInfo->mspecification}}</td>
                                     <td name="quantity">
-                                        87
+                                        {{$deliveryInfo->quantity}}
                                     </td>
-                                    <td name="price">87777</td>
-                                    <td name="total">8787878787</td>
-                                    <td name="tax">8787878787</td>
-                                    <td name="remark">8787878787</td>
+                                    <td name="price">{{$deliveryInfo->price}}</td>
+                                    <td name="total">
+                                        <?php
+                                            $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                            echo $total;
+                                        ?></td>
+                                    <td name="tax">
+                                        <?php
+                                            $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                            $tax = $total*0.05;
+                                            echo round($tax);
+                                        ?></td>
+                                    </td>
+                                    <td name="remark"> Ай-ай-ай-ай-ай, что сейчас произошло!</td>
                                 
-                                </tr>
-                                <tr>
-                                    <td>beepbeep</td>
-                                    <td>華碩</td>
-                                    <td name="quantity">
-                                        87
-                                    </td>
-                                    <td name="price">87777</td>
-                                    <td name="total">8787878787</td>
-                                    <td name="tax">8787878787</td>
-                                    <td name="remark">8787878787</td>
-                                </tr>
-                                <tr>
-                                    <td>beepbeep</td>
-                                    <td>華碩</td>
-                                    <td name="quantity">
-                                        87
-                                    </td>
-                                    <td name="price">87777</td>
-                                    <td name="total">8787878787</td>
-                                    <td name="tax">8787878787</td>
-                                    <td name="remark">8787878787</td>
-                                </tr>
-                                <tr>
-                                    <td>beepbeep</td>
-                                    <td>華碩</td>
-                                    <td name="quantity">
-                                        87
-                                    </td>
-                                    <td name="price">87777</td>
-                                    <td name="total">87</td>
-                                    <td name="tax">878787</td>
-                                    <td name="remark">8787878787</td>
                                 </tr>
                             </tbody>
                         </table>
