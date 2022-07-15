@@ -12,7 +12,7 @@
     body {
     font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;
     border: 0;
-}
+    }
 </style>
 
 <div class="row">
