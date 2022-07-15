@@ -28,7 +28,7 @@
                                         採購人員
                                     </th>
                                     <th>
-                                        入庫狀態
+                                        進度
                                     </th>
                                     <th>
                                         編輯
@@ -53,27 +53,7 @@
                                                 {{ $bk->staffName }}
                                             </td>
                                             <td>
-                                                
-                                                <?php
-
-                                                    if($bk->stockIn != "0000-00-00"){
-                                                        echo
-                                                            "<span class='badge bg-success'>
-                                                            已入庫
-                                                            </span>"
-                                                        ;
-                                                        
-                                                    }else {
-                                                        
-                                                        echo
-                                                            "<span class='badge bg-danger'>
-                                                            未入庫
-                                                            </span>"
-                                                        ;
-
-                                                    }
-                                                ?>
-
+                                                {{ $bk->remark }}
                                             </td>
 
                                             <td>

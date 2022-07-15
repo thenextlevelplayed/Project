@@ -14,24 +14,55 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-3">
-                                <h5>廠商資訊</h5>
+                                <h5>進貨單資訊</h5>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <div class="col-lg-6">
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
                                             <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required readonly placeholder="帶出不可更改">
+                                            {{ $info[0]->bid }}
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row mb-1">
+                                        <div class="col-lg-3">
+                                            <p>採購人員</p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            {{ $info[0]->staffName }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row mb-1">
+                                        <div class="col-lg-3">
+                                            <p>進貨日期</p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            {{ $info[0]->bookDate }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h5>廠商資訊</h5>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-6">
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
                                             <p>公司名稱</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required readonly placeholder="帶出不可更改">
+                                            {{ $info[0]->sname }}
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -39,25 +70,17 @@
                                             <p>公司統編</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required readonly placeholder="帶出不可更改">
+                                            {{ $info[0]->sid }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
-                                            <p>進貨日期</p>
+                                            <p>聯絡信箱</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required readonly placeholder="帶出不可更改">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>聯絡人</p>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <input type="text" required readonly placeholder="帶出不可更改">
+                                            {{ $info[0]->smail }}
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -65,7 +88,7 @@
                                             <p>聯絡電話</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required readonly placeholder="帶出不可更改">
+                                            {{ $info[0]->stel }}
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +158,7 @@
 
 
         {{-- bootstrap對話框 --}}
-     
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -166,23 +189,27 @@
         //明細更改會先在網頁做更新, 存檔後會在寫進資料庫。
 
         //這個會從資料庫出來
-        let ListData = [{
-                PRname: "筆記型電腦",
-                PRid: "NB001",
-                PRnum: "3",
-                PRprice: "43000",
-                PRtot: "129000",
-                PRstock: "Y"
-            },
-            {
-                PRname: "電腦",
-                PRid: "TB001",
-                PRnum: "1",
-                PRprice: "35000",
-                PRtot: "35000",
-                PRstock: "N"
-            }
-        ]
+        // let ListData = [{
+        //         mName: "筆記型電腦",
+        //         mNumber: "NB001",
+        //         quantity: "3",
+        //         cost: "43000",
+        //         stockIn: "Y"
+        //     },
+        //     {
+        //         mName: "電腦",
+        //         mNumber: "TB001",
+        //         quantity: "1",
+        //         cost: "35000",
+        //         stockIn: "N"
+        //     }
+        // ]
+        var users = {!! json_encode($detail->toArray()) !!};
+        console.log(users);
+        let ListData = users;
+
+
+
 
         //頁面進來,更新畫面
         Refresh()
@@ -197,12 +224,12 @@
                 $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].PRname}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].PRid}"></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].PRnum}" ></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].PRprice}" ></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].mName}"></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].mNumber}"></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].quantity}" ></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].cost}" ></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].PRtot}" readonly></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].PRstock}"></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].stockIn}"></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
                 `)
@@ -224,12 +251,12 @@
 
             //矩陣增加
             ListData.push({
-                PRname: "",
-                PRid: "",
-                PRnum: "",
-                PRprice: "",
+                mName: "",
+                mNumber: "",
+                quantity: "",
+                cost: "",
                 PRtot: "",
-                PRstock: ""
+                stockIn: ""
             })
 
             Refresh()
@@ -250,12 +277,12 @@
 
                 //確認後才可以刪除
                 $('#okBtn').click(function() {
-                    
+
                     //刪除Array
                     let Pindex = ($(row).find('th').text());
                     ListData.splice((Pindex - 1), 1);
                     console.log((Pindex - 1), ListData);
-                    
+
                     //關閉Bootstrap對話框
                     $('#exampleModal').modal('hide');
 
@@ -282,12 +309,12 @@
                 let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array
-                ListData[(Pindex - 1)].PRname = Pname;
-                ListData[(Pindex - 1)].PRid = Pid;
-                ListData[(Pindex - 1)].PRnum = qty;
-                ListData[(Pindex - 1)].PRprice = price;
+                ListData[(Pindex - 1)].mName = Pname;
+                ListData[(Pindex - 1)].mNumber = Pid;
+                ListData[(Pindex - 1)].quantity = qty;
+                ListData[(Pindex - 1)].cost = price;
                 ListData[(Pindex - 1)].PRtot = Ptot;
-                ListData[(Pindex - 1)].PRstock = stockIn;
+                ListData[(Pindex - 1)].stockIn = stockIn;
 
                 //全部總和更新
                 Alltot()
@@ -308,6 +335,5 @@
 
             $('#AllTot').val(totally);
         }
-
     </script>
 @endsection
