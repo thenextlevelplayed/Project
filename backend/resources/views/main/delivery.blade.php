@@ -45,6 +45,9 @@
                                 </th>
                             </thead>
                             <tbody>
+                            @foreach ($d as $delivery)
+                                
+                           
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
                                     <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">{{$did}}</td>
@@ -60,6 +63,7 @@
                                     </td>
                                     <td><span class="badge bg-danger">未出貨</span> </td>                                
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

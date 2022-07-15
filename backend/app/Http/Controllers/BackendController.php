@@ -221,7 +221,7 @@ class BackendController extends Controller
             trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         }
         //出貨
-        return view('main.delivery',compact('delivery','did'));
+        return view('main.delivery',compact('delivery','did','d'));
     }
 
     function deliveryInfo($deliveryId){
