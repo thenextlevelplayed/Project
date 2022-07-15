@@ -398,6 +398,7 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
         return $pdf->stream();
     }
+    
     //匯出訂單PDF
     public function createOrderPDF (Request $request) {
         $od = Order::join('quotation','quotation.qid','=','order.oid')
@@ -411,7 +412,7 @@ class BackendController extends Controller
         foreach($od as $key =>$order ){
 
         }
-        $pdf = PDF::loadView('pdf.orderInfo', $data=array());
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->download();
 
     }
@@ -428,7 +429,7 @@ class BackendController extends Controller
         foreach($od as $key =>$order ){
 
         }
-        $pdf = PDF::loadView('pdf.orderInfo', $data=array());
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->stream();
     }
 
