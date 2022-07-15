@@ -125,7 +125,7 @@ class BackendController extends Controller
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
-        ->find($orderId);
+        ->get();
 
         // dd($orderedit);
         return view('order.orderEdit',["oe"=>$orderedit]);
@@ -221,7 +221,7 @@ class BackendController extends Controller
             trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         }
         //出貨
-        return view('main.delivery',compact('delivery','did'));
+        return view('main.delivery',compact('delivery','did','d'));
     }
 
     function deliveryInfo($deliveryId){
@@ -346,28 +346,8 @@ class BackendController extends Controller
         ->get();
 
         foreach ($d as $key => $delivery) {
-            // dd($value);
-            # code...
         }
-        // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
-        // PDF ::loadView ('index', '$data');
-        // Retrieve all products from the db
-        // $products = Product::all();
-        // view()->share ('products', $products);
-        // $pdf = PDF ::loadView ('index', $products);
-        // return $pdf->download ('file-pdf.pdf');
-        // $pdf = PDF::loadHTML('12345');
-        // $json = fopen($_SERVER['DOCUMENT_ROOT'] . "\\resources\\views\delivery\deliveryinfo.blade.php", "r");
-        // $json = fopen($_SERVER['DOCUMENT_ROOT'], "r");
-        // $json = fopen($_SERVER['PHP_SELF'], "r");
-
-        // 'delivery.deliveryInfo'
-        $pdf = PDF::loadView('pdf.deliveryInfo', $data=array());
-        // return $pdf->download ('file-pdf.pdf');
-        // dd($pdf);
-        // return $pdf->stream();
-    //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
-        // $pdf = PDF::loadHTML("");
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->download();
     }
 
@@ -380,11 +360,11 @@ class BackendController extends Controller
         ->select('*')
         ->get();
 
-        foreach ($d as $key => $delivery) {
+        foreach ($d as $key => $deliveryInfo) {
             // dd($value);
             # code...
         }
-        $pdf = PDF::loadView('pdf.deliveryInfo', compact('delivery'));
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->stream();
     }
 
@@ -410,11 +390,35 @@ class BackendController extends Controller
     }
     //匯出訂單PDF
     public function createOrderPDF (Request $request) {
-        $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        $od = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        foreach($od as $key =>$order ){
+
+        }
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->download();
+
     }
+    //預覽訂單PDF
     public function viewOrderPDF (Request $request) {
-        $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        $od = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        foreach($od as $key =>$order ){
+
+        }
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->stream();
     }
 
