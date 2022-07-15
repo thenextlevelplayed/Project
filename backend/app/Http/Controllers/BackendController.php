@@ -117,9 +117,18 @@ class BackendController extends Controller
         //訂單管理
         return view('order.orderInfo');
     }
-    function orderEdit(){
+    function orderEdit($orderId){
         //訂單編輯
-        return view('order.orderEdit');
+        $orderedit = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->find($orderId);
+
+        dd($orderedit);
+        return view('order.orderEdit',["oe"=>$orderedit]);
     }
 
     function manufacture(){
@@ -142,8 +151,10 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->find($manufactureId);
+
         
-        dd($manufactureedit);
+        
+        
         return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
     }
 
@@ -394,6 +405,24 @@ class BackendController extends Controller
     }
     public function viewOrderPDF (Request $request) {
         $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        return $pdf->stream();
+    }
+
+    //匯出工單PDF
+    public function createManufacturePDF (Request $request) {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
+        $manu = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        dd($manu);
+        
+        return $pdf->download();
+    }
+    public function viewManufacturePDF (Request $request) {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
         return $pdf->stream();
     }
 
