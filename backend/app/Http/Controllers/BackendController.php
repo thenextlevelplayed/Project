@@ -380,11 +380,11 @@ class BackendController extends Controller
         ->select('*')
         ->get();
 
-        foreach ($d as $key => $delivery) {
+        foreach ($d as $key => $deliveryInfo) {
             // dd($value);
             # code...
         }
-        $pdf = PDF::loadView('pdf.deliveryInfo', compact('delivery'));
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->stream();
     }
 
