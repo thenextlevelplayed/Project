@@ -47,12 +47,15 @@ class BackendController extends Controller
         ->select("book.bid","book.sName", "book.bookDate", "book.staffName","bookDetail.stockIn")
         ->get();
 
-
         return view('erp.purchase',compact("book"));
     }
     function purchaseCreate(){
         //進銷存-新增進貨
         return view('erp.purchaseCreate');
+    }
+    function purchaseInfo(){
+          //進銷存-檢視進貨
+        return view('erp.purchaseInfo');
     }
     function purchaseEdit(){
         //進銷存-編輯進貨
@@ -173,15 +176,15 @@ class BackendController extends Controller
 
         if($did<10){
             $did = '00'.$did;
-            $date=date("Ymd", time());
+            $date=$delivery->qdate;
             $did= 'KMD-'.$date.$did;
         }elseif ($did>=10 && $did<100) {
             $did = '0'.$did;
-            $date=date("Ymd", time());
+            $date=$delivery->qdate;
             $did= 'KMD-'.$date.$did;
         }elseif ($id=100) {
             $did = $did;
-            $date=date("Ymd", time());
+            $date=$delivery->qdate;
             $did= 'KMD-'.$date.$did;
         }elseif ($did>100){
             trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);

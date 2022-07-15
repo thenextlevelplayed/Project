@@ -39,7 +39,7 @@
                                     @foreach ($book as $bk)
                                         <tr>
                                             <td>
-                                                <a href="">
+                                                <a href="/main/purchase/{{ $bk->bid }}">
                                                     {{ $bk->bid }}
                                                 </a>
                                             </td>
