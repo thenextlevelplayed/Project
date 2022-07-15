@@ -24,11 +24,11 @@
                 
                     {{-- 出貨日期 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>出貨日期：{{}}</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>出貨日期：</span></div>                                        
                     </div>
                     {{-- 客戶名稱 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$delivery->cname}}</span></div>                                        
                     </div>
                     {{-- 收貨地址 --}}
                     <div class="row row-cols-auto">
