@@ -36,14 +36,12 @@
                                     <div class="col-lg-8">{{$order->oid}}</div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-3"><p>公司名稱</p></div>
-                                    <div class="col-lg-8"></div>
+                                    <div class="col-lg-3"><p>名稱</p></div>
+                                    <div class="col-lg-8">{{$order->cname}}</div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>公司統編</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" required>
-                                    </div>
+                                    <div class="col-lg-8">{{$order->cid}}</div>
                                 </div>
                             </fieldset>
                         </div>
@@ -51,21 +49,15 @@
                             <fieldset disabled>    
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>建立日期</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="" required>
-                                    </div>
+                                    <div class="col-lg-8">{{$order->cid}}</div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>聯絡人</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="" required>
-                                    </div>
+                                    <div class="col-lg-8">{{$order->qcontact}}</div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>聯絡電話</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" class="" required>
-                                    </div>
+                                    <div class="col-lg-8">{{$order->ctel}}</div>
                                 </div>
                             </fieldset>
                         </div>
