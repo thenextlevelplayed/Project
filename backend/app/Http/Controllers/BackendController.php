@@ -151,8 +151,10 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->find($manufactureId);
+
         
-        dd($manufactureedit);
+        
+        
         return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
     }
 
@@ -350,6 +352,24 @@ class BackendController extends Controller
     }
     public function viewOrderPDF (Request $request) {
         $pdf = PDF::loadView('pdf.orderInfo', $data=[]);
+        return $pdf->stream();
+    }
+
+    //匯出工單PDF
+    public function createManufacturePDF (Request $request) {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
+        $manu = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        dd($manu);
+        
+        return $pdf->download();
+    }
+    public function viewManufacturePDF (Request $request) {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
         return $pdf->stream();
     }
 
