@@ -156,10 +156,18 @@ class BackendController extends Controller
         //訂單管理
         return view('order.orderInfo');
     }
-    function orderEdit()
-    {
+    function orderEdit($orderId){
         //訂單編輯
-        return view('order.orderEdit');
+        $orderedit = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        // dd($orderedit);
+        return view('order.orderEdit',["oe"=>$orderedit]);
     }
 
     function manufacture()
@@ -173,13 +181,17 @@ class BackendController extends Controller
     {
         // 製造
 
-        $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
-            ->find($manufactureId);
-        return view('manufacture.manufactureEdit', ["manu" => $manufacture]);
+        $manufactureedit = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->find($manufactureId);
+
+        
+        
+        
+        return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
     }
 
     function delivery()
@@ -195,26 +207,55 @@ class BackendController extends Controller
             // dd($value);
             # code...
         }
-        $did = $delivery->did;
+
+
+        function generateid($id,$date,$head){
+            if($id<10){
+                $id = '00'.$id;
+                // $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                
+                $id= "{$head}".'-'.$date.$id;
+            }elseif ($id>=10 && $id<100) {
+                $id = '00'.$id;
+                // $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                
+                $id= "{$head}".'-'.$date.$id;
+            }elseif ($id=100) {
+                $id = '00'.$id;
+                // $date=$delivery->qdate;
+                $date = preg_replace('/-/','',$date);
+                $id= "{$head}".'-'.$date.$id;
+            }elseif ($id>100){
+                trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+            }
+            //出貨
+            return view('main.delivery',compact('delivery','did'));
+
+        }
+        $did=$delivery->did;
         // $did=9999;
 
-        if ($did < 10) {
-            $did = '00' . $did;
-            $date = date("Ymd", time());
-            $did = 'KMD-' . $date . $did;
-        } elseif ($did >= 10 && $did < 100) {
-            $did = '0' . $did;
-            $date = date("Ymd", time());
-            $did = 'KMD-' . $date . $did;
-        } elseif ($id = 100) {
+        if($did<10){
+            $did = '00'.$did;
+            $date=$delivery->qdate;
+            $date = preg_replace('/-/','',$date);
+            $did= 'KMD-'.$date.$did;
+        }elseif ($did>=10 && $did<100) {
+            $did = '0'.$did;
+            $date=$delivery->qdate;
+            $date = date("Ymd", $date);
+            $did= 'KMD-'.$date.$did;
+        }elseif ($id=100) {
             $did = $did;
-            $date = date("Ymd", time());
-            $did = 'KMD-' . $date . $did;
-        } elseif ($did > 100) {
+            $date=$delivery->qdate; //string
+            $did= 'KMD-'.$date.$did;
+        }elseif ($did>100){
             trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         }
         //出貨
-        return view('main.delivery', compact('delivery', 'did'));
+        return view('main.delivery',compact('delivery','did','d'));
     }
 
     function deliveryInfo($deliveryId)
@@ -231,9 +272,9 @@ class BackendController extends Controller
         // return view('delivery.deliveryInfo' ,compact('d'));
         return view('delivery.deliveryInfo');
     }
-
-    public function deliveryInfoEdit(Request $request)
-    {
+    
+    public function deliveryInfoEdit (Request $request) {
+        dd($request);
         //edit delivery
         $var1 = $request->input('var1');
         $var2 = $request->input('var2');
@@ -341,33 +382,35 @@ class BackendController extends Controller
         return view('customer.customerAdd');
     }
 
-    public function createPDF(Request $request)
-    {
-        // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
-        // PDF ::loadView ('index', '$data');
-        // Retrieve all products from the db
-        // $products = Product::all();
-        // view()->share ('products', $products);
-        // $pdf = PDF ::loadView ('index', $products);
-        // return $pdf->download ('file-pdf.pdf');
-        // $pdf = PDF::loadHTML('12345');
-        // $json = fopen($_SERVER['DOCUMENT_ROOT'] . "\\resources\\views\delivery\deliveryinfo.blade.php", "r");
-        // $json = fopen($_SERVER['DOCUMENT_ROOT'], "r");
-        // $json = fopen($_SERVER['PHP_SELF'], "r");
+    public function createPDF (Request $request) {
+        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
 
-        // 'delivery.deliveryInfo'
-        $pdf = PDF::loadView('pdf.deliveryInfo', $data = []);
-        // return $pdf->download ('file-pdf.pdf');
-        // dd($pdf);
-        // return $pdf->stream();
-        //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
-        // $pdf = PDF::loadHTML("");
+        foreach ($d as $key => $delivery) {
+        }
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->download();
     }
 
-    public function viewPDF(Request $request)
-    {
-        $pdf = PDF::loadView('pdf.deliveryInfo', $data = []);
+    public function viewPDF (Request $request) {
+        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->get();
+
+        foreach ($d as $key => $deliveryInfo) {
+            // dd($value);
+            # code...
+        }
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->stream();
     }
 
@@ -378,20 +421,69 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
         return $pdf->download();
     }
-    public function viewQuotationPDF(Request $request)
-    {
-        $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
+    public function viewQuotationPDF (Request $request) {
+        $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        foreach ($quotation as $key => $quotationInfo) {
+            // dd($value);
+            # code...
+        }
+        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
         return $pdf->stream();
     }
     //匯出訂單PDF
-    public function createOrderPDF(Request $request)
-    {
-        $pdf = PDF::loadView('pdf.orderInfo', $data = []);
+    public function createOrderPDF (Request $request) {
+        $od = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        foreach($od as $key =>$order ){
+
+        }
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
+        return $pdf->download();
+
+    }
+    //預覽訂單PDF
+    public function viewOrderPDF (Request $request) {
+        $od = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        foreach($od as $key =>$order ){
+
+        }
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
+        return $pdf->stream();
+    }
+
+    //匯出工單PDF
+    public function createManufacturePDF (Request $request) {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
+        $manu = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        dd($manu);
+        
         return $pdf->download();
     }
-    public function viewOrderPDF(Request $request)
-    {
-        $pdf = PDF::loadView('pdf.orderInfo', $data = []);
+    public function viewManufacturePDF (Request $request) {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
         return $pdf->stream();
     }
 }

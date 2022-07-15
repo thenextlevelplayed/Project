@@ -93,7 +93,7 @@
 
                                     </thead>
                                     <tbody>
-
+                                        
                                         <tr>
                                             <td>
                                                 {{ $manu->mname }}
@@ -114,6 +114,10 @@
                                                     value="">
                                             </td>
                                         </tr>
+<<<<<<< HEAD
+=======
+                                        
+>>>>>>> fcc1f2067ec49972b8a289cb197772feb0ad78fe
 
                                     </tbody>
                                 </table>
@@ -136,14 +140,20 @@
                             </div>
                             <div class="row justify-content-center mt-5 mb-3">
                                 <div class="col-md-2 p-1">
-                                    <button class="btn btn-primary btn-block">
-                                        <i class="fa-regular fa-eye"></i> &nbsp;預覽畫面
-                                    </button>
+                                    <a href = "/main/manufacture/pdf/view/{manufactureId}">
+                                        <button class="btn btn-primary btn-block">
+                                            <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
+                                        </button>
+                                    </a>
+
                                 </div>
                                 <div class="col-md-2 p-1">
-                                    <button class="btn btn-primary btn-block">
-                                        <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
-                                    </button>
+                                    <a href = "/main/manufacture/pdf/{manufactureId}">
+                                        <button class="btn btn-primary btn-block">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
+                                        </button>
+                                    </a>
+
                                 </div>
                                 <div class="col-md-2 p-1">
                                     <button class="btn btn-primary btn-block">

@@ -116,7 +116,7 @@
                                             <?php
                                                 $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
                                                 $tax = $total*0.05;
-                                                echo $tax;
+                                                echo round($tax);
                                             ?></td>
                                         </td>
                                         <td name="remark"> Ай-ай-ай-ай-ай, что сейчас произошло!</td>
@@ -177,10 +177,10 @@
                 <a class="btn btn-primary " href="/main/delivery">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary " href="/delivery/pdf/view/{deliveryId}">
+                <a class="btn btn-primary " href="/delivery/pdf/view/{{$deliveryInfo->did}}">
                     <span>預覽PDF</span>
                 </a>
-                <a class="btn btn-primary " href="/delivery/pdf/{deliveryId}">
+                <a class="btn btn-primary " href="/delivery/pdf/{{$deliveryInfo->did}}">
                     <span>匯出PDF</span>
                 </a>
             </div>
