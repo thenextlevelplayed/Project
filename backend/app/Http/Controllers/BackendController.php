@@ -99,10 +99,10 @@ class BackendController extends Controller
         //訂單
         $order = Order::join('quotation','quotation.qid','=','order.oid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->get();
-
+        dd($order);
+        
         return view('main.order',compact('order'));
     }
     function orderInfo(){
@@ -116,21 +116,12 @@ class BackendController extends Controller
 
     function manufacture(){
         //製造
-        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->get();
-        
-        return view('main.manufacture',compact('manufacture'));
+        $manufacture = Manufacture::all();
+        dd($manufacture);
+        return view('main.manufacture');
     }
     function manufactureEdit(){
         //製造
-        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->get();
         return view('manufacture.manufactureEdit');
     }
 
