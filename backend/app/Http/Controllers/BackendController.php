@@ -116,7 +116,16 @@ class BackendController extends Controller
     }
     function orderEdit(){
         //訂單編輯
-        return view('order.orderEdit');
+        $orderedit = Order::join('quotation','quotation.qid','=','order.oid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+
+        return view('order.orderEdit',["ode"=>$orderedit]);
     }
 
     function manufacture(){
