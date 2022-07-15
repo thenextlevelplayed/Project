@@ -127,7 +127,7 @@ class BackendController extends Controller
         ->select('*')
         ->find($orderId);
 
-        dd($orderedit);
+        // dd($orderedit);
         return view('order.orderEdit',["oe"=>$orderedit]);
     }
 
