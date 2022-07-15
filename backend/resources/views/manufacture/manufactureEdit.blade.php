@@ -15,8 +15,6 @@
 @endsection
 
 @section('content')
-
-
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -30,31 +28,37 @@
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">工單編號</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->mid}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $manu->mid }}"
+                                            readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶聯絡人</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->qcontact}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $manu->qcontact }}"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶名稱</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->cname}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $manu->cname }}"
+                                            readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶信箱</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->cmail}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $manu->cmail }}"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">客戶統編</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->cid}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $manu->cid }}"
+                                            readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">工單成立日期</label>
-                                        <input class="form-control" type="text" placeholder="{{$manu->mDate}}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $manu->mDate }}"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -89,27 +93,27 @@
 
                                     </thead>
                                     <tbody>
-                                        @foreach($manu as $mn)
+
                                         <tr>
                                             <td>
-                                                {{$manu->mname}}
+                                                {{ $manu->mname }}
                                             </td>
                                             <td>
-                                                {{$manu->mnumber}}
+                                                {{ $manu->mnumber }}
                                             </td>
                                             <td>
-                                                {{$manu->quantity}}
+                                                {{ $manu->quantity }}
                                             </td>
                                             <td>
                                                 <div style="width:300px">
                                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">電腦超重需要使用推車</textarea>
                                                 </div>
                                             </td>
-                                            <td style = "text-align: center">
-                                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="">
+                                            <td style="text-align: center">
+                                                <input class="form-check-input" type="checkbox" id="checkboxNoLabel"
+                                                    value="">
                                             </td>
                                         </tr>
-                                        @endforeach
 
                                     </tbody>
                                 </table>
@@ -147,7 +151,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-2 p-1">
-                                    <a href = '/main/manufacture/'>
+                                    <a href='/main/manufacture/'>
                                         <button class="btn btn-danger btn-block">
                                             <i class="fa-solid fa-x"></i> &nbsp;取消
                                         </button>
@@ -166,5 +170,3 @@
         </div>
     </div>
 @endsection
-
-
