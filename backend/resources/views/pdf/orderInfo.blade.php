@@ -33,8 +33,7 @@
                             <fieldset disabled>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>訂單編號</p></div>
-                                    <div class="col-lg-8">
-                                        <input type="text" placeholder="{{$od->oid}}" readonly>
+                                    <div class="col-lg-8">{{$order->oid}}
                                     </div>
                                 </div>
                                 <div class="row mb-1">

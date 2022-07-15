@@ -346,28 +346,8 @@ class BackendController extends Controller
         ->get();
 
         foreach ($d as $key => $delivery) {
-            // dd($value);
-            # code...
         }
-        // return Pdf::loadFile(public_path().'/deliveryInfo.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
-        // PDF ::loadView ('index', '$data');
-        // Retrieve all products from the db
-        // $products = Product::all();
-        // view()->share ('products', $products);
-        // $pdf = PDF ::loadView ('index', $products);
-        // return $pdf->download ('file-pdf.pdf');
-        // $pdf = PDF::loadHTML('12345');
-        // $json = fopen($_SERVER['DOCUMENT_ROOT'] . "\\resources\\views\delivery\deliveryinfo.blade.php", "r");
-        // $json = fopen($_SERVER['DOCUMENT_ROOT'], "r");
-        // $json = fopen($_SERVER['PHP_SELF'], "r");
-
-        // 'delivery.deliveryInfo'
-        $pdf = PDF::loadView('pdf.deliveryInfo', $data=array());
-        // return $pdf->download ('file-pdf.pdf');
-        // dd($pdf);
-        // return $pdf->stream();
-    //     $pdf->loadFile(file_get_contents(base_path('resources/views/delivery/deliveryinfo.blade.php')));
-        // $pdf = PDF::loadHTML("");
+        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->download();
     }
 
@@ -411,7 +391,7 @@ class BackendController extends Controller
         foreach($od as $key =>$order ){
 
         }
-        $pdf = PDF::loadView('pdf.orderInfo', $data=array());
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->download();
 
     }
@@ -428,7 +408,7 @@ class BackendController extends Controller
         foreach($od as $key =>$order ){
 
         }
-        $pdf = PDF::loadView('pdf.orderInfo', $data=array());
+        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->stream();
     }
 
