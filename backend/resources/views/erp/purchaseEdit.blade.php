@@ -148,7 +148,7 @@
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary mr-3" href="">
-                    <span>預覽</span>
+                    <span>取消</span>
                 </a>
                 <a class="btn btn-primary" href="">
                     <span>存檔</span>
@@ -169,8 +169,6 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-                    <div id="modalContent" class="modal-body">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
@@ -205,11 +203,7 @@
         //     }
         // ]
         var users = {!! json_encode($detail->toArray()) !!};
-        console.log(users);
         let ListData = users;
-
-
-
 
         //頁面進來,更新畫面
         Refresh()
@@ -228,11 +222,12 @@
                         <td> <input type="text" class="form-control" required value="${ListData[i].mNumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required value="${ListData[i].quantity}" ></td>
                         <td> <input type="number" min="0" class="form-control" required value="${ListData[i].cost}" ></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].PRtot}" readonly></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].stockIn}"></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
                 `)
+
             }
 
             //給細項欄位更新Function
@@ -259,36 +254,54 @@
                 stockIn: ""
             })
 
+            //更新畫面
             Refresh()
 
-            console.log(ListData)
+            // console.log(ListData)
         }
 
+
+
+
+
+
+        var dindex;
         // 細項欄位刪除
         function Pdel() {
 
             $('tr').find('.Pdel').on('click', function() {
 
+                //找欄位並且記住該欄位index
+                let row = $(this).closest('tr');
+                dindex = ($(row).find('th').text());
+
                 //跳出Bootstrap對話框
                 $('#exampleModal').modal('show');
+                $('#exampleModalLabel').text(`確定要刪除第${dindex}筆?`)
 
-                //找欄位
-                let row = $(this).closest('tr');
-
-                //確認後才可以刪除
-                $('#okBtn').click(function() {
-
-                    //刪除Array
-                    let Pindex = ($(row).find('th').text());
-                    ListData.splice((Pindex - 1), 1);
-                    console.log((Pindex - 1), ListData);
-
-                    //關閉Bootstrap對話框
-                    $('#exampleModal').modal('hide');
-
-                })
+                // console.log(dindex)
             })
         }
+
+        //確認後才可以刪除
+        $('#okBtn').click(function() {
+
+            //刪除Array
+
+            ListData.splice((dindex - 1), 1);
+
+            console.log((dindex - 1), ListData);
+
+            //關閉Bootstrap對話框
+            $('#exampleModal').modal('hide');
+
+            //更新畫面
+            Refresh()
+        })
+
+
+
+
 
         // 細項欄位更新
         function Ptot() {
@@ -330,7 +343,7 @@
             let totally = 0;
 
             ListData.forEach(item => {
-                totally += Number(item.PRtot);
+                totally += Number(item.quantity * item.cost);
             });
 
             $('#AllTot').val(totally);
