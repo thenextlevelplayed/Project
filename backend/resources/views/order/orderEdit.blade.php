@@ -38,7 +38,7 @@
                                                 <p>訂單編號</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" placeholder="{{$od->oid}}" readonly>
+                                                
                                             </div>
                                         </div>
                                         <div class="row mb-1">
