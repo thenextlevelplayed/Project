@@ -395,7 +395,17 @@ class BackendController extends Controller
         return $pdf->download();
     }
     public function viewQuotationPDF (Request $request) {
-        $pdf = PDF::loadView('pdf.quotationInfo', $data=[]);
+        $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        foreach ($quotation as $key => $quotationInfo) {
+            // dd($value);
+            # code...
+        }
+        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
         return $pdf->stream();
     }
     //匯出訂單PDF
