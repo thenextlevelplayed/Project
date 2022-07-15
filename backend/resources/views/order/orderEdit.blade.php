@@ -22,7 +22,6 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                @foreach ($order as $od)
                     <form class="card">
                         <div class="card-header">
                             <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
@@ -39,7 +38,7 @@
                                                 <p>訂單編號</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <td> {{$od->oid}} </td>
+                                                <input type="text" placeholder="{{$od->oid}}" readonly>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -183,7 +182,7 @@
                             </div>
                         </div>
                     </form>
-                @endforeach
+                 
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary mr-3" href="/main/order">
