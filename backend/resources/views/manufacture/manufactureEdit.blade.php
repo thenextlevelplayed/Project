@@ -147,9 +147,12 @@
                                     </button>
                                 </div>
                                 <div class="col-md-2 p-1">
-                                    <button class="btn btn-danger btn-block">
-                                        <i class="fa-solid fa-x"></i> &nbsp;取消
-                                    </button>
+                                    <a href = '/main/manufacture/'>
+                                        <button class="btn btn-danger btn-block">
+                                            <i class="fa-solid fa-x"></i> &nbsp;取消
+                                        </button>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>

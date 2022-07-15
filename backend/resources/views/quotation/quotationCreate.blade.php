@@ -166,7 +166,7 @@
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
-                    <span>存檔</span>
+                    <span>存檔</span>     {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
                 </a>
             </div>
             <div class="col-md-12 text-right">

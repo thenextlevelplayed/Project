@@ -106,9 +106,10 @@ class BackendController extends Controller
         //訂單
         $order = Order::join('quotation','quotation.qid','=','order.oid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->get();
-        dd($order);
+        
         
         return view('main.order',compact('order'));
     }
@@ -123,20 +124,27 @@ class BackendController extends Controller
 
     function manufacture(){
         //製造
-        $manufacture = Manufacture::all();
-        dd($manufacture);
-        return view('main.manufacture');
-    }
-    function manufactureEdit($manufactureId){
-        // 製造
-
         $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
         ->join('quotation','quotation.qid','=','order.qid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
+        ->get();
+        
+        return view('main.manufacture',["manufacture"=>$manufacture]);
+    }
+    function manufactureEdit($manufactureId){
+        // 製造
+
+        $manufactureedit = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
         ->find($manufactureId);
-        return view('manufacture.manufactureEdit',["manu"=>$manufacture]);
+        
+        dd($manufactureedit);
+        return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
     }
 
     function delivery(){
@@ -144,6 +152,9 @@ class BackendController extends Controller
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
         $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
         ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->get();
 
@@ -174,17 +185,17 @@ class BackendController extends Controller
     }
 
     function deliveryInfo($deliveryId){
+
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->find($deliveryId);
         
         //檢視出貨
-        // $d = book::find($deliveryId);
-        // $d = book::all();
-        // $d = DB::select("select * from book");
-        // $d->all();
-        // $employeeDetails = Employee::all();
-        // return view('main.delivery', compact('d'));
-        // dd($d);
-        // return view('delivery.deliveryInfo' ,compact('d'));
-        return view('delivery.deliveryInfo');
+        return view('delivery.deliveryInfo',compact('deliveryInfo'));
 
 
     }
