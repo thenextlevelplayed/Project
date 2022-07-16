@@ -55,7 +55,7 @@
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>出貨日期</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" value='' name="ddate" >
+                                        <input type="date" value='{{$deliveryInfo->ddate}}' name="ddate" >
                                     </div>
                                 </div>
                                 <div class="row mb-1">
@@ -96,14 +96,40 @@
                                         未出貨
                                     </label>
                                 </div> --}}
+                                
+                                    <?php
+                                        if($deliveryInfo->dstatus == 'Y'){
+                                        ?>
                                 <div class="form-check form-check-inline col-lg-3">
-                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Y">
+                                        <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Y" checked>
+                                        <label class="form-check-label" for="inlineRadio1">已出貨</label>
+                                </div>
+                                <div class="form-check form-check-inline col-lg-3">
+                                        <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N" >
+                                        <label class="form-check-label" for="inlineRadio2">未出貨</label>
+                                </div>
+                                        <?php
+                                        }
+                                        elseif($deliveryInfo->dstatus == 'N' or $deliveryInfo->dstatus ==''){
+                                        ?>
+                                <div class="form-check form-check-inline col-lg-3">
+                                        <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Y" >
+                                        <label class="form-check-label" for="inlineRadio1">已出貨</label>
+                                </div>
+                                <div class="form-check form-check-inline col-lg-3">
+                                        <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N" checked>
+                                        <label class="form-check-label" for="inlineRadio2">未出貨</label>
+                                </div>
+                                        <?php
+                                                }
+                                            ?>
+                                    {{-- <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Y" >
                                     <label class="form-check-label" for="inlineRadio1">已出貨</label>
                                 </div>
                                 <div class="form-check form-check-inline col-lg-3">
-                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N">
+                                    <input class="form-check-input col-lg-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="N" >
                                     <label class="form-check-label" for="inlineRadio2">未出貨</label>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>                                    
                     </div>
