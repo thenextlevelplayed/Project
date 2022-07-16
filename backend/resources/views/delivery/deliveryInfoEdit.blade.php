@@ -19,7 +19,9 @@
 @endsection
 
 @section('content')
-
+<form method="post" action="/delivery/edit/{{ $deliveryInfo->did }}" class="form-horizontal">
+    @csrf
+    @method('PUT')
 
     <div class="row">
         <div class="col-md-12">
@@ -53,13 +55,13 @@
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>出貨日期</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" value='' required>
+                                        <input type="text" value='' name="ddate" >
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>發票號碼</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" value='' required>
+                                        <input type="text" value='' >
                                     </div>
                                 </div>
                             </div>
@@ -67,19 +69,19 @@
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>收貨地址</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" value='{{$deliveryInfo->daddress}}' required>
+                                        <input type="text" value='{{$deliveryInfo->daddress}}' name="daddress" required>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>聯絡人員</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text"value='{{$deliveryInfo->dcontact}}' required>
+                                        <input type="text" value='{{$deliveryInfo->dcontact}}' name="dcontact" required>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>聯絡電話</p></div>
                                     <div class="col-lg-8">
-                                        <input type="text" value='{{$deliveryInfo->dtel}}' required>
+                                        <input type="text" value='{{$deliveryInfo->dtel}}' name="dtel" required>
                                     </div>
                                 </div>
                                 {{-- <div class="form-check col-lg-4">
@@ -157,10 +159,12 @@
             <a class="btn btn-primary " href="/main/delivery/1">
                 <span>預覽</span>
             </a>
-            <a class="btn btn-primary" href="/main/delivery">
+            <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">存檔</button>
+            {{-- <a class="btn btn-primary" href="/main/delivery">
                 <span>存檔</span>
-            </a>
+            </a> --}}
 
         </div>
     </div>
+</form>
 @endsection

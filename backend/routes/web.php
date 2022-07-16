@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeliveryController;
 use App\Models\member;
 use Illuminate\Support\Facades\Hash;
 

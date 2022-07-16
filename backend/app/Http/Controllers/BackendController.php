@@ -316,19 +316,48 @@ class BackendController extends Controller
         ->select('*')
         ->find($deliveryId);
 
+        
+
         return view('delivery.deliveryInfoEdit',compact('deliveryInfo'));
     }
 
-    public function deliveryInfoUpdate(Request $request)
+    public function deliveryInfoUpdate(Request $request,$deliveryId)
     {
         //edit delivery
-        $var1 = $request->input('var1');
-        $var2 = $request->input('var2');
+        // $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        // ->join('order','order.oid','=','manufacture.oid')
+        // ->join('quotation','quotation.qid','=','order.qid')
+        // ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        // ->join('customer','customer.cid','=','quotation.cid')
+        // ->select('*')
+        // ->find($deliveryId);
+
+        $deliveryInfo = Delivery::find($deliveryId);
+        $deliveryInfo->dcontact = $request->dcontact;
+        $deliveryInfo->dtel = $request->dtel;
+        $deliveryInfo->daddress = $request->daddress;
+        $deliveryInfo->ddate = $request->ddate;
+        $deliveryInfo->daddress = $request->daddress;
+
+
+        $deliveryInfo->save();
 
         // (...) do something with $var1 and $var2
-        return view('delivery.deliveryInfoEdit');
+        return redirect('/main/delivery');
+
+
     }
 
+    // public function update(Request $request, $id)
+    // {
+    //     $emp = Employee::find($id);
+    //     $emp->firstName = $request->firstName;
+    //     $emp->lastName = $request->lastName;
+    //     $emp->save();
+    //     return redirect("/employees");
+    // }
+
+    
     function receipt()
     {
         //發票
