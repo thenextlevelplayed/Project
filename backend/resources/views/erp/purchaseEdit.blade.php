@@ -7,7 +7,8 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card">
+                <form class="card" action="/purchase/edit/{{ $info[0]->bid }}" method="POST">
+                    @csrf
                     <div class="card-header">
                         <h4 class="card-title text-center"> 凱茂資訊 進貨單編輯</h4>
                     </div>
@@ -132,13 +133,11 @@
                                         <input type="button" class="btn mr-3" value="新增" onclick="PCreate()">
                                     </div>
                                 </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-2">
-                                        <p>總計</p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <input id="AllTot" type="text" class="form-control" required readonly
-                                            value="自動算出">
+
+                                <div class="row mb-1 text-right">
+                                    <div class="col-lg-10" style="font-size: 24px">
+                                        <span class="mr-1">總計:</span>
+                                        <span id="AllTot"></span>
                                     </div>
                                 </div>
                             </div>
@@ -277,7 +276,7 @@
 
                 //跳出Bootstrap對話框
                 $('#exampleModal').modal('show');
-                $('#exampleModalLabel').text(`確定要刪除第${dindex}筆?`)
+                $('#exampleModalLabel').text(`確定要刪除第${dindex}?`)
 
                 // console.log(dindex)
             })
@@ -346,7 +345,7 @@
                 totally += Number(item.quantity * item.cost);
             });
 
-            $('#AllTot').val(totally);
+            $('#AllTot').text(`NT.${totally}`);
         }
     </script>
 @endsection
