@@ -19,6 +19,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
     <script src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
 
     <link rel="shortcut icon" href="../img/logo/favicon.ico" />
     <link rel="bookmark" href="../img/logo/favicon.ico" />
@@ -30,7 +32,7 @@
     <input type="checkbox" id="active">
     <label for="active" class="menu-btn">
         <span></span>
-        <span></span>  <!-- 3個span-->
+        <span></span> <!-- 3個span-->
         <span></span>
     </label>
     <label for="active" class="close"></label>
@@ -144,6 +146,16 @@
 
 
     <div class="container-fluid newsServices">
+        <div id="app">
+            <h1>Hello App!</h1>
+            <p>
+                <router-link to="/foo">Go to Foo</router-link>
+                <router-link to="/bar">Go to Bar</router-link>
+            </p>
+            <router-view></router-view>
+
+        </div>
+
 
         <!-- 服務項目 -->
         <div class="container mb-5">
@@ -529,6 +541,18 @@
 </body>
 
 <script>
+    const Foo = { template: '<div>foo</div>' }
+    const Bar = { template: '<div>bar</div>' }
+    const routes = [
+        { path: '/foo', component: Foo },
+        { path: '/bar', component: Bar }
+    ]
+    const router = new VueRouter({
+        routes
+    })
+    const app = new Vue({
+        router
+    }).$mount('#app')
 
 </script>
 
