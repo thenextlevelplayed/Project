@@ -549,7 +549,7 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
-        dd($manu);
+        
         
         return $pdf->download();
     }
