@@ -202,7 +202,7 @@ class BackendController extends Controller
         return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
     }
 
-    function delivery()
+    function delivery(Request $request)
     {
         // Delivery::all() 為二維陣列 要用foreach
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
@@ -215,6 +215,10 @@ class BackendController extends Controller
 
         foreach ($d as $key => $delivery) {
             $did=$delivery->did;
+
+            
+
+            // 形成流水編號
             if($did<10){
                 $did = '00'.$did;
                 $date=$delivery->qdate;
@@ -232,15 +236,7 @@ class BackendController extends Controller
             }elseif ($did>100){
                 trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
             }
-            //出貨
-
             array_push($number,$did);
-
-            // var_dump($number);
-
-            
-            // dd($value);
-            # code...
         }
 
 
@@ -315,7 +311,6 @@ class BackendController extends Controller
         ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->find($deliveryId);
-
         
 
         return view('delivery.deliveryInfoEdit',compact('deliveryInfo'));
@@ -338,7 +333,10 @@ class BackendController extends Controller
         $deliveryInfo->daddress = $request->daddress;
         $deliveryInfo->ddate = $request->ddate;
         $deliveryInfo->daddress = $request->daddress;
-
+        // 判斷出貨按鈕
+        if($request->inlineRadioOptions == 'Y'){
+            $deliveryInfo->dstatus = 'Y';
+        }else($deliveryInfo->dstatus = 'N');
 
         $deliveryInfo->save();
 

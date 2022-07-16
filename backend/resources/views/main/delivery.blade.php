@@ -61,7 +61,20 @@
                                             </a>
                                           </div>
                                     </td>
-                                    <td><span class="badge bg-danger">未出貨</span> </td>                                
+                                    <?php
+                                        if($delivery->dstatus == 'Y'){
+                                    ?>
+                                    <td><span class="badge bg-success">已出貨</span> </td>
+                                    <?php
+                                        }
+                                    ?>
+                                    <?php
+                                        if($delivery->dstatus == 'N' or $delivery->dstatus == ''){
+                                    ?>
+                                    <td><span class="badge bg-danger">未出貨</span> </td>
+                                    <?php
+                                        }
+                                    ?>                              
                                 </tr>
                             @endforeach
                             </tbody>
