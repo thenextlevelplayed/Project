@@ -114,10 +114,7 @@
                                                     value="">
                                             </td>
                                         </tr>
-<<<<<<< HEAD
-=======
                                         
->>>>>>> fcc1f2067ec49972b8a289cb197772feb0ad78fe
 
                                     </tbody>
                                 </table>
