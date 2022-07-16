@@ -55,7 +55,7 @@
                                 <div class="row mb-1">
                                     <div class="col-lg-3"><p>出貨日期</p></div>
                                     <div class="col-lg-8">
-                                        <input type="date" value='' name="ddate" >
+                                        <input type="date" value='{{$deliveryInfo->ddate}}' name="ddate" >
                                     </div>
                                 </div>
                                 <div class="row mb-1">
