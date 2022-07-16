@@ -67,9 +67,13 @@ class DeliveryController extends Controller
      * @param  \App\Models\Delivery  $delivery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Delivery $delivery)
+    public function update(Request $request, Delivery $deliveryId)
     {
         //
+        // $deliveryInfo = Delivery::find($deliveryId);
+        // $deliveryInfo->dcontact = $request->dcontact;
+        // $deliveryInfo->save();
+        // return redirect('/main/delivery');
     }
 
     /**

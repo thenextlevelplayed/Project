@@ -50,15 +50,15 @@
                         </div>
                         {{-- 收貨地址 --}}
                         <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>收貨地址：{{$deliveryInfo->caddress}}</span></div>                                        
+                            <div class="col pl-5 ml-5 mt-3"><span>收貨地址：{{$deliveryInfo->daddress}}</span></div>                                        
                         </div>
                         {{-- 聯絡人 --}}
                         <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->qcontact}}</span></div>                                        
+                            <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->dcontact}}</span></div>                                        
                         </div>
                         {{-- 聯絡電話 --}}
                         <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：{{$deliveryInfo->ctel}}</span></div>
+                            <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：{{$deliveryInfo->dtel}}</span></div>
                             
                         </div>
                         {{-- 出貨編號 --}}
