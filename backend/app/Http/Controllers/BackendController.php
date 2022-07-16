@@ -485,9 +485,19 @@ class BackendController extends Controller
 
 
     //匯出報價PDF
-    public function createQuotationPDF(Request $request)
+    public function createQuotationPDF()
     {
-        $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
+        $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+
+        foreach ($quotation as $key => $quotationInfo) {  
+        }    
+         
+        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
         return $pdf->download();
     }
     public function viewQuotationPDF ($quotationId) {
