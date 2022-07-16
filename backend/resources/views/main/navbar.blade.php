@@ -130,7 +130,7 @@
                     </li>
                     <li 
                         <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/manufacture'){
+                            if(substr(($_SERVER['REQUEST_URI']),0,17) == '/main/manufacture'){
                                 echo  "class='active'";
                             }
                         ?>
