@@ -24,8 +24,7 @@
                 <form class="card">
                     <div class="card-header">
                         <h4 class="card-title text-center"> 凱茂資訊 報價明細</h4>
-                    </div>  
-                    @foreach ($quotationInfo as $qI)                          
+                    </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div  class="mb-3">
@@ -35,37 +34,37 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>報價單編號</p></div>
-                                            <div class="col-lg-8">{{$qI->qid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->qid}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>公司名稱</p></div>
-                                            <div class="col-lg-8">{{$qI->cname}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->cname}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>公司統編</p></div>
-                                            <div class="col-lg-8">{{$qI->cid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->cid}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>公司電話</p></div>
-                                            <div class="col-lg-8">{{$qI->ctel}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->ctel}}</div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>報價日期</p></div>
-                                            <div class="col-lg-8">{{$qI->qdate}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->qdate}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>聯絡人</p></div>
-                                            <div class="col-lg-8">{{$qI->qcontact}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->qcontact}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>聯絡人LINE ID</p></div>
-                                            <div class="col-lg-8">{{$qI->clineid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->clineid}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>聯絡信箱</p></div>
-                                            <div class="col-lg-8">{{$qI->cmail}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->cmail}}</div>
                                         </div>
                                     </div>
                                 </div>                                    
@@ -92,12 +91,12 @@
                                             <tbody>                                                
                                                 <tr>
                                                     <th scope="row">1</th>
-                                                    <td>{{$qI->mname}}</td>
-                                                    <td>{{$qI->mnumber}}</td>
-                                                    <td>{{$qI->quantity}}</td>
-                                                    <td>{{$qI->price}}</td>
+                                                    <td>{{$quotationInfo->mname}}</td>
+                                                    <td>{{$quotationInfo->mnumber}}</td>
+                                                    <td>{{$quotationInfo->quantity}}</td>
+                                                    <td>{{$quotationInfo->price}}</td>
                                                     <td></td>
-                                                    <td>{{$qI->remark}}</td>
+                                                    <td>{{$quotationInfo->remark}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">2</th>
@@ -134,13 +133,13 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>企業方案</p></div>
-                                            <div class="col-lg-8">{{$qI->rid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->rid}}</div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>業務專員</p></div>
-                                            <div class="col-lg-8">{{$qI->staffid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->staffid}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>凱茂信箱</p></div>
@@ -150,7 +149,6 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
                 </form>
             </div>
             <div class="col-md-12 text-right">
