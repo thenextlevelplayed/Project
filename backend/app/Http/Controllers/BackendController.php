@@ -115,13 +115,8 @@ class BackendController extends Controller
 
         // dd($quotation);
         return view('main.quotation', compact('quotation'));
-    }
-    function quotationCreate()
-    {
-        //新增報價單
-        return view('quotation.quotationCreate');
-    }
-    function quotationInfo($quotationID)
+    }    
+    function quotationInfo($quotationId)
     {
         //報價資訊
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -129,7 +124,7 @@ class BackendController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
-            ->where('quotation.qid', '=', $quotationID)
+            ->where('quotation.qid', '=', $quotationId)
             ->get();
             foreach ($quotationInfo as $key => $quotationInfo) {
                 // dd($value);
@@ -144,6 +139,12 @@ class BackendController extends Controller
         //報價編輯
         return view('quotation.quotationEdit');
     }
+    function quotationCreate()
+    {
+        //新增報價單
+        return view('quotation.quotationCreate');
+    }
+    
 
 
     function order(){
@@ -491,17 +492,17 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
         return $pdf->download();
     }
-    public function viewQuotationPDF (Request $request) {
+    public function viewQuotationPDF ($quotationId) {
         $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
-        foreach ($quotation as $key => $quotationInfo) {
-            // dd($value);
-            # code...
-        }
+
+        foreach ($quotation as $key => $quotationInfo) {  
+        }    
+         
         $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
         return $pdf->stream();
     }
