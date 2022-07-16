@@ -296,17 +296,15 @@ class BackendController extends Controller
 
     function deliveryInfo($deliveryId)
     {
-
         //檢視出貨
-        // $d = book::find($deliveryId);
-        // $d = book::all();
-        // $d = DB::select("select * from book");
-        // $d->all();
-        // $employeeDetails = Employee::all();
-        // return view('main.delivery', compact('d'));
-        // dd($d);
-        // return view('delivery.deliveryInfo' ,compact('d'));
-        return view('delivery.deliveryInfo');
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->find($deliveryId);
+        return view('delivery.deliveryInfo',compact('deliveryInfo'));
     }
     
     public function deliveryInfoEdit ($deliveryId) {
