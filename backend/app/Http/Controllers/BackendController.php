@@ -121,7 +121,7 @@ class BackendController extends Controller
         //新增報價單
         return view('quotation.quotationCreate');
     }
-    function quotationInfo()
+    function quotationInfo($quotationID)
     {
         //報價資訊
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -129,7 +129,12 @@ class BackendController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
+            ->where('quotation.qid', '=', $quotationID)
             ->get();
+            foreach ($quotationInfo as $key => $quotationInfo) {
+                // dd($value);
+                # code...
+            }
 
         // dd($quotationInfo);
         return view('quotation.quotationInfo', compact('quotationInfo'));
