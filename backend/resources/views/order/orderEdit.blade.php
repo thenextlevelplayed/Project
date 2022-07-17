@@ -55,7 +55,7 @@
                                                 <p>公司統編</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" required>
+                                                {{$orderEdit->cid}}
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +65,7 @@
                                                 <p>建立日期</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->odate}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -106,8 +106,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    
+                                                {{-- <tr>
                                                     <td> </td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -132,7 +131,7 @@
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
-                                                </tr>
+                                                </tr> --}}
                                             </tbody>
                                         </table>
                                     </div>

@@ -98,7 +98,7 @@
                                                     <td>{{$orderInfo->price}}</td>
                                                     <td>{{$orderInfo->remark}}</td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th scope="row">2</th>
                                                     <td></td>
                                                     <td></td>
@@ -106,16 +106,8 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>                                            
+                                                </tr> --}}
+                                                                                           
                                             </tbody>
                                         </table> 
                                     </div>
@@ -152,6 +144,9 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
+                <a class="btn btn-primary " href="/main/order">
+                    <span>返回</span>
+                </a>
                 <a class="btn btn-primary " href="/order/pdf/view/{{$orderInfo->oid}}">
                     <span>預覽PDF</span>
                 </a>
