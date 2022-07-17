@@ -254,7 +254,7 @@ class BackendController extends Controller
             ->select('*')
             ->get();
                         
-        };
+        
         return view('main.manufacture',["manufacture"=>$manufacture]);
 
     }
