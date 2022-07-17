@@ -78,12 +78,12 @@ Route::put('/receipt/edit/{deliveryId}', "App\Http\Controllers\BackendController
 Route::post('/receipt/create', "App\Http\Controllers\BackendController@invoiceSomeone"); //開立發票
 
 //客戶管理
-Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
-Route::get('/customer/{customerId}', "App\Http\Controllers\BackendController@customerInfo");//檢視表單
-Route::get('/customer/edit/{customerId}', "App\Http\Controllers\BackendController@customerInfoEdit");//編輯表單
-Route::put('/customer/edit/{customerId}', "App\Http\Controllers\BackendController@customerUpdate");//更新表單
-Route::get('/customercreate', "App\Http\Controllers\BackendController@customerAdd");//檢視表單
-Route::post('/customercreate', "App\Http\Controllers\BackendController@customerStore");//新增表單
+Route::get('/main/customer', "App\Http\Controllers\CustomerController@customer");
+Route::get('/customer/{customerId}', "App\Http\Controllers\CustomerController@customerInfo");//檢視表單
+Route::get('/customer/edit/{customerId}', "App\Http\Controllers\CustomerController@customerInfoEdit");//編輯表單
+Route::put('/customer/edit/{customerId}', "App\Http\Controllers\CustomerController@customerUpdate");//更新表單
+Route::get('/customercreate', "App\Http\Controllers\CustomerController@customerAdd");//檢視表單
+Route::post('/customercreate', "App\Http\Controllers\CustomerController@customerStore");//新增表單
 
 //pdf  delivery
 Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\DeliveryController@createPDF"); // 下載pdf

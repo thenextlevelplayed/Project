@@ -7,79 +7,60 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    function customer()
     {
-        //
+        $d = Customer::all();
+
+        foreach($d as$key =>$customer){
+
+        }
+
+        // dd($customer);
+
+        //客戶
+        return view('main.customer',compact('d'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    function customerInfo($customerId)
     {
-        //
+
+        //檢視客戶
+        return view('customer.customerInfo');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    function customerInfoEdit(Request $request)
     {
-        //
+
+        //編輯客戶
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerEdit');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Customer $customer)
+    function customerUpdate(Request $request)
     {
-        //
+
+        //更新客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerInfo');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Customer $customer)
+    function customerAdd(Request $request)
     {
-        //
+
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Customer $customer)
+    function customerStore(Request $request)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Customer $customer)
-    {
-        //
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 }

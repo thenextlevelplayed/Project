@@ -98,6 +98,31 @@ class DeliveryController extends Controller
         //     trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         // }
         // //出貨
+
+
+        //搜尋bar
+        $search_text = $_GET['query'] ??""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if($search_text!=''){
+            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->where('cname','like','%'.$search_text.'%')
+            ->orwhere('did','like','%'.$search_text.'%')
+            ->select('*')
+            ->get();
+
+        }
+        else{
+            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->get();
+            
+        }
+
         return view('main.delivery', compact('delivery', 'number', 'd', 'did'));
     }
 
