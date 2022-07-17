@@ -60,8 +60,8 @@ Route::get('/main/order/{orderId}', "App\Http\Controllers\BackendController@orde
 Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\BackendController@orderEdit"); //編輯
 
 //製造
-Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
-Route::get('main/manufacture/edit/{manufactureId}', "App\Http\Controllers\BackendController@manufactureEdit");
+Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
+Route::get('main/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureEdit");
 
 
 //出貨
