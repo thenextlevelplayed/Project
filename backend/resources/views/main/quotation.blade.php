@@ -52,7 +52,7 @@
                                             <a href="/main/quotation/{{$q->qid}}">{{$q->qid}}</a>                                                    
                                         </td>
                                         <td>
-                                            {{$q->cid}}
+                                            {{$q->cname}}
                                         </td>
                                         <td>
                                             KMO20220624001
