@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Hash;
 //     return view('welcome');
 // });
 
+
+
 // 登入
 Route::get('/', "App\Http\Controllers\memberController@login");
 Route::get('/member/login', "App\Http\Controllers\memberController@login");
@@ -48,9 +50,9 @@ Route::get('/main/stock', "App\Http\Controllers\BackendController@stock"); //庫
 
 //報價
 Route::get('/main/quotation', "App\Http\Controllers\BackendController@quotation");
-Route::get('/quotation/quotationCreate', "App\Http\Controllers\BackendController@quotationCreate"); //新增
 Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\BackendController@quotationInfo");  //檢視
 Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\BackendController@quotationEdit"); //編輯
+Route::get('/quotation/quotationCreate', "App\Http\Controllers\BackendController@quotationCreate"); //新增
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\BackendController@order");
@@ -61,14 +63,12 @@ Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\BackendController
 Route::get('/main/manufacture', "App\Http\Controllers\BackendController@manufacture");
 Route::get('main/manufacture/edit/{manufactureId}', "App\Http\Controllers\BackendController@manufactureEdit");
 
+
 //出貨
 Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
 Route::get('/delivery/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfo");  //檢視
 Route::get('/delivery/edit/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfoEdit"); //編輯
 Route::put('/delivery/edit/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfoUpdate"); //編輯
-
-
-
 
 //發票
 Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
@@ -76,8 +76,6 @@ Route::get('/receipt/{deliveryId}', "App\Http\Controllers\BackendController@rece
 Route::get('/receipt/edit/{deliveryId}', "App\Http\Controllers\BackendController@receiptInforEdit"); //編輯表單
 Route::put('/receipt/edit/{deliveryId}', "App\Http\Controllers\BackendController@receiptInforUpdate"); //更新表單
 Route::post('/receipt/create', "App\Http\Controllers\BackendController@invoiceSomeone"); //開立發票
-
-
 
 //客戶管理
 Route::get('/main/customer', "App\Http\Controllers\BackendController@customer");
@@ -102,6 +100,9 @@ Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\BackendController@v
 //pdf manufacture
 Route::get('/main/manufacture/pdf/{manufactureId}',"App\Http\Controllers\BackendController@createManufacturePDF"); // 下載pdf
 Route::get('/main/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\BackendController@viewManufacturePDF"); // 預覽pdf
+
+//寄信
+Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\BackendController@upload");//寄信
 
 
 

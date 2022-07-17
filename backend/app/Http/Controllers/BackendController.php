@@ -23,6 +23,12 @@ use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Foreach_;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\File;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class BackendController extends Controller
 {
@@ -143,13 +149,8 @@ class BackendController extends Controller
 
         // dd($quotation);
         return view('main.quotation', compact('quotation'));
-    }
-    function quotationCreate()
-    {
-        //新增報價單
-        return view('quotation.quotationCreate');
-    }
-    function quotationInfo($quotationID)
+    }    
+    function quotationInfo($quotationId)
     {
         //報價資訊
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -157,7 +158,7 @@ class BackendController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
-            ->where('quotation.qid', '=', $quotationID)
+            ->where('quotation.qid', '=', $quotationId)
             ->get();
         foreach ($quotationInfo as $key => $quotationInfo) {
             // dd($value);
@@ -172,6 +173,12 @@ class BackendController extends Controller
         //報價編輯
         return view('quotation.quotationEdit');
     }
+    function quotationCreate()
+    {
+        //新增報價單
+        return view('quotation.quotationCreate');
+    }
+    
 
 
     function order()
@@ -196,6 +203,10 @@ class BackendController extends Controller
             ->select('*')
             ->get();
 
+        foreach ($orderInfo as $key => $orderInfo) {
+            
+        }
+
         // dd($orderInfo);
         return view('order.orderInfo', compact('orderInfo'));
     }
@@ -217,9 +228,37 @@ class BackendController extends Controller
     function manufacture()
     {
         //製造
-        $manufacture = Manufacture::all();
-        dd($manufacture);
-        return view('main.manufacture');
+        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        
+
+        $search_text = $_GET['query'] ?? "";
+        if ($search_text != ""){
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
+            ->orWhere('mid','LIKE','%'.$search_text.'%')
+            ->get();
+            
+        }
+        else{
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->select('*')
+            ->get();
+                        
+        };
+        return view('main.manufacture',["manufacture"=>$manufacture]);
+
     }
     function manufactureEdit($manufactureId)
     {
@@ -238,12 +277,41 @@ class BackendController extends Controller
         return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
     }
 
+    public function manuSearch(){
+
+        $search_text = $_GET['query'];
+        if ($search_text != ""){
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
+            ->orWhere('mid','LIKE','%'.$search_text.'%')
+            ->get();
+        }
+        else{
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->select('*')
+            ->get();
+            
+        };
+
+        return view('manufacture.search',["manufacture"=>$manufacture]);
+
+    }
+
     function delivery(Request $request)
     {
         // Delivery::all() 為二維陣列 要用foreach
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
         $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
             ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
             ->select('*')
             ->get();
 
@@ -490,8 +558,7 @@ class BackendController extends Controller
             ->select('*')
             ->get();
 
-        foreach ($d as $key => $delivery) {
-        }
+    
         $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->download();
     }
@@ -516,7 +583,7 @@ class BackendController extends Controller
 
 
     //匯出報價PDF
-    public function createQuotationPDF(Request $request)
+    public function createQuotationPDF()
     {
         $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
         return $pdf->download();
@@ -588,4 +655,34 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.manufactureEdit', $data = []);
         return $pdf->stream();
     }
+
+
+
+    //寄信
+    public function upload(Request $request,$id){
+
+        //信件明細
+        $data = array(
+        'addressee' => $request->addressee, //收件人
+        'email' => $request->email, //收件人email
+        'subject' => $request->subject,//主旨
+        'content' => $request->content,//寄信內容
+            );
+        $name = $request->file('file')->getClientOriginalName(); //檔案
+        $request->file->move(public_path('files'), $name); // 將檔案搬到public\images
+        $path = base_path('public/files');//檔案搬到的路徑
+        // https://laravel.com/api/5.8/Illuminate/Http/UploadedFile.html
+
+        Mail::send('email.deliveryMail',compact('data'),function($message) use ($data,$name,$path){ //Mail::send(html畫面,夾帶的資料,回呼函式 使用 許多物件)
+            $message ->to($data['email'])->subject($data['subject']); //$message->to(收件人email)->subject(主旨);
+            $message->attach($path."\\".$name);// $message->attach(夾帶檔案的路徑)
+        });
+
+        // dd(Mail::failures());
+        File::delete($path."\\".$name); //刪除檔案
+        
+        return redirect('/main/delivery');
+      }
+
+
 }
