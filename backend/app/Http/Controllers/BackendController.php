@@ -202,7 +202,31 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
+        
+
+        $search_text = $_GET['query'] ?? "";
+        if ($search_text != ""){
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
+            ->orWhere('mid','LIKE','%'.$search_text.'%')
+            ->get();
+            
+        }
+        else{
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->select('*')
+            ->get();
+                        
+        };
         return view('main.manufacture',["manufacture"=>$manufacture]);
+
     }
     function manufactureEdit($manufactureId)
     {
@@ -217,6 +241,33 @@ class BackendController extends Controller
 
         
         return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
+    }
+
+    public function manuSearch(){
+
+        $search_text = $_GET['query'];
+        if ($search_text != ""){
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
+            ->orWhere('mid','LIKE','%'.$search_text.'%')
+            ->get();
+        }
+        else{
+            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+            ->select('*')
+            ->get();
+            
+        };
+
+        return view('manufacture.search',["manufacture"=>$manufacture]);
+
     }
 
     function delivery(Request $request)
@@ -576,4 +627,6 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
         return $pdf->stream();
     }
+
+
 }

@@ -10,9 +10,7 @@
         <a class="navbar-brand" href="/main/quote">工單管理</a>
     </h4>
 @endsection
-@section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入工單編號或客戶名稱">
-@endsection
+
 
 @section('content')
     <div class="content">

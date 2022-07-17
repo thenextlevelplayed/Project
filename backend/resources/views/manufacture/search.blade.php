@@ -1,11 +1,22 @@
 {{-- navbar引入 --}}
 @extends('main.navbar')
 
-{{-- head代入 --}}
-@section('head')
+{{-- head帶入 --}}
+@section('main.head')
 @endsection
 
-{{-- 內容代入 --}}
+@section('navTitle')
+    <h4>
+        <a class="navbar-brand" href="/main/manufacture">工單管理</a>
+    </h4>
+@endsection
+@section('searchBox')
+
+    <input type="search" value="" class="form-control" name="query" placeholder="輸入報價單號或客戶名稱">
+
+    
+@endsection
+
 @section('content')
     <div class="content">
         <div class="row">
@@ -14,43 +25,48 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class="text-primary">
+                                <thead class="text-primary" style = "white-space: nowrap">
                                     <th>
-                                        銷貨單編號
+                                        工單編號
                                     </th>
                                     <th>
                                         客戶名稱
                                     </th>
                                     <th>
-                                        出貨日期
+                                        工單狀態
                                     </th>
                                     <th>
-                                        售價
+                                        查看/編輯
                                     </th>
                                     <th>
-                                        成本
+                                        出貨單號
                                     </th>
                                 </thead>
                                 <tbody>
+                                    @foreach($manufacture as $manu)
                                     <tr>
                                         <td>
-                                            <a href="">
-                                                KMD20220623001
+                                            {{$manu->mid}}
+                                        </td>
+                                        <td>
+                                            {{$manu->cname}}
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">
+                                                已完成
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href = "/main/manufacture/edit/{{$manu->mid}}">
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></button>
                                             </a>
                                         </td>
                                         <td>
-                                            iSpan
+                                            {{$manu->dlid}}
                                         </td>
-                                        <td>
-                                            2022/06/12
-                                        </td>
-                                        <td>
-                                            70,000
-                                        </td>
-                                        <td>
-                                            66,666
-                                        </td>
-                                    </tr>
+                                    </tr>                               
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -59,19 +75,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-{{-- 藍藍navbar title --}}
-@section('navTitle')
-    <h4>
-        <a class="navbar-brand" href="">銷貨管理 "出貨單帶過來"</a>
-    </h4>
-@endsection
-
-{{-- 搜尋框 --}}
-@section('searchBox')
-<input type="search"  class="form-control" name="query" placeholder="輸入單號或客戶名稱">
-    <span class="input-group-addon" onclick="searchform.submit()">                                    
-        <i class="now-ui-icons ui-1_zoom-bold"></i>       
-    </span>
 @endsection
