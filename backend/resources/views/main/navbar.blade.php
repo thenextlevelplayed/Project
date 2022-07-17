@@ -130,7 +130,7 @@
                     </li>
                     <li 
                         <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/manufacture'){
+                            if(substr(($_SERVER['REQUEST_URI']),0,17) == '/main/manufacture'){
                                 echo  "class='active'";
                             }
                         ?>
@@ -211,15 +211,15 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form name = "searchform" action=''>
                             <div class="input-group no-border">
                                 {{-- 搜尋列 --}}
                                 @yield('searchBox')
-                                {{-- <input type="text" value="" class="form-control" placeholder="輸入報價單號或客戶名稱"> --}}
-                                
-                                <span class="input-group-addon">
-                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                {{-- <input type="query" name ="search" value="" class="form-control" placeholder="輸入單號或客戶名稱">                            
+                                <span class="input-group-addon" onclick="searchform.submit()">                                    
+                                    <i class="now-ui-icons ui-1_zoom-bold"></i>       
                                 </span>
+                                --}} 
                             </div>
                         </form>
                         {{-- 右上人像控制 1. 員工基本資料 2.登出 --}}

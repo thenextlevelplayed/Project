@@ -46,51 +46,51 @@
     }
 </style>
 
-<div class="">
+<div>
     <div class="text-center paddingY">楷模資訊報價明細</div>
     <div>
         <div>
             <div class="paddingY paddingL">||客戶資訊</div>
             <div  class="paddingL">
                 <div class="col">
-                    <div class="">
+                    <div>
                         <div class="col-inline">報價單編號</div>
                         <div class="col-inline">{{$quotationInfo->qid}}</div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="col-inline">客戶名稱</div>
                         <div class="col-inline">{{$quotationInfo->cname}}</div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="col-inline">公司統編</div>
                         <div class="col-inline">{{$quotationInfo->cid}}</div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="col-inline">公司電話</div>
                         <div class="col-inline">{{$quotationInfo->ctel}}</div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="">
+                    <div>
                         <div class="col-inline">報價日期</div>
                         <div class="col-inline">{{$quotationInfo->qdate}}</div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="col-inline">聯絡人</div>
                         <div class="col-inline">{{$quotationInfo->qcontact}}</div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="col-inline">聯絡人LINE ID</div>
                         <div class="col-inline">{{$quotationInfo->clineid}}</div>
                     </div>
-                    <div class="">
+                    <div>
                         <div class="col-inline">聯絡信箱</div>
                         <div class="col-inline">{{$quotationInfo->cmail}}</div>
                     </div>
                 </div>
             </div>                                    
         </div>
-        <div class="">
+        <div>
             <div class="paddingY paddingL">||報價明細</div>
             <div> 
                 <div>
@@ -138,13 +138,13 @@
                         </tbody>
                     </table> 
                 </div>
-                <div class="">
+                <div>
                     <div class="text-right positionR50">總計</div>
                     <div class="text-right positionR0">29999</div>
                 </div>                                 
             </div>
         </div>
-        <div>
+        <div class="paddingY">
             <div class="paddingY paddingL">||楷模方案</div>
             <div class="paddingL">
                 <div class="col">
