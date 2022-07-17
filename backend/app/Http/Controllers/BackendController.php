@@ -187,9 +187,13 @@ class BackendController extends Controller
     function manufacture()
     {
         //製造
-        $manufacture = Manufacture::all();
-        dd($manufacture);
-        return view('main.manufacture');
+        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->get();
+        return view('main.manufacture',["manufacture"=>$manufacture]);
     }
     function manufactureEdit($manufactureId)
     {
@@ -202,8 +206,6 @@ class BackendController extends Controller
         ->select('*')
         ->find($manufactureId);
 
-        
-        
         
         return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
     }
@@ -557,7 +559,7 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->get();
-        dd($manu);
+        
         
         return $pdf->download();
     }
