@@ -104,19 +104,19 @@ class BackendController extends Controller
 
         return view('main.order', compact('order'));
     }
-    function orderInfo()
+    function orderInfo($orderID)
     {
         //訂單明細管理
-        $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+        $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
-            ->get();
+            ->find($orderID);
 
-        foreach ($orderInfo as $key => $orderInfo) {
-        }
+        // foreach ($orderInfo as $key => $orderInfo) {
+        // }
 
         // dd($orderInfo);
         return view('order.orderInfo', compact('orderInfo'));
@@ -526,7 +526,7 @@ class BackendController extends Controller
         ->select('*')
         ->find($orderID);
 
-        
+         
         $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo'));
         return $pdf->stream();
     }
