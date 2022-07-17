@@ -532,7 +532,7 @@ class BackendController extends Controller
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
-        ->get();
+        ->find($id);
         $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->stream();
     }
