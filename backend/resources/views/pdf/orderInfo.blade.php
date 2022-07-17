@@ -5,235 +5,165 @@
 {{-- 字型 --}}
 <style>
     @font-face {
-    font-family: 'NotoSansTC-Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: url({{ storage_path('fonts/NotoSansTC-Regular.otf') }}) format('truetype');
+        font-family: 'NotoSansTC-Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: url({{ storage_path('fonts/NotoSansTC-Regular.otf') }}) format('truetype');
     }
-    body {
-    font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;
-    border: 0;
-}
+    *{
+        position: relative;
+        box-sizing: borderInfo-box;
+        /* borderInfo: 1px solid red; */
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;      
+    }
+    .paddingY{
+        padding-top: 30px; 
+        padding-bottom: 10px;
+    }
+    .paddingL{
+        padding-left: 50px;
+    }
+    .col{
+        width: 45%;
+        float: left;
+    }
+    .col-inline{
+        width: 35%;
+        display: inline-block;
+    }
+    .positionR0{
+        position: absolute;
+        right: 5%;
+        display: inline-block;
+    }
+    .positionR50{
+        position: absolute;
+        right: 50%;
+        display: inline-block;
+    }
 </style>
 
 {{-- 表單內容 --}}
-<div class="row">
-    <div class="col-md-12">
-        <form class="card">
-            <div class="card-header">
-                <p class="card-title text-center"> 凱茂資訊 訂單明細</p>
-            </div>                            
-            <div class="card-body">
-                <div class="table-responsive">
-                    <div  class="mb-3">
-                        <p>客戶資訊</p>
+<div>
+    <div class="text-center paddingY">楷模資訊訂單明細</div>
+    <div>
+        <div>
+            <div class="paddingY paddingL">||客戶資訊</div>
+            <div  class="paddingL">
+                <div class="col">
+                    <div>
+                        <div class="col-inline">訂單編號</div>
+                        <div class="col-inline">{{$orderInfo->oid}}</div>
                     </div>
-                    <div  class="row mb-3">
-                        <div class="col-lg-6">
-                            <fieldset disabled>
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>訂單編號</p></div>
-                                    <div class="col-lg-8">{{$order->oid}}</div>
-                                </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>名稱</p></div>
-                                    <div class="col-lg-8">{{$order->cname}}</div>
-                                </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>公司統編</p></div>
-                                    <div class="col-lg-8">{{$order->cid}}</div>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-6">
-                            <fieldset disabled>    
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>建立日期</p></div>
-                                    <div class="col-lg-8">{{$order->cid}}</div>
-                                </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>聯絡人</p></div>
-                                    <div class="col-lg-8">{{$order->qcontact}}</div>
-                                </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-3"><p>聯絡電話</p></div>
-                                    <div class="col-lg-8">{{$order->ctel}}</div>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>                                    
+                    <div>
+                        <div class="col-inline">客戶名稱</div>
+                        <div class="col-inline">{{$orderInfo->cname}}</div>
+                    </div>
+                    <div>
+                        <div class="col-inline">公司統編</div>
+                        <div class="col-inline">{{$orderInfo->cid}}</div>
+                    </div>
+                    <div>
+                        <div class="col-inline">公司電話</div>
+                        <div class="col-inline">{{$orderInfo->ctel}}</div>
+                    </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-lg-12">
-                        <p>訂單明細</p>
+                <div class="col">
+                    <div>
+                        <div class="col-inline">訂單日期</div>
+                        <div class="col-inline">{{$orderInfo->odate}}</div>
                     </div>
-                    <div class="col-lg-12"> 
-                        <div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <td scope="col"></td>
-                                        <td scope="col">商品名稱</td>
-                                        <td scope="col">商品編號</td>
-                                        <td scope="col">數量</td>
-                                        <td scope="col">單價</td>
-                                        <td scope="col">小計</td>
-                                        <td scope="col">備註</td>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>                                    
-                                    <tr>
-                                        <td scope="row">1</td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row">2</td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row">3</td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                        <td> 
-                                            <fieldset disabled>
-                                                <input type="text" class="form-control" required>
-                                            </fieldset>
-                                        </td>
-                                    </tr>                                            
-                                </tbody>
-                            </table> 
-                        </div>
-                        <div class="row mb-1">
-                            <div class="col-lg-2"><p>總計</p></div>
-                            <div class="col-lg-5">
-                                <fieldset disabled>
-                                    <input type="text" class="form-control" required>
-                                </fieldset>
-                            </div>
-                        </div>                                 
+                    <div>
+                        <div class="col-inline">聯絡人</div>
+                        <div class="col-inline">{{$orderInfo->qcontact}}</div>
                     </div>
+                    <div>
+                        <div class="col-inline">聯絡人LINE ID</div>
+                        <div class="col-inline">{{$orderInfo->clineid}}</div>
+                    </div>
+                    <div>
+                        <div class="col-inline">聯絡信箱</div>
+                        <div class="col-inline">{{$orderInfo->cmail}}</div>
+                    </div>
+                </div>
+            </div>                                    
+        </div>
+        <div>
+            <div class="paddingY paddingL">||訂單明細</div>
+            <div> 
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td scope="col"></td>
+                                <td scope="col">商品名稱</td>
+                                <td scope="col">商品編號</td>
+                                <td scope="col">數量</td>
+                                <td scope="col">單價</td>
+                                <td scope="col">小計</td>
+                                <td scope="col">備註</td>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>                                                
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>{{$orderInfo->mname}}</td>
+                                <td>{{$orderInfo->mnumber}}</td>
+                                <td>{{$orderInfo->quantity}}</td>
+                                <td>{{$orderInfo->price}}</td>
+                                <td>{{$orderInfo->remark}}</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                                            
+                        </tbody>
+                    </table> 
                 </div>
                 <div>
-                    <div class="mb-3">
-                        <p>凱茂方案</p>
+                    <div class="text-right positionR50">總計</div>
+                    <div class="text-right positionR0">29999</div>
+                </div>                                 
+            </div>
+        </div>
+        <div class="paddingY">
+            <div class="paddingY paddingL">||楷模方案</div>
+            <div class="paddingL">
+                <div class="col">
+                    <div class="col-inline">企業方案</div>
+                    <div class="col-inline">{{$orderInfo->rid}}</div>
+                </div>
+                <div class="col">
+                    <div>
+                        <div class="col-inline">業務專員</div>
+                        <div class="col-inline">{{$orderInfo->staffid}}</div>
                     </div>
-                    <div  class="row mb-3">
-                        <div class="col-lg-6">
-                            <div class="row mb-1">
-                                <div class="col-lg-12">
-                                    <p>企業方案</p>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset disabled>
-                                        <input type="text" required>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="row mb-1">
-                                <div class="col-lg-3"><p>業務專員</p></div>
-                                <div class="col-lg-8">
-                                    <fieldset disabled>
-                                        <input type="text" class="" required>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="row mb-1">
-                                <div class="col-lg-3"><p>凱茂信箱</p></div>
-                                <div class="col-lg-8">
-                                    <fieldset disabled>
-                                        <input type="text" class="" required>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        <div class="col-inline">楷模信箱</div>
+                        <div class="col-inline">kaimoo888.gmail.com</div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 

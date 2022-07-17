@@ -7,7 +7,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="/purchase/edit/{{ $info[0]->bid }}" method="POST">
+                <form class="card" action="" method="POST">
                     @csrf
                     <div class="card-header">
                         <h4 class="card-title text-center"> 凱茂資訊 進貨單編輯</h4>
@@ -49,6 +49,18 @@
                                         </div>
                                         <div class="col-lg-8">
                                             {{ $info[0]->bookDate }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row mb-1">
+                                        <div class="col-lg-3">
+                                            <p>備註</p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            {{ $info[0]->remark }}
                                         </div>
                                     </div>
                                 </div>
@@ -143,15 +155,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12 text-right">
+                        <a class="btn btn-primary mr-3" href="/main/purchase">
+                            <span>取消</span>
+                        </a>
+                        <input type="submit" class="btn btn-primary" value="存檔">
+                    </div>
                 </form>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-3" href="">
-                    <span>取消</span>
-                </a>
-                <a class="btn btn-primary" href="">
-                    <span>存檔</span>
-                </a>
             </div>
         </div>
 
@@ -201,6 +211,7 @@
         //         stockIn: "N"
         //     }
         // ]
+
         var users = {!! json_encode($detail->toArray()) !!};
         let ListData = users;
 
