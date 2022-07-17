@@ -22,7 +22,8 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                    <form class="card">
+                <form class="card" action="/order/edit/{{ $orderInfo->oid }}" method="POST">
+                    @csrf
                         <div class="card-header">
                             <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
                         </div>
@@ -38,7 +39,7 @@
                                                 <p>訂單編號</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                
+                                                {{$orderInfo->oid}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -46,7 +47,7 @@
                                                 <p>公司名稱</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" required>
+                                                {{$orderInfo->cname}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -107,7 +108,7 @@
                                             <tbody>
                                                 <tr>
                                                     
-                                                    <td> {{mname}} </td>
+                                                    <td> </td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>

@@ -149,7 +149,7 @@ class BackendController extends Controller
 
     function order(){
         //訂單
-        $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+        $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
         ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
@@ -157,20 +157,28 @@ class BackendController extends Controller
 
         return view('main.order', compact('order'));
     }
-    function orderInfo(){
+    function orderInfo($orderID){
         //訂單明細管理
-        $orderInfo = Order::join('quotation','quotation.qid','=','order.oid')
+        $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
+        ->where('order.oid', '=', $orderID)
         ->get();
+
+        foreach ($orderInfo as $key => $orderInfo) {
+            
+        }
 
         // dd($orderInfo);
         return view('order.orderInfo', compact('orderInfo'));
     }
-    function orderEdit(){
+    function orderEdit($orderID){
+
+        
+
         //訂單編輯
         $orderedit = Order::join('quotation','quotation.qid','=','order.oid')
         ->join('rebate','rebate.rid','=','quotation.rid')
@@ -178,10 +186,11 @@ class BackendController extends Controller
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
+        ->where('order.oid', '=', $orderID)
         ->get();
 
-        // dd($orderedit);
-        return view('order.orderEdit',["oe"=>$orderedit]);
+        dd($orderedit);
+        return view('order.orderEdit', compact('orderInfo','orderEdit'));
     }
 
     function manufacture()
