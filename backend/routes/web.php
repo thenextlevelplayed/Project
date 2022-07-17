@@ -55,9 +55,9 @@ Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\BackendControl
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\BackendController@quotationCreate"); //新增
 
 //訂單
-Route::get('/main/order', "App\Http\Controllers\BackendController@order");
-Route::get('/main/order/{orderId}', "App\Http\Controllers\BackendController@orderInfo");  //檢視
-Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\BackendController@orderEdit"); //編輯
+Route::get('/main/order', "App\Http\Controllers\OrderController@order");
+Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderInfo");  //檢視
+Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //編輯
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
@@ -94,8 +94,8 @@ Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\BackendCont
 Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\BackendController@viewQuotationPDF"); // 預覽pdf
 
 //pdf order
-Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\BackendController@createOrderPDF"); // 下載pdf
-Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\BackendController@viewOrderPDF"); // 預覽pdf
+Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\OrderController@createOrderPDF"); // 下載pdf
+Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\OrderController@viewOrderPDF"); // 預覽pdf
 
 //pdf manufacture
 Route::get('/main/manufacture/pdf/{manufactureId}',"App\Http\Controllers\BackendController@createManufacturePDF"); // 下載pdf
