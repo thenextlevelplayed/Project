@@ -30,6 +30,8 @@ class purchaseController extends Controller
 
         return view('erp.purchase', compact("book"));
     }
+
+
     function purchaseCreate()
     {
         //進銷存-新增進貨
@@ -62,6 +64,8 @@ class purchaseController extends Controller
 
         return view('erp.purchaseCreate', compact('bid'));
     }
+
+
     function purchaseInfo($purchaseID)
     {
         //進銷存-資訊進貨
@@ -81,6 +85,8 @@ class purchaseController extends Controller
 
         return view('erp.purchaseInfo', compact("info", "detail"));
     }
+
+
     function purchaseEdit($purchaseID)
     {
         //進銷存-編輯進貨
@@ -102,11 +108,18 @@ class purchaseController extends Controller
         return view('erp.purchaseEdit', compact("info", "detail"));
     }
 
+    function purchaseEditPost(Request $req, $purchaseID){
+
+    }
+
+
     function sales()
     {
         //進銷存-銷貨
         return view('erp.sales');
     }
+
+
     function stock()
     {
         //進銷存-庫存
