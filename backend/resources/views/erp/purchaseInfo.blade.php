@@ -52,6 +52,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row mb-1">
+                                        <div class="col-lg-3">
+                                            <p>備註</p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            {{ $info[0]->remark }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="mb-3">
                                 <h5>廠商資訊</h5>
                             </div>
@@ -123,16 +135,16 @@
                                                     <td> {{ $det->quantity * $det->cost }}</td>
                                                     <td> <?php
                                                     
-                                                            if ($det->stockIn != '0000-00-00') {
-                                                                echo "<span class='badge bg-success'>
-                                                                    已入庫
-                                                                    </span>";
-                                                            } else {
-                                                                echo "<span class='badge bg-danger'>
-                                                                    未入庫
-                                                                    </span>";
-                                                            }
-                                                        ?>
+                                                    if ($det->stockIn != '0000-00-00') {
+                                                        echo "<span class='badge bg-success'>
+                                                                                                                                                                            已入庫
+                                                                                                                                                                            </span>";
+                                                    } else {
+                                                        echo "<span class='badge bg-danger'>
+                                                                                                                                                                            未入庫
+                                                                                                                                                                            </span>";
+                                                    }
+                                                    ?>
                                                     </td>
                                                     <td></td>
                                                 </tr>
@@ -162,6 +174,11 @@
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="col-md-12 text-right">
+                <a class="btn btn-primary mr-3" href="/main/purchase">
+                    <span>回上頁</span>
+                </a>
             </div>
         </div>
 
