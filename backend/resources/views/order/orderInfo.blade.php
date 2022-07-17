@@ -35,7 +35,7 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>訂單編號</p></div>
-                                            <div class="col-lg-8">{{$orderInfo->qid}}</div>
+                                            <div class="col-lg-8">{{$orderInfo->oid}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>公司名稱</p></div>
@@ -152,10 +152,10 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/order/pdf/view/{orderID}">
+                <a class="btn btn-primary " href="/order/pdf/view/{{$orderInfo->oid}}">
                     <span>預覽PDF</span>
                 </a>
-                <a class="btn btn-primary" href="/main/order/pdf/{orderID}">
+                <a class="btn btn-primary" href="/main/order/pdf/{{$orderInfo->oid}}">
                     <span>匯出PDF</span>
                 </a>
             </div>

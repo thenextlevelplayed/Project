@@ -12,6 +12,21 @@ class purchaseController extends Controller
         //進銷存-進貨
         $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
+        
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != ""){
+            $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            ->where('bid','LIKE','%'.$search_text.'%')
+            ->orWhere('sname','LIKE','%'.$search_text.'%')
+            ->orWhere('staffname','LIKE','%'.$search_text.'%')
+            ->get();
+            
+        }
+        else{
+            $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            ->get();
+                        
+        };    
 
         return view('erp.purchase', compact("book"));
     }
