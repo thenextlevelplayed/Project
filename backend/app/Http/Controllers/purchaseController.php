@@ -12,9 +12,26 @@ class purchaseController extends Controller
         //進銷存-進貨
         $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
+        
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != ""){
+            $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            ->where('bid','LIKE','%'.$search_text.'%')
+            ->orWhere('sname','LIKE','%'.$search_text.'%')
+            ->orWhere('staffname','LIKE','%'.$search_text.'%')
+            ->get();
+            
+        }
+        else{
+            $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            ->get();
+                        
+        };    
 
         return view('erp.purchase', compact("book"));
     }
+
+
     function purchaseCreate()
     {
         //進銷存-新增進貨
@@ -47,6 +64,8 @@ class purchaseController extends Controller
 
         return view('erp.purchaseCreate', compact('bid'));
     }
+
+
     function purchaseInfo($purchaseID)
     {
         //進銷存-資訊進貨
@@ -66,6 +85,8 @@ class purchaseController extends Controller
 
         return view('erp.purchaseInfo', compact("info", "detail"));
     }
+
+
     function purchaseEdit($purchaseID)
     {
         //進銷存-編輯進貨
@@ -87,11 +108,18 @@ class purchaseController extends Controller
         return view('erp.purchaseEdit', compact("info", "detail"));
     }
 
+    function purchaseEditPost(Request $req, $purchaseID){
+
+    }
+
+
     function sales()
     {
         //進銷存-銷貨
         return view('erp.sales');
     }
+
+
     function stock()
     {
         //進銷存-庫存

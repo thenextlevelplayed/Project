@@ -122,6 +122,24 @@ class OrderController extends Controller
             ->select('*')
             ->get();
 
+            $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+            if ($search_text != ""){
+            $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->where('oid','LIKE','%'.$search_text.'%')
+                ->orWhere('cname','LIKE','%'.$search_text.'%')
+                ->get();
+                
+            }
+            else{
+                $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->get();
+                            
+            };
+
         return view('main.order', compact('order'));
     }
     function orderInfo($orderID)

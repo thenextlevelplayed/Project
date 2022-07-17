@@ -44,7 +44,7 @@ Route::get('/main/purchase', "App\Http\Controllers\purchaseController@purchase")
 Route::get('/main/purchaseCreate', "App\Http\Controllers\purchaseController@purchaseCreate"); //進貨單新增
 Route::get('/main/purchase/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseInfo"); //進貨單檢視
 Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
-Route::post('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
+Route::put('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEditPost"); //進貨單編輯更新
 Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //銷貨單列表
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
 
@@ -65,10 +65,10 @@ Route::get('main/manufacture/edit/{manufactureId}', "App\Http\Controllers\Manufa
 
 
 //出貨
-Route::get('/main/delivery', "App\Http\Controllers\BackendController@delivery");
-Route::get('/delivery/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfo");  //檢視
-Route::get('/delivery/edit/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfoEdit"); //編輯
-Route::put('/delivery/edit/{deliveryId}', "App\Http\Controllers\BackendController@deliveryInfoUpdate"); //編輯
+Route::get('/main/delivery', "App\Http\Controllers\DeliveryController@delivery");
+Route::get('/delivery/{deliveryId}', "App\Http\Controllers\DeliveryController@deliveryInfo");  //檢視
+Route::get('/delivery/edit/{deliveryId}', "App\Http\Controllers\DeliveryController@deliveryInfoEdit"); //編輯
+Route::put('/delivery/edit/{deliveryId}', "App\Http\Controllers\DeliveryController@deliveryInfoUpdate"); //編輯
 
 //發票
 Route::get('/main/receipt', "App\Http\Controllers\BackendController@receipt");
@@ -85,9 +85,9 @@ Route::put('/customer/edit/{customerId}', "App\Http\Controllers\BackendControlle
 Route::get('/customercreate', "App\Http\Controllers\BackendController@customerAdd");//檢視表單
 Route::post('/customercreate', "App\Http\Controllers\BackendController@customerStore");//新增表單
 
-//pdf test delivery
-Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\BackendController@createPDF"); // 下載pdf
-Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\BackendController@viewPDF"); // 預覽pdf
+//pdf  delivery
+Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\DeliveryController@createPDF"); // 下載pdf
+Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\DeliveryController@viewPDF"); // 預覽pdf
 
 //pdf quotation
 Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\BackendController@createQuotationPDF"); // 下載pdf
@@ -102,7 +102,7 @@ Route::get('/main/manufacture/pdf/{manufactureId}',"App\Http\Controllers\Backend
 Route::get('/main/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\BackendController@viewManufacturePDF"); // 預覽pdf
 
 //寄信
-Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\BackendController@upload");//寄信
+Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryController@upload");//寄信
 
 
 
