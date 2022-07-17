@@ -22,6 +22,12 @@ use App\Models\Supplier;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Foreach_;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\File;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class BackendController extends Controller
 {
@@ -213,6 +219,8 @@ class BackendController extends Controller
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
         $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
             ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('customer','customer.cid','=','quotation.cid')
             ->select('*')
             ->get();
 
@@ -351,16 +359,6 @@ class BackendController extends Controller
 
     }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $emp = Employee::find($id);
-    //     $emp->firstName = $request->firstName;
-    //     $emp->lastName = $request->lastName;
-    //     $emp->save();
-    //     return redirect("/employees");
-    // }
-
-    
     function receipt()
     {
         //發票
@@ -450,34 +448,28 @@ class BackendController extends Controller
         return view('customer.customerAdd');
     }
 
-    public function createPDF (Request $request) {
-        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+    public function createPDF (Request $request,$id) {
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
         ->join('order','order.oid','=','manufacture.oid')
         ->join('quotation','quotation.qid','=','order.qid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
-        ->get();
+        ->find($id);
 
-        foreach ($d as $key => $delivery) {
-        }
+    
         $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->download();
     }
 
-    public function viewPDF (Request $request) {
-        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+    public function viewPDF (Request $request,$id) {
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
         ->join('order','order.oid','=','manufacture.oid')
         ->join('quotation','quotation.qid','=','order.qid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
         ->get();
-
-        foreach ($d as $key => $deliveryInfo) {
-            // dd($value);
-            # code...
-        }
         $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->stream();
     }
@@ -554,4 +546,34 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
         return $pdf->stream();
     }
+
+
+
+    //寄信
+    public function upload(Request $request,$id){
+
+        //信件明細
+        $data = array(
+        'addressee' => $request->addressee, //收件人
+        'email' => $request->email, //收件人email
+        'subject' => $request->subject,//主旨
+        'content' => $request->content,//寄信內容
+            );
+        $name = $request->file('file')->getClientOriginalName(); //檔案
+        $request->file->move(public_path('files'), $name); // 將檔案搬到public\images
+        $path = base_path('public/files');//檔案搬到的路徑
+        // https://laravel.com/api/5.8/Illuminate/Http/UploadedFile.html
+
+        Mail::send('email.deliveryMail',compact('data'),function($message) use ($data,$name,$path){ //Mail::send(html畫面,夾帶的資料,回呼函式 使用 許多物件)
+            $message ->to($data['email'])->subject($data['subject']); //$message->to(收件人email)->subject(主旨);
+            $message->attach($path."\\".$name);// $message->attach(夾帶檔案的路徑)
+        });
+
+        // dd(Mail::failures());
+        File::delete($path."\\".$name); //刪除檔案
+        
+        return redirect('/main/delivery');
+      }
+
+
 }
