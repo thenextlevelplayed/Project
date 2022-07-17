@@ -40,13 +40,13 @@ Route::get('/member/create', "App\Http\Controllers\memberController@create");
 Route::get('/main', "App\Http\Controllers\BackendController@index");
 
 //進銷存
-Route::get('/main/purchase', "App\Http\Controllers\BackendController@purchase"); //進貨單列表
-Route::get('/main/purchaseCreate', "App\Http\Controllers\BackendController@purchaseCreate"); //進貨單新增
-Route::get('/main/purchase/{purchaseID}', "App\Http\Controllers\BackendController@purchaseInfo"); //進貨單檢視
-Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\BackendController@purchaseEdit"); //進貨單編輯
-Route::post('/purchase/edit/{purchaseID}', "App\Http\Controllers\BackendController@purchaseEdit"); //進貨單編輯
-Route::get('/main/sales', "App\Http\Controllers\BackendController@sales"); //銷貨單列表
-Route::get('/main/stock', "App\Http\Controllers\BackendController@stock"); //庫存列表
+Route::get('/main/purchase', "App\Http\Controllers\purchaseController@purchase"); //進貨單列表
+Route::get('/main/purchaseCreate', "App\Http\Controllers\purchaseController@purchaseCreate"); //進貨單新增
+Route::get('/main/purchase/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseInfo"); //進貨單檢視
+Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
+Route::post('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
+Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //銷貨單列表
+Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
 
 //報價
 Route::get('/main/quotation', "App\Http\Controllers\BackendController@quotation");

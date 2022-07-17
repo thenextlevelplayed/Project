@@ -49,112 +49,8 @@ class BackendController extends Controller
         // }
     }
 
-    function purchase()
-    {
-        //進銷存-進貨
-        $book = book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
-            ->get();
 
-        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
-            $book = book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
-            ->where('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
-            ->orWhere('mid','LIKE','%'.$search_text.'%')
-            ->get();
-            
-        }
-        else{
-            $book = book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
-            ->select('*')
-            ->get();
-                        
-        };
-
-        return view('erp.purchase', compact("book"));
-    }
-    function purchaseCreate()
-    {
-        //進銷存-新增進貨
-
-        //進貨單編號************************************************************************* 
-
-        //今日日期跟Sql比較 (YYYY-MM-DD)
-        $day = date("Y-m-d");
-        //從資料庫讀取當天進貨單數量有幾筆
-        $bDay = count(Book::all()->where('bDate', '=', $day));
-
-        //最新日期是否等於今天日期
-        if ($bDay > 0) {
-            //計算今天有幾筆後加一
-
-            //轉編號的format
-            $day = date("Ymd");
-            $bDay += 1; 
-            $bDay = sprintf("%03d", $bDay);
-            $bid =  "KMP" .  $day . $bDay;
-        } else {
-            //今天第一筆 001
-
-            //轉編號的format
-            $day = date("Ymd");
-            $bid = "KMP" .  $day . "001";
-        }
-
-        //進貨單編號************************************************************************* 
-
-        return view('erp.purchaseCreate',compact('bid'));
-    }
-    function purchaseInfo($purchaseID)
-    {
-        //進銷存-資訊進貨
-
-        //進貨資訊
-        $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
-            ->select('book.bid', 'book.staffName', 'book.bookDate', 'supplier.*', 'book.remark')
-            ->where('book.bid', '=', $purchaseID)
-            ->get();
-
-        //進貨明細資訊
-        $detail = Book::join("bookDetail", 'bookDetail.bid', '=', 'book.bid')
-            ->join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.stockIn')
-            ->where('book.bid', '=', $purchaseID)
-            ->get();
-
-        return view('erp.purchaseInfo', compact("info", "detail"));
-    }
-    function purchaseEdit($purchaseID)
-    {
-        //進銷存-編輯進貨
-
-        //進貨資訊
-        $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
-            ->select('book.bid', 'book.staffName', 'book.bookDate', 'supplier.*')
-            ->where('book.bid', '=', $purchaseID)
-            ->get();
-
-        //進貨明細資訊
-        $detail = Book::join("bookDetail", 'bookDetail.bid', '=', 'book.bid')
-            ->join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.stockIn')
-            ->where('book.bid', '=', $purchaseID)
-            ->get();
-
-
-        return view('erp.purchaseEdit', compact("info", "detail"));
-    }
-    function sales()
-    {
-        //進銷存-銷貨
-        return view('erp.sales');
-    }
-    function stock()
-    {
-        //進銷存-庫存
-        return view('erp.stock');
-    }
-
+    //ERP 已經搬到 purchaseController Swen 
 
     function quotation()
     {
@@ -165,8 +61,7 @@ class BackendController extends Controller
 
         // dd($quotation);
         return view('main.quotation', compact('quotation'));
-    }    
-
+    }
     function quotationInfo($quotationId)
     {
         //報價資訊
@@ -195,7 +90,7 @@ class BackendController extends Controller
         //新增報價單
         return view('quotation.quotationCreate');
     }
-    
+
 
 
     function order()
@@ -237,7 +132,6 @@ class BackendController extends Controller
             ->get();
 
         foreach ($orderInfo as $key => $orderInfo) {
-            
         }
 
         // dd($orderInfo);
@@ -288,10 +182,27 @@ class BackendController extends Controller
             ->join('detaillist','detaillist.dlid','=','quotation.dlid')
             ->select('*')
             ->get();
-                        
-        };
-        return view('main.manufacture',["manufacture"=>$manufacture]);
 
+
+        $search_text = $_GET['query'] ?? "";
+        if ($search_text != "") {
+            $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                ->where('cname', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('detaillist.dlid', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('mid', 'LIKE', '%' . $search_text . '%')
+                ->get();
+        } else {
+            $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                ->select('*')
+                ->get();
+        };
+        return view('main.manufacture', ["manufacture" => $manufacture]);
     }
     function manufactureEdit($manufactureId)
     {
@@ -310,6 +221,30 @@ class BackendController extends Controller
         return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
     }
 
+    public function manuSearch()
+    {
+
+        $search_text = $_GET['query'];
+        if ($search_text != "") {
+            $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                ->where('cname', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('detaillist.dlid', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('mid', 'LIKE', '%' . $search_text . '%')
+                ->get();
+        } else {
+            $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                ->select('*')
+                ->get();
+        };
+
+        return view('manufacture.search', ["manufacture" => $manufacture]);
+    }
 
     function delivery(Request $request)
     {
@@ -317,8 +252,8 @@ class BackendController extends Controller
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
         $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
             ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation','quotation.qid','=','order.qid')
-            ->join('customer','customer.cid','=','quotation.cid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
             ->get();
 
@@ -565,7 +500,7 @@ class BackendController extends Controller
             ->select('*')
             ->get();
 
-    
+
         $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
         return $pdf->download();
     }
@@ -666,30 +601,29 @@ class BackendController extends Controller
 
 
     //寄信
-    public function upload(Request $request,$id){
+    public function upload(Request $request, $id)
+    {
 
         //信件明細
         $data = array(
-        'addressee' => $request->addressee, //收件人
-        'email' => $request->email, //收件人email
-        'subject' => $request->subject,//主旨
-        'content' => $request->content,//寄信內容
-            );
+            'addressee' => $request->addressee, //收件人
+            'email' => $request->email, //收件人email
+            'subject' => $request->subject, //主旨
+            'content' => $request->content, //寄信內容
+        );
         $name = $request->file('file')->getClientOriginalName(); //檔案
         $request->file->move(public_path('files'), $name); // 將檔案搬到public\images
-        $path = base_path('public/files');//檔案搬到的路徑
+        $path = base_path('public/files'); //檔案搬到的路徑
         // https://laravel.com/api/5.8/Illuminate/Http/UploadedFile.html
 
-        Mail::send('email.deliveryMail',compact('data'),function($message) use ($data,$name,$path){ //Mail::send(html畫面,夾帶的資料,回呼函式 使用 許多物件)
-            $message ->to($data['email'])->subject($data['subject']); //$message->to(收件人email)->subject(主旨);
-            $message->attach($path."\\".$name);// $message->attach(夾帶檔案的路徑)
+        Mail::send('email.deliveryMail', compact('data'), function ($message) use ($data, $name, $path) { //Mail::send(html畫面,夾帶的資料,回呼函式 使用 許多物件)
+            $message->to($data['email'])->subject($data['subject']); //$message->to(收件人email)->subject(主旨);
+            $message->attach($path . "\\" . $name); // $message->attach(夾帶檔案的路徑)
         });
 
         // dd(Mail::failures());
-        File::delete($path."\\".$name); //刪除檔案
-        
+        File::delete($path . "\\" . $name); //刪除檔案
+
         return redirect('/main/delivery');
-      }
-
-
+    }
 }
