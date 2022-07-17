@@ -55,6 +55,22 @@ class BackendController extends Controller
         $book = book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
 
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != ""){
+            $book = book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
+            ->orWhere('mid','LIKE','%'.$search_text.'%')
+            ->get();
+            
+        }
+        else{
+            $book = book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            ->select('*')
+            ->get();
+                        
+        };
+
         return view('erp.purchase', compact("book"));
     }
     function purchaseCreate()
