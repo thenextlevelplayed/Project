@@ -50,7 +50,7 @@ class BackendController extends Controller
     }
 
 
-    //ERP 已經搬到 purchaseController Swen 
+    //ERP 已經搬到 purchaseController ----Swen----- 
 
     function quotation()
     {
@@ -102,22 +102,6 @@ class BackendController extends Controller
             ->select('*')
             ->get();
 
-        $search_text = $_GET['query'] ?? "";
-        if ($search_text != ""){
-            $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->join('customer','customer.cid','=','quotation.cid')
-            ->where('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('oid','LIKE','%'.$search_text.'%')
-            ->get();
-            
-        }
-        else{
-            $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->join('customer','customer.cid','=','quotation.cid')
-            ->get();                        
-        };
         return view('main.order', compact('order'));
     }
     function orderInfo()
@@ -155,31 +139,10 @@ class BackendController extends Controller
     function manufacture()
     {
         //製造
-        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
-        
-
-        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
-            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-            ->join('quotation','quotation.qid','=','order.qid')
-            ->join('customer','customer.cid','=','quotation.cid')
-            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-            ->where('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
-            ->orWhere('mid','LIKE','%'.$search_text.'%')
-            ->get();
-            
-        }
-        else{
-            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-            ->join('quotation','quotation.qid','=','order.qid')
-            ->join('customer','customer.cid','=','quotation.cid')
-            ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->get();
 
@@ -206,7 +169,7 @@ class BackendController extends Controller
     }
     function manufactureEdit($manufactureId)
     {
-        // 製造編輯
+        // 製造
 
         $manufactureedit = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
