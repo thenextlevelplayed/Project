@@ -24,6 +24,10 @@ class DeliveryController extends Controller
 
         $number = [];
 
+
+
+
+
         foreach ($d as $key => $delivery) {
             $did = $delivery->did;
 
@@ -74,6 +78,7 @@ class DeliveryController extends Controller
             } elseif ($id > 100) {
                 trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
             }
+            
             //出貨
             return view('main.delivery', compact('delivery', 'number'));
         }
@@ -98,6 +103,26 @@ class DeliveryController extends Controller
         //     trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         // }
         // //出貨
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != ""){
+            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('did','LIKE','%'.$search_text.'%')
+            ->get();
+            
+        }
+        else{
+            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->get();
+                        
+        };
         return view('main.delivery', compact('delivery', 'number', 'd', 'did'));
     }
 
