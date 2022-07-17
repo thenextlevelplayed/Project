@@ -55,7 +55,7 @@ Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\BackendControl
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\BackendController@quotationCreate"); //新增
 
 //訂單
-Route::get('/main/order', "App\Http\Controllers\BackendController@order");
+Route::get('/main/order', "App\Http\Controllers\OrderController@order");
 Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderInfo");  //檢視
 Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //編輯
 

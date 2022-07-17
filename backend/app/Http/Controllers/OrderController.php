@@ -2,8 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Models\Book;
+use App\Models\Bookdetail;
+use App\Models\Customer;
+use App\Models\Delivery;
+use App\Models\Detaillist;
+use App\Models\Inventory;
+use App\Models\Invoice;
+use App\Models\Invoicedetail;
+use App\Models\Manufacture;
+use App\Models\Material;
+use App\Models\Order;
+use App\Models\Quotation;
+use App\Models\Rebate;
+use App\Models\Staff;
+use App\Models\Supplier;
+use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Foreach_;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\File;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class OrderController extends Controller
 {
@@ -145,7 +170,7 @@ class OrderController extends Controller
         $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo'));
         return $pdf->download();
     }
-    
+
     //預覽訂單PDF
     public function viewOrderPDF (Request $request,$orderID) {
         $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
