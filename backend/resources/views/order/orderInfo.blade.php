@@ -152,10 +152,10 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/order/pdf/view/{orderId}">
+                <a class="btn btn-primary " href="/order/pdf/view/{orderID}">
                     <span>預覽PDF</span>
                 </a>
-                <a class="btn btn-primary" href="/main/order/pdf/{orderId}">
+                <a class="btn btn-primary" href="/main/order/pdf/{orderID}">
                     <span>匯出PDF</span>
                 </a>
             </div>
