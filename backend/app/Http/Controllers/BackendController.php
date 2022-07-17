@@ -19,6 +19,7 @@ use App\Models\Quotation;
 use App\Models\Rebate;
 use App\Models\Staff;
 use App\Models\Supplier;
+use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Foreach_;
@@ -53,7 +54,34 @@ class BackendController extends Controller
     function purchaseCreate()
     {
         //進銷存-新增進貨
-        return view('erp.purchaseCreate');
+
+        //進貨單編號************************************************************************* 
+
+        //今日日期跟Sql比較 (YYYY-MM-DD)
+        $day = date("Y-m-d");
+        //從資料庫讀取當天進貨單數量有幾筆
+        $bDay = count(Book::all()->where('bDate', '=', $day));
+
+        //最新日期是否等於今天日期
+        if ($bDay > 0) {
+            //計算今天有幾筆後加一
+
+            //轉編號的format
+            $day = date("Ymd");
+            $bDay += 1; 
+            $bDay = sprintf("%03d", $bDay);
+            $bid =  "KMP" .  $day . $bDay;
+        } else {
+            //今天第一筆 001
+
+            //轉編號的format
+            $day = date("Ymd");
+            $bid = "KMP" .  $day . "001";
+        }
+
+        //進貨單編號************************************************************************* 
+
+        return view('erp.purchaseCreate',compact('bid'));
     }
     function purchaseInfo($purchaseID)
     {
@@ -61,7 +89,7 @@ class BackendController extends Controller
 
         //進貨資訊
         $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
-            ->select('book.bid', 'book.staffName', 'book.bookDate', 'supplier.*')
+            ->select('book.bid', 'book.staffName', 'book.bookDate', 'supplier.*', 'book.remark')
             ->where('book.bid', '=', $purchaseID)
             ->get();
 
@@ -92,7 +120,7 @@ class BackendController extends Controller
             ->get();
 
 
-        return view('erp.purchaseEdit',compact("info", "detail"));
+        return view('erp.purchaseEdit', compact("info", "detail"));
     }
     function sales()
     {
@@ -131,10 +159,10 @@ class BackendController extends Controller
             ->select('*')
             ->where('quotation.qid', '=', $quotationID)
             ->get();
-            foreach ($quotationInfo as $key => $quotationInfo) {
-                // dd($value);
-                # code...
-            }
+        foreach ($quotationInfo as $key => $quotationInfo) {
+            // dd($value);
+            # code...
+        }
 
         // dd($quotationInfo);
         return view('quotation.quotationInfo', compact('quotationInfo'));
@@ -146,41 +174,44 @@ class BackendController extends Controller
     }
 
 
-    function order(){
+    function order()
+    {
         //訂單
         $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-        ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->get();
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->get();
 
         return view('main.order', compact('order'));
     }
-    function orderInfo(){
+    function orderInfo()
+    {
         //訂單明細管理
-        $orderInfo = Order::join('quotation','quotation.qid','=','order.oid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
+        $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->get();
 
         // dd($orderInfo);
         return view('order.orderInfo', compact('orderInfo'));
     }
-    function orderEdit(){
+    function orderEdit()
+    {
         //訂單編輯
-        $orderedit = Order::join('quotation','quotation.qid','=','order.oid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
+        $orderedit = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->get();
 
         // dd($orderedit);
-        return view('order.orderEdit',["oe"=>$orderedit]);
+        return view('order.orderEdit', ["oe" => $orderedit]);
     }
 
     function manufacture()
@@ -194,17 +225,17 @@ class BackendController extends Controller
     {
         // 製造
 
-        $manufactureedit = Manufacture::join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->find($manufactureId);
+        $manufactureedit = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($manufactureId);
 
-        
-        
-        
-        return view('manufacture.manufactureEdit',["manu"=>$manufactureedit]);
+
+
+
+        return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
     }
 
     function delivery(Request $request)
@@ -216,60 +247,60 @@ class BackendController extends Controller
             ->select('*')
             ->get();
 
-        $number=[];
+        $number = [];
 
         foreach ($d as $key => $delivery) {
-            $did=$delivery->did;
+            $did = $delivery->did;
 
-            
+
 
             // 形成流水編號
-            if($did<10){
-                $did = '00'.$did;
-                $date=$delivery->qdate;
-                $date = preg_replace('/-/','',$date);
-                $did= 'KMD-'.$date.$did;
-            }elseif ($did>=10 && $did<100) {
-                $did = '0'.$did;
-                $date=$delivery->qdate;
+            if ($did < 10) {
+                $did = '00' . $did;
+                $date = $delivery->qdate;
+                $date = preg_replace('/-/', '', $date);
+                $did = 'KMD-' . $date . $did;
+            } elseif ($did >= 10 && $did < 100) {
+                $did = '0' . $did;
+                $date = $delivery->qdate;
                 $date = date("Ymd", $date);
-                $did= 'KMD-'.$date.$did;
-            }elseif ($id=100) {
+                $did = 'KMD-' . $date . $did;
+            } elseif ($id = 100) {
                 $did = $did;
-                $date=$delivery->qdate; //string
-                $did= 'KMD-'.$date.$did;
-            }elseif ($did>100){
+                $date = $delivery->qdate; //string
+                $did = 'KMD-' . $date . $did;
+            } elseif ($did > 100) {
                 trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
             }
-            array_push($number,$did);
+            array_push($number, $did);
         }
 
 
 
-        function generateid($id,$date,$head){
-            if($id<10){
-                $id = '00'.$id;
+        function generateid($id, $date, $head)
+        {
+            if ($id < 10) {
+                $id = '00' . $id;
                 // $date=$delivery->qdate;
-                $date = preg_replace('/-/','',$date);
-                
-                $id= "{$head}".'-'.$date.$id;
-            }elseif ($id>=10 && $id<100) {
-                $id = '00'.$id;
+                $date = preg_replace('/-/', '', $date);
+
+                $id = "{$head}" . '-' . $date . $id;
+            } elseif ($id >= 10 && $id < 100) {
+                $id = '00' . $id;
                 // $date=$delivery->qdate;
-                $date = preg_replace('/-/','',$date);
-                
-                $id= "{$head}".'-'.$date.$id;
-            }elseif ($id=100) {
-                $id = '00'.$id;
+                $date = preg_replace('/-/', '', $date);
+
+                $id = "{$head}" . '-' . $date . $id;
+            } elseif ($id = 100) {
+                $id = '00' . $id;
                 // $date=$delivery->qdate;
-                $date = preg_replace('/-/','',$date);
-                $id= "{$head}".'-'.$date.$id;
-            }elseif ($id>100){
+                $date = preg_replace('/-/', '', $date);
+                $id = "{$head}" . '-' . $date . $id;
+            } elseif ($id > 100) {
                 trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
             }
             //出貨
-            return view('main.delivery',compact('delivery','number'));
-
+            return view('main.delivery', compact('delivery', 'number'));
         }
         // $did=$delivery->did;
         // $did=9999;
@@ -292,36 +323,37 @@ class BackendController extends Controller
         //     trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         // }
         // //出貨
-        return view('main.delivery',compact('delivery','number','d','did'));
+        return view('main.delivery', compact('delivery', 'number', 'd', 'did'));
     }
 
     function deliveryInfo($deliveryId)
     {
         //檢視出貨
-        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->find($deliveryId);
-        return view('delivery.deliveryInfo',compact('deliveryInfo'));
-    }
-    
-    public function deliveryInfoEdit ($deliveryId) {
-        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->find($deliveryId);
-        
-
-        return view('delivery.deliveryInfoEdit',compact('deliveryInfo'));
+        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->find($deliveryId);
+        return view('delivery.deliveryInfo', compact('deliveryInfo'));
     }
 
-    public function deliveryInfoUpdate(Request $request,$deliveryId)
+    public function deliveryInfoEdit($deliveryId)
+    {
+        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->find($deliveryId);
+
+
+        return view('delivery.deliveryInfoEdit', compact('deliveryInfo'));
+    }
+
+    public function deliveryInfoUpdate(Request $request, $deliveryId)
     {
         //edit delivery
         // $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
@@ -339,16 +371,14 @@ class BackendController extends Controller
         $deliveryInfo->ddate = $request->ddate;
         $deliveryInfo->daddress = $request->daddress;
         // 判斷出貨按鈕
-        if($request->inlineRadioOptions == 'Y'){
+        if ($request->inlineRadioOptions == 'Y') {
             $deliveryInfo->dstatus = 'Y';
-        }else($deliveryInfo->dstatus = 'N');
+        } else ($deliveryInfo->dstatus = 'N');
 
         $deliveryInfo->save();
 
         // (...) do something with $var1 and $var2
         return redirect('/main/delivery');
-
-
     }
 
     // public function update(Request $request, $id)
@@ -360,7 +390,7 @@ class BackendController extends Controller
     //     return redirect("/employees");
     // }
 
-    
+
     function receipt()
     {
         //發票
@@ -450,14 +480,15 @@ class BackendController extends Controller
         return view('customer.customerAdd');
     }
 
-    public function createPDF (Request $request) {
-        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->get();
+    public function createPDF(Request $request)
+    {
+        $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->get();
 
         foreach ($d as $key => $delivery) {
         }
@@ -465,14 +496,15 @@ class BackendController extends Controller
         return $pdf->download();
     }
 
-    public function viewPDF (Request $request) {
-        $d = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->get();
+    public function viewPDF(Request $request)
+    {
+        $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->get();
 
         foreach ($d as $key => $deliveryInfo) {
             // dd($value);
@@ -489,13 +521,14 @@ class BackendController extends Controller
         $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
         return $pdf->download();
     }
-    public function viewQuotationPDF (Request $request) {
-        $quotation = Quotation::join('customer','customer.cid','=','quotation.cid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
+    public function viewQuotationPDF(Request $request)
+    {
+        $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->get();
         foreach ($quotation as $key => $quotationInfo) {
             // dd($value);
             # code...
@@ -504,54 +537,55 @@ class BackendController extends Controller
         return $pdf->stream();
     }
     //匯出訂單PDF
-    public function createOrderPDF (Request $request) {
-        $od = Order::join('quotation','quotation.qid','=','order.oid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
+    public function createOrderPDF(Request $request)
+    {
+        $od = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->get();
 
-        foreach($od as $key =>$order ){
-
+        foreach ($od as $key => $order) {
         }
         $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->download();
-
     }
     //預覽訂單PDF
-    public function viewOrderPDF (Request $request) {
-        $od = Order::join('quotation','quotation.qid','=','order.oid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
+    public function viewOrderPDF(Request $request)
+    {
+        $od = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->get();
 
-        foreach($od as $key =>$order ){
-
+        foreach ($od as $key => $order) {
         }
         $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
         return $pdf->stream();
     }
 
     //匯出工單PDF
-    public function createManufacturePDF (Request $request) {
-        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
-        $manu = Manufacture::join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->select('*')
-        ->get();
+    public function createManufacturePDF(Request $request)
+    {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data = []);
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->get();
         dd($manu);
-        
+
         return $pdf->download();
     }
-    public function viewManufacturePDF (Request $request) {
-        $pdf = PDF::loadView('pdf.manufactureEdit', $data=[]);
+    public function viewManufacturePDF(Request $request)
+    {
+        $pdf = PDF::loadView('pdf.manufactureEdit', $data = []);
         return $pdf->stream();
     }
 }
