@@ -176,21 +176,19 @@ class BackendController extends Controller
         return view('order.orderInfo', compact('orderInfo'));
     }
     function orderEdit($orderID){
-
-        
-
+         
         //訂單編輯
-        $orderedit = Order::join('quotation','quotation.qid','=','order.oid')
+        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
         ->where('order.oid', '=', $orderID)
-        ->get();
+        ->find($orderID);
 
-        dd($orderedit);
-        return view('order.orderEdit', compact('orderInfo','orderEdit'));
+        // dd($orderedit);
+        return view('order.orderEdit', compact('orderEdit'));
     }
 
     function manufacture()
@@ -577,36 +575,31 @@ class BackendController extends Controller
         return $pdf->stream();
     }
     //匯出訂單PDF
-    public function createOrderPDF (Request $request) {
-        $od = Order::join('quotation','quotation.qid','=','order.oid')
+    public function createOrderPDF (Request $request,$orderID) {
+        $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
-        ->get();
+        ->find($orderID);
 
-        foreach($od as $key =>$order ){
-
-        }
-        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
+        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo'));
         return $pdf->download();
 
     }
     //預覽訂單PDF
-    public function viewOrderPDF (Request $request) {
-        $od = Order::join('quotation','quotation.qid','=','order.oid')
+    public function viewOrderPDF (Request $request,$orderID) {
+        $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
-        ->get();
+        ->find($orderID);
 
-        foreach($od as $key =>$order ){
-
-        }
-        $pdf = PDF::loadView('pdf.orderInfo', compact('order'));
+        
+        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo'));
         return $pdf->stream();
     }
 

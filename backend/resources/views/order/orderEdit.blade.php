@@ -22,7 +22,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="/order/edit/{{ $orderInfo->oid }}" method="POST">
+                <form class="card" action="/order/edit/{{ $orderEdit->oid }}" method="POST">
                     @csrf
                         <div class="card-header">
                             <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
@@ -39,7 +39,7 @@
                                                 <p>訂單編號</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                {{$orderInfo->oid}}
+                                                {{$orderEdit->oid}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -47,7 +47,7 @@
                                                 <p>公司名稱</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                {{$orderInfo->cname}}
+                                                {{$orderEdit->cname}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
