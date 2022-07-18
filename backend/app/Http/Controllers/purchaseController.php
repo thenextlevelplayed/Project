@@ -140,7 +140,7 @@ class purchaseController extends Controller
                 $PkOfDetail->stockIn = $req->stockIn[$i];
                 $PkOfDetail->save();
 
-                return redirect("/main/purchase");
+                return redirect("/main/purchase/$purchaseID");
 
             } else {
 
