@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Bookdetail;
 use Illuminate\Http\Request;
+use League\CommonMark\Extension\CommonMark\Node\Block\ListData;
+
+use function PHPUnit\Framework\isNull;
 
 class purchaseController extends Controller
 {
@@ -12,21 +16,18 @@ class purchaseController extends Controller
         //進銷存-進貨
         $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
-        
+
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
+        if ($search_text != "") {
             $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
-            ->where('bid','LIKE','%'.$search_text.'%')
-            ->orWhere('sname','LIKE','%'.$search_text.'%')
-            ->orWhere('staffname','LIKE','%'.$search_text.'%')
-            ->get();
-            
-        }
-        else{
+                ->where('bid', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('sname', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('staffname', 'LIKE', '%' . $search_text . '%')
+                ->get();
+        } else {
             $book = Book::select("book.bid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
-            ->get();
-                        
-        };    
+                ->get();
+        };
 
         return view('erp.purchase', compact("book"));
     }
@@ -43,7 +44,7 @@ class purchaseController extends Controller
         //從資料庫讀取當天進貨單數量有幾筆
         $bDay = count(Book::all()->where('bDate', '=', $day));
 
-        //最新日期是否等於今天日期
+        //資料庫今天有幾筆
         if ($bDay > 0) {
             //計算今天有幾筆後加一
 
@@ -98,18 +99,70 @@ class purchaseController extends Controller
             ->get();
 
         //進貨明細資訊
-        $detail = Book::join("bookDetail", 'bookDetail.bid', '=', 'book.bid')
-            ->join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.stockIn')
-            ->where('book.bid', '=', $purchaseID)
+        $detail = Bookdetail::join("inventory", "inventory.mName", '=', 'bookDetail.mName')
+            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.stockIn', 'bookDetail.bDetailId')
+            ->where('bookDetail.bid', '=', $purchaseID)
             ->get();
 
 
         return view('erp.purchaseEdit', compact("info", "detail"));
     }
 
-    function purchaseEditPost(Request $req, $purchaseID){
+    function purchaseEditPost(Request $req, $purchaseID)
+    {
+        //進貨資訊
+        $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
+            ->select('book.bid', 'book.staffName', 'book.bookDate', 'supplier.*')
+            ->where('book.bid', '=', $purchaseID)
+            ->get();
 
+        //進貨明細資訊
+        $detail = Bookdetail::join("inventory", "inventory.mName", '=', 'bookDetail.mName')
+            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.stockIn', 'bookDetail.bDetailId')
+            ->where('bookDetail.bid', '=', $purchaseID)
+            ->get();
+
+        //進貨明細修改,用資料庫book detail PK判斷
+        // 1.原本資料庫就有UpData
+        // 2.沒有新增Create
+
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $PkOfDetail = $detail->where('bDetailId', '=', $req->did[$i])->first();
+
+            // dd($PkOfDetail);
+            if ($PkOfDetail !== null) {
+
+                $PkOfDetail->mName = $req->mName[$i];
+                $PkOfDetail->mNumber = $req->mNumber[$i];
+                $PkOfDetail->quantity = $req->quantity[$i];
+                $PkOfDetail->cost = $req->cost[$i];
+                $PkOfDetail->stockIn = $req->stockIn[$i];
+                $PkOfDetail->save();
+
+                return redirect("/main/purchase/$purchaseID");
+
+            } else {
+
+                // Bookdetail::create([
+                //     'bid' => $purchaseID,
+                //     'mName' => $req->mName[$i],
+                //     'quantity' => $req->quantity[$i],
+                //     'cost' => $req->cost[$i],
+                //     'stockIn' => $req->stockIn[$i]
+                // ]);
+
+                // inventory::create([
+                //     'mNumber' => $req->mNumber[$i]
+                // ]);
+                
+            }
+        }
+
+
+        // dd($detail);
+
+        // dd($req->mName[0]);
     }
 
 

@@ -137,12 +137,12 @@
                                                     
                                                     if ($det->stockIn != '0000-00-00') {
                                                         echo "<span class='badge bg-success'>
-                                                                                                                                                                            已入庫
-                                                                                                                                                                            </span>";
+                                                            已入庫
+                                                            </span>";
                                                     } else {
                                                         echo "<span class='badge bg-danger'>
-                                                                                                                                                                            未入庫
-                                                                                                                                                                            </span>";
+                                                            未入庫
+                                                            </span>";
                                                     }
                                                     ?>
                                                     </td>
@@ -178,6 +178,9 @@
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary mr-3" href="/main/purchase">
                     <span>回上頁</span>
+                </a>
+                <a class="btn btn-primary mr-3" href="/purchase/edit/{{$info[0]->bid}}">
+                    <span>編輯</span>
                 </a>
             </div>
         </div>
