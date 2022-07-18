@@ -7,79 +7,71 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    function customer()
     {
-        //
+        $d = Customer::all();
+
+        foreach($d as$key =>$customer){
+
+        }
+
+        // dd($customer);
+
+        //客戶
+        return view('main.customer',compact('d'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    function customerInfo($customerId)
     {
-        //
+        //檢視客戶
+        $customerInfo = Customer::find($customerId);
+        return view('customer.customerInfo',compact('customerInfo'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    function customerInfoEdit(Request $request,$customerId)
     {
-        //
+        //編輯客戶
+        $customerInfo = Customer::find($customerId);
+        return view('customer.customerEdit',compact('customerInfo'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Customer $customer)
+    function customerUpdate(Request $request,$customerId)
     {
-        //
+        //更新客戶資料
+        $customerInfo = Customer::find($customerId);
+        $customerInfo->cid = $request->input('cid');
+        $customerInfo->cname = $request->input('cname');
+        $customerInfo->ctel = $request->input('ctel');
+        $customerInfo->cmail = $request->input('cmail');
+        $customerInfo->caddress = $request->input('caddress');
+        $customerInfo->tradecode = $request->input('tradecode');
+        $customerInfo->legalletter = $request->input('legalletter');
+        $customerInfo->director = $request->input('director');
+        $customerInfo->fax = $request->input('fax');
+        $customerInfo->salesrep = $request->input('salesrep');
+        $customerInfo->instruments = $request->input('instruments');
+        $customerInfo->location = $request->input('location');
+        $customerInfo->clineid = $request->input('clineid');
+        $customerInfo->save(); //儲存
+
+        return view('customer.customerInfo',compact('customerInfo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Customer $customer)
+    function customerAdd(Request $request)
     {
-        //
+
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Customer $customer)
+    function customerStore(Request $request)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Customer $customer)
-    {
-        //
+        //新增客戶資料
+        $var1 = $request->input('var1');
+        $var2 = $request->input('var2');
+        return view('customer.customerAdd');
     }
 }

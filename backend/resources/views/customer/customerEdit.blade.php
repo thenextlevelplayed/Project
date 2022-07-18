@@ -22,6 +22,9 @@
 @method('PUT')
 <fieldset>
 @section('content')
+<form method="post" action="/customer/edit/{{ $customerInfo->cid }}" class="form-horizontal">
+    @csrf
+    @method('PUT')
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -37,83 +40,92 @@
                             <div  class="row mb-3">
                                 <div class="col-lg-6">
                                     
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>*統一編號</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>*統一編號</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->cid}}" name="cid" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                
-                                
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>*交易暗語</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" value="8787" required>
-                                        </div>
-                                    </div>
                                     
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>*開立形式</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" value="8787" required>
+                                    
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>*交易暗語</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->tradecode}}" name="tradecode" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>公司負責人</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>*開立形式</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text"  value="{{$customerInfo->legalletter}}" name="legalletter" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>公司傳真</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>公司負責人</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text"  value="{{$customerInfo->director}}" name="director" >
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>業務負責人</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>公司傳真</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text"  value="{{$customerInfo->fax}}" name="fax" >
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>業務負責人</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text"  value="{{$customerInfo->salesrep}}" name="salesrep" >
+                                            </div>
+                                        </div>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>LineID</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text"  value="{{$customerInfo->clineid}}" name="clineid" >
+                                            </div>
+                                        </div>
+                                    
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>*公司名稱</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                    
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>*公司名稱</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->cname}}" name="cname" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>*交易對象</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>*交易對象</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->instruments}}" name="instruments" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>*公司信箱</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>*公司信箱</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->cmail}}" name="cmail"required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>公司電話</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>公司電話</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->ctel}}" name="ctel"required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>公司地址</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>公司地址</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->caddress}}" name="caddress"required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3"><p>通訊地址</p></div>
-                                        <div class="col-lg-8">
-                                            <input type="text" class="" value="8787" required>
+                                        <div class="row mb-1">
+                                            <div class="col-lg-3"><p>通訊地址</p></div>
+                                            <div class="col-lg-8">
+                                                <input type="text" value="{{$customerInfo->location}}" name="location">
+                                            </div>
                                         </div>
-                                    </div>
+                                    
                                 </div>
                             </div>                                    
                         </div>
@@ -121,15 +133,14 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="/main/customer">
+                <a class="btn btn-primary" type="submit" href="/main/customer">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary" href="/main/customer">
-                    <span>存檔</span>
-                </a>
+                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-success">OK</button>
             </div>
             
             
         </div>
     </div>
+</form>
 @endsection
