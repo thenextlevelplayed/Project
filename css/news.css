@@ -116,6 +116,7 @@ a:hover {
     width: 100%;
     height: 450px;
     background-size: cover;
+    
 
 }
 
@@ -484,22 +485,22 @@ a:hover {
 }
 
 .rec300 {
-    position: relative;
     height: 300px;
     width: 300px;
     /* border: 1px solid #818181; */
 }
 
 .center {
+    text-align: center;
     width: 80%;
     height: auto;
-    padding-left: 10%;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* border: 1px solid #818181; */
 }
+
 
 .center2 {
     width: 100%;
@@ -516,12 +517,17 @@ a:hover {
 .routerImg{
     width: 100%;
     height:180px;
+    background-color: #ffffff;
     
 }
 
 .routerImg div{
     width:100%;
     height:100%;
+}
+
+.routerImg:hover{
+    background-color: #f0f0f0;
 }
 
 .routerImg img{
@@ -531,6 +537,51 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+
+.cooperateInfo{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.cooperateInfo div{
+    height:100px;
+    width:100px;
+    background-color: #005aaf;
+    text-align: center;
+    color: #ffffff;
+    font-size: large;
+    border-radius: 5px;
+    margin-right:10px;
+    margin-top: 10px;
+}
+.cooperateInfo p{
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.cooperateTitle{
+    margin-top: 17px;
+    text-align: center;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: rgb(0, 90, 175);
+}
+
+.cooperateDefault{
+    margin-top: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: rgb(161, 161, 161);
+}
+
+.cooperatePhone{
+    display: none;
 }
 
 @media only screen and (max-width: 992px) {
@@ -548,6 +599,14 @@ a:hover {
 
     .center {
         padding-left: 0%;
+    }
+
+    #app{
+        display:none;
+    }
+
+    .cooperatePhone{
+        display: block;
     }
 }
 
