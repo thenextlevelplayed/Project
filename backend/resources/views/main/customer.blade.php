@@ -41,73 +41,21 @@
                                 </th>
                             </thead>
                             <tbody>
+                                @foreach ($d as $customer)                               
                                 <tr>
-                                    
-                                    
-                                    {{--  路由方法/employees/{{$emp->id}} --}}
                                     <td>
-                                        {{-- <form method="get" action="/customer/{customerId}">                                                        
-                                            @csrf
-                                            <a href="/customer/{customerId}" class="btn" style="background: 0 ; color:black">APPLE                                                       
-                                        </form> --}}
-
-
-                                        <a href="/customer/{customerId}" class="btn" style="background: 0 ; color:black">APPLE
+                                        <a href="/customer/{{$customer->cid}}" class="btn" style="background: 0 ; color:black">{{$customer->cname}}
                                     </td>
                                     <td >
-                                        {{-- 路由方法/employees/{{$emp->id}} --}}
-                                        {{-- <form method="post" action="/customer/edit/{customerId}"> 
-                                            @csrf
-                                            @method('DELETE')
-                                            <div class="btn-group">
-                                                <a href="/customer/edit/{customerId}" class="btn" style="background: 0 ; color:black">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                                                </a>
-                                            </div>                                                                                                       
-                                        </form> --}}
-                                        
                                         <div class="btn-group">
                                             {{-- {{ url('/home') }} --}}
-                                            <a href="/customer/edit/{customerId}" class="btn" style="background: 0 ; color:black">
+                                            <a href="/customer/edit/{{$customer->cid}}" class="btn" style="background: 0 ; color:black">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    {{-- {{$d->firstName}} --}}
-                                    <td><a href="/customer/{customerId}" class="btn" style="background: 0 ; color:black">ACER</td>
-                                    <td >
-                                        <div class="btn-group">
-                                            {{-- {{ url('/home') }} --}}
-                                            <a href="/customer/edit/{customerId}" class="btn" style="background: 0 ; color:black">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>                                                
-                                    <td><a href="/customer/{customerId}" class="btn" style="background: 0 ; color:black">ASUS</td>
-                                    <td >
-                                        <div class="btn-group">
-                                            {{-- {{ url('/home') }} --}}
-                                            <a href="/customer/edit/{customerId}" class="btn" style="background: 0 ; color:black">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>                                                
-                                    <td><a href="/customer/{customerId}" class="btn" style="background: 0 ; color:black">ispan</td>
-                                    <td >
-                                        <div class="btn-group">
-                                            {{-- {{ url('/home') }} --}}
-                                            <a href="/customer/edit/{customerId}" class="btn" style="background: 0 ; color:black">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <div class="text-right mr-5 mb-3">

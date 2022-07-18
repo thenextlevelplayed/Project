@@ -1,6 +1,18 @@
 CREATE TABLE `backend`.`rebate` ( `rid` INT(11) NOT NULL AUTO_INCREMENT , `rtitle` VARCHAR(100) NOT NULL , `rcontent` VARCHAR(100) NOT NULL , PRIMARY KEY (`rid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `backend`.`customer` ( `cid` INT(11) NOT NULL AUTO_INCREMENT , `cname` VARCHAR(100) NOT NULL , `ctel` VARCHAR(100) NOT NULL , `cmail` VARCHAR(100) NOT NULL , `caddress` VARCHAR(100) NOT NULL , `clineid` VARCHAR(100) NOT NULL , PRIMARY KEY (`cid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+CREATE TABLE `backend`.`customer` ( `cid` INT(11) NOT NULL AUTO_INCREMENT ,
+ `cname` VARCHAR(100) NOT NULL , 
+ `ctel` VARCHAR(100) NOT NULL , 
+ `cmail` VARCHAR(100) NOT NULL , 
+ `caddress` VARCHAR(100) NOT NULL , 
+ `tradecode` VARCHAR(100) NOT NULL ,
+ `legalletter` VARCHAR(100) NOT NULL ,
+ `instruments` VARCHAR(100) NOT NULL,
+ `director` VARCHAR(100)  NULL ,
+ `fax` VARCHAR(100)  NULL ,
+ `salesrep` VARCHAR(100)  NULL ,
+ `location` VARCHAR(100)  NULL ,
+ `clineid` VARCHAR(100)  NULL , PRIMARY KEY (`cid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `backend`.`staff` ( `staffid` INT(11) NOT NULL AUTO_INCREMENT , `password` VARCHAR(100) NOT NULL , `staffname` VARCHAR(100) NOT NULL , `stafftel` VARCHAR(100) NOT NULL , `staffmail` VARCHAR(100) NOT NULL , PRIMARY KEY (`staffid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
@@ -25,13 +37,13 @@ CREATE TABLE `backend`.`material` ( `mid` INT(11) NOT NULL AUTO_INCREMENT , `sid
 
 CREATE TABLE `backend`.`detaillist` ( `dlid` INT(11) NOT NULL AUTO_INCREMENT , `qid` INT(11) , `iid` INT(11) , `rid` INT(11) ,  `mname` VARCHAR(100) NOT NULL , `quantity` INT(11) NOT NULL , `price` INT(11) NOT NULL , `mspecification` VARCHAR(100) NOT NULL , `mnumber` VARCHAR(100) , `remark` VARCHAR(100) NOT NULL , `pstatus` VARCHAR(100) NOT NULL , PRIMARY KEY (`dlid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `backend`.`quotation` ( `qid` INT(11) NOT NULL AUTO_INCREMENT , `qdate` date NOT NULL , `cid` INT(11) , `qcontact` VARCHAR(100) NOT NULL , `cmail` VARCHAR(100) NOT NULL , `staffid` INT(11) NOT NULL , `dlid` int(11) NOT NULL , `rid` INT(11) , `qstatus` VARCHAR(100) NOT NULL , PRIMARY KEY (`qid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+CREATE TABLE `backend`.`quotation` ( `qid` INT(11) NOT NULL AUTO_INCREMENT , `qdate` date NOT NULL , `cid` INT(11) , `qcontact` VARCHAR(100) NOT NULL , `cmail` VARCHAR(100) NOT NULL , `staffid` INT(11) NOT NULL , `dlid` int(11) NOT NULL , `rid` INT(11) , `qstatus` VARCHAR(100) NOT NULL , `qrownumber` VARCHAR(100) NULL, PRIMARY KEY (`qid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `backend`.`order` ( `oid` INT(11) NOT NULL AUTO_INCREMENT , `odate` date NOT NULL , `paydate` date NOT NULL , `qid` INT(11) , `ostatus` VARCHAR(100) NOT NULL , PRIMARY KEY (`oid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+CREATE TABLE `backend`.`order` ( `oid` INT(11) NOT NULL AUTO_INCREMENT , `odate` date NOT NULL , `paydate` date NOT NULL , `qid` INT(11) , `ostatus` VARCHAR(100) NOT NULL , `orownumber` VARCHAR(100) NULL, PRIMARY KEY (`oid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `backend`.`manufacture` ( `mid` INT(11) NOT NULL AUTO_INCREMENT , `mdate` date NOT NULL , `mcomplete` VARCHAR(100) NOT NULL , `oid`INT(11) , `mremark` VARCHAR(100) NOT NULL , `mstatus` VARCHAR(100) NOT NULL , PRIMARY KEY (`mid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+CREATE TABLE `backend`.`manufacture` ( `mid` INT(11) NOT NULL AUTO_INCREMENT , `mdate` date NOT NULL , `mcomplete` VARCHAR(100) NOT NULL , `oid`INT(11) , `mremark` VARCHAR(100) NOT NULL , `mstatus` VARCHAR(100) NOT NULL , `mrownumber` VARCHAR(100) NULL, PRIMARY KEY (`mid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE `backend`.`delivery` ( `did` INT(11) NOT NULL AUTO_INCREMENT , `dcontact` VARCHAR(100) NOT NULL , `dtel` VARCHAR(100) NOT NULL , `daddress` VARCHAR(100) NOT NULL , `mid` INT(11) , `dstatus` VARCHAR(100) NOT NULL , `ddate` date NULL,PRIMARY KEY (`did`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+CREATE TABLE `backend`.`delivery` ( `did` INT(11) NOT NULL AUTO_INCREMENT , `dcontact` VARCHAR(100) NOT NULL , `dtel` VARCHAR(100) NOT NULL , `daddress` VARCHAR(100) NOT NULL , `mid` INT(11) , `dstatus` VARCHAR(100) NOT NULL , `ddate` date NULL, `drownumber` VARCHAR(100) NULL, PRIMARY KEY (`did`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `backend`.`invoicedetail` ( `iid` INT(11) NOT NULL AUTO_INCREMENT , `invoiceid` VARCHAR(100) , `did` INT(11) , PRIMARY KEY (`iid`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
 
@@ -43,7 +55,7 @@ INSERT INTO `staff` (`staffid`, `password`, `staffname`, `stafftel`, `staffmail`
 
 INSERT INTO `rebate` (`rid`, `rtitle`, `rcontent`) VALUES ('89', '89折', '打89折');
 
-INSERT INTO `customer` (`cid`, `cname`, `ctel`, `cmail`, `caddress`, `clineid`) VALUES ('33', '33股份有限公司', '043333333', 'hey_33@gmail.com', '台中市南屯區公益路二段51號25樓', 'hey_33');
+INSERT INTO `customer` (`cid`, `cname`, `ctel`, `cmail`, `caddress`, `clineid`, `tradecode`, `legalletter`, `instruments`, `director`, `fax`, `salesrep`, `location`) VALUES ('33', '33股份有限公司', '043333333', 'hey_33@gmail.com', '台中市南屯區公益路二段51號25樓', 'hey_33','123','交換','買賣方','','','','');
 
 INSERT INTO `book` (`bid`, `sid`, `sname`, `bookdate`, `staffname`, `remark`) VALUES ('1', '1', 'ASUS', '2022-07-13', '蔡明明', '');
 
@@ -77,7 +89,7 @@ INSERT INTO `staff` (`staffid`, `password`, `staffname`, `stafftel`, `staffmail`
 
 INSERT INTO `rebate` (`rid`, `rtitle`, `rcontent`) VALUES ('50', '5折', '打5折');
 
-INSERT INTO `customer` (`cid`, `cname`, `ctel`, `cmail`, `caddress`, `clineid`) VALUES ('34', 'swen股份有限公司', '04434343433', 'swen_0440@gmail.com', '台中市南屯區公益路二段51號3樓', 'swen_0440');
+INSERT INTO `customer` (`cid`, `cname`, `ctel`, `cmail`, `caddress`, `clineid`, `tradecode`, `legalletter`, `instruments`, `director`, `fax`, `salesrep`, `location`)  VALUES ('34', 'swen股份有限公司', '04434343433', 'swen_0440@gmail.com', '台中市南屯區公益路二段51號3樓', 'swen_0440', '456', '存證', '買賣方', '', '', '', '');
 
 INSERT INTO `book` (`bid`, `sid`, `sname`, `bookdate`, `staffname`, `remark`) VALUES ('2', '2', 'DELL', '2022-07-23', '陳澎澎', '');
 
@@ -90,6 +102,7 @@ INSERT INTO `inventory` (`iid`, `mid`, `mname`, `mnumber`, `sid`, `mspecificatio
 INSERT INTO `quotation` (`qid`, `qdate`, `cid`, `qcontact`, `cmail`, `staffid`, `dlid`, `rid`, `qstatus`) VALUES ('2', '2022-07-31', '34', '祥老大', 'swen_0440@gmail.com', '2', '2', '50', 'Y');
 
 INSERT INTO `detaillist` (`dlid`, `qid`, `iid`,`rid` , `mname`, `quantity`, `price`, `mspecification`, `mnumber`, `remark`, `pstatus`) VALUES ('2', '2', '2', '50' , '楷模Inspiron 13', '12', '78999', 'Inspiron 13', 'KM-123214215', '買十二台筆電', 'Y');
+INSERT INTO `detaillist` (`dlid`, `qid`, `iid`,`rid` , `mname`, `quantity`, `price`, `mspecification`, `mnumber`, `remark`, `pstatus`) VALUES ('3', '2', '1', '89' , '楷模MB16AWP', '3', '20000', 'ASUS MB16AWP', 'KM-987654321', '買三台螢幕', 'Y');
 
 INSERT INTO `order` (`oid`, `odate`, `paydate`, `qid`, `ostatus`) VALUES ('2', '2022-08-10', '2022-08-09', '2', 'Y');
 
