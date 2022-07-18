@@ -14,7 +14,7 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入銷貨單號或客戶名稱">
+    <input type="text" value="" class="form-control" placeholder="輸入單號或客戶名稱">
 @endsection
 
 {{-- 內容代入 --}}
@@ -65,7 +65,7 @@
                                                 <p>建立日期</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                {{$orderEdit->odate}}
+                                                <input type="date" value='{{$orderEdit->odate}}' name="daddress" required>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -135,6 +135,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+
                                     <div class="row mb-1">
                                         <div class="col-lg-2">
                                             <p>總計</p>
@@ -185,17 +186,17 @@
                  
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-3" href="/main/order">
+                <a class="btn btn-primary mr-2" href="/main/order">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary mr-3" href="">
+                <a class="btn btn-primary mr-2" href="">
                     <span>預覽</span>
                 </a>
-                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">存檔</button>
+                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
                 {{-- <a class="btn btn-primary mr-3" href="">
                     <span>存檔</span>
                 </a> --}}
-                <a class="btn btn-primary mr-3" href="">
+                <a class="btn btn-primary" href="">
                     <span>轉為工單</span>
                 </a>
                 {{-- <a class="btn btn-danger" href="">
