@@ -106,7 +106,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- <tr>
+                                                <tr>
                                                     <td> </td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -114,7 +114,7 @@
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th scope="row">2</th>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -136,12 +136,6 @@
                                         </table>
                                     </div>
     
-                                    <div class="row mb-1 text-right">
-                                        <div class="col-lg-10" style="font-size: 24px">
-                                            <span class="mr-1">總計:</span>
-                                            <span id="AllTot"></span>
-                                        </div>
-                                    </div>
 
                                     <div class="row mb-1">
                                         <div class="col-lg-2">
