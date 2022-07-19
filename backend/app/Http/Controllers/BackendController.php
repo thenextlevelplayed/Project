@@ -40,13 +40,13 @@ class BackendController extends Controller
 
         return view('main.index');
 
-        //每個操作頁面都要判斷Session
-        // $account = Session::get('account', 'Guest');
-        // if ($account == 'Guest') {
-        //     return redirect('/member/login');
-        // } else {
-        //     return view('main.index');
-        // }
+        // 每個操作頁面都要判斷Session
+        $account = Session::get('account', 'Guest');
+        if ($account == 'Guest') {
+            return redirect('/member/login');
+        } else {
+            return view('main.index');
+        }
     }
 
     //ERP 已經搬到 purchaseController ----Swen----- 

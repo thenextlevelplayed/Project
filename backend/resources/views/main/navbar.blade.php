@@ -223,6 +223,7 @@
                             </div>
                         </form>
                         {{-- 右上人像控制 1. 員工基本資料 2.登出 --}}
+                        <span class="ml-4">{{ Session::get('name') }}</span>
                         <div class="navbar-nav">
                             <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href=""
