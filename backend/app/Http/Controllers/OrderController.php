@@ -180,7 +180,7 @@ class OrderController extends Controller
     }
 
 
-    public function orderUpdate(Request $request,$orderId){
+    public function orderUpdate(Request $request,$orderID){
 
         //訂單更新
         $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
@@ -189,9 +189,9 @@ class OrderController extends Controller
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
         ->select('*')
-        ->find($orderId);
+        ->find($orderID);
 
-        $dtl = Detaillist::find($orderId);
+        // $dtl = Detaillist::find($orderId);
         
         $orderEdit->mremark = $request->mremark;
         $orderEdit->mstatus = $request->mstatus;
@@ -207,6 +207,22 @@ class OrderController extends Controller
         // dd($dtl);
         return redirect('/main/order');
     }
+    
+    public function MaufactureCreate(Request $request,$orderID){
+
+        //工單新增(轉為工單)
+        $Maufacture = new Maufacture($orderID);
+
+
+        
+        $orderEdit->save();
+        // $dtl->save();
+        
+        
+        // dd($Maufacture);
+        return redirect('/main/Maufacture');
+    }
+
 
 
     //匯出訂單PDF

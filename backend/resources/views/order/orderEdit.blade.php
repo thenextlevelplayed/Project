@@ -223,9 +223,10 @@
                                 {{-- <a class="btn btn-primary mr-3" href="">
                                     <span>存檔</span>
                                 </a> --}}
-                                <a class="btn btn-primary" href="">
+                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">轉為工單</button>
+                                {{-- <a class="btn btn-primary" href="">
                                     <span>轉為工單</span>
-                                </a>
+                                </a> --}}
                                 {{-- <a class="btn btn-danger" href="">
                                     <span>取消訂單</span>
                                 </a> --}}
