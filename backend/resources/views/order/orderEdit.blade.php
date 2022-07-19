@@ -73,7 +73,7 @@
                                                 <p>聯絡人</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->qcontact}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -81,7 +81,7 @@
                                                 <p>聯絡電話</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->ctel}}
                                             </div>
                                         </div>
                                     </div>
@@ -106,15 +106,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- <tr>
+                                                <tr>
                                                     <td> </td>
-                                                    <td> <input type="text" class="form-control" required></td>
+                                                    <td> <input type="text" class="form-control" value='{{$deliveryInfo->mname}}'required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th scope="row">2</th>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -167,7 +167,7 @@
                                                 <p>業務專員</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->staffname}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -175,7 +175,7 @@
                                                 <p>凱茂信箱</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                kaimo888@gmail.com
                                             </div>
                                         </div>
                                     </div>
