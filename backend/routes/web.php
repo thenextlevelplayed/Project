@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeliveryController;
 use App\Models\member;
+use App\Models\Staff;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -113,9 +114,9 @@ Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryControll
 
 
 // 創建測試帳號密碼
-// Route::get('/test', function(){
-//     $get = member::find(2);
-//     $passwd = Hash::make('123456');  
-//     $get->mpwd = $passwd;
-//     $get->save();
-// });
+Route::get('/test', function(){
+    $get = Staff::find(1);
+    $passwd = Hash::make('123456');  
+    $get->password = $passwd;
+    $get->save();
+});

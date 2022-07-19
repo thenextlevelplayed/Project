@@ -24,7 +24,7 @@
                                             <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{$KMPid}}
+                                            {{ $KMPid }}
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                             <p>採購人員</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            {{ Session::get('name') }}
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                                             <p>備註</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <textarea type="text" class="" >
+                                            <textarea type="text" class="">
                                             </textarea>
                                         </div>
                                     </div>
