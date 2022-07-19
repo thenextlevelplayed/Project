@@ -73,7 +73,7 @@
                                                 <p>聯絡人</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->qcontact}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -81,7 +81,7 @@
                                                 <p>聯絡電話</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->ctel}}
                                             </div>
                                         </div>
                                     </div>
@@ -106,15 +106,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- <tr>
+                                                <tr>
                                                     <td> </td>
-                                                    <td> <input type="text" class="form-control" required></td>
+                                                    <td> <input type="text" class="form-control" value='{{$deliveryInfo->mname}}'required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th scope="row">2</th>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -135,6 +135,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+    
 
                                     <div class="row mb-1">
                                         <div class="col-lg-2">
@@ -167,7 +168,7 @@
                                                 <p>業務專員</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                {{$orderEdit->staffname}}
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -175,7 +176,7 @@
                                                 <p>凱茂信箱</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="text" class="" required>
+                                                kaimooo888@gmail.com
                                             </div>
                                         </div>
                                     </div>
@@ -189,9 +190,9 @@
                 <a class="btn btn-primary mr-2" href="/main/order">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary mr-2" href="">
+                {{-- <a class="btn btn-primary mr-2" href="">
                     <span>預覽</span>
-                </a>
+                </a> --}}
                 <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
                 {{-- <a class="btn btn-primary mr-3" href="">
                     <span>存檔</span>

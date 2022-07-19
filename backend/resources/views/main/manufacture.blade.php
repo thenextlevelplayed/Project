@@ -52,12 +52,25 @@
                                             {{$manu->cname}}
                                         </td>
                                         <td>
+                                        <?php
+                                        if($manu->mstatus == 'Y'){
+                                        ?>
                                             <span class="badge bg-success">
                                                 已完成
-                                            </span>
+                                            </span>                                        
+                                        <?php
+                                        }else{
+                                        ?>
+                                            <span class="badge bg-danger">
+                                                未完成
+                                            </span>                                        
+                                        <?php
+                                        }
+                                        ?>                                        
+
                                         </td>
                                         <td>
-                                            <a href = "/main/manufacture/edit/{{$manu->mid}}">
+                                            <a href = "/manufacture/edit/{{$manu->mid}}">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
                                                 aria-hidden="true"></i></button>
                                             </a>

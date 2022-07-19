@@ -74,18 +74,52 @@ class ManufactureController extends Controller
     {
         // 製造編輯
 
-        $manufactureedit = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($manufactureId);
+        
+        $dtl = Detaillist::find($manufactureId);
+
+
+
+
+        return view('manufacture.manufactureEdit',compact('manu','dtl'));
+    }
+
+
+    public function manufactureUpdate(Request $request,$manufactureId){
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($manufactureId);
 
+        $dtl = Detaillist::find($manufactureId);
+        
+        $manu->mremark = $request->mremark;
+        $manu->mstatus = $request->mstatus;
+        $dtl->remark = $request->remark;
+        if ($request->inlineRadioOptions == 'Y') {
+            $manu->mstatus = 'Y';
+        } else ($manu->mstatus = 'N');
+        //撈畫面的資料
+        $manu->save();
+        $dtl->save();
+        
+        
+        // dd($dtl);
+        return redirect('/main/manufacture');
+        
 
-
-
-        return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
+        // mstatus
+        // dstatus
+        // mremark
     }
+
     /**
      * Display a listing of the resource.
      *
