@@ -61,7 +61,9 @@ Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@o
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
-Route::get('main/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureEdit");
+Route::get('/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureEdit");
+Route::put('/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureUpdate"); //更新
+
 
 
 //出貨

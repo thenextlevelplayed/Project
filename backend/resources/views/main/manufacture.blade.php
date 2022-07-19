@@ -57,7 +57,7 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <a href = "/main/manufacture/edit/{{$manu->mid}}">
+                                            <a href = "/manufacture/edit/{{$manu->mid}}">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
                                                 aria-hidden="true"></i></button>
                                             </a>

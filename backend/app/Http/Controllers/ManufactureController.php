@@ -86,6 +86,28 @@ class ManufactureController extends Controller
 
         return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
     }
+
+
+    public function manufactureUpdate(Request $request,$manufactureId){
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($manufactureId);
+
+        $manu->mremark = $request->mremark;
+        $manu->save();
+        // dd($manu);
+        ;//撈畫面的資料
+        return redirect('/main/manufacture');
+        
+
+        // mstatus
+        // dstatus
+        // mremark
+    }
+
     /**
      * Display a listing of the resource.
      *
