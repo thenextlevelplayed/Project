@@ -97,7 +97,7 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">商品名稱</th>
-                                                    <th scope="col">商品編號</th>
+                                                    <th scope="col">商品型號</th>
                                                     <th scope="col">數量</th>
                                                     <th scope="col">單價</th>
                                                     <th scope="col">小計</th>
@@ -214,16 +214,20 @@
 
                             <div class="col-md-12 text-right">
                                 <a class="btn btn-primary mr-2" href="/main/order">
-                                    <i class="fa fa-undo"></i>返回
+                                    <i class="fa fa-undo"></i>&nbsp;返回
                                 </a>
                                 {{-- <a class="btn btn-primary mr-2" href="">
                                     <span>預覽</span>
                                 </a> --}}
-                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
+                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">
+                                    <i class="far fa-save"></i>&nbsp;存檔存檔
+                                </button>
                                 {{-- <a class="btn btn-primary mr-3" href="">
                                     <span>存檔</span>
                                 </a> --}}
-                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">轉為工單</button>
+                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">
+                                    <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
+                                </button>
                                 {{-- <a class="btn btn-primary" href="">
                                     <span>轉為工單</span>
                                 </a> --}}

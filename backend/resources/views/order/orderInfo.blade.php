@@ -145,13 +145,13 @@
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary " href="/main/order">
-                    <span>返回</span>
+                    <i class="fa fa-undo"></i>&nbsp;返回
                 </a>
                 <a class="btn btn-primary " href="/order/pdf/view/{{$orderInfo->oid}}">
-                    <span>預覽PDF</span>
+                    <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
                 </a>
                 <a class="btn btn-primary" href="/main/order/pdf/{{$orderInfo->oid}}">
-                    <span>匯出PDF</span>
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
                 </a>
             </div>
         </div>
