@@ -26,6 +26,46 @@
                                     <div class="col-md-12 card-title text-center">
                                         <h3>凱茂資訊 工單管理</h3>
                                     </div>
+                                    <div class="container-fluid row justify-content-end" style="padding-right: 0px">
+                                        <?php
+                                        if($manu->mstatus == 'Y'){
+                                        ?>
+                                        <div class="form-check" style="margin-right: 30px">
+                                            <input type="radio" name="inlineRadioOptions"
+                                                id="flexRadioDefault1" value="Y" checked>
+                                            <label for="flexRadioDefault1" style="font-size: 20px">
+                                                已完成
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" name="inlineRadioOptions"
+                                                id="flexRadioDefault2" value="N">
+                                            <label for="flexRadioDefault2" style="font-size: 20px">
+                                                未完成
+                                            </label>
+                                        </div>                                        
+                                        <?php
+                                        }
+                                        elseif($manu->mstatus == 'N' or $manu->mstatus ==''){
+                                        ?>
+                                        <div class="form-check" style="margin-right: 30px">
+                                            <input type="radio" name="inlineRadioOptions"
+                                                id="flexRadioDefault1" value="Y">
+                                            <label for="flexRadioDefault1" style="font-size: 20px">
+                                                已完成
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" name="inlineRadioOptions"
+                                                id="flexRadioDefault2" value="N" checked>
+                                            <label for="flexRadioDefault2" style="font-size: 20px">
+                                                未完成
+                                            </label>
+                                        </div>                                            
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                     <div class="row ">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">工單編號</label>
@@ -107,7 +147,7 @@
                                                 </td>
                                                 <td>
                                                     <div style="width:300px">
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">電腦超重需要使用推車</textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $dtl->remark }}</textarea>
                                                     </div>
                                                 </td>
                                                 <td style="text-align: center">
@@ -151,10 +191,10 @@
                                                 <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
                                             </button>
                                         </a>
-
                                     </div>
                                     <div class="col-md-2 p-1">
-                                        <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">存檔</button>
+                                            <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;存檔</button>
+
 
                                     </div>
                                     <div class="col-md-2 p-1">

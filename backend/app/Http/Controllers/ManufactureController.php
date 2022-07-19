@@ -74,17 +74,19 @@ class ManufactureController extends Controller
     {
         // 製造編輯
 
-        $manufactureedit = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($manufactureId);
+        
+        $dtl = Detaillist::find($manufactureId);
 
 
 
 
-        return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
+        return view('manufacture.manufactureEdit',compact('manu','dtl'));
     }
 
 
@@ -96,10 +98,20 @@ class ManufactureController extends Controller
             ->select('*')
             ->find($manufactureId);
 
+        $dtl = Detaillist::find($manufactureId);
+        
         $manu->mremark = $request->mremark;
+        $manu->mstatus = $request->mstatus;
+        $dtl->remark = $request->remark;
+        if ($request->inlineRadioOptions == 'Y') {
+            $manu->mstatus = 'Y';
+        } else ($manu->mstatus = 'N');
+        //撈畫面的資料
         $manu->save();
-        // dd($manu);
-        ;//撈畫面的資料
+        $dtl->save();
+        
+        
+        // dd($dtl);
         return redirect('/main/manufacture');
         
 
