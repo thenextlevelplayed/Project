@@ -24,7 +24,7 @@
                                             <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{$bid}}
+                                            {{$KMPid}}
                                         </div>
                                     </div>
                                 </div>

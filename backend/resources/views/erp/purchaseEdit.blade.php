@@ -25,7 +25,7 @@
                                             <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8" name="bid">
-                                            {{ $info[0]->bid }}
+                                            {{ $info[0]->KMPid }}
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                                 <th scope="col">數量</th>
                                                 <th scope="col">成本</th>
                                                 <th scope="col">小計</th>
-                                                <th scope="col">入庫狀態</th>
+                                                <th scope="col">入庫狀態 (Y/N)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-primary mr-3" href="/main/purchase/{{$info[0]->bid}}">
+                        <a class="btn btn-primary mr-3" href="/main/purchase/{{ $info[0]->bid }}">
                             <span>取消</span>
                         </a>
                         <input type="submit" class="btn btn-primary" value="存檔">
@@ -226,21 +226,23 @@
 
             for (let i = 0; i < ListData.length; i++) {
 
+
                 $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control" required name="mName[]" value="${ListData[i].mName}"></td>
-                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mNumber}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mName}"></td>
+                        <td> <input type="text" class="form-control " required name="mNumber[]" value="${ListData[i].mNumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}" ></td>
                         <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}" ></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
-                        <td> <input type="text" class="form-control" required name="stockIn[]" value="${ListData[i].stockIn}"></td>
+                        <td> <input type="text" class="form-control"  maxlength="1" pattern="Y|N" required name="pStatus[]" value="${ListData[i].pStatus}"></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                         <input type="hidden" name="did[]" value="${ListData[i].bDetailId}">
                     </tr>
                 `)
 
             }
+
 
             //給細項欄位更新Function
             Ptot()
@@ -251,6 +253,8 @@
             //給刪除Function
             Pdel()
 
+            //給商品名稱檢查
+            mNumber()
         }
 
         // 細項新增
@@ -263,7 +267,7 @@
                 quantity: "",
                 cost: "",
                 PRtot: "",
-                stockIn: ""
+                pStatus: ""
             })
 
             //更新畫面
@@ -312,8 +316,38 @@
         })
 
 
+        //[商品名稱]輸入後,先去庫存表搜尋是否存在。存在:[商品編號]讀取資料庫資料;不存在:[商品編號]要自己輸入。
+        function mNumber() {
+            $('.mNumChk').on('blur', function(e) {
+
+                e.preventDefault();
+
+                let mName = $(this).val();
+                let _token = $("input[name=_token]").val();
+
+                let row = $(this).closest('tr');
+                let Pindex = ($(row).find('th').text());
+
+                $.ajax({
+                    type: "post",
+                    url: "/purchase/mNumber",
+                    data: {
+                        mName: mName,
+                        _token: _token
+                    },
+                    success: function(response) {
+                        if (response) {
+
+                            ListData[(Pindex - 1)].mNumber = response.mnumber;
+                            Refresh()
+                        }
+                    },
+                    error: function() {}
+                })
 
 
+            })
+        }
 
         // 細項欄位更新
         function Ptot() {
@@ -328,7 +362,7 @@
                 let qty = $(row).find('input').eq(2).val();
                 let price = $(row).find('input').eq(3).val();
                 let Ptot = qty * price;
-                let stockIn = $(row).find('input').eq(5).val();
+                let pStatus = $(row).find('input').eq(5).val();
 
                 $(row).find('input').eq(4).val(Ptot);
                 let Pindex = ($(row).find('th').text());
@@ -339,12 +373,12 @@
                 ListData[(Pindex - 1)].quantity = qty;
                 ListData[(Pindex - 1)].cost = price;
                 ListData[(Pindex - 1)].PRtot = Ptot;
-                ListData[(Pindex - 1)].stockIn = stockIn;
+                ListData[(Pindex - 1)].pStatus = pStatus;
 
                 //全部總和更新
                 Alltot()
 
-                console.log(ListData)
+                // console.log(ListData)
             })
 
         }

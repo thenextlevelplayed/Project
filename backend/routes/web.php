@@ -44,6 +44,7 @@ Route::get('/main/purchase', "App\Http\Controllers\purchaseController@purchase")
 Route::get('/main/purchaseCreate', "App\Http\Controllers\purchaseController@purchaseCreate"); //進貨單新增
 Route::get('/main/purchase/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseInfo"); //進貨單檢視
 Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
+Route::post('/purchase/mNumber', "App\Http\Controllers\purchaseController@mNumber"); //mNumber編輯
 Route::put('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEditPost"); //進貨單編輯更新
 Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //銷貨單列表
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表

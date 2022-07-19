@@ -235,7 +235,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">帳號管理</a>
-                                    <a class="dropdown-item" href="#">登出</a>
+                                    <a class="dropdown-item" href="/member/logout">登出</a>
                                 </div>
                             </div>
                         </div>

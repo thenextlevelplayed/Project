@@ -23,7 +23,7 @@
                                             <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{ $info[0]->bid }}
+                                            {{ $info[0]->KMPid }}
                                         </div>
                                     </div>
                                 </div>
@@ -128,14 +128,14 @@
                                             @foreach ($detail as $det)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td> {{ $det->mName }}</td>
-                                                    <td> {{ $det->mNumber }}</td>
-                                                    <td> {{ $det->quantity }}</td>
-                                                    <td> {{ $det->cost }}</td>
-                                                    <td> {{ $det->quantity * $det->cost }}</td>
-                                                    <td> <?php
+                                                    <td class="col-2"> {{ $det->mName }}</td>
+                                                    <td class="col-2"> {{ $det->mNumber }}</td>
+                                                    <td class="col-2"> {{ $det->quantity }}</td>
+                                                    <td class="col-2"> {{ $det->cost }}</td>
+                                                    <td class="col-2"> {{ $det->quantity * $det->cost }}</td>
+                                                    <td class="col-2"> <?php
                                                     
-                                                    if ($det->stockIn != '0000-00-00') {
+                                                    if ($det->pStatus == 'Y') {
                                                         echo "<span class='badge bg-success'>
                                                             已入庫
                                                             </span>";
