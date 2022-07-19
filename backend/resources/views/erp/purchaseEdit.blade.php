@@ -7,8 +7,9 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="" method="POST">
+                <form class="card" action="" method="post">
                     @csrf
+                    @method('PUT')
                     <div class="card-header">
                         <h4 class="card-title text-center"> 凱茂資訊 進貨單編輯</h4>
                     </div>
@@ -23,7 +24,7 @@
                                         <div class="col-lg-3">
                                             <p>進貨單編號</p>
                                         </div>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-8" name="bid">
                                             {{ $info[0]->bid }}
                                         </div>
                                     </div>
@@ -156,7 +157,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-primary mr-3" href="/main/purchase">
+                        <a class="btn btn-primary mr-3" href="/main/purchase/{{$info[0]->bid}}">
                             <span>取消</span>
                         </a>
                         <input type="submit" class="btn btn-primary" value="存檔">
@@ -228,13 +229,14 @@
                 $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].mName}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].mNumber}"></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].quantity}" ></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].cost}" ></td>
+                        <td> <input type="text" class="form-control" required name="mName[]" value="${ListData[i].mName}"></td>
+                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mNumber}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}" ></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}" ></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].stockIn}"></td>
+                        <td> <input type="text" class="form-control" required name="stockIn[]" value="${ListData[i].stockIn}"></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
+                        <input type="hidden" name="did[]" value="${ListData[i].bDetailId}">
                     </tr>
                 `)
 

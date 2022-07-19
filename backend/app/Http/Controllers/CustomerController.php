@@ -61,8 +61,6 @@ class CustomerController extends Controller
     {
 
         //新增客戶資料
-        $var1 = $request->input('var1');
-        $var2 = $request->input('var2');
         return view('customer.customerAdd');
     }
 
@@ -70,8 +68,21 @@ class CustomerController extends Controller
     {
 
         //新增客戶資料
-        $var1 = $request->input('var1');
-        $var2 = $request->input('var2');
-        return view('customer.customerAdd');
+        $newcustomer = new Customer();
+        $newcustomer->cid = $request->input('cid');
+        $newcustomer->cname = $request->input('cname');
+        $newcustomer->ctel = $request->input('ctel');
+        $newcustomer->cmail = $request->input('cmail');
+        $newcustomer->caddress = $request->input('caddress');
+        $newcustomer->tradecode = $request->input('tradecode');
+        $newcustomer->legalletter = $request->input('legalletter');
+        $newcustomer->director = $request->input('director');
+        $newcustomer->fax = $request->input('fax');
+        $newcustomer->salesrep = $request->input('salesrep');
+        $newcustomer->instruments = $request->input('instruments');
+        $newcustomer->location = $request->input('location');
+        $newcustomer->clineid = $request->input('clineid');
+        $newcustomer->save();
+        return redirect("/main/customer");
     }
 }

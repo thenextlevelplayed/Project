@@ -135,6 +135,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+    
 
                                     <div class="row mb-1">
                                         <div class="col-lg-2">
@@ -175,7 +176,7 @@
                                                 <p>凱茂信箱</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                kaimo888@gmail.com
+                                                kaimooo888@gmail.com
                                             </div>
                                         </div>
                                     </div>
@@ -189,9 +190,9 @@
                 <a class="btn btn-primary mr-2" href="/main/order">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary mr-2" href="">
+                {{-- <a class="btn btn-primary mr-2" href="">
                     <span>預覽</span>
-                </a>
+                </a> --}}
                 <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
                 {{-- <a class="btn btn-primary mr-3" href="">
                     <span>存檔</span>
