@@ -108,7 +108,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td> </td>
-                                                    <td> <input type="text" class="form-control" value='{{$deliveryInfo->mname}}'required></td>
+                                                    <td> <input type="text" class="form-control" value='{{$orderEdit->mname}}'required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -182,28 +182,31 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-primary mr-2" href="/main/order">
+                                    <span>返回</span>
+                                </a>
+                                {{-- <a class="btn btn-primary mr-2" href="">
+                                    <span>預覽</span>
+                                </a> --}}
+                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
+                                {{-- <a class="btn btn-primary mr-3" href="">
+                                    <span>存檔</span>
+                                </a> --}}
+                                <a class="btn btn-primary" href="">
+                                    <span>轉為工單</span>
+                                </a>
+                                {{-- <a class="btn btn-danger" href="">
+                                    <span>取消訂單</span>
+                                </a> --}}
+                            </div>
+
                         </div>
                     </form>
                  
             </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-2" href="/main/order">
-                    <span>返回</span>
-                </a>
-                {{-- <a class="btn btn-primary mr-2" href="">
-                    <span>預覽</span>
-                </a> --}}
-                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
-                {{-- <a class="btn btn-primary mr-3" href="">
-                    <span>存檔</span>
-                </a> --}}
-                <a class="btn btn-primary" href="">
-                    <span>轉為工單</span>
-                </a>
-                {{-- <a class="btn btn-danger" href="">
-                    <span>取消訂單</span>
-                </a> --}}
-            </div>
+            
         </div>
     </div>
 @endsection
