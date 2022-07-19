@@ -108,7 +108,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td> </td>
-                                                    <td> <input type="text" class="form-control" required></td>
+                                                    <td> <input type="text" class="form-control" value='{{$deliveryInfo->mname}}'required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
@@ -176,7 +176,7 @@
                                                 <p>凱茂信箱</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                kaimoo888@gmail.com
+                                                kaimooo888@gmail.com
                                             </div>
                                         </div>
                                     </div>
