@@ -152,6 +152,7 @@ class OrderController extends Controller
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($orderID);
+            
 
         // foreach ($orderInfo as $key => $orderInfo) {
         // }
@@ -171,9 +172,42 @@ class OrderController extends Controller
         ->where('order.oid', '=', $orderID)
         ->find($orderID);
 
+        //撈明細資料
+        $dtl = Detaillist::find($orderID);
+
         // dd($orderedit);
-        return view('order.orderEdit', compact('orderEdit'));
+        return view('order.orderEdit', compact('orderEdit','dtl'));
     }
+
+
+    public function orderUpdate(Request $request,$orderId){
+
+        //訂單更新
+        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->find($orderId);
+
+        $dtl = Detaillist::find($orderId);
+        
+        $orderEdit->mremark = $request->mremark;
+        $orderEdit->mstatus = $request->mstatus;
+        // $dtl->remark = $request->remark;
+        // if ($request->inlineRadioOptions == 'Y') {
+        //     $orderEdit->mstatus = 'Y';
+        // } else ($orderEdit->mstatus = 'N');
+        //撈畫面的資料
+        $orderEdit->save();
+        // $dtl->save();
+        
+        
+        // dd($dtl);
+        return redirect('/main/order');
+    }
+
 
     //匯出訂單PDF
     public function createOrderPDF (Request $request,$orderID) {

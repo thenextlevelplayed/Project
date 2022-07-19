@@ -96,23 +96,49 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col"></th>
                                                     <th scope="col">商品名稱</th>
                                                     <th scope="col">商品編號</th>
                                                     <th scope="col">數量</th>
                                                     <th scope="col">單價</th>
                                                     <th scope="col">小計</th>
-                                                    <th scope="col">備註</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td> </td>
-                                                    <td> <input type="text" class="form-control" value='{{$orderEdit->mname}}'required></td>
+                                                    {{-- 商品名稱 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->mname }}
+                                                    </td>
+                                                    {{-- 商品編號 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->mnumber }}
+                                                    </td>
+                                                    {{-- 數量 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->quantity }}
+                                                    </td>
+                                                    {{-- 單價 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->price }}
+                                                    </td>
+                                                    {{-- 小計 --}}
+                                                    <td> 
+                                                        <?php
+                                                         $total=($orderEdit->quantity) * ($orderEdit->price);
+                                                         echo $total;
+                                                        ?>
+                                                    </td>
+                                                    {{-- 備註 --}}
+                                                    {{-- <td>
+                                                        <div style="width:300px">
+                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $dtl->remark }}</textarea>
+                                                        </div>
+                                                    </td> --}}
+                                                    {{-- <td> <input type="text" class="form-control" value='{{$orderEdit->mname}}'required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
+                                                    <td> <input type="text" class="form-control" required></td> --}}
                                                 </tr>
                                                 {{-- <tr>
                                                     <th scope="row">2</th>
@@ -137,12 +163,15 @@
                                     </div>
     
 
-                                    <div class="row mb-1">
+                                    <div class="row mb-1 text-right">
                                         <div class="col-lg-2">
                                             <p>總計</p>
                                         </div>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control" required>
+                                            <?php
+                                                $alltotal=($orderEdit->quantity) * ($orderEdit->price);
+                                                echo $alltotal;
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +214,7 @@
 
                             <div class="col-md-12 text-right">
                                 <a class="btn btn-primary mr-2" href="/main/order">
-                                    <span>返回</span>
+                                    <i class="fa fa-undo"></i>返回
                                 </a>
                                 {{-- <a class="btn btn-primary mr-2" href="">
                                     <span>預覽</span>
