@@ -21,7 +21,12 @@
                         <div class="container p-5">
                             <div>
                                 <div class="col-md-12 card-title text-center">
-                                    <h3>凱茂資訊 工單管理</h3>
+                                    <h3>楷模資訊 工單管理</h3>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                    <label class="custom-control-label" for="customSwitch1">Toggle this switch
+                                        element</label>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-6 mb-3">
@@ -62,7 +67,7 @@
                                 <div class="row ">
                                     <div class="col-md-12 mb-3">
                                         <label for="exampleFormControlTextarea1">工單備註</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">客戶施工處危險需注意安全</textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{ $manu->mremark }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +96,7 @@
 
                                     </thead>
                                     <tbody>
-                                        
+
                                         <tr>
                                             <td>
                                                 {{ $manu->mname }}
@@ -104,7 +109,7 @@
                                             </td>
                                             <td>
                                                 <div style="width:300px">
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">電腦超重需要使用推車</textarea>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">{{ $manu->remark }}</textarea>
                                                 </div>
                                             </td>
                                             <td style="text-align: center">
@@ -112,7 +117,7 @@
                                                     value="">
                                             </td>
                                         </tr>
-                                        
+
 
                                     </tbody>
                                 </table>
@@ -135,7 +140,7 @@
                             </div>
                             <div class="row justify-content-center mt-5 mb-3">
                                 <div class="col-md-2 p-1">
-                                    <a href = "/main/manufacture/pdf/view/{manufactureId}">
+                                    <a href="/main/manufacture/pdf/view/{manufactureId}">
                                         <button class="btn btn-primary btn-block">
                                             <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
                                         </button>
@@ -143,7 +148,7 @@
 
                                 </div>
                                 <div class="col-md-2 p-1">
-                                    <a href = "/main/manufacture/pdf/{manufactureId}">
+                                    <a href="/main/manufacture/pdf/{manufactureId}">
                                         <button class="btn btn-primary btn-block">
                                             <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
                                         </button>
