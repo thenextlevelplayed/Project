@@ -53,9 +53,10 @@ Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //�
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
 
 //報價
-Route::get('/main/quotation', "App\Http\Controllers\BackendController@quotation");
+Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotation");
 Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視
 Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯
+Route::put('/main/quotation/edit/{quotationId}', "App\Http\Controllers\quotationController@quotationUpdate"); //更新
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增
 
 //訂單
@@ -98,8 +99,8 @@ Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\DeliveryController
 Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\DeliveryController@viewPDF"); // 預覽pdf
 
 //pdf quotation
-Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\BackendController@createQuotationPDF"); // 下載pdf
-Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\BackendController@viewQuotationPDF"); // 預覽pdf
+Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\QuotationController@createQuotationPDF"); // 下載pdf
+Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\QuotationController@viewQuotationPDF"); // 預覽pdf
 
 //pdf order
 Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\OrderController@createOrderPDF"); // 下載pdf
