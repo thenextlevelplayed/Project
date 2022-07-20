@@ -8,6 +8,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
+use App\Models\Quotation;
 
 
 class DeliveryController extends Controller
@@ -93,12 +94,16 @@ class DeliveryController extends Controller
         $unix = strtotime(date('Ymd'));
         $utc8 = $unix + 28800;
         $date =date("Ymd", $utc8);
+        $date_ =date("Y-m-d", $utc8);
         $number = 0;
         // DB::select('select count(qdate) from quotation');
         foreach ($d as $key => $delivery) {
             //同一天生成的訂單給num++方式流水號
             $qdate = $delivery->qdate;
+            
+            $count = DB::select("SELECT count(qdate) FROM `quotation` WHERE qdate = $date_") ;
             echo $qdate.'<br />';
+            dd($count);
             // echo count($qdate).'<br />';
             $number ++;// 報價單流水編號
             $head='KMD';
