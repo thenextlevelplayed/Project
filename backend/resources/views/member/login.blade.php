@@ -16,20 +16,35 @@
         }
 
         .loginBox {
-            margin-top: 120px;
-            max-width: 600px;
-            height: 320px;
-
         }
 
         #loginForm {
-            padding: 20px;
+            width:400px;
+            height:600px;
+            padding: 25px;
             background-color: #FFF;
+            border-radius: 10px;
+            margin-left: 50%;
+            transform: translateX(-50%);
         }
 
         .textColor {
             color: #2F5B7C;
         }
+        
+        .logo{
+            height:200px;
+            width:100%;
+        }
+
+        .smalltext{
+            color:#b3b3b3;
+            text-align: center;
+            padding-top:30px;
+            font-size: 15px
+            
+        }
+
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -44,27 +59,36 @@
     <div id="body">
         <div id="login">
             <h1 class="text-center pt-5 textColor">後台管理系統</h1>
-            <div class="container ">
-                <div id="loginRow" class="row justify-content-center align-items-center ">
+            <div class="container">
+                <div id="loginRow" class="row justify-content-center align-items-center border">
                     <div id="loginCol" class="col-md-6">
-                        <div class="loginBox col-md-12">
-                            <form id="loginForm" class="form border rounded shadow" action="/member/login" method="post">
+                        <div class="loginBox col-md-12 border">
+
+                            <form id="loginForm" class="form border shadow" action="/member/login" method="post">
                                 @csrf
-                                <h3 class="text-center textColor">Login</h3>
+                                <div class="logo">
+
+                                </div>
+                                <h3 class="text-center textColor">後台管理系統</h3>
                                 <div class="form-group">
-                                    <label for="account" class="textColor">Account:</label><br>
+                                    <label for="account" class="textColor">帳號 Account:</label><br>
                                     <input type="text" name="account" id="account" class="form-control"
                                         placeholder="請輸入帳號" value="{{ Cookie::get('account') }}">  {{-- 有Cookie 帶入 --}}
                                 </div>
                                 <div class="form-group">
-                                    <label for="passwd" class="textColor">Password:</label><br>
+                                    <label for="passwd" class="textColor">密碼 Password:</label><br>
                                     <input type="password" name="passwd" id="passwd" class="form-control"
                                         placeholder="請輸入密碼" value="{{ Cookie::get('passwd') }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="rememberMe" class="textColor">Remember Me</label>
                                     <span><input id="rememberMe" name="rememberMe" type="checkbox" {{ Cookie::get('rememberMe') }}></span><br>
-                                    <input type="submit" name="submit" class="btn btn-info btn-sm" value="Submit">
+                                    <input type="submit" name="submit" class="btn btn-info btn-block" value="登入">
+                                    <div class="smalltext">
+                                        <p>2022 KAIMO,Inc</p>
+                                    </div>
+                                    
+
                                     {{-- 有錯誤帶回顯示 --}}
                                     @if($errors->any())  
                                         <span class="ml-2">{{$errors->first()}}</span>
