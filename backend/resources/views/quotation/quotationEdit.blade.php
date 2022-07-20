@@ -157,13 +157,13 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/quotation/pdf/view/{quotationId}">
+                <a class="btn btn-primary " href="/main/quotation">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary" href="/main/quotation/pdf/{quotationId}">
+                <a class="btn btn-primary" href="">
                     <span>存檔</span>
                 </a>
-                <a class="btn btn-primary" href="/main/quotation/pdf/{quotationId}">
+                <a class="btn btn-primary" href="">
                     <span>轉為訂單</span>
                 </a>
             </div>
