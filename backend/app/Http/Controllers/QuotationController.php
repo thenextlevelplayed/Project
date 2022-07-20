@@ -149,7 +149,12 @@ class QuotationController extends Controller
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($quotationId);
-        return view('quotation.quotationEdit',compact('quotationInfo'));
+
+        
+        //撈明細資料
+        $dtl = Detaillist::find($quotationId);
+
+        return view('quotation.quotationEdit',compact('quotationInfo','dtl'));
     }
     //新增報價單
     function quotationCreate()

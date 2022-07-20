@@ -117,7 +117,7 @@
                                                     </td>
                                                     {{-- 數量 --}}
                                                     <td> 
-                                                        <input type="text" name="quantity" value="{{ $dtl->quantity }}">
+                                                        <input type="number" name="quantity" value="{{ $dtl->quantity }}">
                                                     </td>
                                                     {{-- 單價 --}}
                                                     <td> 
