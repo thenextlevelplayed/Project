@@ -128,6 +128,7 @@ class QuotationController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
+            // ->find($quotationId)
             ->where('quotation.qid', '=', $quotationId)
             ->get();
         foreach ($quotationInfo as $key => $quotationInfo) {
@@ -140,9 +141,15 @@ class QuotationController extends Controller
     }
 
     //報價編輯
-    function quotationEdit()
+    function quotationEdit($quotationId)
     {
-        return view('quotation.quotationEdit');
+        $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($quotationId);
+        return view('quotation.quotationEdit',compact('quotationInfo'));
     }
     //新增報價單
     function quotationCreate()
@@ -151,23 +158,34 @@ class QuotationController extends Controller
     }
 
     //匯出報價PDF
-    public function createQuotationPDF()
+    public function createQuotationPDF(Request $request,$quotationId)
     {
-        $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
-        return $pdf->download();
-    }
-    public function viewQuotationPDF(Request $request)
-    {
-        $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
+        $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
-            ->get();
-        foreach ($quotation as $key => $quotationInfo) {
-            // dd($value);
-            # code...
-        }
+            ->find($quotationId);
+
+        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
+        return $pdf->download();
+    }
+    //預覽報價PDF
+    public function viewQuotationPDF(Request $request,$quotationId)
+    {
+        $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($quotationId);
+            // ->get();
+
+        // foreach ($quotation as $key => $quotationInfo) {
+        //     // dd($value);
+        //     # code...
+        // }
+
         $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
         return $pdf->stream();
     }

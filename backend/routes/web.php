@@ -98,8 +98,8 @@ Route::get('/delivery/pdf/{deliveryId}',"App\Http\Controllers\DeliveryController
 Route::get('/delivery/pdf/view/{deliveryId}',"App\Http\Controllers\DeliveryController@viewPDF"); // 預覽pdf
 
 //pdf quotation
-Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\BackendController@createQuotationPDF"); // 下載pdf
-Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\BackendController@viewQuotationPDF"); // 預覽pdf
+Route::get('/main/quotation/pdf/{quotationId}',"App\Http\Controllers\QuotationController@createQuotationPDF"); // 下載pdf
+Route::get('/quotation/pdf/view/{quotationId}',"App\Http\Controllers\QuotationController@viewQuotationPDF"); // 預覽pdf
 
 //pdf order
 Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\OrderController@createOrderPDF"); // 下載pdf
