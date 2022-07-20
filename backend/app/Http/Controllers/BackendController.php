@@ -51,46 +51,7 @@ class BackendController extends Controller
 
     //ERP 已經搬到 purchaseController ----Swen----- 
 
-    function quotation()
-    {
-        //報價管理
-        $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->get();
-
-        // dd($quotation);
-        return view('main.quotation', compact('quotation'));
-    }    
-
-    function quotationInfo($quotationId)
-    {
-        //報價資訊
-        $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
-            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
-            ->where('quotation.qid', '=', $quotationId)
-            ->get();
-        foreach ($quotationInfo as $key => $quotationInfo) {
-            // dd($value);
-            # code...
-        }
-
-        // dd($quotationInfo);
-        return view('quotation.quotationInfo', compact('quotationInfo'));
-    }
-    function quotationEdit()
-    {
-        //報價編輯
-        return view('quotation.quotationEdit');
-    }
-    function quotationCreate()
-    {
-        //新增報價單
-        return view('quotation.quotationCreate');
-    }
-
+    
     function manufacture()
     {
         //製造
@@ -121,10 +82,6 @@ class BackendController extends Controller
 
         return view('manufacture.manufactureEdit', ["manu" => $manufactureedit]);
     }
-
-
-
-
 
     function receipt()
     {
@@ -162,36 +119,6 @@ class BackendController extends Controller
         $var2 = $request->input('var2');
         return view('receipt.invoice');
     }
-
-
-
-    
-
-    
-
-
-    //匯出報價PDF
-    public function createQuotationPDF()
-    {
-        $pdf = PDF::loadView('pdf.quotationInfo', $data = []);
-        return $pdf->download();
-    }
-    public function viewQuotationPDF(Request $request)
-    {
-        $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
-            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
-            ->get();
-        foreach ($quotation as $key => $quotationInfo) {
-            // dd($value);
-            # code...
-        }
-        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
-        return $pdf->stream();
-    }
-    
 
     //匯出工單PDF
     public function createManufacturePDF(Request $request)
