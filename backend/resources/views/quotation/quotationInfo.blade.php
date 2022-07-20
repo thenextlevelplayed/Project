@@ -95,7 +95,10 @@
                                                     <td>{{$quotationInfo->mnumber}}</td>
                                                     <td>{{$quotationInfo->quantity}}</td>
                                                     <td>{{$quotationInfo->price}}</td>
-                                                    <td></td>
+                                                    <td>
+                                                        <?php $total=($quotationInfo->quantity) * ($quotationInfo->price);
+                                                        echo $total;?>
+                                                    </td>
                                                     <td>{{$quotationInfo->remark}}</td>
                                                 </tr>
                                                 <tr>
