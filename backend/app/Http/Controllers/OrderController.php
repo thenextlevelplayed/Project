@@ -212,11 +212,11 @@ class OrderController extends Controller
 
         //工單新增(轉為工單)
         $Maufacture = new Maufacture($orderID);
-
-
-        
-        $orderEdit->save();
-        // $dtl->save();
+        $Maufacture->mname = $request->mname;        
+        $Maufacture->mremark = $request->mremark;
+        $Maufacture->mstatus = $request->mstatus;
+        $Maufacture->remark = $request->remark;
+        $Maufacture->save();
         
         
         // dd($Maufacture);

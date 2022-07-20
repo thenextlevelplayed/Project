@@ -220,7 +220,7 @@
                                     <span>預覽</span>
                                 </a> --}}
                                 <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">
-                                    <i class="far fa-save"></i>&nbsp;存檔存檔
+                                    <i class="far fa-save"></i>&nbsp;存檔
                                 </button>
                                 {{-- <a class="btn btn-primary mr-3" href="">
                                     <span>存檔</span>
