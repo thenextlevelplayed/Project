@@ -150,10 +150,23 @@
                                                         <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $dtl->remark }}</textarea>
                                                     </div>
                                                 </td>
+                                                <?php
+                                                if($dtl->pstatus == 'Y'){
+                                                ?>
                                                 <td style="text-align: center">
-                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel"
-                                                        value="">
+                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" name="pstatus"
+                                                        value="Y" checked>
                                                 </td>
+                                                <?php
+                                                }elseif($dtl->pstatus == 'N' || $dtl->pstatus == ""){
+                                                ?>
+                                                <td style="text-align: center">
+                                                    <input class="form-check-input" type="checkbox" id="checkboxNoLabel" name="pstatus"
+                                                        value="N">
+                                                </td>
+                                                <?php
+                                                }
+                                                ?>                                                                                                
                                             </tr>
                                             
 
@@ -183,7 +196,6 @@
                                                 <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
                                             </button>
                                         </a>
-
                                     </div>
                                     <div class="col-md-2 p-1">
                                         <a href = "/main/manufacture/pdf/{manufactureId}">
@@ -194,8 +206,6 @@
                                     </div>
                                     <div class="col-md-2 p-1">
                                             <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;存檔</button>
-
-
                                     </div>
                                     <div class="col-md-2 p-1">
                                         <a href='/main/manufacture/'>
@@ -203,7 +213,6 @@
                                                 <i class="fa-solid fa-x"></i> &nbsp;取消
                                             </button>
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
