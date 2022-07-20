@@ -18,11 +18,12 @@
 @endsection
 
 {{-- 內容代入 --}}
+
 @section('content')
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="/order/edit/{{ $orderEdit->oid }}" method="POST">
+                <form class="card" action="/order/edit/{{$orderEdit->oid}}" method="POST">
                     @csrf
                         <div class="card-header">
                             <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
@@ -36,10 +37,10 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3">
-                                                <p>訂單編號</p>
+                                                <p name="oid">訂單編號</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                {{$orderEdit->oid}}
+                                                {{$orderEdit->oid}} 
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -96,23 +97,49 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col"></th>
                                                     <th scope="col">商品名稱</th>
-                                                    <th scope="col">商品編號</th>
+                                                    <th scope="col">商品型號</th>
                                                     <th scope="col">數量</th>
                                                     <th scope="col">單價</th>
                                                     <th scope="col">小計</th>
-                                                    <th scope="col">備註</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td> </td>
-                                                    <td> <input type="text" class="form-control" value='{{$deliveryInfo->mname}}'required></td>
+                                                    {{-- 商品名稱 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->mname }}
+                                                    </td>
+                                                    {{-- 商品編號 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->mnumber }}
+                                                    </td>
+                                                    {{-- 數量 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->quantity }}
+                                                    </td>
+                                                    {{-- 單價 --}}
+                                                    <td> 
+                                                        {{ $orderEdit->price }}
+                                                    </td>
+                                                    {{-- 小計 --}}
+                                                    <td> 
+                                                        <?php
+                                                         $total=($orderEdit->quantity) * ($orderEdit->price);
+                                                         echo $total;
+                                                        ?>
+                                                    </td>
+                                                    {{-- 備註 --}}
+                                                    {{-- <td>
+                                                        <div style="width:300px">
+                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $dtl->remark }}</textarea>
+                                                        </div>
+                                                    </td> --}}
+                                                    {{-- <td> <input type="text" class="form-control" value='{{$orderEdit->mname}}'required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
                                                     <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
+                                                    <td> <input type="text" class="form-control" required></td> --}}
                                                 </tr>
                                                 {{-- <tr>
                                                     <th scope="row">2</th>
@@ -137,12 +164,15 @@
                                     </div>
     
 
-                                    <div class="row mb-1">
+                                    <div class="row mb-1 text-right">
                                         <div class="col-lg-2">
                                             <p>總計</p>
                                         </div>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control" required>
+                                            <?php
+                                                $alltotal=($orderEdit->quantity) * ($orderEdit->price);
+                                                echo $alltotal;
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -182,28 +212,38 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-primary mr-2" href="/main/order">
+                                    <i class="fa fa-undo"></i>&nbsp;返回
+                                </a>
+                                {{-- <a class="btn btn-primary mr-2" href="">
+                                    <span>預覽</span>
+                                </a> --}}
+                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
+                </form>
+                                {{-- <a class="btn btn-primary mr-3" href="">
+                                    <span>存檔</span>
+                                </a> --}}
+                                {{-- <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">轉為工單</button> --}}
+                                <form class="form-horizontal" action="/manufacturecreate/{{$orderEdit->oid}}" method="POST" >                    
+                                    @csrf
+
+                                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">轉為工單</button>
+                                    {{-- <a class="btn btn-primary" href="/manufacturecreate">
+                                        <span>轉為工單</span>
+                                    </a> --}}
+                                </form>
+                                {{-- <a class="btn btn-danger" href="">
+                                    <span>取消訂單</span>
+                                </a> --}}
+                            </div>
+
                         </div>
-                    </form>
+                    
                  
             </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-2" href="/main/order">
-                    <span>返回</span>
-                </a>
-                {{-- <a class="btn btn-primary mr-2" href="">
-                    <span>預覽</span>
-                </a> --}}
-                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
-                {{-- <a class="btn btn-primary mr-3" href="">
-                    <span>存檔</span>
-                </a> --}}
-                <a class="btn btn-primary" href="">
-                    <span>轉為工單</span>
-                </a>
-                {{-- <a class="btn btn-danger" href="">
-                    <span>取消訂單</span>
-                </a> --}}
-            </div>
+            
         </div>
     </div>
 @endsection

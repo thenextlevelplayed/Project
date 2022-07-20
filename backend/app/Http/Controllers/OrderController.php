@@ -152,6 +152,7 @@ class OrderController extends Controller
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($orderID);
+            
 
         // foreach ($orderInfo as $key => $orderInfo) {
         // }
@@ -171,9 +172,71 @@ class OrderController extends Controller
         ->where('order.oid', '=', $orderID)
         ->find($orderID);
 
+        //撈明細資料
+        $dtl = Detaillist::find($orderID);
+
         // dd($orderedit);
-        return view('order.orderEdit', compact('orderEdit'));
+        return view('order.orderEdit', compact('orderEdit','dtl'));
     }
+
+
+    public function orderUpdate(Request $request,$orderID){
+
+        //訂單更新
+        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->find($orderID);
+
+        // $dtl = Detaillist::find($orderId);
+        
+        $orderEdit->mremark = $request->mremark;
+        $orderEdit->mstatus = $request->mstatus;
+        // $dtl->remark = $request->remark;
+        // if ($request->inlineRadioOptions == 'Y') {
+        //     $orderEdit->mstatus = 'Y';
+        // } else ($orderEdit->mstatus = 'N');
+        //撈畫面的資料
+        $orderEdit->save();
+        // $dtl->save();
+        
+        
+        // dd($dtl);
+        return redirect('/main/order');
+    }
+    
+    public function ManufactureCreate(Request $request,$orderID){
+
+        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->find($orderID);
+
+        //工單新增(轉為工單)
+        $newMaufacture = new Manufacture();
+        $newMaufacture->mid = 3; //後面數字照理來說接{{$orderEdit->oid}} 先用3測試
+        $newMaufacture->mdate = date('Y-m-d');
+        // dd(date('Y-m-d'));
+        $newMaufacture->oid = $orderEdit->oid;
+        $newMaufacture->mstatus = "N";
+        $newMaufacture->mcomplete = "N";
+
+
+
+
+        $newMaufacture->save();
+
+
+        return redirect('/main/manufacture');
+    }
+
+
 
     //匯出訂單PDF
     public function createOrderPDF (Request $request,$orderID) {
