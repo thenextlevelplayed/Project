@@ -11,4 +11,5 @@ class Bookdetail extends Model
     protected $table = 'bookdetail';    
     protected $primaryKey = 'bDetailId';
     public $timestamps = false;
+    
 }

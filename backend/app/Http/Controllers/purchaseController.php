@@ -81,11 +81,31 @@ class purchaseController extends Controller
     }
 
     //進銷存-新增進貨單處理
-    function purchaseCreatePost(Request $req){
-        dd($req)->input;
-        // Book::create([
-        //     'sName' => $req->
-        // ])
+    function purchaseCreatePost(Request $req)
+    {
+        // dd($req);
+
+        $bid = Book::insertGetId([
+            'sname' => $req->sname,
+            'sid' => $req->sid,
+            'bookdate' => $req->bookdate,
+            'staffname' => $req->staffname,
+            'remark' => $req->remark,
+            'bDate' => date("Y-m-d"),
+            'KMPid' => $req->KMPid
+        ]);
+
+        // dd($book->id);
+        for ($i = 0; $i < count($req->mName); $i++) {
+            Bookdetail::insert([
+                'bid' => $bid,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'cost' => $req->cost[$i],
+            ]);
+        };
+
+        return redirect('/main/purchase');
     }
 
     //進銷存-進貨資訊

@@ -86,7 +86,7 @@
                                             <p>公司統編</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input id="sId" type="text" value="" required>
+                                            <input id="sId" type="text" value="" name="sid" required>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                             <p>聯絡信箱</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input id="sMail" type="text" value="" required>
+                                            <input id="sMail" type="text" value="" name="smail" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -104,7 +104,7 @@
                                             <p>聯絡電話</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input id="sTel" type="text" value="" required>
+                                            <input id="sTel" type="text" value="" name="stel" required>
                                         </div>
                                     </div>
                                 </div>
@@ -233,10 +233,10 @@
             $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">1</th>
-                        <td> <input type="text" class="form-control mNumChk" required value="${ListData[0].mName}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[0].mNumber}"></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[0].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[0].cost}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[0].mName}"></td>
+                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[0].mNumber}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[0].quantity}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[0].cost}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[0].quantity*ListData[0].cost}" readonly></td>
                     </tr>
                 `)
@@ -245,10 +245,10 @@
                 $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control mNumChk" required value="${ListData[i].mName}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].mNumber}"></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].cost}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mName}"></td>
+                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mNumber}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
