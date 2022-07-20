@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Bookdetail;
 use App\Models\Inventory;
+use App\Models\Supplier;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use League\CommonMark\Extension\CommonMark\Node\Block\ListData;
@@ -13,9 +14,9 @@ use function PHPUnit\Framework\isNull;
 
 class purchaseController extends Controller
 {
+    //進銷存-進貨
     function purchase()
     {
-        //進銷存-進貨
         $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
 
@@ -36,11 +37,9 @@ class purchaseController extends Controller
         return view('erp.purchase', compact("book"));
     }
 
-
+    //進銷存-新增進貨單
     function purchaseCreate()
     {
-        //進銷存-新增進貨
-
         //進貨單編號************************************************************************* 
 
         //今日日期跟Sql比較 (YYYY-MM-DD)
@@ -70,11 +69,28 @@ class purchaseController extends Controller
         return view('erp.purchaseCreate', compact('KMPid'));
     }
 
+    //廠商資訊比對
+    function supplierPost(Request $req)
+    {
+        //庫存表
+        $supplier = Supplier::all()
+            ->where('sname', '=', $req->sName)
+            ->first();
 
+        return response()->json($supplier);
+    }
+
+    //進銷存-新增進貨單處理
+    function purchaseCreatePost(Request $req){
+        dd($req)->input;
+        // Book::create([
+        //     'sName' => $req->
+        // ])
+    }
+
+    //進銷存-進貨資訊
     function purchaseInfo($purchaseID)
     {
-        //進銷存-資訊進貨
-
         //進貨資訊
         $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
             ->select('book.bid', 'book.KMPid', 'book.staffName', 'book.bookDate', 'supplier.*', 'book.remark')
@@ -91,11 +107,9 @@ class purchaseController extends Controller
         return view('erp.purchaseInfo', compact("info", "detail"));
     }
 
-
+    //進銷存-編輯進貨
     function purchaseEdit($purchaseID)
     {
-        //進銷存-編輯進貨
-
         //進貨資訊
         $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
             ->select('book.bid', 'book.KMPid', 'book.staffName', 'book.bookDate', 'supplier.*')
@@ -118,11 +132,13 @@ class purchaseController extends Controller
 
         //庫存表
         $inventory = Inventory::all()
-            ->where('mname', '=', $req->mName);
+            ->where('mname', '=', $req->mName)
+            ->first();
 
-        return response()->json($inventory[0]);
+        return response()->json($inventory);
     }
 
+    //進銷存-編輯進貨存檔
     function purchaseEditPost(Request $req, $purchaseID)
     {
         //進貨資訊
@@ -182,7 +198,6 @@ class purchaseController extends Controller
 
     function sales()
     {
-
         //進銷存-銷貨
         return view('erp.sales');
     }

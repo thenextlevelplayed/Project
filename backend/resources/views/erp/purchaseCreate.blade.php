@@ -7,7 +7,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="" method="POST">
+                <form class="card" action="/main/purchaseCreate" method="POST">
                     @csrf
                     <div class="card-header">
                         <h4 class="card-title text-center"> 凱茂資訊 進貨單</h4>
@@ -23,8 +23,9 @@
                                         <div class="col-lg-3">
                                             <p>進貨單編號</p>
                                         </div>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-8" >
                                             {{ $KMPid }}
+                                            <input type="hidden" value="{{ $KMPid }}" name="KMPid">
                                         </div>
                                     </div>
                                 </div>
@@ -37,6 +38,7 @@
                                         </div>
                                         <div class="col-lg-8">
                                             {{ Session::get('name') }}
+                                            <input type="hidden" value="{{ Session::get('name') }}" name="staffname">
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +50,7 @@
                                             <p>進貨日期</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <input type="text" value="" name="bookdate" required>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +62,7 @@
                                             <p>備註</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <textarea type="text" class="">
+                                            <textarea type="text" value="" name="remark">
                                             </textarea>
                                         </div>
                                     </div>
@@ -76,7 +78,7 @@
                                             <p>公司名稱</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required>
+                                            <input id="sNameChk" type="text" value="" name="sname" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -84,7 +86,7 @@
                                             <p>公司統編</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" required>
+                                            <input id="sId" type="text" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +96,7 @@
                                             <p>聯絡信箱</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <input id="sMail" type="text" value="" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -102,7 +104,7 @@
                                             <p>聯絡電話</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <input id="sTel" type="text" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -231,10 +233,10 @@
             $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">1</th>
-                        <td> <input type="text" class="form-control" required value="${ListData[0].mName}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required value="${ListData[0].mName}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[0].mNumber}"></td>
-                        <td> <input type="number" class="form-control" required value="${ListData[0].quantity}"></td>
-                        <td> <input type="number" class="form-control" required value="${ListData[0].cost}"></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[0].quantity}"></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[0].cost}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[0].quantity*ListData[0].cost}" readonly></td>
                     </tr>
                 `)
@@ -243,10 +245,10 @@
                 $('#purchaseTable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].mName}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required value="${ListData[i].mName}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].mNumber}"></td>
-                        <td> <input type="number" class="form-control" required value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" class="form-control" required value="${ListData[i].cost}"></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].quantity}"></td>
+                        <td> <input type="number" min="0" class="form-control" required value="${ListData[i].cost}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
@@ -259,6 +261,10 @@
             Alltot()
             //給刪除Function
             Pdel()
+            //給公司資料庫搜尋
+            sNameChk()
+            //給商品名稱檢查
+            mNumber()
         }
 
         // 細項新增//******************************************************
@@ -280,8 +286,6 @@
             console.log(ListData)
         }
 
-
-
         var dindex;
         // 細項欄位刪除//******************************************************
         function Pdel() {
@@ -299,7 +303,6 @@
                 // console.log(dindex)
             })
         }
-
         //確認後才可以刪除//******************************************************
         $('#okBtn').click(function() {
 
@@ -358,6 +361,109 @@
             });
 
             $('#AllTot').text(`NT.${totally}`);
+        }
+
+        //[公司名稱]輸入後,先去庫存表搜尋是否存在。存在:自動填完廠商資訊;不存在:要自己輸入。
+        function sNameChk() {
+            $('#sNameChk').on('blur', function(e) {
+
+                e.preventDefault();
+
+                console.log('ok')
+
+                let sName = $(this).val();
+                let _token = $("input[name=_token]").val();
+
+                $.ajax({
+                    type: "post",
+                    url: "/purchase/supplier",
+                    data: {
+                        sName: sName,
+                        _token: _token
+                    },
+                    success: function(response) {
+                        if (response) {
+                            $('#sId').val(response.sid);
+                            $('#sMail').val(response.smail);
+                            $('#sTel').val(response.stel);
+                        }
+                    },
+                    error: function() {}
+                })
+
+
+            })
+
+
+            //[商品名稱]輸入後,先去庫存表搜尋是否存在。存在:[商品編號]讀取資料庫資料;不存在:[商品編號]要自己輸入。
+            function mNumber() {
+                $('.mNumChk').on('blur', function(e) {
+
+                    e.preventDefault();
+
+                    let mName = $(this).val();
+                    let _token = $("input[name=_token]").val();
+
+                    // console.log(mName);
+
+                    let row = $(this).closest('tr');
+                    let Pindex = ($(row).find('th').text());
+
+                    $.ajax({
+                        type: "post",
+                        url: "/purchase/mNumber",
+                        data: {
+                            mName: mName,
+                            _token: _token
+                        },
+                        success: function(response) {
+                            if (response) {
+
+                                ListData[(Pindex - 1)].mNumber = response.mnumber;
+                                Refresh()
+                            }
+                        },
+                        error: function() {}
+                    })
+
+
+                })
+            }
+        }
+
+        //[商品名稱]輸入後,先去庫存表搜尋是否存在。存在:[商品編號]讀取資料庫資料;不存在:[商品編號]要自己輸入。
+        function mNumber() {
+            $('.mNumChk').on('blur', function(e) {
+
+                e.preventDefault();
+
+                let mName = $(this).val();
+                let _token = $("input[name=_token]").val();
+
+                // console.log(mName);
+
+                let row = $(this).closest('tr');
+                let Pindex = ($(row).find('th').text());
+
+                $.ajax({
+                    type: "post",
+                    url: "/purchase/mNumber",
+                    data: {
+                        mName: mName,
+                        _token: _token
+                    },
+                    success: function(response) {
+                        if (response) {
+
+                            ListData[(Pindex - 1)].mNumber = response.mnumber;
+                            Refresh()
+                        }
+                    },
+                    error: function() {}
+                })
+
+
+            })
         }
     </script>
 @endsection

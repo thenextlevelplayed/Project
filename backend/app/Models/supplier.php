@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model
 {
     use HasFactory;
+    protected $PrimaryKey = 'sId';
+    protected $table = 'supplier';
+    public $timestamps = false;
 }

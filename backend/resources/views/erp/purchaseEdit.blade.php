@@ -325,6 +325,8 @@
                 let mName = $(this).val();
                 let _token = $("input[name=_token]").val();
 
+                // console.log(mName);
+
                 let row = $(this).closest('tr');
                 let Pindex = ($(row).find('th').text());
 

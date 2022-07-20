@@ -43,18 +43,20 @@ Route::get('/main', "App\Http\Controllers\BackendController@index");
 //進銷存
 Route::get('/main/purchase', "App\Http\Controllers\purchaseController@purchase"); //進貨單列表
 Route::get('/main/purchaseCreate', "App\Http\Controllers\purchaseController@purchaseCreate"); //進貨單新增
+Route::post('/purchase/supplier', "App\Http\Controllers\purchaseController@supplierPost"); //供應商查詢
+Route::post('/main/purchaseCreate', "App\Http\Controllers\purchaseController@purchaseCreatePost"); //進貨單編輯更新
 Route::get('/main/purchase/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseInfo"); //進貨單檢視
 Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
-Route::post('/purchase/mNumber', "App\Http\Controllers\purchaseController@mNumber"); //mNumber編輯
+Route::post('/purchase/mNumber', "App\Http\Controllers\purchaseController@mNumber"); //mNumber查詢
 Route::put('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEditPost"); //進貨單編輯更新
 Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //銷貨單列表
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
 
 //報價
 Route::get('/main/quotation', "App\Http\Controllers\BackendController@quotation");
-Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\BackendController@quotationInfo");  //檢視
-Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\BackendController@quotationEdit"); //編輯
-Route::get('/quotation/quotationCreate', "App\Http\Controllers\BackendController@quotationCreate"); //新增
+Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視
+Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯
+Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\OrderController@order");
