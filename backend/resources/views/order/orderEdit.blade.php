@@ -23,8 +23,9 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="/order/edit/{{$orderEdit->oid}}" method="POST">
+                <form class="card" action="/main/order/edit/{{$orderEdit->oid}}" method="POST">
                     @csrf
+                    @method('PUT')
                         <div class="card-header">
                             <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
                         </div>
@@ -66,7 +67,7 @@
                                                 <p>建立日期</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                <input type="date" value='{{$orderEdit->odate}}' name="daddress" required>
+                                                <input type="date" value='{{$orderEdit->odate}}' name="daddress" readonly>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -116,7 +117,7 @@
                                                     </td>
                                                     {{-- 數量 --}}
                                                     <td> 
-                                                        {{ $orderEdit->quantity }}
+                                                        <input type="text" name="quantity" value="{{ $dtl->quantity }}">
                                                     </td>
                                                     {{-- 單價 --}}
                                                     <td> 

@@ -183,25 +183,27 @@ class OrderController extends Controller
     public function orderUpdate(Request $request,$orderID){
 
         //訂單更新
-        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        // $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
+        // ->join('rebate','rebate.rid','=','quotation.rid')
+        // ->join('staff','staff.staffid','=','quotation.staffid')
+        // ->join('customer','customer.cid','=','quotation.cid')
+        // ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        // ->select('*')
+        // ->find($orderID);
+
+        $dtl = Detaillist::join('quotation','quotation.dlid','=','detaillist.dlid')
         ->select('*')
         ->find($orderID);
 
-        // $dtl = Detaillist::find($orderId);
         
-        $orderEdit->mremark = $request->mremark;
-        $orderEdit->mstatus = $request->mstatus;
+        $dtl->quantity = $request->quantity;
         // $dtl->remark = $request->remark;
         // if ($request->inlineRadioOptions == 'Y') {
         //     $orderEdit->mstatus = 'Y';
         // } else ($orderEdit->mstatus = 'N');
         //撈畫面的資料
-        $orderEdit->save();
-        // $dtl->save();
+        // $orderEdit->save();
+        $dtl->save();  
         
         
         // dd($dtl);

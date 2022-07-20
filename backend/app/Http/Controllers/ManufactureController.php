@@ -42,6 +42,7 @@ class ManufactureController extends Controller
         ->join('quotation','quotation.qid','=','order.qid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->orderby('mid')
         ->select('*')
         ->get();
         
@@ -103,9 +104,18 @@ class ManufactureController extends Controller
         $manu->mremark = $request->mremark;
         $manu->mstatus = $request->mstatus;
         $dtl->remark = $request->remark;
+        $dtl->pstatus = $request->pstatus;
         if ($request->inlineRadioOptions == 'Y') {
             $manu->mstatus = 'Y';
-        } else ($manu->mstatus = 'N');
+        } else{
+            $manu->mstatus = 'N';
+        }
+
+        if ($request->pstatus == 'Y') {
+            $dtl->pstatus = 'Y';
+        } else{
+            $dtl->pstatus = 'N';
+        }
         //撈畫面的資料
         $manu->save();
         $dtl->save();

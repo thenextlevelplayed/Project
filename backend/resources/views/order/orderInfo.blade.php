@@ -96,6 +96,10 @@
                                                     <td>{{$orderInfo->mnumber}}</td>
                                                     <td>{{$orderInfo->quantity}}</td>
                                                     <td>{{$orderInfo->price}}</td>
+                                                    <td><?php
+                                                        $total=($orderInfo->quantity) * ($orderInfo->price);
+                                                        echo $total;
+                                                       ?></td>
                                                     <td>{{$orderInfo->remark}}</td>
                                                 </tr>
                                                 {{-- <tr>

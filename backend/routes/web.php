@@ -62,6 +62,7 @@ Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationControll
 Route::get('/main/order', "App\Http\Controllers\OrderController@order");
 Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderInfo");  //檢視
 Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //編輯
+Route::put('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderUpdate"); //更新
 Route::post('/manufacturecreate/{orderId}', "App\Http\Controllers\OrderController@ManufactureCreate");//新增表單
 
 //製造
