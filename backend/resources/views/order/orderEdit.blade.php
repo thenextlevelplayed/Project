@@ -109,7 +109,7 @@
                                             <tbody>
                                                 @foreach ($quotation as  $key => $item)
                                                 {{-- dd($item) --}}
-                                                                                           
+
                                                 <tr>
                                                     <th scope="row">{{$loop->index + 1}}</th>
                                                     <td>{{$item->mname}}</td>
