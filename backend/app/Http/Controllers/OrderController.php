@@ -208,19 +208,32 @@ class OrderController extends Controller
         return redirect('/main/order');
     }
     
-    public function MaufactureCreate(Request $request,$orderID){
+    public function ManufactureCreate(Request $request,$orderID){
+
+        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
+        ->join('rebate','rebate.rid','=','quotation.rid')
+        ->join('staff','staff.staffid','=','quotation.staffid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->select('*')
+        ->find($orderID);
 
         //工單新增(轉為工單)
-        $Maufacture = new Maufacture($orderID);
+        $newMaufacture = new Manufacture();
+        $newMaufacture->mid = 3; //後面數字照理來說接{{$orderEdit->oid}} 先用3測試
+        $newMaufacture->mdate = date('Y-m-d');
+        // dd(date('Y-m-d'));
+        $newMaufacture->oid = $orderEdit->oid;
+        $newMaufacture->mstatus = "N";
+        $newMaufacture->mcomplete = "N";
 
 
-        
-        $orderEdit->save();
-        // $dtl->save();
-        
-        
-        // dd($Maufacture);
-        return redirect('/main/Maufacture');
+
+
+        $newMaufacture->save();
+
+
+        return redirect('/main/manufacture');
     }
 
 

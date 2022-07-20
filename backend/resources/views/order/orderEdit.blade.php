@@ -18,11 +18,12 @@
 @endsection
 
 {{-- 內容代入 --}}
+
 @section('content')
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="/order/edit/{{ $orderEdit->oid }}" method="POST">
+                <form class="card" action="/order/edit/{{$orderEdit->oid}}" method="POST">
                     @csrf
                         <div class="card-header">
                             <h4 class="card-title text-center"> 凱茂資訊 訂單</h4>
@@ -36,10 +37,10 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3">
-                                                <p>訂單編號</p>
+                                                <p name="oid">訂單編號</p>
                                             </div>
                                             <div class="col-lg-8">
-                                                {{$orderEdit->oid}}
+                                                {{$orderEdit->oid}} 
                                             </div>
                                         </div>
                                         <div class="row mb-1">
@@ -220,20 +221,26 @@
                                     <span>預覽</span>
                                 </a> --}}
                                 <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary mr-2">存檔</button>
+                </form>
                                 {{-- <a class="btn btn-primary mr-3" href="">
                                     <span>存檔</span>
                                 </a> --}}
-                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">轉為工單</button>
-                                {{-- <a class="btn btn-primary" href="">
-                                    <span>轉為工單</span>
-                                </a> --}}
+                                {{-- <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">轉為工單</button> --}}
+                                <form class="form-horizontal" action="/manufacturecreate/{{$orderEdit->oid}}" method="POST" >                    
+                                    @csrf
+
+                                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">轉為工單</button>
+                                    {{-- <a class="btn btn-primary" href="/manufacturecreate">
+                                        <span>轉為工單</span>
+                                    </a> --}}
+                                </form>
                                 {{-- <a class="btn btn-danger" href="">
                                     <span>取消訂單</span>
                                 </a> --}}
                             </div>
 
                         </div>
-                    </form>
+                    
                  
             </div>
             
