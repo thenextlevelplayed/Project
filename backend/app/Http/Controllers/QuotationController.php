@@ -156,11 +156,31 @@ class QuotationController extends Controller
 
         return view('quotation.quotationEdit',compact('quotationInfo','dtl'));
     }
+
+    public function quotationUpdate(Request $request,$quotationId){
+        $dtl = Detaillist::join('quotation','quotation.dlid','=','detaillist.dlid')
+        ->select('*')
+        ->find($quotationId);
+        
+        $dtl->quantity = $request->quantity;
+        $dtl->save();  
+        
+        // dd($dtl);
+        return redirect('/main/quotation');
+    }
+
     //新增報價單
     function quotationCreate()
     {
         return view('quotation.quotationCreate');
     }
+
+    //轉為訂單
+    public function orderCreate(Request $request,)
+    {
+        return redirect('/main/order');
+    }
+
 
     //匯出報價PDF
     public function createQuotationPDF(Request $request,$quotationId)

@@ -56,6 +56,7 @@ Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //�
 Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotation");
 Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視
 Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯
+Route::put('/main/quotation/edit/{quotationId}', "App\Http\Controllers\quotationController@quotationUpdate"); //更新
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增
 
 //訂單
