@@ -152,16 +152,23 @@ class OrderController extends Controller
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($orderID);
+
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $orderID)
+        ->get();
+
+
+        
             
 
         // foreach ($orderInfo as $key => $orderInfo) {
         // }
 
         // dd($orderInfo);
-        return view('order.orderInfo', compact('orderInfo'));
+        return view('order.orderInfo', compact('orderInfo','quotation'));
     }
     function orderEdit($orderID){
-         
         //訂單編輯
         $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
         ->join('rebate','rebate.rid','=','quotation.rid')
@@ -173,10 +180,18 @@ class OrderController extends Controller
         ->find($orderID);
 
         //撈明細資料
-        $dtl = Detaillist::find($orderID);
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $orderID)
+        ->get();
+
+        foreach($quotation as $item){
+            echo ($item->quantity);
+        }
+        
 
         // dd($orderedit);
-        return view('order.orderEdit', compact('orderEdit','dtl'));
+        return view('order.orderEdit', compact('orderEdit','quotation'));
     }
 
 
@@ -191,19 +206,33 @@ class OrderController extends Controller
         // ->select('*')
         // ->find($orderID);
 
-        $dtl = Detaillist::join('quotation','quotation.dlid','=','detaillist.dlid')
+        $quotation = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
         ->select('*')
-        ->find($orderID);
+        ->where('detaillist.qid', '=', $orderID)
+        ->get();
 
-        
-        $dtl->quantity = $request->quantity;
+        // foreach($dtl as $item){
+        //     $item->quantity = $request->quantity;
+        //     $item->save();
+        // }
+        // dd($quotation );
+        for ($i=0 ; $i<count($quotation); $i++){
+            $quotation[$i]->quantity = $request->quantity[$i];
+        }
+        // $quotation->quantity = $request->quantity[0];
+        // $quotation->quantity = $request->quantity[1];
+
         // $dtl->remark = $request->remark;
         // if ($request->inlineRadioOptions == 'Y') {
         //     $orderEdit->mstatus = 'Y';
         // } else ($orderEdit->mstatus = 'N');
         //撈畫面的資料
         // $orderEdit->save();
-        $dtl->save();  
+        // $item->save();
+        
+        // $item->save();  
+        $quotation->save();
+        // dd($request);
         
         
         // dd($dtl);

@@ -89,19 +89,24 @@
                                                 </tr>
                                             </thead>
                                             
-                                            <tbody>                                                
+                                            <tbody>
+                                            @foreach ($quotation as $key => $item)
+                                                
+                                                                                           
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>{{$orderInfo->mname}}</td>
-                                                    <td>{{$orderInfo->mnumber}}</td>
-                                                    <td>{{$orderInfo->quantity}}</td>
-                                                    <td>{{$orderInfo->price}}</td>
-                                                    <td><?php
-                                                        $total=($orderInfo->quantity) * ($orderInfo->price);
+                                                    <th scope="row">{{$loop->index + 1}}</th>
+                                                    <td>{{$item->mname}}</td>
+                                                    <td>{{$item->mnumber}}</td>
+                                                    <td>{{$item->quantity}}</td>
+                                                    <td>{{$item->price}}</td>
+                                                    <td>
+                                                        <?php
+                                                        $total=($item->quantity) * ($item->price);
                                                         echo $total;
                                                        ?></td>
-                                                    <td>{{$orderInfo->remark}}</td>
+                                                    <td>{{$item->remark}}</td>
                                                 </tr>
+                                            @endforeach 
                                                 {{-- <tr>
                                                     <th scope="row">2</th>
                                                     <td></td>

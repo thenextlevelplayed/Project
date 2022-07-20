@@ -79,7 +79,7 @@
                                             <td>
                                                 <div class="btn-group">
                                                     {{-- {{ url('/home') }} --}}
-                                                    <a href="/main/order/edit/1" class="btn"
+                                                    <a href="/main/order/edit/{{$od->oid}}" class="btn"
                                                         style="background: 0 ; color:rgb(122, 122, 122)">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

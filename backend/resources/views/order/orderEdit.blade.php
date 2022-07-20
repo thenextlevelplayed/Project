@@ -98,50 +98,34 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
+                                                    <th scope="col"></th>
                                                     <th scope="col">商品名稱</th>
-                                                    <th scope="col">商品型號</th>
+                                                    <th scope="col">商品編號</th>
                                                     <th scope="col">數量</th>
                                                     <th scope="col">單價</th>
                                                     <th scope="col">小計</th>
+                                                    <th scope="col">備註</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($quotation as  $key => $item)
+                                                {{-- dd($item) --}}
+                                                                                           
                                                 <tr>
-                                                    {{-- 商品名稱 --}}
-                                                    <td> 
-                                                        {{ $orderEdit->mname }}
-                                                    </td>
-                                                    {{-- 商品編號 --}}
-                                                    <td> 
-                                                        {{ $orderEdit->mnumber }}
-                                                    </td>
-                                                    {{-- 數量 --}}
-                                                    <td> 
-                                                        <input type="text" name="quantity" value="{{ $dtl->quantity }}">
-                                                    </td>
-                                                    {{-- 單價 --}}
-                                                    <td> 
-                                                        {{ $orderEdit->price }}
-                                                    </td>
-                                                    {{-- 小計 --}}
-                                                    <td> 
+                                                    <th scope="row">{{$loop->index + 1}}</th>
+                                                    <td>{{$item->mname}}</td>
+                                                    <td>{{$item->mnumber}}</td>
+                                                    <td><input type="text" name="quantity[]" value="{{$item->quantity}}"></td>
+                                                    <td>{{$item->price}}</td>
+                                                    <td>
                                                         <?php
-                                                         $total=($orderEdit->quantity) * ($orderEdit->price);
-                                                         echo $total;
-                                                        ?>
+                                                        $total=($item->quantity) * ($item->price);
+                                                        echo $total;
+                                                       ?>
                                                     </td>
-                                                    {{-- 備註 --}}
-                                                    {{-- <td>
-                                                        <div style="width:300px">
-                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $dtl->remark }}</textarea>
-                                                        </div>
-                                                    </td> --}}
-                                                    {{-- <td> <input type="text" class="form-control" value='{{$orderEdit->mname}}'required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td> --}}
+                                                    <td>{{$item->remark}}</td>
                                                 </tr>
+                                            @endforeach 
                                                 {{-- <tr>
                                                     <th scope="row">2</th>
                                                     <td> <input type="text" class="form-control" required></td>
