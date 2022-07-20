@@ -23,7 +23,7 @@ class memberController extends Controller
     {
 
         //如果要打開登入功能請註解掉此*****************
-        return view('main.index');
+        // return view('main.index');
 
         // ******************************************
 
