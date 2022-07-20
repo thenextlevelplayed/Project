@@ -98,7 +98,7 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">商品名稱</th>
-                                                    <th scope="col">商品編號</th>
+                                                    <th scope="col">商品型號</th>
                                                     <th scope="col">數量</th>
                                                     <th scope="col">單價</th>
                                                     <th scope="col">小計</th>
@@ -215,7 +215,7 @@
 
                             <div class="col-md-12 text-right">
                                 <a class="btn btn-primary mr-2" href="/main/order">
-                                    <i class="fa fa-undo"></i>返回
+                                    <i class="fa fa-undo"></i>&nbsp;返回
                                 </a>
                                 {{-- <a class="btn btn-primary mr-2" href="">
                                     <span>預覽</span>
