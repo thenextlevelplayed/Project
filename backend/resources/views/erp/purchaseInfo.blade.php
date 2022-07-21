@@ -136,13 +136,10 @@
                                                     <td class="col-2"> <?php
                                                     
                                                     if ($det->pStatus == 'Y') {
-                                                        echo "<span class='badge bg-success'>
-                                                            已入庫
-                                                            </span>";
+                                                        echo "<span class='badge bg-success'>已入庫</span>";
                                                     } else {
-                                                        echo "<span class='badge bg-danger'>
-                                                            未入庫
-                                                            </span>";
+                                                        //點集 入庫並寫入庫存表
+                                                        echo "<span class='badge bg-danger stockin'>未入庫</span>";
                                                     }
                                                     ?>
                                                     </td>

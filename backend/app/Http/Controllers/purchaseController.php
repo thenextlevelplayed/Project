@@ -19,6 +19,9 @@ class purchaseController extends Controller
     {
         $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
+        
+        // $detail = Bookdetail::select("")
+        
 
         // dd($book);
 
