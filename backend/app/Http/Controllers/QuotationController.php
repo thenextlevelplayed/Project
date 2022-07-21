@@ -157,6 +157,7 @@ class QuotationController extends Controller
         return view('quotation.quotationEdit',compact('quotationInfo','dtl'));
     }
 
+    // 報價更新
     public function quotationUpdate(Request $request,$quotationId){
         $dtl = Detaillist::join('quotation','quotation.dlid','=','detaillist.dlid')
         ->select('*')
@@ -195,6 +196,7 @@ class QuotationController extends Controller
         $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
         return $pdf->download();
     }
+    
     //預覽報價PDF
     public function viewQuotationPDF(Request $request,$quotationId)
     {
