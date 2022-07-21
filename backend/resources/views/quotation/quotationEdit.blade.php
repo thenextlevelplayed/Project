@@ -133,11 +133,11 @@
                                         </tbody>
                                     </table>
                                     {{-- 新增明細項目 --}}
-                                <div class="row mb-1">
-                                    <div class="col-md-12 text-right">
-                                        <input type="button" class="btn mr-3" value="新增" onclick="">
+                                    <div class="row mb-1">
+                                        <div class="col-md-12 text-right">
+                                            <input type="button" class="btn mr-3" value="新增" onclick="">
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-8 text-right">

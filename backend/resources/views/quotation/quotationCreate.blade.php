@@ -101,26 +101,14 @@
                                                 <td> <input type="text" class="form-control" required></td>
                                                 <td> <input type="text" class="form-control" required></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                                <td> <input type="text" class="form-control" required></td>
-                                            </tr>
                                         </tbody>
                                     </table> 
+                                    {{-- 新增明細項目 --}}
+                                    <div class="row mb-1">
+                                        <div class="col-md-12 text-right">
+                                            <input type="button" class="btn mr-3" value="新增" onclick="">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-2"><p>總計</p></div>
