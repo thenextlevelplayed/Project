@@ -122,7 +122,7 @@ Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryControll
 
 // 創建測試帳號密碼
 Route::get('/test', function(){
-    $get = Staff::find(1);
+    $get = Staff::find(2);
     $passwd = Hash::make('123456');  
     $get->password = $passwd;
     $get->save();

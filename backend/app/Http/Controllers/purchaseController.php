@@ -186,29 +186,37 @@ class purchaseController extends Controller
 
             $PkOfDetail = $detail->where('bdetailId', '=', $req->did[$i])->first();
 
-            dd($PkOfDetail);
+
+            $PkOfDetail->mName = $req->mName[$i];
+            // $PkOfDetail->mNumber = $req->mNumber[$i];
+            $PkOfDetail->quantity = $req->quantity[$i];
+            $PkOfDetail->cost = $req->cost[$i];
+            $PkOfDetail->pStatus = $req->pStatus[$i];
+            $PkOfDetail->save();
+
+            // dd($PkOfDetail);
             if ($PkOfDetail !== null) {
 
-                $PkOfDetail->mName = $req->mName[$i];
-                $PkOfDetail->mNumber = $req->mNumber[$i];
-                $PkOfDetail->quantity = $req->quantity[$i];
-                $PkOfDetail->cost = $req->cost[$i];
-                $PkOfDetail->pStatus = $req->pStatus[$i];
-                $PkOfDetail->save();
+                // $PkOfDetail->mName = $req->mName[$i];
+                // // $PkOfDetail->mNumber = $req->mNumber[$i];
+                // $PkOfDetail->quantity = $req->quantity[$i];
+                // $PkOfDetail->cost = $req->cost[$i];
+                // $PkOfDetail->pStatus = $req->pStatus[$i];
+                // $PkOfDetail->save();
             } else {
 
-                Bookdetail::insert([
-                    'bid' => $purchaseID,
-                    'mname' => $req->mName[$i],
-                    'quantity' => $req->quantity[$i],
-                    'cost' => $req->cost[$i],
-                    'pstatus' => $req->pStatus[$i]
-                    // 'mnumber' =>  $req->mNumber[$i]
-                ]);
+                // Bookdetail::insert([
+                //     'bid' => $purchaseID,
+                //     'mname' => $req->mName[$i],
+                //     'quantity' => $req->quantity[$i],
+                //     'cost' => $req->cost[$i],
+                //     'pstatus' => $req->pStatus[$i]
+                //     // 'mnumber' =>  $req->mNumber[$i]
+                // ]);
             }
         }
 
-        // return redirect("/main/purchase/$purchaseID");
+        return redirect("/main/purchase/$purchaseID");
         // dd($detail);
 
         // dd($req->mName[0]);
