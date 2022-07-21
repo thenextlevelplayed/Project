@@ -116,11 +116,14 @@ class OrderController extends Controller
     function order()
     {
         //訂單
-        $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->get();
+        // $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+        //     ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+        //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+        //     ->select('*')
+        //     ->get();
+       
+
+        // $order = Order::all();
 
             $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
             if ($search_text != ""){
@@ -129,6 +132,7 @@ class OrderController extends Controller
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
                 ->where('oid','LIKE','%'.$search_text.'%')
                 ->orWhere('cname','LIKE','%'.$search_text.'%')
+                ->orderby('oid')
                 ->get();
                 
             }
@@ -136,29 +140,42 @@ class OrderController extends Controller
                 $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
                 ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->orderby('oid')
                 ->get();
                             
             };
+        
 
         return view('main.order', compact('order'));
     }
     function orderInfo($orderID)
     {
         //訂單明細管理
+        // $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+        //     ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
+        //     ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+        //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+        //     ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+        //     ->select('*')
+        //     ->find($orderID);
         $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
-            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
-            ->find($orderID);
+        ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+        ->join('customer', 'customer.cid', '=', 'quotation.cid')
+        ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+        ->find($orderID);
 
+        
+
+        $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
+        // dd($orderInfoid->qid);
         $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
         ->select('*')
-        ->where('detaillist.qid', '=', $orderID)
+        ->where('detaillist.qid', '=', $orderInfoid->qid)
         ->get();
 
+        // dd($quotation);
 
+        // dd($orderInfo->oid);
         
             
 
@@ -206,18 +223,21 @@ class OrderController extends Controller
         // ->select('*')
         // ->find($orderID);
 
-        $quotation = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid', '=', $orderID)
-        ->get();
+        // $quotation = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
+        // ->select('*')
+        // ->where('detaillist.qid', '=', $orderID)
+        // ->get();
 
-        // foreach($dtl as $item){
-        //     $item->quantity = $request->quantity;
-        //     $item->save();
-        // }
-        // dd($quotation );
+        dd($quotation);
+
+        // dd($request);
+        // dd($request->dlid[0]);
+
         for ($i=0 ; $i<count($quotation); $i++){
+            $id = $quotation->where('detaillist.dlid', '=' , $request->dlid[$i])->first();
+            dd($id);
             $quotation[$i]->quantity = $request->quantity[$i];
+            $quotation->save();
         }
         // $quotation->quantity = $request->quantity[0];
         // $quotation->quantity = $request->quantity[1];
@@ -231,7 +251,7 @@ class OrderController extends Controller
         // $item->save();
         
         // $item->save();  
-        $quotation->save();
+    
         // dd($request);
         
         

@@ -71,7 +71,7 @@ CREATE TABLE `bookdetail` (
 
 LOCK TABLES `bookdetail` WRITE;
 /*!40000 ALTER TABLE `bookdetail` DISABLE KEYS */;
-INSERT INTO `bookdetail` VALUES (1,1,1,'ASUS ZenScreen Go MB16AWP',30,13900,'2022-07-13','Y'),(2,2,2,'DELL　Inspiron 13',23,33899,'2022-07-23','Y'),(3,2,3,'PowerEdge R740xd 機架式伺服器',64,432000,'2022-07-14','Y'),(4,2,4,'Dell PowerEdge 2U 標準 Bezel',56,1003,'2022-07-14','Y'),(5,3,5,'Veriton K8',65,321554,'2022-07-16','Y'),(6,3,6,'H7550ST',17,22900,'2022-07-16','Y'),(7,4,7,'Prestige 14 - A12U',48,38900,'2022-07-16','Y'),(8,4,8,'Katana GF66 - 12U',91,45900,'2022-07-16','Y'),(9,4,9,'MSI Pen',100,3090,'2022-07-16',NULL);
+INSERT INTO `bookdetail` VALUES (1,1,1,'ASUS ZenScreen Go MB16AWP',30,13900,'2022-07-13','Y'),(2,2,2,'DELL　Inspiron 13',23,33899,'2022-07-23','Y'),(3,2,3,'PowerEdge R740xd 機架式伺服器',64,432000,'2022-07-14','Y'),(4,2,4,'Dell PowerEdge 2U 標準 Bezel',56,1003,'2022-07-14','Y'),(5,3,5,'Veriton K8',65,321554,'2022-07-16','Y'),(6,3,6,'H7550ST',17,22900,'2022-07-16','Y'),(7,4,7,'Prestige 14 - A12U',44,38900,'2022-07-16','Y'),(8,4,8,'Katana GF66 - 12U',91,45900,'2022-07-16','Y'),(9,4,9,'MSI Pen',100,3090,'2022-07-16',NULL);
 /*!40000 ALTER TABLE `bookdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -468,7 +468,7 @@ CREATE TABLE `quotation` (
   `rid` int(11) DEFAULT NULL,
   `qstatus` varchar(100) DEFAULT NULL,
   `qrownumber` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`qid`,`dlid`)
+  PRIMARY KEY (`qid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -478,7 +478,7 @@ CREATE TABLE `quotation` (
 
 LOCK TABLES `quotation` WRITE;
 /*!40000 ALTER TABLE `quotation` DISABLE KEYS */;
-INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,4,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,5,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,6,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,22,NULL,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,7,NULL,'Y','KMQ-20220716002'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,8,NULL,'Y','KMQ-20220716002'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,9,NULL,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,10,NULL,'Y','KMQ-20220727001'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,11,NULL,'Y','KMQ-20220727001'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,12,NULL,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,13,NULL,'Y','KMQ-20220727002'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,14,NULL,'Y','KMQ-20220727002'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,15,NULL,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,16,NULL,'Y','KMQ-20220727003'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,17,NULL,'Y','KMQ-20220727003'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,18,NULL,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,19,NULL,'Y','KMQ-20220721001'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,20,NULL,'Y','KMQ-20220721001'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,21,NULL,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,23,NULL,'Y','KMQ-20220721002'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,24,NULL,'Y','KMQ-20220721002'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,25,NULL,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',NULL,26,NULL,'Y','KMQ-20220721003'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',NULL,27,NULL,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,28,NULL,'Y','KMQ-20220723001'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,29,NULL,'Y','KMQ-20220723001'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,30,NULL,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,31,NULL,'N','KMQ-20220723002'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,32,NULL,'N','KMQ-20220723002'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,33,NULL,'N','KMQ-20220723002');
+INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',1,4,0,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',2,7,NULL,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',1,10,NULL,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',1,13,NULL,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',2,16,NULL,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',2,19,NULL,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',1,23,NULL,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',2,26,NULL,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,28,NULL,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,31,NULL,'N','KMQ-20220723002');
 /*!40000 ALTER TABLE `quotation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -599,4 +599,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-21 14:52:41
+-- Dump completed on 2022-07-21 16:20:06

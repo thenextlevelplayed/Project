@@ -42,8 +42,9 @@ class ManufactureController extends Controller
         ->join('quotation','quotation.qid','=','order.qid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->orderby('mid')
+        
         ->select('*')
+        ->orderby('mid')
         ->get();
         
 
@@ -56,6 +57,7 @@ class ManufactureController extends Controller
             ->where('cname','LIKE','%'.$search_text.'%')
             ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
             ->orWhere('mid','LIKE','%'.$search_text.'%')
+            ->orderby('mid')
             ->get();
             
         }
@@ -65,6 +67,7 @@ class ManufactureController extends Controller
             ->join('customer','customer.cid','=','quotation.cid')
             ->join('detaillist','detaillist.dlid','=','quotation.dlid')
             ->select('*')
+            ->orderby('mid')
             ->get();
                         
         };
