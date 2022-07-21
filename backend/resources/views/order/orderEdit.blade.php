@@ -173,7 +173,7 @@
                                             <p>企業方案</p>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" required>
+                                            <input type="text" >
                                         </div>
                                     </div>
                                 </div>
