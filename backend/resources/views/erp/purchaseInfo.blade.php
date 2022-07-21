@@ -139,7 +139,7 @@
                                                         echo "<span class='badge bg-success'>已入庫</span>";
                                                     } else {
                                                         //點集 入庫並寫入庫存表
-                                                        echo "<span class='badge bg-danger stockin'>未入庫</span>";
+                                                        echo "<span class='badge bg-danger stockin' style='cursor:pointer; '>未入庫</span>";
                                                     }
                                                     ?>
                                                     </td>
@@ -186,5 +186,40 @@
 @endsection
 
 @section('script')
-    <script></script>
+    <script>
+
+
+        $('.stockin').on('click',function(e){
+            // alert('ok');
+
+            e.preventDefault();
+
+            let row = $(this).closest('tr');
+
+            let mNumber = $(row).find('td').eq(1).text();
+            let quantity = $(row).find('td').eq(2).text();
+            let _token = $("input[name=_token]").val();
+
+            console.log(mNumber,quantity);
+
+            $.ajax({
+                    type: "post",
+                    url: "/purchase/stockIn",
+                    data: {
+                        mNumber: mNumber,
+                        quantity: quantity,
+                        _token: _token
+                    },
+                    success: function(response) {
+                        console.log(response)
+                    },
+
+                    error: function() {
+                        alert('xx');
+                    }
+                })
+
+        })
+
+    </script>
 @endsection

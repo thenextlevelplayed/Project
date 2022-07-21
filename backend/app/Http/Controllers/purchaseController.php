@@ -87,7 +87,6 @@ class purchaseController extends Controller
     //進銷存-新增進貨單處理
     function purchaseCreatePost(Request $req)
     {
-        // dd($req);
 
         $bid = Book::insertGetId([
             'sname' => $req->sname,
@@ -99,14 +98,12 @@ class purchaseController extends Controller
             'kmpid' => $req->KMPid
         ]);
 
-        // dd($book->id);
+
         for ($i = 0; $i < count($req->mName); $i++) {
 
             $mid = Material::select('*')
                 ->where('mname', '=', $req->mName[$i])
                 ->first();
-
-            // dd($mid->mid);
 
             Bookdetail::insert([
                 'bid' => $bid,
@@ -158,16 +155,16 @@ class purchaseController extends Controller
         return view('erp.purchaseEdit', compact("info", "detail"));
     }
 
-    //商品名稱進庫存比對
+    //商品名稱商品表比對
     function mNumber(Request $req)
     {
 
-        //庫存表
-        $inventory = Inventory::all()
+        //商品表
+        $material = Material::all()
             ->where('mname', '=', $req->mName)
             ->first();
 
-        return response()->json($inventory);
+        return response()->json($material);
     }
 
     //進銷存-編輯進貨存檔
@@ -182,8 +179,8 @@ class purchaseController extends Controller
         for ($i = 0; $i < count($req->mName); $i++) {
 
             $mid = Material::select('mid')
-            ->where('mname','=',$req->mName[$i])
-            ->first();
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
 
             Bookdetail::insert([
                 'bid' => $purchaseID,
@@ -191,15 +188,44 @@ class purchaseController extends Controller
                 'quantity' => $req->quantity[$i],
                 'cost' => $req->cost[$i],
                 'mid' => $mid->mid,
-                'pstatus'=> $req->pStatus[$i]
+                'pstatus' => $req->pStatus[$i]
             ]);
         }
 
         return redirect("/main/purchase/$purchaseID");
     }
 
+    //進貨單入庫寫入庫存
+    function stockIn(Request $req)
+    {
+
+        //庫存表
+        $inventory = Inventory::all()
+            ->where('mnumber', '=', 'KM-252609029')
+            ->first();
+
+        // $addQty = $inventory->sumquantity + $req->quantity;
+
+        // $inventory->sumquantity = $addQty;
+        // $inventory->save();
+
+        return response()->json($inventory);
+    }
+
     function stock()
     {
+
+
+        $inventory = Inventory::all()
+            ->where('mnumber', '=', 'KM-252609029')
+            ->first();
+
+        $addQty = $inventory->sumquantity + '10';
+
+        $inventory->sumquantity = $addQty;
+        $inventory->save();
+
+
         //進銷存-庫存
         return view('erp.stock');
     }
