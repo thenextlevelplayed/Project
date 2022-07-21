@@ -23,7 +23,7 @@
                                             <p>進貨單編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{ $info[0]->KMPid }}
+                                            {{ $info[0]->kmpid }}
                                         </div>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                                             <p>採購人員</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{ $info[0]->staffName }}
+                                            {{ $info[0]->staffname }}
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                             <p>進貨日期</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{ $info[0]->bookDate }}
+                                            {{ $info[0]->bookdate }}
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                                                     <td class="col-2"> {{ $det->quantity * $det->cost }}</td>
                                                     <td class="col-2"> <?php
                                                     
-                                                    if ($det->pStatus == 'Y') {
+                                                    if ($det->pstatus == 'Y') {
                                                         echo "<span class='badge bg-success'>已入庫</span>";
                                                     } else {
                                                         //點集 入庫並寫入庫存表

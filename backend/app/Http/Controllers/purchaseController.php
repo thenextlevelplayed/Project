@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Bookdetail;
 use App\Models\Inventory;
+use App\Models\Material;
 use App\Models\Supplier;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
@@ -100,11 +101,19 @@ class purchaseController extends Controller
 
         // dd($book->id);
         for ($i = 0; $i < count($req->mName); $i++) {
+
+            $mid = Material::select('*')
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
+
+            // dd($mid->mid);
+
             Bookdetail::insert([
                 'bid' => $bid,
                 'mname' => $req->mName[$i],
                 'quantity' => $req->quantity[$i],
                 'cost' => $req->cost[$i],
+                'mid' => $mid->mid
             ]);
         };
 
@@ -164,71 +173,30 @@ class purchaseController extends Controller
     //進銷存-編輯進貨存檔
     function purchaseEditPost(Request $req, $purchaseID)
     {
-        //進貨資訊
-        $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
-            ->select('book.bid', 'book.staffName', 'book.bookdate', 'supplier.*')
-            ->where('book.bid', '=', $purchaseID)
-            ->get();
-
-        //進貨明細資訊
-        $detail = Bookdetail::join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mname', 'inventory.mnumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.pstatus', 'bookDetail.bdetailId')
+        //進貨明細修改
+        // 1.Drop 掉全部
+        Bookdetail::select('*')
             ->where('bookDetail.bid', '=', $purchaseID)
-            ->get();
-
-        //進貨明細修改,用資料庫book detail PK判斷
-        // 1.原本資料庫就有UpData
-        // 2.沒有新增Create
-
-        // dd($req);
-
+            ->delete();
+        // 2.重新新增
         for ($i = 0; $i < count($req->mName); $i++) {
 
-            $PkOfDetail = $detail->where('bdetailId', '=', $req->did[$i])->first();
+            $mid = Material::select('mid')
+            ->where('mname','=',$req->mName[$i])
+            ->first();
 
-
-            $PkOfDetail->mName = $req->mName[$i];
-            // $PkOfDetail->mNumber = $req->mNumber[$i];
-            $PkOfDetail->quantity = $req->quantity[$i];
-            $PkOfDetail->cost = $req->cost[$i];
-            $PkOfDetail->pStatus = $req->pStatus[$i];
-            $PkOfDetail->save();
-
-            // dd($PkOfDetail);
-            if ($PkOfDetail !== null) {
-
-                // $PkOfDetail->mName = $req->mName[$i];
-                // // $PkOfDetail->mNumber = $req->mNumber[$i];
-                // $PkOfDetail->quantity = $req->quantity[$i];
-                // $PkOfDetail->cost = $req->cost[$i];
-                // $PkOfDetail->pStatus = $req->pStatus[$i];
-                // $PkOfDetail->save();
-            } else {
-
-                // Bookdetail::insert([
-                //     'bid' => $purchaseID,
-                //     'mname' => $req->mName[$i],
-                //     'quantity' => $req->quantity[$i],
-                //     'cost' => $req->cost[$i],
-                //     'pstatus' => $req->pStatus[$i]
-                //     // 'mnumber' =>  $req->mNumber[$i]
-                // ]);
-            }
+            Bookdetail::insert([
+                'bid' => $purchaseID,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'cost' => $req->cost[$i],
+                'mid' => $mid->mid,
+                'pstatus'=> $req->pStatus[$i]
+            ]);
         }
 
         return redirect("/main/purchase/$purchaseID");
-        // dd($detail);
-
-        // dd($req->mName[0]);
     }
-
-
-    function sales()
-    {
-        //進銷存-銷貨
-        return view('erp.sales');
-    }
-
 
     function stock()
     {
