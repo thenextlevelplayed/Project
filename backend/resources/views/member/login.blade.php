@@ -16,8 +16,6 @@
             overflow:hidden;
             background-image: url({{ URL::asset('assets/img/skyline-1869214_1920.jpg') }});
             background-size: cover;
-            
-            
         }
         .logo img{
             width:100px;
@@ -38,9 +36,9 @@
             background-color: #FFF;
             border-radius: 10px;
             overflow: hidden;
-            margin-top:50%;
-            margin-left:50%;
-            transform: translate(-50%,-25%);    
+            position:relative;
+            transform: translate(-50%,23%);
+            left:50%
         }
 
         .textColor {
@@ -55,13 +53,26 @@
         .smalltext{
             color:#b3b3b3;
             text-align: center;
-            padding-top:30px;
+            padding-top:15px;
             font-size: 15px
             
         }
 
         .loginBox h3{
             font-size:25px;
+        }
+
+        .errorText{
+            text-align: center;
+            color:#FFFFFF;
+            font-size:17px;
+            font-weight:400;
+            background-color:#DB3D3C;
+            border-radius:5px;
+            height:300px;
+            width:450px;
+            padding-top:5px;
+            transform:translateX(-11%);
         }
 
     </style>
@@ -77,44 +88,48 @@
 
     <div id="body">
         <div id="login">
-            <div class="container">
+            <div class="container-fluid">
                 <div id="loginRow" class="row justify-content-center align-items-center">
-                    <div id="loginCol" class="col-md-6">
-                        <div class="loginBox col-md-12">
+                    <div id="loginCol" class="col-md-12">
+                        
+                        
+                        <form id="loginForm" class="form shadow" action="/member/login" method="post">
+                            @csrf
+                            <div class="logo">
+                                <img src="{{ URL::asset('assets/img/kaimo.png') }}" alt="">
+                            </div>
+                            <h3 class="text-center textColor">後台系統</h3>
+                            <div class="form-group">
+                                <label for="account" class="textColor">帳號 Account:</label><br>
+                                <input type="text" name="account" id="account" class="form-control"
+                                    placeholder="請輸入帳號" value="{{ Cookie::get('account') }}">  {{-- 有Cookie 帶入 --}}
+                            </div>
+                            <div class="form-group">
+                                <label for="passwd" class="textColor">密碼 Password:</label><br>
+                                <input type="password" name="passwd" id="passwd" class="form-control"
+                                    placeholder="請輸入密碼" value="{{ Cookie::get('passwd') }}">
+                            </div>
                             
-                            <form id="loginForm" class="form shadow" action="/member/login" method="post">
-                                @csrf
-                                <div class="logo">
-                                    <img src="{{ URL::asset('assets/img/kaimo.png') }}" alt="">
-                                </div>
-                                <h3 class="text-center textColor">後台系統</h3>
-                                <div class="form-group">
-                                    <label for="account" class="textColor">帳號 Account:</label><br>
-                                    <input type="text" name="account" id="account" class="form-control"
-                                        placeholder="請輸入帳號" value="{{ Cookie::get('account') }}">  {{-- 有Cookie 帶入 --}}
-                                </div>
-                                <div class="form-group">
-                                    <label for="passwd" class="textColor">密碼 Password:</label><br>
-                                    <input type="password" name="passwd" id="passwd" class="form-control"
-                                        placeholder="請輸入密碼" value="{{ Cookie::get('passwd') }}">
+                            <div class="form-group">
+                                <label for="rememberMe" class="textColor">Remember Me</label>
+                                <span><input id="rememberMe" name="rememberMe" type="checkbox" {{ Cookie::get('rememberMe') }}></span><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-block" value="登入">
+                                <div class="smalltext">
+                                    <p>2022 KAIMO,Inc</p>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="rememberMe" class="textColor">Remember Me</label>
-                                    <span><input id="rememberMe" name="rememberMe" type="checkbox" {{ Cookie::get('rememberMe') }}></span><br>
-                                    <input type="submit" name="submit" class="btn btn-info btn-block" value="登入">
-                                    <div class="smalltext">
-                                        <p>2022 KAIMO,Inc</p>
+
+                                {{-- 有錯誤帶回顯示 --}}
+                                @if($errors->any())  
+                                    <div class ="errorText">
+                                    <span>{{$errors->first()}}</span>
+                                    <br>
                                     </div>
                                     
-
-                                    {{-- 有錯誤帶回顯示 --}}
-                                    @if($errors->any())  
-                                        <span class="ml-2">{{$errors->first()}}</span>
-                                    @endif
-                                </div>
-                            </form>
-                        </div>
+                                @endif
+                            </div>
+                        </form>
+                        
                     </div>
                 </div>
             </div>
