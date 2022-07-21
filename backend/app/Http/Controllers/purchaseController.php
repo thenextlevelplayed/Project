@@ -184,9 +184,9 @@ class purchaseController extends Controller
 
         for ($i = 0; $i < count($req->mName); $i++) {
 
-            $PkOfDetail = $detail->where('bDetailId', '=', $req->did[$i])->first();
+            $PkOfDetail = $detail->where('bdetailId', '=', $req->did[$i])->first();
 
-            // dd($PkOfDetail);
+            dd($PkOfDetail);
             if ($PkOfDetail !== null) {
 
                 $PkOfDetail->mName = $req->mName[$i];
@@ -202,13 +202,13 @@ class purchaseController extends Controller
                     'mname' => $req->mName[$i],
                     'quantity' => $req->quantity[$i],
                     'cost' => $req->cost[$i],
-                    'pstatus' => $req->pStatus[$i],
-                    'mnumber' =>  $req->mNumber[$i]
+                    'pstatus' => $req->pStatus[$i]
+                    // 'mnumber' =>  $req->mNumber[$i]
                 ]);
             }
         }
 
-        return redirect("/main/purchase/$purchaseID");
+        // return redirect("/main/purchase/$purchaseID");
         // dd($detail);
 
         // dd($req->mName[0]);
