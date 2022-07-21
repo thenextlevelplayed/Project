@@ -53,11 +53,13 @@ Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //�
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
 
 //報價
-Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotation");
-Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視
-Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯
+Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotation"); //報價單列表
+Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視報價單
+Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯報價單
+// Route::put('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEditCreate"); //編輯報價單-新增明細項目
 Route::put('/main/quotation/edit/{quotationId}', "App\Http\Controllers\quotationController@quotationUpdate"); //更新
-Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增
+
+Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增報價單
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\OrderController@order");
