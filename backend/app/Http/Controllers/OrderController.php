@@ -179,13 +179,13 @@ class OrderController extends Controller
     function orderEdit($orderID){
         //訂單編輯
         $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('detaillist','detaillist.qid','=','quotation.qid')
         ->select('*')
         ->where('order.oid', '=', $orderID)
         ->find($orderID);
+
 
         //撈明細資料
         $quotation = Detaillist::select('*')
@@ -216,16 +216,19 @@ class OrderController extends Controller
     public function ManufactureCreate(Request $request,$orderID){
 
         $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('detaillist','detaillist.qid','=','quotation.qid')
         ->select('*')
         ->find($orderID);
 
+        // dd($orderEdit);
+
         //工單新增(轉為工單)
         $newMaufacture = new Manufacture();
-        $newMaufacture->mid = 3; //後面數字照理來說接{{$orderEdit->oid}} 先用3測試
+
+        // dd( $newMaufacture);
+        // $newMaufacture->mid = 3; //後面數字照理來說接{{$orderEdit->oid}} 先用3測試
         $newMaufacture->mdate = date('Y-m-d');
         // dd(date('Y-m-d'));
         $newMaufacture->oid = $orderEdit->oid;
