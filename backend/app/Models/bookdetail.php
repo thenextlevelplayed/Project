@@ -9,7 +9,7 @@ class Bookdetail extends Model
 {
     use HasFactory;
     protected $table = 'bookdetail';    
-    protected $primaryKey = 'bDetailId';
+    protected $primaryKey = 'bdetailid';
     public $timestamps = false;
     
 }

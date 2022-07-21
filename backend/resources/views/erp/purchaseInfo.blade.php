@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+    @csrf
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -143,7 +144,7 @@
                                                     }
                                                     ?>
                                                     </td>
-                                                    <td></td>
+                                                    <input type="hidden" value="{{ $det->bdetailid }} ">
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -176,50 +177,86 @@
                 <a class="btn btn-primary mr-3" href="/main/purchase">
                     <span>回上頁</span>
                 </a>
-                <a class="btn btn-primary mr-3" href="/purchase/edit/{{$info[0]->bid}}">
+                <a class="btn btn-primary mr-3" href="/purchase/edit/{{ $info[0]->bid }}">
                     <span>編輯</span>
                 </a>
             </div>
         </div>
+    </div>
 
+    {{-- bootstrap對話框 --}}
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">確定要刪除?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" id="okBtn" class="btn btn-primary">確定</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
 @section('script')
     <script>
+        var mNumber;
+        var quantity;
+        var did;
+        var row;
 
+        $('.stockin').on('click', function(e) {
 
-        $('.stockin').on('click',function(e){
-            // alert('ok');
+            row = $(this).closest('tr');
 
-            e.preventDefault();
+            let dindex = $(row).find('th').text();
+            mNumber = $(row).find('td').eq(1).text();
+            quantity = $(row).find('td').eq(2).text();
+            did = $(row).find('input').eq(0).val();
 
-            let row = $(this).closest('tr');
-
-            let mNumber = $(row).find('td').eq(1).text();
-            let quantity = $(row).find('td').eq(2).text();
-            let _token = $("input[name=_token]").val();
-
-            console.log(mNumber,quantity);
-
-            $.ajax({
-                    type: "post",
-                    url: "/purchase/stockIn",
-                    data: {
-                        mNumber: mNumber,
-                        quantity: quantity,
-                        _token: _token
-                    },
-                    success: function(response) {
-                        console.log(response)
-                    },
-
-                    error: function() {
-                        alert('xx');
-                    }
-                })
-
+            $('#exampleModal').modal('show');
+            $('#exampleModalLabel').text(`確定第${dindex}要入庫?`)
+            
+            console.log(mNumber, quantity, did,row,dindex);
         })
 
+        $('#okBtn').on('click', function() {
+
+            $('#exampleModal').modal('hide');
+
+            let _token = $("input[name=_token]").val();
+
+            $.ajax({
+                type: "post",
+                url: "/purchase/stockIn",
+                data: {
+                    mNumber: mNumber,
+                    quantity: quantity,
+                    did: did,
+                    _token: _token
+                },
+                success: function(response) {
+
+                    //變更狀態 未入庫->已入庫
+                    $(row).find('td').eq(5).html("<span class='badge bg-success'>已入庫</span>");
+                    console.log(response);
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                }
+            })
+
+        })
     </script>
 @endsection

@@ -127,10 +127,9 @@ class purchaseController extends Controller
             ->get();
 
         //進貨明細資訊
-        $detail = Book::join("bookDetail", 'bookDetail.bid', '=', 'book.bid')
-            ->join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mname', 'inventory.mnumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.pstatus')
-            ->where('book.bid', '=', $purchaseID)
+        $detail = Bookdetail::join('material', 'material.mid', '=', 'bookdetail.mid')
+            ->select('*')
+            ->where('bid', '=', $purchaseID)
             ->get();
 
         return view('erp.purchaseInfo', compact("info", "detail"));
@@ -199,32 +198,29 @@ class purchaseController extends Controller
     function stockIn(Request $req)
     {
 
+
         //庫存表
         $inventory = Inventory::all()
-            ->where('mnumber', '=', 'KM-252609029')
+            ->where('mnumber', '=', $req->mNumber)
             ->first();
 
-        // $addQty = $inventory->sumquantity + $req->quantity;
+        //數量增加到庫存
+        $addQty = $inventory->sumquantity + $req->quantity;
+        $inventory->sumquantity = $addQty;
+        $inventory->save();
 
-        // $inventory->sumquantity = $addQty;
-        // $inventory->save();
+        $pstatus = Bookdetail::select('*')
+            ->where('bdetailid', '=', $req->did)
+            ->first();
 
-        return response()->json($inventory);
+        $pstatus->pstatus = 'Y';
+        $pstatus->save();
+
+        return response()->json(($pstatus->save()));
     }
 
     function stock()
     {
-
-
-        $inventory = Inventory::all()
-            ->where('mnumber', '=', 'KM-252609029')
-            ->first();
-
-        $addQty = $inventory->sumquantity + '10';
-
-        $inventory->sumquantity = $addQty;
-        $inventory->save();
-
 
         //進銷存-庫存
         return view('erp.stock');
