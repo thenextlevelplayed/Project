@@ -128,8 +128,8 @@
                                             @foreach ($detail as $det)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td class="col-2"> {{ $det->mName }}</td>
-                                                    <td class="col-2"> {{ $det->mNumber }}</td>
+                                                    <td class="col-2"> {{ $det->mname }}</td>
+                                                    <td class="col-2"> {{ $det->mnumber }}</td>
                                                     <td class="col-2"> {{ $det->quantity }}</td>
                                                     <td class="col-2"> {{ $det->cost }}</td>
                                                     <td class="col-2"> {{ $det->quantity * $det->cost }}</td>

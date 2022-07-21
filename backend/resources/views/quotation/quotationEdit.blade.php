@@ -109,38 +109,35 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>{{ $quotationInfo->mname }}</td>
-                                                <td>{{ $quotationInfo->mnumber }}</td>
+                                                <td>
+                                                    <input type="text" name="quantity" value="{{ $quotationInfo->mname }}">                                                    
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="quantity" value="{{ $quotationInfo->mnumber }}">
+                                                </td>
                                                 <td>
                                                     <input type="number" name="quantity" value="{{ $dtl->quantity }}">
                                                 </td>
-                                                <td>{{ $quotationInfo->price }}</td>
+                                                <td>
+                                                    {{ $quotationInfo->price }}
+                                                </td>
                                                 <td>
                                                     <?php $total = $quotationInfo->quantity * $quotationInfo->price;
                                                     echo $total; ?>
                                                 </td>
-                                                <td>{{ $quotationInfo->remark }}</td>
+                                                <td>
+                                                    <input type="text" name="quantity" value="{{ $quotationInfo->remark }}">                                                    
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
+                                    {{-- 新增明細項目 --}}
+                                <div class="row mb-1">
+                                    <div class="col-md-12 text-right">
+                                        <input type="button" class="btn mr-3" value="新增" onclick="">
+                                    </div>
+                                </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-lg-8 text-right">
