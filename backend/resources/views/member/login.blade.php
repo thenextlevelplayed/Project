@@ -13,9 +13,18 @@
         #body {
             background-color: #E8EDF0;
             height: 100vh;
-            background-image: url('https://cdn.pixabay.com/photo/2016/11/29/11/34/skyline-1869214_1280.jpg');
+            overflow:hidden;
+            background-image: url({{ URL::asset('assets/img/skyline-1869214_1920.jpg') }});
             background-size: cover;
             
+            
+        }
+        .logo img{
+            width:100px;
+            position: relative;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
         }
 
         .loginBox {
@@ -24,7 +33,7 @@
 
         #loginForm {
             width:400px;
-            height:600px;
+            height:650px;
             padding: 25px;
             background-color: #FFF;
             border-radius: 10px;
@@ -39,7 +48,7 @@
         }
         
         .logo{
-            height:200px;
+            height:250px;
             width:100%;
         }
 
@@ -49,6 +58,10 @@
             padding-top:30px;
             font-size: 15px
             
+        }
+
+        .loginBox h3{
+            font-size:25px;
         }
 
     </style>
@@ -72,7 +85,7 @@
                             <form id="loginForm" class="form shadow" action="/member/login" method="post">
                                 @csrf
                                 <div class="logo">
-
+                                    <img src="{{ URL::asset('assets/img/kaimo.png') }}" alt="">
                                 </div>
                                 <h3 class="text-center textColor">後台系統</h3>
                                 <div class="form-group">
