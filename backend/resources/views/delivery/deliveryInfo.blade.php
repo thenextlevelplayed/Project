@@ -56,7 +56,7 @@
                         </div>
                         {{-- 客戶名稱 --}}
                         <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->cname}}</span></div>                                        
+                            <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->dcontact}}</span></div>                                        
                         </div>
                         {{-- 收貨地址 --}}
                         <div class="row row-cols-auto">
@@ -64,7 +64,7 @@
                         </div>
                         {{-- 聯絡人 --}}
                         <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->dcontact}}</span></div>                                        
+                            <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->director}}</span></div>                                        
                         </div>
                         {{-- 聯絡電話 --}}
                         <div class="row row-cols-auto">
@@ -73,7 +73,7 @@
                         </div>
                         {{-- 出貨編號 --}}
                         <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>出貨編號：{{$deliveryInfo->did}}</span></div>                                        
+                            <div class="col pl-5 ml-5 mt-3"><span>出貨編號：{{$deliveryInfo->drownumber}}</span></div>                                        
                         </div>
                         {{-- 發票號碼 --}}
                         <div class="row row-cols-auto">
@@ -108,9 +108,13 @@
                                     </th>                    
                                 </thead>
                                 <tbody>
+                                @foreach ($detaillistInfo as $deliveryInfo)
                                     <tr>
                                         {{-- {{$d->firstName}} --}}
                                         {{-- {{$d->firstName}} --}}
+                                    
+                                            
+                                        
                                         <td>{{$deliveryInfo->mname}}</td>
                                         <td>{{$deliveryInfo->mspecification}}</td>
                                         <td name="quantity">
@@ -132,39 +136,7 @@
                                         <td name="remark"> Ай-ай-ай-ай-ай, что сейчас произошло!</td>
                                     
                                     </tr>
-                                    <tr>
-                                        <td>beepbeep</td>
-                                        <td>華碩</td>
-                                        <td name="quantity">
-                                            87
-                                        </td>
-                                        <td name="price">87777</td>
-                                        <td name="total">8787878787</td>
-                                        <td name="tax">8787878787</td>
-                                        <td name="remark">8787878787</td>
-                                    </tr>
-                                    <tr>
-                                        <td>beepbeep</td>
-                                        <td>華碩</td>
-                                        <td name="quantity">
-                                            87
-                                        </td>
-                                        <td name="price">87777</td>
-                                        <td name="total">8787878787</td>
-                                        <td name="tax">8787878787</td>
-                                        <td name="remark">8787878787</td>
-                                    </tr>
-                                    <tr>
-                                        <td>beepbeep</td>
-                                        <td>華碩</td>
-                                        <td name="quantity">
-                                            87
-                                        </td>
-                                        <td name="price">87777</td>
-                                        <td name="total">8787878787</td>
-                                        <td name="tax">8787878787</td>
-                                        <td name="remark">8787878787</td>
-                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             <div class=" row justify-content-end">

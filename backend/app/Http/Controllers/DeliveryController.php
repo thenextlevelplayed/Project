@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Delivery;
+use App\Models\Detaillist;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
@@ -15,21 +16,31 @@ class DeliveryController extends Controller
 {
     function delivery(Request $request)
     {
-        // Delivery::all() 為二維陣列 要用foreach
-        // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
-        $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != ""){
+            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->where('cname','LIKE','%'.$search_text.'%')
+            ->orWhere('drownumber','LIKE','%'.$search_text.'%')
+            ->orderby('delivery.did')
+            ->get();
+            
+        }
+        else{
+            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
             ->join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
+            ->orderby('delivery.did')
             ->get();
-
-        // $number = [];
-
-
-
-
-
+                        
+        };
+        // Delivery::all() 為二維陣列 要用foreach
+        // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
         // foreach ($d as $key => $delivery) {
         //     $did = $delivery->did;
 
@@ -102,12 +113,12 @@ class DeliveryController extends Controller
             $qdate = $delivery->qdate;
             
             $count = DB::select("SELECT count(qdate) FROM `quotation` WHERE qdate = $date_") ;
-            echo $qdate.'<br />';
-            dd($count);
+            // echo $qdate.'<br />';
+            // dd($count);
             // echo count($qdate).'<br />';
             $number ++;// 報價單流水編號
             $head='KMD';
-            echo generateid($number,$date,$head).'<br />';
+            // echo generateid($number,$date,$head).'<br />';
         }
         // $did=$delivery->did;
         // $did=9999;
@@ -130,82 +141,75 @@ class DeliveryController extends Controller
         //     trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
         // }
         // //出貨
-        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
-            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->where('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('did','LIKE','%'.$search_text.'%')
-            ->get();
-            
-        }
-        else{
-            $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->get();
-                        
-        };
-        return view('main.delivery', compact('delivery', 'number', 'd', 'did'));
+        
+
+        // return view('main.delivery', compact('delivery', 'number', 'd', 'did'));
+        return view('main.delivery', compact('d'));
+
     }
 
     function deliveryInfo($deliveryId)
     {
-        //檢視出貨
+        //Join Delivery 資料
         $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
             ->join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
             ->find($deliveryId);
-        return view('delivery.deliveryInfo', compact('deliveryInfo'));
+
+        //Join Detaillist 資料
+        $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid','=',$deliveryInfo->qid)
+        ->get();
+
+
+        return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo'));
     }
 
     public function deliveryInfoEdit($deliveryId)
     {
+        //Join Delivery 資料
         $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->find($deliveryId);
+        ->join('order', 'order.oid', '=', 'manufacture.oid')
+        ->join('quotation', 'quotation.qid', '=', 'order.qid')
+        ->join('customer', 'customer.cid', '=', 'quotation.cid')
+        ->select('*')
+        ->find($deliveryId);
 
-
-        return view('delivery.deliveryInfoEdit', compact('deliveryInfo'));
+        //Join Detaillist 資料
+        $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid','=',$deliveryInfo->qid)
+        ->get();
+        return view('delivery.deliveryInfoEdit', compact('deliveryInfo','detaillistInfo'));
     }
 
     public function deliveryInfoUpdate(Request $request, $deliveryId)
     {
-        //edit delivery
-        // $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        // ->join('order','order.oid','=','manufacture.oid')
-        // ->join('quotation','quotation.qid','=','order.qid')
-        // ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        // ->join('customer','customer.cid','=','quotation.cid')
-        // ->select('*')
-        // ->find($deliveryId);
+        //Join Delivery 資料
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->join('customer','customer.cid','=','quotation.cid')
+        ->select('*')
+        ->find($deliveryId);
 
-        $deliveryInfo = Delivery::find($deliveryId);
+        //更新 Delivery 資料
         $deliveryInfo->dcontact = $request->dcontact;
-        $deliveryInfo->dtel = $request->dtel;
-        $deliveryInfo->daddress = $request->daddress;
+        $deliveryInfo->dtel = $request->dtel;     
+        $deliveryInfo->daddress = $request->daddress;        
         $deliveryInfo->ddate = $request->ddate;
-        $deliveryInfo->daddress = $request->daddress;
+
         // 判斷出貨按鈕
         if ($request->inlineRadioOptions == 'Y') {
             $deliveryInfo->dstatus = 'Y';
         } else ($deliveryInfo->dstatus = 'N');
 
+        //儲存
         $deliveryInfo->save();
-
-        // (...) do something with $var1 and $var2
-        return redirect('/main/delivery');
+        return redirect("/main/delivery");
     }
 
     public function createPDF(Request $request,$id)

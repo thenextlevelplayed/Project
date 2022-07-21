@@ -53,7 +53,7 @@
                            
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
-                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">@foreach ($number as $id){{$id}}@endforeach</td>
+                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">{{$delivery->drownumber}}</td>
                                     {{-- {{$d->firstName}} --}}
                                     <td>{{$delivery->cname}}</td>
                                      <td >
