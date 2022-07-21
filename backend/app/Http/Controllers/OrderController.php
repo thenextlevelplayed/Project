@@ -228,17 +228,16 @@ class OrderController extends Controller
         // ->where('detaillist.qid', '=', $orderID)
         // ->get();
 
-        // foreach($dtl as $item){
-        //     $item->quantity = $request->quantity;
-        //     $item->save();
-        // }
-        // dd($quotation );
-        for ($i=0 ; $i<count($$request->quantity); $i++){
-            $quotation = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
-            ->select('*')
-            ->where('detaillist.qid', '=', $orderID)
-            ->get();
+        dd($quotation);
+
+        // dd($request);
+        // dd($request->dlid[0]);
+
+        for ($i=0 ; $i<count($quotation); $i++){
+            $id = $quotation->where('detaillist.dlid', '=' , $request->dlid[$i])->first();
+            dd($id);
             $quotation[$i]->quantity = $request->quantity[$i];
+            $quotation->save();
         }
         // $quotation->quantity = $request->quantity[0];
         // $quotation->quantity = $request->quantity[1];
@@ -252,7 +251,7 @@ class OrderController extends Controller
         // $item->save();
         
         // $item->save();  
-        $quotation->save();
+    
         // dd($request);
         
         
