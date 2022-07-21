@@ -81,7 +81,7 @@
                                 <p>• 進貨管理</p>
                             </a>
                         </li>
-                        <li 
+                        {{-- <li 
                             <?php
                                 if($_SERVER['REQUEST_URI'] == '/main/sales'){
                                     echo  "class='active'";
@@ -91,7 +91,7 @@
                             <a href="/main/sales">
                                 <p>• 銷貨管理</p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li 
                             <?php
                                 if($_SERVER['REQUEST_URI'] == '/main/stock'){

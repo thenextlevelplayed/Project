@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -55,6 +55,7 @@ DROP TABLE IF EXISTS `bookdetail`;
 CREATE TABLE `bookdetail` (
   `bdetailid` int(11) NOT NULL AUTO_INCREMENT,
   `bid` int(11) DEFAULT NULL,
+  `mid` int(11) NOT NULL,
   `mname` varchar(100) NOT NULL,
   `quantity` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
@@ -70,7 +71,7 @@ CREATE TABLE `bookdetail` (
 
 LOCK TABLES `bookdetail` WRITE;
 /*!40000 ALTER TABLE `bookdetail` DISABLE KEYS */;
-INSERT INTO `bookdetail` VALUES (1,1,'ASUS ZenScreen Go MB16AWP',30,13900,'2022-07-13','Y'),(2,2,'DELL　Inspiron 13',23,33899,'2022-07-23','Y'),(3,2,'PowerEdge R740xd 機架式伺服器',64,432000,'2022-07-14','Y'),(4,2,'Dell PowerEdge 2U 標準 Bezel',56,1003,'2022-07-14','Y'),(5,3,'Veriton K8',65,321554,'2022-07-16','Y'),(6,3,'H7550ST',17,22900,'2022-07-16','Y'),(7,4,'Prestige 14 - A12U',48,38900,'2022-07-16','Y'),(8,4,'Katana GF66 - 12U',91,45900,'2022-07-16','Y'),(9,4,'MSI Pen',100,3090,'2022-07-16',NULL);
+INSERT INTO `bookdetail` VALUES (1,1,1,'ASUS ZenScreen Go MB16AWP',30,13900,'2022-07-13','Y'),(2,2,2,'DELL　Inspiron 13',23,33899,'2022-07-23','Y'),(3,2,3,'PowerEdge R740xd 機架式伺服器',64,432000,'2022-07-14','Y'),(4,2,4,'Dell PowerEdge 2U 標準 Bezel',56,1003,'2022-07-14','Y'),(5,3,5,'Veriton K8',65,321554,'2022-07-16','Y'),(6,3,6,'H7550ST',17,22900,'2022-07-16','Y'),(7,4,7,'Prestige 14 - A12U',48,38900,'2022-07-16','Y'),(8,4,8,'Katana GF66 - 12U',91,45900,'2022-07-16','Y'),(9,4,9,'MSI Pen',100,3090,'2022-07-16',NULL);
 /*!40000 ALTER TABLE `bookdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +127,7 @@ CREATE TABLE `delivery` (
   `ddate` date DEFAULT NULL,
   `drownumber` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`did`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +136,7 @@ CREATE TABLE `delivery` (
 
 LOCK TABLES `delivery` WRITE;
 /*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
-INSERT INTO `delivery` VALUES (1,'張珊珊','0433','台中市南屯區公益路二段51號25樓',1,'N',NULL,NULL),(2,'祥老大','04434343433','台中市南屯區公益路二段51號3樓',2,'N',NULL,NULL);
+INSERT INTO `delivery` VALUES (1,'張珊珊','0433','台中市南屯區公益路二段51號25樓',1,'N',NULL,NULL),(2,'祥老大','04434343433','台中市南屯區公益路二段51號3樓',2,'N',NULL,NULL),(3,'宇哥',NULL,NULL,3,'N',NULL,'KMD-20220716001'),(4,'宇哥',NULL,NULL,4,'N',NULL,'KMD-20220716002'),(5,'南瓜',NULL,NULL,5,'N',NULL,'KMD-20220727001'),(6,'張珊珊',NULL,NULL,6,'N',NULL,'KMD-20220727002'),(7,'祥老大',NULL,NULL,7,'N',NULL,'KMD-20220727003'),(8,'宇哥',NULL,NULL,8,'N',NULL,'KMD-20220721001');
 /*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,6 +174,35 @@ INSERT INTO `detaillist` VALUES (1,1,1,89,'楷模MB16AWP',5,20000,'ASUS MB16AWP'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `failed_jobs`
+--
+
+DROP TABLE IF EXISTS `failed_jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `failed_jobs`
+--
+
+LOCK TABLES `failed_jobs` WRITE;
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `inventory`
 --
 
@@ -187,6 +217,7 @@ CREATE TABLE `inventory` (
   `sid` int(11) NOT NULL,
   `mspecification` varchar(100) NOT NULL,
   `cost` int(11) NOT NULL,
+  `avgcost` int(11) DEFAULT NULL,
   `sumquantity` int(11) NOT NULL,
   `bdetailid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -200,7 +231,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,1,'ASUS ZenScreen Go MB16AWP','KM-987654321',1,'ASUS MB16AWP',13900,30,1,30),(2,2,'DELL　Inspiron 13','KM-123214215',2,'Inspiron 13',33899,23,2,23),(3,3,'PowerEdge R740xd 機架式伺服器','KM-492120864',2,'R740xd 機架式伺服器',432000,64,3,64),(4,4,'Dell PowerEdge 2U 標準 Bezel','KM-324823386',2,'PowerEdge 2U 標準 Bezel',1003,56,4,56),(5,5,'Veriton K8','KM-725848506',3,'Veriton K8',321554,65,5,65),(6,6,'H7550ST','KM-899364835',3,'MR.JKY11.00J',22900,17,6,17),(7,7,'Prestige 14 - A12U','KM-110808294',4,'Prestige 14 - A12U',38900,48,7,48),(8,8,'Katana GF66 - 12U','KM-175160920',4,'Katana GF66 - 12U',45900,91,8,91),(9,9,'MSI Pen','KM-252609029',4,'MSI Pen',3090,100,9,100);
+INSERT INTO `inventory` VALUES (1,1,'ASUS ZenScreen Go MB16AWP','KM-987654321',1,'ASUS MB16AWP',13900,0,30,1,30),(2,2,'DELL　Inspiron 13','KM-123214215',2,'Inspiron 13',33899,0,23,2,23),(3,3,'PowerEdge R740xd 機架式伺服器','KM-492120864',2,'R740xd 機架式伺服器',432000,0,64,3,64),(4,4,'Dell PowerEdge 2U 標準 Bezel','KM-324823386',2,'PowerEdge 2U 標準 Bezel',1003,0,56,4,56),(5,5,'Veriton K8','KM-725848506',3,'Veriton K8',321554,0,65,5,65),(6,6,'H7550ST','KM-899364835',3,'MR.JKY11.00J',22900,0,17,6,17),(7,7,'Prestige 14 - A12U','KM-110808294',4,'Prestige 14 - A12U',38900,0,48,7,48),(8,8,'Katana GF66 - 12U','KM-175160920',4,'Katana GF66 - 12U',45900,0,91,8,91),(9,9,'MSI Pen','KM-252609029',4,'MSI Pen',3090,0,100,9,100);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +300,7 @@ CREATE TABLE `manufacture` (
   `mstatus` varchar(100) DEFAULT NULL,
   `mrownumber` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`mid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -278,7 +309,7 @@ CREATE TABLE `manufacture` (
 
 LOCK TABLES `manufacture` WRITE;
 /*!40000 ALTER TABLE `manufacture` DISABLE KEYS */;
-INSERT INTO `manufacture` VALUES (1,'2022-07-17','Y',1,'無asdasdsad','Y',NULL),(2,'2022-08-13','Y',2,'無','Y',NULL),(3,'2022-07-20','N',1,NULL,'N',NULL);
+INSERT INTO `manufacture` VALUES (1,'2022-07-17','Y',1,'無asdasdsad','Y',NULL),(2,'2022-08-13','Y',2,'無','Y',NULL),(3,'2022-07-20','Y',3,NULL,'Y','KMM-20220716001'),(4,'2022-07-21','Y',4,NULL,'Y','KMM-20220716002'),(5,'2022-07-31','Y',5,NULL,'Y','KMM-20220727001'),(6,'2022-08-01','Y',6,NULL,'Y','KMM-20220727002'),(7,'2022-08-03','Y',7,NULL,'Y','KMM-20220727003'),(8,'2022-07-29','Y',8,NULL,'Y','KMM-20220721001');
 /*!40000 ALTER TABLE `manufacture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,6 +342,31 @@ INSERT INTO `material` VALUES (1,1,'ASUS ZenScreen Go MB16AWP','KM-987654321','A
 UNLOCK TABLES;
 
 --
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (5,'2014_10_12_000000_create_users_table',1),(6,'2014_10_12_100000_create_password_resets_table',1),(7,'2019_08_19_000000_create_failed_jobs_table',1),(8,'2019_12_14_000001_create_personal_access_tokens_table',1);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order`
 --
 
@@ -325,7 +381,7 @@ CREATE TABLE `order` (
   `ostatus` varchar(100) DEFAULT NULL,
   `orownumber` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`oid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,8 +390,64 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,'2022-07-17','2022-07-20',1,'Y',NULL),(2,'2022-08-10','2022-08-09',2,'Y',NULL);
+INSERT INTO `order` VALUES (1,'2022-07-17','2022-07-20',1,'Y',NULL),(2,'2022-08-10','2022-08-09',2,'Y',NULL),(3,'2022-07-20',NULL,4,'Y','KMO-20220716001'),(4,'2022-07-21',NULL,5,'Y','KMO-20220716002'),(5,'2022-07-31',NULL,6,'Y','KMO-20220727001'),(6,'2022-08-01',NULL,7,'Y','KMQ-20220727002'),(7,'2022-08-03',NULL,8,'Y','KMQ-20220727003'),(8,'2022-07-29','0000-00-00',9,'Y','KMQ-20220721001'),(9,'2022-07-20',NULL,4,'Y','KMO-20220716001'),(10,'2022-07-21',NULL,5,'Y','KMO-20220716002'),(11,'2022-07-31',NULL,6,'Y','KMO-20220727001'),(12,'2022-08-01',NULL,7,'Y','KMO-20220727002'),(13,'2022-08-03',NULL,8,'Y','KMO-20220727003'),(14,'2022-07-29',NULL,9,'Y','KMO-20220721001');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+DROP TABLE IF EXISTS `personal_access_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+LOCK TABLES `personal_access_tokens` WRITE;
+/*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -352,11 +464,11 @@ CREATE TABLE `quotation` (
   `qcontact` varchar(100) NOT NULL,
   `cmail` varchar(100) DEFAULT NULL,
   `staffid` int(11) DEFAULT NULL,
-  `dlid` int(11) DEFAULT NULL,
+  `dlid` int(11) NOT NULL,
   `rid` int(11) DEFAULT NULL,
   `qstatus` varchar(100) DEFAULT NULL,
   `qrownumber` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`qid`)
+  PRIMARY KEY (`qid`,`dlid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -366,7 +478,7 @@ CREATE TABLE `quotation` (
 
 LOCK TABLES `quotation` WRITE;
 /*!40000 ALTER TABLE `quotation` DISABLE KEYS */;
-INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,1,89,'Y',NULL),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,2,50,'Y',NULL),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,NULL,NULL,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,NULL,NULL,'N','KMQ-20220723002');
+INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,4,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,5,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,6,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,22,NULL,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,7,NULL,'Y','KMQ-20220716002'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,8,NULL,'Y','KMQ-20220716002'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',NULL,9,NULL,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,10,NULL,'Y','KMQ-20220727001'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,11,NULL,'Y','KMQ-20220727001'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',NULL,12,NULL,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,13,NULL,'Y','KMQ-20220727002'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,14,NULL,'Y','KMQ-20220727002'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',NULL,15,NULL,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,16,NULL,'Y','KMQ-20220727003'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,17,NULL,'Y','KMQ-20220727003'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',NULL,18,NULL,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,19,NULL,'Y','KMQ-20220721001'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,20,NULL,'Y','KMQ-20220721001'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',NULL,21,NULL,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,23,NULL,'Y','KMQ-20220721002'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,24,NULL,'Y','KMQ-20220721002'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',NULL,25,NULL,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',NULL,26,NULL,'Y','KMQ-20220721003'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',NULL,27,NULL,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,28,NULL,'Y','KMQ-20220723001'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,29,NULL,'Y','KMQ-20220723001'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,30,NULL,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,31,NULL,'N','KMQ-20220723002'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,32,NULL,'N','KMQ-20220723002'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,33,NULL,'N','KMQ-20220723002');
 /*!40000 ALTER TABLE `quotation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -447,6 +559,36 @@ LOCK TABLES `supplier` WRITE;
 INSERT INTO `supplier` VALUES (1,'ASUS','ASUS@gmail.com','021234567'),(2,'DELL','DELL@gmail.com','022132150'),(3,'Acer','Acer@gmail.com','045458864'),(4,'Msi','Msi@gmail.com','046348564');
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -457,4 +599,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-21  1:35:34
+-- Dump completed on 2022-07-21 14:52:41

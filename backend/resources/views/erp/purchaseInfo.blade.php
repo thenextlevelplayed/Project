@@ -128,21 +128,18 @@
                                             @foreach ($detail as $det)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td class="col-2"> {{ $det->mName }}</td>
-                                                    <td class="col-2"> {{ $det->mNumber }}</td>
+                                                    <td class="col-2"> {{ $det->mname }}</td>
+                                                    <td class="col-2"> {{ $det->mnumber }}</td>
                                                     <td class="col-2"> {{ $det->quantity }}</td>
                                                     <td class="col-2"> {{ $det->cost }}</td>
                                                     <td class="col-2"> {{ $det->quantity * $det->cost }}</td>
                                                     <td class="col-2"> <?php
                                                     
                                                     if ($det->pStatus == 'Y') {
-                                                        echo "<span class='badge bg-success'>
-                                                            已入庫
-                                                            </span>";
+                                                        echo "<span class='badge bg-success'>已入庫</span>";
                                                     } else {
-                                                        echo "<span class='badge bg-danger'>
-                                                            未入庫
-                                                            </span>";
+                                                        //點集 入庫並寫入庫存表
+                                                        echo "<span class='badge bg-danger stockin'>未入庫</span>";
                                                     }
                                                     ?>
                                                     </td>

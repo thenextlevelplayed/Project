@@ -20,6 +20,9 @@ class purchaseController extends Controller
         $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
             ->get();
 
+        // $detail = Bookdetail::select("")
+
+
         // dd($book);
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
@@ -45,7 +48,7 @@ class purchaseController extends Controller
         //今日日期跟Sql比較 (YYYY-MM-DD)
         $day = date("Y-m-d");
         //從資料庫讀取當天進貨單數量有幾筆
-        $bDay = count(Book::all()->where('bDate', '=', $day));
+        $bDay = count(Book::all()->where('bdate', '=', $day));
 
         //資料庫今天有幾筆
         if ($bDay > 0) {
@@ -91,8 +94,8 @@ class purchaseController extends Controller
             'bookdate' => $req->bookdate,
             'staffname' => $req->staffname,
             'remark' => $req->remark,
-            'bDate' => date("Y-m-d"),
-            'KMPid' => $req->KMPid
+            'bdate' => date("Y-m-d"),
+            'kmpid' => $req->KMPid
         ]);
 
         // dd($book->id);
@@ -113,14 +116,14 @@ class purchaseController extends Controller
     {
         //進貨資訊
         $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
-            ->select('book.bid', 'book.KMPid', 'book.staffName', 'book.bookDate', 'supplier.*', 'book.remark')
+            ->select('book.bid', 'book.kmpid', 'book.staffname', 'book.bookdate', 'supplier.*', 'book.remark')
             ->where('book.bid', '=', $purchaseID)
             ->get();
 
         //進貨明細資訊
         $detail = Book::join("bookDetail", 'bookDetail.bid', '=', 'book.bid')
             ->join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.pStatus')
+            ->select('bookDetail.mname', 'inventory.mnumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.pstatus')
             ->where('book.bid', '=', $purchaseID)
             ->get();
 
@@ -163,19 +166,21 @@ class purchaseController extends Controller
     {
         //進貨資訊
         $info = Book::join('supplier', 'supplier.sid', '=', 'book.sid')
-            ->select('book.bid', 'book.staffName', 'book.bookDate', 'supplier.*')
+            ->select('book.bid', 'book.staffName', 'book.bookdate', 'supplier.*')
             ->where('book.bid', '=', $purchaseID)
             ->get();
 
         //進貨明細資訊
         $detail = Bookdetail::join("inventory", "inventory.mName", '=', 'bookDetail.mName')
-            ->select('bookDetail.mName', 'inventory.mNumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.pStatus', 'bookDetail.bDetailId')
+            ->select('bookDetail.mname', 'inventory.mnumber', 'bookDetail.quantity', 'bookDetail.cost', 'bookDetail.pstatus', 'bookDetail.bdetailId')
             ->where('bookDetail.bid', '=', $purchaseID)
             ->get();
 
         //進貨明細修改,用資料庫book detail PK判斷
         // 1.原本資料庫就有UpData
         // 2.沒有新增Create
+
+        // dd($req);
 
         for ($i = 0; $i < count($req->mName); $i++) {
 
@@ -190,26 +195,20 @@ class purchaseController extends Controller
                 $PkOfDetail->cost = $req->cost[$i];
                 $PkOfDetail->pStatus = $req->pStatus[$i];
                 $PkOfDetail->save();
-
-                return redirect("/main/purchase/$purchaseID");
             } else {
 
-                // Bookdetail::create([
-                //     'bid' => $purchaseID,
-                //     'mName' => $req->mName[$i],
-                //     'quantity' => $req->quantity[$i],
-                //     'cost' => $req->cost[$i],
-                //     'stockIn' => $req->stockIn[$i]
-                // ]);
-
-                // inventory::create([
-                //     'mNumber' => $req->mNumber[$i]
-                // ]);
-
+                Bookdetail::insert([
+                    'bid' => $purchaseID,
+                    'mname' => $req->mName[$i],
+                    'quantity' => $req->quantity[$i],
+                    'cost' => $req->cost[$i],
+                    'pstatus' => $req->pStatus[$i],
+                    'mnumber' =>  $req->mNumber[$i]
+                ]);
             }
         }
 
-
+        return redirect("/main/purchase/$purchaseID");
         // dd($detail);
 
         // dd($req->mName[0]);

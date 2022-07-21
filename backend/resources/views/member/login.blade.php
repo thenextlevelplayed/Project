@@ -13,6 +13,7 @@
         #body {
             background-color: #E8EDF0;
             height: 100vh;
+            background-image: url("");
         }
 
         .loginBox {
