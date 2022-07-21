@@ -55,7 +55,7 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>報價日期</p></div>
                                         <div class="col-lg-8">
-                                            <input type="text" class="" required>
+                                            <input type="date" class="" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
