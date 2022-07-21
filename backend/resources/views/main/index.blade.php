@@ -1,10 +1,22 @@
+{{-- navbar引入 --}}
 @extends('main.navbar')
 
-@section('header')
+{{-- head帶入 --}}
+@section('main.head')
+
 @endsection
 
-@section('contant')
+@section('navTitle')
 
-<h1>歡迎進入楷模資訊後臺系統</h1>
+@endsection
+
+
+@section('content')
+
+<div class = "container-fluid border mainView content">
+<h2>歡迎回來，{{ Session::get('name') }}<br>請點選左方選單列按鈕開始使用！</h2>
+    <img src="assets\img\teamwork.png" alt="">
+</div>
+
 
 @endsection

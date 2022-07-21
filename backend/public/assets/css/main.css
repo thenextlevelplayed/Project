@@ -1,0 +1,21 @@
+.mainView {
+    height:80%;
+    text-align: center;
+}
+
+.mainView h2{
+    position: relative;
+    top:30%;
+    font-size: 25px;
+    font-weight: 400;
+    color:#757575;
+    line-height: 35px;
+    
+}
+
+.mainView img{
+    position:relative;
+    top:30%;
+    height:300px;
+}
+

@@ -339,7 +339,7 @@
                     },
                     success: function(response) {
                         if (response) {
-
+                            // console.log(response);
                             ListData[(Pindex - 1)].mNumber = response.mnumber;
                             Refresh()
                         }
