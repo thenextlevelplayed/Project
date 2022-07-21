@@ -1,1 +1,0 @@
-INSERT INTO`quotation` VALUES (4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,4,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,5,NULL,'Y','KMQ-20220716001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',NULL,6,NULL,'Y','KMQ-20220716001');

@@ -136,7 +136,7 @@ CREATE TABLE `delivery` (
 
 LOCK TABLES `delivery` WRITE;
 /*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
-INSERT INTO `delivery` VALUES (1,'張珊珊','0433','台中市南屯區公益路二段51號25樓',1,'N',NULL,NULL),(2,'祥老大','04434343433','台中市南屯區公益路二段51號3樓',2,'N',NULL,NULL),(3,'宇哥',NULL,NULL,3,'N',NULL,'KMD-20220716001'),(4,'宇哥',NULL,NULL,4,'N',NULL,'KMD-20220716002'),(5,'南瓜',NULL,NULL,5,'N',NULL,'KMD-20220727001'),(6,'張珊珊',NULL,NULL,6,'N',NULL,'KMD-20220727002'),(7,'祥老大',NULL,NULL,7,'N',NULL,'KMD-20220727003'),(8,'宇哥',NULL,NULL,8,'N',NULL,'KMD-20220721001');
+INSERT INTO `delivery` VALUES (1,'877','043333333','台中市南屯區公益路二段51號25樓',1,'N','2022-07-09',NULL),(2,'祥老大','04434343433','台中市南屯區公益路二段51號3樓',2,'N',NULL,NULL),(3,'祥老大','04434343433','台中市南屯區公益路二段51號3樓',3,'N','2022-07-03','KMD-20220716001'),(4,'宇哥','19941994','33333',4,'N',NULL,'KMD-20220716002'),(5,'南瓜','0485555684',NULL,5,'N',NULL,'KMD-20220727001'),(6,'877','043333333','台中市南屯區公益路二段51號25樓',6,'N',NULL,'KMD-20220727002'),(7,'祥老大','04434343','台中市南屯區公益路二段51號3樓',7,'N',NULL,'KMD-20220727003'),(8,'宇哥','19941994','臺中市中區建國路172號',8,'N',NULL,'KMD-20220721001');
 /*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -464,7 +464,6 @@ CREATE TABLE `quotation` (
   `qcontact` varchar(100) NOT NULL,
   `cmail` varchar(100) DEFAULT NULL,
   `staffid` int(11) DEFAULT NULL,
-  `dlid` int(11) NOT NULL,
   `rid` int(11) DEFAULT NULL,
   `qstatus` varchar(100) DEFAULT NULL,
   `qrownumber` varchar(100) DEFAULT NULL,
@@ -478,7 +477,7 @@ CREATE TABLE `quotation` (
 
 LOCK TABLES `quotation` WRITE;
 /*!40000 ALTER TABLE `quotation` DISABLE KEYS */;
-INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',1,4,0,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',2,7,NULL,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',1,10,NULL,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',1,13,NULL,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',2,16,NULL,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',2,19,NULL,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',1,23,NULL,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',2,26,NULL,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,28,NULL,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,31,NULL,'N','KMQ-20220723002');
+INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',1,50,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',2,50,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',1,50,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',1,50,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',2,50,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',2,50,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',1,50,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',2,50,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,50,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,50,'N','KMQ-20220723002');
 /*!40000 ALTER TABLE `quotation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -599,4 +598,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-21 16:20:06
+-- Dump completed on 2022-07-22  1:21:55
