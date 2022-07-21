@@ -123,6 +123,7 @@ class OrderController extends Controller
         //     ->get();
        
 
+        // $order = Order::all();
 
             $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
             if ($search_text != ""){
@@ -131,6 +132,7 @@ class OrderController extends Controller
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
                 ->where('oid','LIKE','%'.$search_text.'%')
                 ->orWhere('cname','LIKE','%'.$search_text.'%')
+                ->orderby('oid')
                 ->get();
                 
             }
@@ -138,10 +140,11 @@ class OrderController extends Controller
                 $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
                 ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->orderby('oid')
                 ->get();
                             
             };
-        $order = Order::all();
+        
 
         return view('main.order', compact('order'));
     }
