@@ -13,9 +13,13 @@
         #body {
             background-color: #E8EDF0;
             height: 100vh;
+            background-image: url('https://cdn.pixabay.com/photo/2016/11/29/11/34/skyline-1869214_1280.jpg');
+            background-size: cover;
+            
         }
 
         .loginBox {
+            height: 100vh;
         }
 
         #loginForm {
@@ -24,8 +28,10 @@
             padding: 25px;
             background-color: #FFF;
             border-radius: 10px;
-            margin-left: 50%;
-            transform: translateX(-50%);
+            overflow: hidden;
+            margin-top:50%;
+            margin-left:50%;
+            transform: translate(-50%,-25%);    
         }
 
         .textColor {
@@ -58,18 +64,17 @@
 
     <div id="body">
         <div id="login">
-            <h1 class="text-center pt-5 textColor">後台管理系統</h1>
             <div class="container">
-                <div id="loginRow" class="row justify-content-center align-items-center border">
+                <div id="loginRow" class="row justify-content-center align-items-center">
                     <div id="loginCol" class="col-md-6">
-                        <div class="loginBox col-md-12 border">
-
-                            <form id="loginForm" class="form border shadow" action="/member/login" method="post">
+                        <div class="loginBox col-md-12">
+                            
+                            <form id="loginForm" class="form shadow" action="/member/login" method="post">
                                 @csrf
                                 <div class="logo">
 
                                 </div>
-                                <h3 class="text-center textColor">後台管理系統</h3>
+                                <h3 class="text-center textColor">後台系統</h3>
                                 <div class="form-group">
                                     <label for="account" class="textColor">帳號 Account:</label><br>
                                     <input type="text" name="account" id="account" class="form-control"
@@ -80,6 +85,7 @@
                                     <input type="password" name="passwd" id="passwd" class="form-control"
                                         placeholder="請輸入密碼" value="{{ Cookie::get('passwd') }}">
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="rememberMe" class="textColor">Remember Me</label>
                                     <span><input id="rememberMe" name="rememberMe" type="checkbox" {{ Cookie::get('rememberMe') }}></span><br>

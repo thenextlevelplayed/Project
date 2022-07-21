@@ -216,6 +216,7 @@
         var users = {!! json_encode($detail->toArray()) !!};
         let ListData = users;
 
+        console.log(ListData);
         //頁面進來,更新畫面
         Refresh()
 
@@ -240,7 +241,6 @@
                         <input type="hidden" name="did[]" value="${ListData[i].bDetailId}">
                     </tr>
                 `)
-
             }
 
 
