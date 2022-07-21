@@ -49,7 +49,7 @@ Route::get('/main/purchase/{purchaseID}', "App\Http\Controllers\purchaseControll
 Route::get('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEdit"); //進貨單編輯
 Route::post('/purchase/mNumber', "App\Http\Controllers\purchaseController@mNumber"); //mNumber查詢
 Route::put('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEditPost"); //進貨單編輯更新
-Route::get('/main/sales', "App\Http\Controllers\purchaseController@sales"); //銷貨單列表
+Route::post('/purchase/stockIn', "App\Http\Controllers\purchaseController@stockIn"); //入庫寫入庫存表
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
 
 //報價
