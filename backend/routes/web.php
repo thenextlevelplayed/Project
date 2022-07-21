@@ -73,6 +73,11 @@ Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manu
 Route::get('/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureEdit");
 Route::put('/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureUpdate"); //更新
 
+//news
+Route::get('/main/news', "App\Http\Controllers\NewsController@news");
+Route::get('/news/edit/{newsId}', "App\Http\Controllers\NewsController@newsEdit");
+Route::put('/news/edit/{newsId}', "App\Http\Controllers\NewsController@newsUpdate"); //更新
+
 
 
 //出貨

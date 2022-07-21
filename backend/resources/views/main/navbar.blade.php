@@ -178,7 +178,7 @@
                             </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/main/news">
                             <i class="now-ui-icons text_caps-small"></i>
                             <p>前台消息管理</p>
                         </a>
