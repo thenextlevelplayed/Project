@@ -65,7 +65,9 @@
                                             <p>報價日期</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="date" required value="{{ $quotationInfo->qdate }}">
+                                            <fieldset disabled>
+                                                <input type="date" required value="{{ $quotationInfo->qdate }}">
+                                            </fieldset>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
