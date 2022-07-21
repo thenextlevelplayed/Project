@@ -122,35 +122,39 @@ class QuotationController extends Controller
     //報價資訊
     function quotationInfo($quotationId)
     {
+        // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
-            // ->find($quotationId)
-            ->where('quotation.qid', '=', $quotationId)
-            ->get();
-        foreach ($quotationInfo as $key => $quotationInfo) {
-            // dd($value);
-            # code...
-        }
+            ->find($quotationId);
+        
+        // 根據qid撈每一張報價單的明細
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $quotationInfo->qid)
+        ->get();
+        
 
-        // dd($quotationInfo);
-        return view('quotation.quotationInfo', compact('quotationInfo'));
+        return view('quotation.quotationInfo', compact('quotationInfo','quotation'));
     }
 
     //報價編輯
     function quotationEdit($quotationId)
     {
+        // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
             ->find($quotationId);
+        
+        // 根據qid撈每一張報價單的明細
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $quotationInfo->qid)
+        ->get();
         //撈明細資料
         $dtl = Detaillist::find($quotationId);
-        return view('quotation.quotationEdit',compact('quotationInfo','dtl'));
+        return view('quotation.quotationEdit',compact('quotationInfo','quotation','dtl'));
     }    
 
     // 報價更新
@@ -182,34 +186,38 @@ class QuotationController extends Controller
     //匯出報價PDF
     public function createQuotationPDF(Request $request,$quotationId)
     {
+        // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
             ->find($quotationId);
+        
+        // 根據qid撈每一張報價單的明細
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $quotationInfo->qid)
+        ->get();
 
-        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
+        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo','quotation'));
         return $pdf->download();
     }
     
     //預覽報價PDF
     public function viewQuotationPDF(Request $request,$quotationId)
     {
+        // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
             ->find($quotationId);
-            // ->get();
+        
+        // 根據qid撈每一張報價單的明細
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $quotationInfo->qid)
+        ->get();
 
-        // foreach ($quotation as $key => $quotationInfo) {
-        //     // dd($value);
-        //     # code...
-        // }
-
-        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo'));
+        $pdf = PDF::loadView('pdf.quotationInfo', compact('quotationInfo','quotation'));
         return $pdf->stream();
     }
 

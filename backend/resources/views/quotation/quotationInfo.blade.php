@@ -23,7 +23,7 @@
             <div class="col-md-12">
                 <form class="card">
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 報價明細</h4>
+                        <h4 class="card-title text-center"> 楷模資訊 報價明細</h4>
                     </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -51,8 +51,12 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
-                                            <div class="col-lg-3"><p>報價日期</p></div>
-                                            <div class="col-lg-8">{{$quotationInfo->qdate}}</div>
+                                            <div class="col-lg-3"><p>報價日期</p></div>                                              
+                                            <div class="col-lg-8">
+                                                <fieldset disabled>
+                                                    <input type="date" required value="{{ $quotationInfo->qdate }}">
+                                                </fieldset>
+                                            </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>聯絡人</p></div>
@@ -130,7 +134,7 @@
                             </div>
                             <div>
                                 <div class="mb-3">
-                                    <h4>||　凱茂方案</h4>
+                                    <h4>||　楷模方案</h4>
                                 </div>
                                 <div  class="row mb-3">
                                     <div class="col-lg-6">
@@ -145,7 +149,7 @@
                                             <div class="col-lg-8">{{$quotationInfo->staffid}}</div>
                                         </div>
                                         <div class="row mb-1">
-                                            <div class="col-lg-3"><p>凱茂信箱</p></div>
+                                            <div class="col-lg-3"><p>楷模信箱</p></div>
                                             <div class="col-lg-8"><p>kaimoo888.gmail.com</p></div>
                                         </div>
                                     </div>

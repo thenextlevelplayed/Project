@@ -13,20 +13,34 @@
         #body {
             background-color: #E8EDF0;
             height: 100vh;
-            background-image: url("");
+            overflow:hidden;
+            background-image: url({{ URL::asset('assets/img/skyline-1869214_1920.jpg') }});
+            background-size: cover;
+            
+            
+        }
+        .logo img{
+            width:100px;
+            position: relative;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
         }
 
         .loginBox {
+            height: 100vh;
         }
 
         #loginForm {
             width:400px;
-            height:600px;
+            height:650px;
             padding: 25px;
             background-color: #FFF;
             border-radius: 10px;
-            margin-left: 50%;
-            transform: translateX(-50%);
+            overflow: hidden;
+            margin-top:50%;
+            margin-left:50%;
+            transform: translate(-50%,-25%);    
         }
 
         .textColor {
@@ -34,7 +48,7 @@
         }
         
         .logo{
-            height:200px;
+            height:250px;
             width:100%;
         }
 
@@ -44,6 +58,10 @@
             padding-top:30px;
             font-size: 15px
             
+        }
+
+        .loginBox h3{
+            font-size:25px;
         }
 
     </style>
@@ -59,18 +77,17 @@
 
     <div id="body">
         <div id="login">
-            <h1 class="text-center pt-5 textColor">後台管理系統</h1>
             <div class="container">
-                <div id="loginRow" class="row justify-content-center align-items-center border">
+                <div id="loginRow" class="row justify-content-center align-items-center">
                     <div id="loginCol" class="col-md-6">
-                        <div class="loginBox col-md-12 border">
-
-                            <form id="loginForm" class="form border shadow" action="/member/login" method="post">
+                        <div class="loginBox col-md-12">
+                            
+                            <form id="loginForm" class="form shadow" action="/member/login" method="post">
                                 @csrf
                                 <div class="logo">
-
+                                    <img src="{{ URL::asset('assets/img/kaimo.png') }}" alt="">
                                 </div>
-                                <h3 class="text-center textColor">後台管理系統</h3>
+                                <h3 class="text-center textColor">後台系統</h3>
                                 <div class="form-group">
                                     <label for="account" class="textColor">帳號 Account:</label><br>
                                     <input type="text" name="account" id="account" class="form-control"
@@ -81,6 +98,7 @@
                                     <input type="password" name="passwd" id="passwd" class="form-control"
                                         placeholder="請輸入密碼" value="{{ Cookie::get('passwd') }}">
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="rememberMe" class="textColor">Remember Me</label>
                                     <span><input id="rememberMe" name="rememberMe" type="checkbox" {{ Cookie::get('rememberMe') }}></span><br>
