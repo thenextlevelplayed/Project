@@ -155,10 +155,10 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/quotation/pdf/view/{quotationId}">
+                <a class="btn btn-primary " href="/quotation/pdf/view/{{$quotationInfo->qid}}">
                     <span>預覽PDF</span>
                 </a>
-                <a class="btn btn-primary" href="/main/quotation/pdf/{quotationId}">
+                <a class="btn btn-primary" href="/main/quotation/pdf/{{$quotationInfo->qid}}">
                     <span>匯出PDF</span>
                 </a>
             </div>
