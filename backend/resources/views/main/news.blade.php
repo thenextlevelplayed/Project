@@ -36,11 +36,9 @@
                                         消息內容
                                     </th>
                                     <th>
-                                        圖片
-                                    </th>
-                                    <th>
                                     查看/編輯
                                     </th>
+  
                                 </thead>
                                 <tbody>
                                     @foreach($news as $n)
@@ -61,9 +59,7 @@
                                                 aria-hidden="true"></i></button>
                                             </a>
                                         </td>
-                                        <td>
-                                        {{$n->img}} 
-                                        </td>
+
                                     </tr>                               
                                     @endforeach
                                 </tbody>

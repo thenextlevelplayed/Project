@@ -583,10 +583,23 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
+DROP TABLE IF EXISTS `news`;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+CREATE TABLE `news` (
+  `newsid` int(11) NOT NULL,
+  `title` varchar(300) NOT NULL,
+  `content` varchar(300) NOT NULL,
+  `img` varchar(300) NOT NULL,
+  PRIMARY KEY (`newsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `news` WRITE;
+/*!40000 ALTER TABLE `news` DISABLE KEYS */;
+INSERT INTO `news` (`newsid`, `title`, `content`, `img`) VALUES
+(1, '這是標題01', '這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101', ''),
+(2, '標題標題02', '內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02', ''),
+(3, '標題標題03', '內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03', '');
+/*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
