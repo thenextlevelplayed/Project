@@ -122,21 +122,20 @@ class QuotationController extends Controller
     //報價資訊
     function quotationInfo($quotationId)
     {
+        // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('rebate', 'rebate.rid', '=', 'quotation.rid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->select('*')
-            // ->find($quotationId)
-            ->where('quotation.qid', '=', $quotationId)
-            ->get();
-        foreach ($quotationInfo as $key => $quotationInfo) {
-            // dd($value);
-            # code...
-        }
+            ->find($quotationId);
+        
+        // 根據qid撈每一張報價單的明細
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $quotationInfo->qid)
+        ->get();
+        
 
-        // dd($quotationInfo);
-        return view('quotation.quotationInfo', compact('quotationInfo'));
+        return view('quotation.quotationInfo', compact('quotationInfo','quotation'));
     }
 
     //報價編輯
