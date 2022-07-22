@@ -27,14 +27,14 @@ use Illuminate\Support\Facades\Hash;
 Route::get('/', "App\Http\Controllers\memberController@login");
 Route::get('/member/login', "App\Http\Controllers\memberController@login");
 Route::post('/member/login', "App\Http\Controllers\memberController@loginPost");
-
-
 //登出
 Route::get('/member/logout', "App\Http\Controllers\memberController@logout");
-
-
+//帳號管理頁
+Route::get('/member/memberInfo/{name}', "App\Http\Controllers\memberController@memberInfo");
 //管理員新增帳號
 Route::get('/member/create', "App\Http\Controllers\memberController@create");
+
+
 
 
 //後台主畫面
@@ -58,6 +58,7 @@ Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotatio
 Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視報價單
 Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯報價單
 // Route::put('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEditCreate"); //編輯報價單-新增明細項目
+Route::put('/quotation/edit/{quotationId}', "App\Http\Controllers\purchaseController@quotationEditPost"); //報價單-明細更新
 Route::put('/main/quotation/edit/{quotationId}', "App\Http\Controllers\quotationController@quotationUpdate"); //更新
 
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增報價單
@@ -115,8 +116,8 @@ Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\OrderController@cre
 Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\OrderController@viewOrderPDF"); // 預覽pdf
 
 //pdf manufacture
-Route::get('/main/manufacture/pdf/{manufactureId}',"App\Http\Controllers\BackendController@createManufacturePDF"); // 下載pdf
-Route::get('/main/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\BackendController@viewManufacturePDF"); // 預覽pdf
+Route::get('/manufacture/pdf/{manufactureId}',"App\Http\Controllers\ManufactureController@createManufacturePDF"); // 下載pdf
+Route::get('/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\ManufactureController@viewManufacturePDF"); // 預覽pdf
 
 //寄信
 Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryController@upload");//寄信

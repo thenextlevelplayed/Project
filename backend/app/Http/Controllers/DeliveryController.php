@@ -90,6 +90,9 @@ class DeliveryController extends Controller
         ->get();
 
 
+
+
+
         return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo'));
     }
 
@@ -137,30 +140,39 @@ class DeliveryController extends Controller
         return redirect("/main/delivery");
     }
 
-    public function createPDF(Request $request,$id)
+    public function createPDF($deliveryId)
     {
-        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->find($id);
+        // $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        // ->join('order','order.oid','=','manufacture.oid')
+        // ->join('quotation','quotation.qid','=','order.qid')
+        // ->select('*')
+        // ->find($deliveryId);
+        // // dd($deliveryInfo);
 
+        // $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        // ->select('*')
+        // ->where('detaillist.qid','=',$deliveryInfo->qid)
+        // ->get();
 
-        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
-        return $pdf->download();
+        // $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
+        // return $pdf->download();
     }
 
-    public function viewPDF (Request $request,$id) {
+    public function viewPDF ($deliveryId) {
         $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
         ->join('order','order.oid','=','manufacture.oid')
         ->join('quotation','quotation.qid','=','order.qid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
         ->select('*')
-        ->find($id);
-        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
+        ->find($deliveryId);
+        dd($deliveryInfo);
+
+        $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid','=',$deliveryInfo->qid)
+        ->get();
+
+        // dd($detaillistInfo);
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
         return $pdf->stream();
     }
 
@@ -236,5 +248,5 @@ foreach($count[0] as $qdatecount){
 
 $number=$qdatecount+1 ;// 報價單流水編號
 $head='KMD';
-echo generateid($number,$date,$head).'<br />';
+// echo generateid($number,$date,$head).'<br />';
 ///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me

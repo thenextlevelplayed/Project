@@ -1,10 +1,14 @@
-
+.vh100{
+    height:84vh;
+    overflow: hidden;
+}
 
 
 .mainView {
     text-align: center;
     margin-top: 45vh;
     transform: translateY(-50%);
+    
 }
 
 .mainView h2{

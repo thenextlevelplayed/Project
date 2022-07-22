@@ -32,83 +32,7 @@ use Illuminate\Support\Facades\File;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class QuotationController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Quotation  $quotation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Quotation $quotation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Quotation  $quotation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Quotation $quotation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Quotation  $quotation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Quotation $quotation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Quotation  $quotation
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Quotation $quotation)
-    {
-        //
-    }
-    
+{    
     //報價管理
     function quotation()
     {
@@ -155,19 +79,33 @@ class QuotationController extends Controller
         //撈明細資料
         $dtl = Detaillist::find($quotationId);
         return view('quotation.quotationEdit',compact('quotationInfo','quotation','dtl'));
-    }    
+    }
 
-    // 報價單更新
-    public function quotationUpdate(Request $request,$quotationId){
-        $dtl = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
-        ->select('*')
-        ->find($quotationId);
-        
-        $dtl->quantity = $request->quantity;
-        $dtl->save();  
-        
-        // dd($dtl);
-        return redirect('/main/quotation');
+    // 報價單明細修改
+    function quotationEditPost(Request $req, $quotationId)
+    {
+        // 1.Drop 掉全部
+        Quotation::select('*')
+            ->where('quotation.qid', '=', $quotationId)
+            ->delete();
+        // 2.重新新增
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $mid = Material::select('mid')
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
+
+            Quotation::insert([
+                'qid' => $quotationId,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'cost' => $req->cost[$i],
+                'mid' => $mid->mid,
+                'pstatus' => $req->pStatus[$i]
+            ]);
+        }
+
+        return redirect("/main/quotation/$quotationId");
     }
 
     //新增報價單

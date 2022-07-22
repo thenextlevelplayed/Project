@@ -233,14 +233,18 @@ class purchaseController extends Controller
     function stockInfo($mId)
     {
 
-        
 
-        $bookDetail = Bookdetail::select('*')
+        $inventory = Inventory::select('*')
         ->where('mid','=',$mId)
+        ->first();           
+
+        $stockDetail = Bookdetail::join('book','book.bid','=','bookdetail.bid')
+        ->where('mid','=',$mId)
+        ->where('pstatus','=','Y')
         ->get();
 
-        dd($bookDetail);
+        // dd($stockDetail);
 
-        return view('erp.stockInfo');
+        return view('erp.stockInfo',compact('inventory','stockDetail'));
     }
 }
