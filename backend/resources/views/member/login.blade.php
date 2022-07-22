@@ -14,7 +14,7 @@
             background-color: #E8EDF0;
             height: 100vh;       
             background-size: cover;
-            background-image: url('assets/img/skyline-1869214_1920.jpg');   
+            background-image: url('/assets/img/skyline-1869214_1920.jpg');   
         }
 
         .logo img{

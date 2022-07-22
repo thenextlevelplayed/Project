@@ -52,11 +52,7 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>報價日期</p></div>                                              
-                                            <div class="col-lg-8">
-                                                <fieldset disabled>
-                                                    <input type="date" required value="{{ $quotationInfo->qdate }}">
-                                                </fieldset>
-                                            </div>
+                                            <div class="col-lg-8">{{ $quotationInfo->qdate }}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>聯絡人</p></div>
@@ -104,25 +100,7 @@
                                                         echo $total;?>
                                                     </td>
                                                     <td>{{$quotationInfo->remark}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>                                            
+                                                </tr>                                        
                                             </tbody>
                                         </table> 
                                     </div>
@@ -159,6 +137,9 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
+                <a class="btn btn-primary " href="/main/quotation">
+                    <span>返回</span>
+                </a>
                 <a class="btn btn-primary " href="/quotation/pdf/view/{{$quotationInfo->qid}}">
                     <span>預覽PDF</span>
                 </a>
