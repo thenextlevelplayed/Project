@@ -127,8 +127,7 @@ class OrderController extends Controller
 
             $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
             if ($search_text != ""){
-            $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
                 ->where('oid','LIKE','%'.$search_text.'%')
                 ->orWhere('cname','LIKE','%'.$search_text.'%')
@@ -137,13 +136,14 @@ class OrderController extends Controller
                 
             }
             else{
-                $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-                ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+                $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
                 ->orderby('oid')
                 ->get();
                             
             };
+        // $order = Order::all();
+
         
 
         return view('main.order', compact('order'));
@@ -252,7 +252,7 @@ class OrderController extends Controller
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('detaillist','detaillist.qid','=','quotation.qid')
         ->select('*')
         ->find($orderID);
 
@@ -266,7 +266,7 @@ class OrderController extends Controller
         ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
+        ->join('detaillist','detaillist.qid','=','quotation.qid')
         ->select('*')
         ->find($orderID);
 
