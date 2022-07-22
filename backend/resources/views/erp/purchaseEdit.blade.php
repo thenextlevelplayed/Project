@@ -7,16 +7,17 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="" method="post">
+                <form class="card p-5" action="" method="post">
                     @csrf
                     @method('PUT')
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 進貨單編輯</h4>
+                        <h4 class="card-title text-center"> 楷模資訊 進貨單編輯</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-3">
                                 <h5>進貨單資訊</h5>
+                                <hr>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -66,8 +67,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 mt-3">
                                 <h5>廠商資訊</h5>
+                                <hr>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-lg-6">
@@ -109,8 +111,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 mt-3">
                                 <h5>進貨明細</h5>
+                                <hr>
                             </div>
                             <div class="col-lg-12">
                                 <div>

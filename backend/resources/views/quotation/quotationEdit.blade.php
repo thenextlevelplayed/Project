@@ -182,15 +182,15 @@
                             <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i
                                     class="far fa-save"></i>&nbsp; 存檔</button>
                         </div>
-                        <div class="col-md-3 p-1">
-                            <a href='/main/quotation'>
-                                <button class="btn btn-secondary btn-block">
-                                    <i class="fa-solid fa-x"></i> &nbsp; 返回
-                                </button>
-                            </a>
-                        </div>
                     </div>
                 </form>
+                <div class="col-md-3 p-1">
+                    <a href='/main/quotation'>
+                        <button class="btn btn-secondary btn-block">
+                            <i class="fa-solid fa-x"></i> &nbsp; 返回
+                        </button>
+                    </a>
+                </div>
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
