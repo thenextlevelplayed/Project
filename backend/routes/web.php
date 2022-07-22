@@ -58,6 +58,7 @@ Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotatio
 Route::get('/main/quotation/{quotationId}', "App\Http\Controllers\QuotationController@quotationInfo");  //檢視報價單
 Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEdit"); //編輯報價單
 // Route::put('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEditCreate"); //編輯報價單-新增明細項目
+Route::put('/quotation/edit/{quotationId}', "App\Http\Controllers\purchaseController@quotationEditPost"); //報價單-明細更新
 Route::put('/main/quotation/edit/{quotationId}', "App\Http\Controllers\quotationController@quotationUpdate"); //更新
 
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增報價單

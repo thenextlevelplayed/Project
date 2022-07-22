@@ -21,79 +21,77 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card" action="/main/quotation/edit/{{ $quotationInfo->qid }}" method="POST">
+                <form class="card p-5" action="/main/quotation/edit/{{ $quotationInfo->qid }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 報價明細</h4>
+                        <h4 class="card-title text-center"> 楷模資訊 報價明細</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-3">
-                                <h5>||　客戶資訊</h5>
+                                <h5>客戶資訊</h5>
+                                <hr>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>報價單編號</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->qid }}</div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">報價單編號</label>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->qid }}"
+                                            readonly>
                                     </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>公司名稱</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->cname }}</div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>公司統編</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->cid }}</div>
-                                    </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>公司電話</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->ctel }}</div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">公司名稱</label>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cname }}"
+                                            readonly>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>報價日期</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->qdate }}</div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">公司統編</label>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cid }}"
+                                            readonly>
                                     </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>聯絡人</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->qcontact }}</div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">公司電話</label>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->ctel }}"
+                                            readonly>
                                     </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>聯絡人LINE ID</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->clineid }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">報價日期</label>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->qdate }}"
+                                            readonly>
                                     </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-3">
-                                            <p>聯絡信箱</p>
-                                        </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->cmail }}</div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">聯絡人</label>
+                                        <input class="form-control" type="text"
+                                            placeholder="{{ $quotationInfo->qcontact }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">聯絡人LINE ID</label>
+                                        <input class="form-control" type="text"
+                                            placeholder="{{ $quotationInfo->clineid }}" readonly>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationCustom01">聯絡信箱</label>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cmail }}"
+                                            readonly>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-lg-12">
-                                <h5>||　報價明細</h5>
+                            <div class="col-lg-12 mt-5">
+                                <h5>報價明細</h5>
+                                <hr>
                             </div>
                             <div class="col-lg-12">
                                 <div>
-                                    <table class="table"  id="quotationtable">
+                                    <table class="table" id="quotationtable">
                                         <thead>
                                             <tr>
                                                 <th scope="col"></th>
@@ -133,7 +131,8 @@
                                     {{-- 新增明細項目 --}}
                                     <div class="row mb-1">
                                         <div class="col-md-12 text-right">
-                                            <input type="button" class="btn btn-primary" value="新增" onclick="qCreate()">
+                                            <button class="btn btn-primary" value="新增" onclick="qCreate()"><i
+                                                    class="fa-solid fa-plus"></i> &nbsp;新增</button>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +146,8 @@
                         </div>
                         <div>
                             <div class="mb-3">
-                                <h4>||　凱茂方案</h4>
+                                <h4>凱茂方案</h4>
+                                <hr>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-lg-6">
@@ -177,25 +177,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 text-right">
-                        <a class="btn btn-primary " href="/main/quotation">
-                            <span>返回</span>
-                        </a>
-                        <a class="btn btn-primary" href="">
-                            <span>存檔</span>
-                        </a>
+                    <div class = "row container justify-content-center">
+                        <div class="col-md-3 p-1">
+                            <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i
+                                    class="far fa-save"></i>&nbsp; 存檔</button>
+                        </div>
+                        <div class="col-md-3 p-1">
+                            <a href='/main/quotation'>
+                                <button class="btn btn-secondary btn-block">
+                                    <i class="fa-solid fa-x"></i> &nbsp; 返回
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
-                    <span>轉為訂單</span>
+                    <i class="fa-solid fa-arrow-right"></i><span> &nbsp;轉為訂單</span>
                 </a>
             </div>
         </div>
     </div>
 
-{{-- bootstrap對話框 --}}
+    {{-- bootstrap對話框 --}}
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -215,13 +220,12 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('script')
-<script>
-    //這個會從資料庫出來
-    let ListData = [
+    <script>
+        //這個會從資料庫出來
+        let ListData = [
             // 第一筆
             {
                 mName: "",
@@ -373,8 +377,8 @@
             $('#AllTot').text(`NT.${totally}`);
         }
 
-    // function append(){
-    //     $("#table>tbody").append(`
+        // function append(){
+        //     $("#table>tbody").append(`
     //     <tr>
     //         <td></td>
     //         <td><input type="text" name="" value=""></td>
@@ -385,7 +389,6 @@
     //         <td><input type="text" name="" value=""></td>
     //     </tr>
     //     `);
-    // }
-
-</script>
+        // }
+    </script>
 @endsection
