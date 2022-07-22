@@ -43,7 +43,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    @foreach($manufacture as $key => $manu)
+                                    @foreach($manufacture as $manu)
                                     <tr>
                                         <td>
                                             {{$manu->mid}}
