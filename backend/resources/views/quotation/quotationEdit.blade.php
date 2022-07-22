@@ -131,8 +131,8 @@
                                     {{-- 新增明細項目 --}}
                                     <div class="row mb-1">
                                         <div class="col-md-12 text-right">
-                                            <input type="button" class="btn btn-primary" value="新增"
-                                                onclick="qCreate()">
+                                            <button class="btn btn-primary" value="新增" onclick="qCreate()"><i
+                                                    class="fa-solid fa-plus"></i> &nbsp;新增</button>
                                         </div>
                                     </div>
                                 </div>
@@ -177,19 +177,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 text-right">
-                        <a class="btn btn-primary " href="/main/quotation">
-                            <span>返回</span>
-                        </a>
-                        <a class="btn btn-primary" href="">
-                            <span>存檔</span>
-                        </a>
+                    <div class = "row container justify-content-center">
+                        <div class="col-md-3 p-1">
+                            <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i
+                                    class="far fa-save"></i>&nbsp; 存檔</button>
+                        </div>
+                        <div class="col-md-3 p-1">
+                            <a href='/main/quotation'>
+                                <button class="btn btn-secondary btn-block">
+                                    <i class="fa-solid fa-x"></i> &nbsp; 返回
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
-                    <span>轉為訂單</span>
+                    <i class="fa-solid fa-arrow-right"></i><span> &nbsp;轉為訂單</span>
                 </a>
             </div>
         </div>
