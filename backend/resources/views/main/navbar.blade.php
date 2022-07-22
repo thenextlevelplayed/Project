@@ -20,27 +20,27 @@
     <link href="/assets/demo/demo.css" rel="stylesheet" />
     <link href="/assets/css/main.css" rel="stylesheet" />
 
-    
+
     {{-- 各網頁的CSS --}}
     <?php
     //    GET PUBLIC FOLDER FILES (NAME)
-        // if ($handle = opendir(public_path('css'))) { //打開public資料夾 搜尋css副檔名
-            // echo $handle; //Resource id #547
-            // echo $_SERVER['SCRIPT_FILENAME'];;
-
-        // while (false !== ($entry = readdir($handle))) {
-            // if ($entry != "." && $entry != "..") {
-                // echo "<link href=" . '"'."/css/".$entry.'"'." rel=". '"'."stylesheet".'"'."/>"; // NAME OF THE FILE
-                // var_dump($entry); // string
-                // echo $entry."<br>";
-                // echo substr( $entry,-3 )."<br>";
-                // if($_SERVER['REQUEST_URI'] == '/main/delivery'){
-                //     echo  "class='active'";
-                // }
-        //     }
-        // }
-        // closedir($handle);
-        // }
+    // if ($handle = opendir(public_path('css'))) { //打開public資料夾 搜尋css副檔名
+    // echo $handle; //Resource id #547
+    // echo $_SERVER['SCRIPT_FILENAME'];;
+    
+    // while (false !== ($entry = readdir($handle))) {
+    // if ($entry != "." && $entry != "..") {
+    // echo "<link href=" . '"'."/css/".$entry.'"'." rel=". '"'."stylesheet".'"'."/>"; // NAME OF THE FILE
+    // var_dump($entry); // string
+    // echo $entry."<br>";
+    // echo substr( $entry,-3 )."<br>";
+    // if($_SERVER['REQUEST_URI'] == '/main/delivery'){
+    //     echo  "class='active'";
+    // }
+    //     }
+    // }
+    // closedir($handle);
+    // }
     ?>
 
 
@@ -69,113 +69,86 @@
                             <p>進銷存管理</p>
                         </a>
                     </li>
-                    <ul id="testNav" class="text-center" style="list-style-type:none;" >
+                    <ul id="testNav" class="text-center" style="list-style-type:none;">
                         {{-- 判斷 Route 給 active --}}
-                        <li 
-                            <?php
-                                if($_SERVER['REQUEST_URI'] == '/main/purchase'){
-                                    echo  "class='active'";
-                                }
-                            ?>
-                        >
+                        <li <?php
+                        if (preg_match('/main\/purchase/', $_SERVER['REQUEST_URI'])) {
+                            echo "class='active'";
+                        }
+                        ?>>
                             <a href="/main/purchase">
                                 <p>• 進貨管理</p>
                             </a>
                         </li>
-                        {{-- <li 
-                            <?php
-                                if($_SERVER['REQUEST_URI'] == '/main/sales'){
-                                    echo  "class='active'";
-                                }
-                            ?>
-                        >
-                            <a href="/main/sales">
-                                <p>• 銷貨管理</p>
-                            </a>
-                        </li> --}}
-                        <li 
-                            <?php
-                                if($_SERVER['REQUEST_URI'] == '/main/stock'){
-                                    echo  "class='active'";
-                                }
-                            ?>
-                        >
+                        <li <?php
+                        if (preg_match('/main\/stock/', $_SERVER['REQUEST_URI'])) {
+                            echo "class='active'";
+                        }
+                        ?>>
                             <a href="/main/stock">
                                 <p>• 庫存管理</p>
                             </a>
                         </li>
                     </ul>
-                    <li 
-                        <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/quote'){
-                                echo  "class='active'";
-                            }
-                        ?>
-                    >
+                    <li <?php
+                    if ($_SERVER['REQUEST_URI'] == '/main/quote') {
+                        echo "class='active'";
+                    }
+                    ?>>
                         <a href="/main/quotation">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
                         </a>
                     </li>
-                    <li 
-                        <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/order'){
-                                echo  "class='active'";
-                            }
-                        ?>
-                    >
+                    <li <?php
+                    if ($_SERVER['REQUEST_URI'] == '/main/order') {
+                        echo "class='active'";
+                    }
+                    ?>>
                         <a href="/main/order">
                             <i class="now-ui-icons education_paper"></i>
                             <p>訂單管理</p>
                         </a>
                     </li>
-                    <li 
-                        <?php
-                            if(substr(($_SERVER['REQUEST_URI']),0,17) == '/main/manufacture'){
-                                echo  "class='active'";
-                            }
-                        ?>
-                    >
+                    <li <?php
+                    if (substr($_SERVER['REQUEST_URI'], 0, 17) == '/main/manufacture') {
+                        echo "class='active'";
+                    }
+                    ?>>
                         <a href="/main/manufacture">
                             <i class="now-ui-icons ui-2_settings-90"></i>
                             <p>工單管理</p>
                         </a>
                     </li>
-                    <li 
-                        <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/delivery'){
-                                echo  "class='active'";
-                            }
-                        ?>
-                    >
+                    <li <?php
+                    if ($_SERVER['REQUEST_URI'] == '/main/delivery') {
+                        echo "class='active'";
+                    }
+                    ?>>
                         <a href="/main/delivery">
                             <i class="now-ui-icons shopping_delivery-fast"></i>
                             <p>出貨單管理</p>
                         </a>
                     </li>
-                    <li 
-                        <?php
-                            if($_SERVER['REQUEST_URI'] == '/main/receipt'){
-                                echo  "class='active'";
-                            }
-                        ?>
-                    >
+                    <li <?php
+                    if ($_SERVER['REQUEST_URI'] == '/main/receipt') {
+                        echo "class='active'";
+                    }
+                    ?>>
                         <a href="/main/receipt">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>發票管理</p>
                         </a>
                     </li>
-                    <li 
-                            <?php
-                                if($_SERVER['REQUEST_URI'] == '/main/customer'){
-                                    echo  "class='active'";
-                                }
-                            ?>
-                        >
-                            <a href="/main/customer">
-                                <i class="now-ui-icons users_circle-08"></i>
+                    <li <?php
+                    if ($_SERVER['REQUEST_URI'] == '/main/customer') {
+                        echo "class='active'";
+                    }
+                    ?>>
+                        <a href="/main/customer">
+                            <i class="now-ui-icons users_circle-08"></i>
                             <p>客戶管理</p>
-                            </a>
+                        </a>
                     </li>
                     <li>
                         <a href="/main/news">
@@ -212,31 +185,29 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form name = "searchform" action=''>
+                        <form name="searchform" action=''>
                             <div class="input-group no-border">
                                 {{-- 搜尋列 --}}
                                 @yield('searchBox')
                                 {{-- <input type="query" name ="search" value="" class="form-control" placeholder="輸入單號或客戶名稱">                            
                                 <span class="input-group-addon" onclick="searchform.submit()">                                    
                                     <i class="now-ui-icons ui-1_zoom-bold"></i>       
-                                </span>
-                                --}} 
+                                </span> --}}
                             </div>
                         </form>
                         {{-- 右上人像控制 1. 員工基本資料 2.登出 --}}
                         <span class="ml-4">{{ Session::get('name') }}</span>
                         <div class="navbar-nav">
                             <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href=""
-                                    id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="now-ui-icons users_single-02"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block"></span>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">帳號管理</a>
+                                    <a class="dropdown-item" href="/member/memberInfo/{{ Session::get('name') }}">帳號管理</a>
                                     <a class="dropdown-item" href="/member/logout">登出</a>
                                 </div>
                             </div>
@@ -271,7 +242,6 @@
 <script src="https://kit.fontawesome.com/ecf6d354b0.js" crossorigin="anonymous"></script>
 
 <script>
-
     //進銷存 開關 
     $('#test').on('click', function() {
         // console.log('ok');
@@ -281,14 +251,12 @@
 
     //進銷存, 控制 display 收合
     $path = $(location).attr('pathname');
-    if($path == '/main/purchase' || $path == '/main/stock'){
+    if ($path.includes('/main/purchase') || $path.includes('/main/stock')) {
         console.log($(location).attr('pathname'))
-        $('#testNav').css('display','normal');
-    }else{
-        $('#testNav').css('display','none');
+        $('#testNav').css('display', 'normal');
+    } else {
+        $('#testNav').css('display', 'none');
     }
-
-
 </script>
 
 @yield('script')

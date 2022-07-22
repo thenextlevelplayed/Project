@@ -21,14 +21,15 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card">
+                <form class="card p-5">
                     <div class="card-header">
                         <h4 class="card-title text-center"> 楷模資訊 報價明細</h4>
                     </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div  class="mb-3">
-                                    <h5>||　客戶資訊</h5>
+                                <div class="mb-3 mt-3">
+                                    <h5>客戶資訊</h5>
+                                    <hr>
                                 </div>
                                 <div  class="row mb-3">
                                     <div class="col-lg-6">
@@ -70,8 +71,9 @@
                                 </div>                                    
                             </div>
                             <div class="row mb-3">
-                                <div class="col-lg-12">
-                                    <h5>||　報價明細</h5>
+                                <div class="col-lg-12 mt-3">
+                                    <h5>報價明細</h5>
+                                    <hr>
                                 </div>
                                 <div class="col-lg-12"> 
                                     <div>
@@ -111,8 +113,9 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="mb-3">
-                                    <h4>||　楷模方案</h4>
+                                <div class="mb-3 mt-3">
+                                    <h4>楷模方案</h4>
+                                    <hr>
                                 </div>
                                 <div  class="row mb-3">
                                     <div class="col-lg-6">

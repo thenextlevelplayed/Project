@@ -240,6 +240,7 @@ class purchaseController extends Controller
 
         $stockDetail = Bookdetail::join('book','book.bid','=','bookdetail.bid')
         ->where('mid','=',$mId)
+        ->where('pstatus','=','Y')
         ->get();
 
         // dd($stockDetail);
