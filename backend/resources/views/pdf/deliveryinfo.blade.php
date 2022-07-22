@@ -28,7 +28,7 @@
                     </div>
                     {{-- 客戶名稱 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->cname}}</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->dcontact}}</span></div>                                        
                     </div>
                     {{-- 收貨地址 --}}
                     <div class="row row-cols-auto">
@@ -80,23 +80,26 @@
                                 </td>                    
                             </thead>
                             <tbody>
+                            @foreach ($detaillistInfo as $item)
+                                
+                                
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
                                     {{-- {{$d->firstName}} --}}
-                                    <td>{{$deliveryInfo->mname}}</td>
-                                    <td>{{$deliveryInfo->mspecification}}</td>
+                                    <td>{{$item->mname}}</td>
+                                    <td>{{$item->mspecification}}</td>
                                     <td name="quantity">
-                                        {{$deliveryInfo->quantity}}
+                                        {{$item->quantity}}
                                     </td>
-                                    <td name="price">{{$deliveryInfo->price}}</td>
+                                    <td name="price">{{$item->price}}</td>
                                     <td name="total">
                                         <?php
-                                            $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                            $total = ($item->quantity)*($item->price);
                                             echo $total;
                                         ?></td>
                                     <td name="tax">
                                         <?php
-                                            $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                            $total = ($item->quantity)*($item->price);
                                             $tax = $total*0.05;
                                             echo round($tax);
                                         ?></td>
@@ -104,6 +107,7 @@
                                     <td name="remark"> Ай-ай-ай-ай-ай, что сейчас произошло!</td>
                                 
                                 </tr>
+                            @endforeach    
                             </tbody>
                         </table>
                         <div class=" row justify-content-end">

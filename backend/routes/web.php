@@ -116,8 +116,8 @@ Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\OrderController@cre
 Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\OrderController@viewOrderPDF"); // 預覽pdf
 
 //pdf manufacture
-Route::get('/main/manufacture/pdf/{manufactureId}',"App\Http\Controllers\BackendController@createManufacturePDF"); // 下載pdf
-Route::get('/main/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\BackendController@viewManufacturePDF"); // 預覽pdf
+Route::get('/manufacture/pdf/{manufactureId}',"App\Http\Controllers\ManufactureController@createManufacturePDF"); // 下載pdf
+Route::get('/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\ManufactureController@viewManufacturePDF"); // 預覽pdf
 
 //寄信
 Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryController@upload");//寄信
