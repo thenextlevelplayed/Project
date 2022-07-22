@@ -43,10 +43,10 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    @foreach($manufacture as $manu)
+                                    @foreach($manufacture as $key => $manu)
                                     <tr>
                                         <td>
-                                            {{$manu->mrownumber}}
+                                            {{$manu->mid}}
                                         </td>
                                         <td>
                                             {{$manu->cname}}

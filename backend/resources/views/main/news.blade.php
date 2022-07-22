@@ -32,13 +32,14 @@
                                     <th>
                                         消息標題
                                     </th>
-                                    <th>
+
+                                    <th style="width: 65%">
                                         消息內容
                                     </th>
+
                                     <th>
                                     查看/編輯
                                     </th>
-  
                                 </thead>
                                 <tbody>
                                     @foreach($news as $n)
@@ -51,7 +52,6 @@
                                         </td>
                                         <td>
                                         {{$n->content}}                         
-
                                         </td>
                                         <td>
                                             <a href = "/news/edit/{{$n->newsid}}">
