@@ -143,7 +143,13 @@
                                     <div class="col-lg-8 text-right">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4 text-right">
+                                        <?php                                        
+                                        // $alltotal = $total
+                                        // echo $alltotal;
+                                        var_dump($total);
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
