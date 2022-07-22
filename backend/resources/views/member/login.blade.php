@@ -12,10 +12,9 @@
     <style>
         #body {
             background-color: #E8EDF0;
-            height: 100vh;
-            overflow:hidden;
+            height: 100vh;       
             background-size: cover;
-            background-image: url('assets/img/skyline-1869214_1920.jpg');   
+            background-image: url('/assets/img/skyline-1869214_1920.jpg');   
         }
 
         .logo img{
@@ -32,14 +31,15 @@
 
         #loginForm {
             width:400px;
-            height:650px;
+            height:620px;
             padding: 25px;
             background-color: #FFF;
             border-radius: 10px;
             overflow: hidden;
             position:relative;
-            transform: translate(-50%,23%);
-            left:50%
+            transform: translate(-50%,-50%);
+            left:50%;
+            top:50vh;
         }
 
         .textColor {
@@ -72,7 +72,8 @@
             border-radius:5px;
             height:300px;
             width:450px;
-            padding-top:5px;
+            padding-top:10px;
+            margin-top:15px;
             transform:translateX(-11%);
         }
 
@@ -115,9 +116,9 @@
                                 <label for="rememberMe" class="textColor">Remember Me</label>
                                 <span><input id="rememberMe" name="rememberMe" type="checkbox" {{ Cookie::get('rememberMe') }}></span><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-block" value="登入">
-                                <div class="smalltext">
+                                <!-- <div class="smalltext">
                                     <p>2022 KAIMO,Inc</p>
-                                </div>
+                                </div> -->
                                 
 
                                 {{-- 有錯誤帶回顯示 --}}

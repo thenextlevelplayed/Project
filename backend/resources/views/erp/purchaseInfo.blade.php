@@ -220,12 +220,13 @@
             let dindex = $(row).find('th').text();
             mNumber = $(row).find('td').eq(1).text();
             quantity = $(row).find('td').eq(2).text();
+            sumPrice = $(row).find('td').eq(4).text();
             did = $(row).find('input').eq(0).val();
 
             $('#exampleModal').modal('show');
             $('#exampleModalLabel').text(`確定第${dindex}要入庫?`)
             
-            console.log(mNumber, quantity, did,row,dindex);
+            console.log(mNumber, quantity, did,row,dindex ,sumPrice);
         })
 
         $('#okBtn').on('click', function() {
@@ -241,6 +242,7 @@
                     mNumber: mNumber,
                     quantity: quantity,
                     did: did,
+                    sumPrice:sumPrice,
                     _token: _token
                 },
                 success: function(response) {

@@ -83,8 +83,11 @@ class ManufactureController extends Controller
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
             ->select('*')
             ->find($manufactureId);
+
+        $dtl = Detaillist::select('*')
+        ->where('detaillist.qid', '=', $manufactureId)
+        ->get();
         
-        $dtl = Detaillist::find($manufactureId);
 
 
 
@@ -124,7 +127,7 @@ class ManufactureController extends Controller
         
         
         // dd($dtl);
-        return redirect('/main/manufacture');
+        return redirect('/main/manufacture/');
         
 
         // mstatus
