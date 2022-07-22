@@ -53,7 +53,7 @@
                                     @foreach ($order as $od)
                                         <tr>
                                             <td>
-                                                <a href="/main/order/{{$od->oid}}">{{$od->oid}}
+                                                <a href="/main/order/{{$od->oid}}">{{$od->orownumber}}
                                             </td>
                                             <td>
                                                 {{$od->cname}}
@@ -62,7 +62,7 @@
                                                 {{$od->odate}}
                                             </td>
                                             <td>
-                                                {{$od->mid}}
+                                                {{$od->mrownumber}}
                                             </td>
                                             
                                             <td>
