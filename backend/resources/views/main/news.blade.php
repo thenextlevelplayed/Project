@@ -7,7 +7,7 @@
 
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="/main/news">工單管理</a>
+        <a class="navbar-brand" href="/main/news">前台最新消息管理</a>
     </h4>
 @endsection
 @section('searchBox')
