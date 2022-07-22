@@ -27,14 +27,14 @@ use Illuminate\Support\Facades\Hash;
 Route::get('/', "App\Http\Controllers\memberController@login");
 Route::get('/member/login', "App\Http\Controllers\memberController@login");
 Route::post('/member/login', "App\Http\Controllers\memberController@loginPost");
-
-
 //登出
 Route::get('/member/logout', "App\Http\Controllers\memberController@logout");
-
-
+//帳號管理頁
+Route::get('/member/memberInfo/{name}', "App\Http\Controllers\memberController@memberInfo");
 //管理員新增帳號
 Route::get('/member/create', "App\Http\Controllers\memberController@create");
+
+
 
 
 //後台主畫面
