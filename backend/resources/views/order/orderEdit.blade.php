@@ -153,11 +153,7 @@
                                     <div class="col-lg-2">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-lg-5">
-                                        <?php
-                                        $alltotal = $orderEdit->quantity * $orderEdit->price;
-                                        echo $alltotal;
-                                        ?>
+                                    <div class="col-lg-4 text-right" id="AllTot"></div>
                                     </div>
                                 </div>
                             </div>

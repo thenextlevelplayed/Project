@@ -90,6 +90,9 @@ class DeliveryController extends Controller
         ->get();
 
 
+
+
+
         return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo'));
     }
 
@@ -137,21 +140,39 @@ class DeliveryController extends Controller
         return redirect("/main/delivery");
     }
 
-    public function createPDF(Request $request,$id)
+    public function createPDF($deliveryId)
     {
-        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->where('delivery.did','=',"$id")
-        ->get();
+        // $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        // ->join('order','order.oid','=','manufacture.oid')
+        // ->join('quotation','quotation.qid','=','order.qid')
+        // ->select('*')
+        // ->find($deliveryId);
+        // // dd($deliveryInfo);
 
-        dd($deliveryInfo);
+        // $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        // ->select('*')
+        // ->where('detaillist.qid','=',$deliveryInfo->qid)
+        // ->get();
 
-        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo'));
-        return $pdf->download();
+        // $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
+        // return $pdf->download();
     }
 
-    public function viewPDF (Request $request,$id) {
-       
-        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo'));
+    public function viewPDF ($deliveryId) {
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->join('quotation','quotation.qid','=','order.qid')
+        ->select('*')
+        ->find($deliveryId);
+        dd($deliveryInfo);
+
+        $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid','=',$deliveryInfo->qid)
+        ->get();
+
+        // dd($detaillistInfo);
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
         return $pdf->stream();
     }
 
