@@ -68,82 +68,7 @@ class DeliveryController extends Controller
         // }
 
 
-
-        function generateid($id, $date, $head)
-        {
-            if ($id < 10) {
-                $id = '00' . $id;
-                // $date=$delivery->qdate;
-                $date = preg_replace('/-/', '', $date);
-
-                $id = "{$head}" . '-' . $date . $id;
-                return $id;
-            } elseif ($id >= 10 && $id < 100) {
-                $id = '0' . $id;
-                // $date=$delivery->qdate;
-                $date = preg_replace('/-/', '', $date);
-
-                $id = "{$head}" . '-' . $date . $id;
-                return $id;
-            } elseif ($id = 100) {
-                $id =  $id;
-                // $date=$delivery->qdate;
-                $date = preg_replace('/-/', '', $date);
-                $id = "{$head}" . '-' . $date . $id;
-                return $id;
-            } elseif ($id > 100) {
-                trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
-            }
-
-
-
-            
-            //出貨
-            // return view('main.delivery', compact('delivery', 'number'));
-        }
-        //現在時間
-        $unix = strtotime(date('Ymd'));
-        $utc8 = $unix + 28800;
-        $date =date("Ymd", $utc8);
-        $date_ =date("Y-m-d", $utc8);
-        $number = 0;
-        // DB::select('select count(qdate) from quotation');
-        foreach ($d as $key => $delivery) {
-            //同一天生成的訂單給num++方式流水號
-            $qdate = $delivery->qdate;
-            
-            $count = DB::select("SELECT count(qdate) FROM `quotation` WHERE qdate = $date_") ;
-            // echo $qdate.'<br />';
-            // dd($count);
-            // echo count($qdate).'<br />';
-            $number ++;// 報價單流水編號
-            $head='KMD';
-            // echo generateid($number,$date,$head).'<br />';
-        }
-        // $did=$delivery->did;
-        // $did=9999;
-
-        // if($did<10){
-        //     $did = '00'.$did;
-        //     $date=$delivery->qdate;
-        //     $date = preg_replace('/-/','',$date);
-        //     $did= 'KMD-'.$date.$did;
-        // }elseif ($did>=10 && $did<100) {
-        //     $did = '0'.$did;
-        //     $date=$delivery->qdate;
-        //     $date = date("Ymd", $date);
-        //     $did= 'KMD-'.$date.$did;
-        // }elseif ($id=100) {
-        //     $did = $did;
-        //     $date=$delivery->qdate; //string
-        //     $did= 'KMD-'.$date.$did;
-        // }elseif ($did>100){
-        //     trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
-        // }
-        // //出貨
-        
-
-        // return view('main.delivery', compact('delivery', 'number', 'd', 'did'));
+       
         return view('main.delivery', compact('d'));
 
     }
@@ -265,4 +190,51 @@ class DeliveryController extends Controller
 
         return redirect('/main/delivery');
     }
+
+    
 }
+
+///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me
+function generateid($id, $date, $head)
+{
+    if ($id < 10) {
+        $id = '00' . $id;
+        // $date=$delivery->qdate;
+        $date = preg_replace('/-/', '', $date);
+
+        $id = "{$head}" . '-' . $date . $id;
+        return $id;
+    } elseif ($id >= 10 && $id < 100) {
+        $id = '0' . $id;
+        // $date=$delivery->qdate;
+        $date = preg_replace('/-/', '', $date);
+
+        $id = "{$head}" . '-' . $date . $id;
+        return $id;
+    } elseif ($id = 100) {
+        $id =  $id;
+        // $date=$delivery->qdate;
+        $date = preg_replace('/-/', '', $date);
+        $id = "{$head}" . '-' . $date . $id;
+        return $id;
+    } elseif ($id > 100) {
+        trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+    }
+}
+//現在時間
+$unix = strtotime(date('Ymd'));
+$utc8 = $unix + 28800;
+$date =date("Ymd", $utc8);
+$date_ =date("Y-m-d", $utc8);
+$number = 0;
+
+//同一天生成的訂單給num++方式流水號
+    
+$count = DB::select("SELECT count(qdate) FROM `quotation` WHERE qdate = '$date_' ") ;
+foreach($count[0] as $qdatecount){
+}
+
+$number=$qdatecount+1 ;// 報價單流水編號
+$head='KMD';
+echo generateid($number,$date,$head).'<br />';
+///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me
