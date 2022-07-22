@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="col-lg-12"> 
                                     <div>
-                                        <table class="table">
+                                        <table class="table" id="quotationtable">
                                             <thead>
                                                 <tr>
                                                     <th scope="col"></th>
@@ -91,18 +91,16 @@
                                             </thead>
                                             
                                             <tbody>                                                
-                                                <tr>
+                                                {{-- <tr>
                                                     <th scope="row">1</th>
                                                     <td>{{$quotationInfo->mname}}</td>
                                                     <td>{{$quotationInfo->mnumber}}</td>
                                                     <td>{{$quotationInfo->quantity}}</td>
                                                     <td>{{$quotationInfo->price}}</td>
                                                     <td>
-                                                        <?php $total=($quotationInfo->quantity) * ($quotationInfo->price);
-                                                        echo $total;?>
                                                     </td>
                                                     <td>{{$quotationInfo->remark}}</td>
-                                                </tr>                                        
+                                                </tr>                                         --}}
                                             </tbody>
                                         </table> 
                                     </div>
@@ -152,4 +150,29 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+
+        var users = {!! json_encode($quotation->toArray()) !!};
+        let ListData = users;
+        console.log(ListData);
+
+        for (let i = 0; i < ListData.length; i++){
+                // console.log(123);
+                $('#quotationtable').find('tbody').append(`
+                    <tr>
+                        <th scope="row">${i+1}</th>
+                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mname}"></td>
+                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mnumber}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].price}"></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].price}" readonly></td>
+                        <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
+                    </tr>
+                `)
+        }
+
+    </script>
 @endsection
