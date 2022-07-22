@@ -173,7 +173,7 @@
                                             <p>企業方案</p>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" >
+                                             週年慶滿千送百
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,9 @@
                                     <span>預覽</span>
                                 </a> --}}
                             <button type="submit" id="okOrCancel" name="okOrCancel"
-                                class="btn btn-primary mr-2">存檔</button>
+                                class="btn btn-primary">
+                                <i class="far fa-save"></i>&nbsp;存檔
+                            </button>
                 </form>
                 {{-- <a class="btn btn-primary mr-3" href="">
                                     <span>存檔</span>
@@ -214,8 +216,9 @@
                 {{-- <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">轉為工單</button> --}}
                 <form class="form-horizontal" action="/manufacturecreate/{{ $orderEdit->oid }}" method="POST">
                     @csrf
-
-                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">轉為工單</button>
+                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
+                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
+                    </button>
                     {{-- <a class="btn btn-primary" href="/manufacturecreate">
                                         <span>轉為工單</span>
                                     </a> --}}

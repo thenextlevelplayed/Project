@@ -111,8 +111,6 @@ class OrderController extends Controller
 
 
 
-
-
     function order()
     {
         //訂單
@@ -122,7 +120,6 @@ class OrderController extends Controller
         //     ->select('*')
         //     ->get();
        
-
         // $order = Order::all();
 
             $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
@@ -143,9 +140,7 @@ class OrderController extends Controller
                             
             };
         // $order = Order::all();
-
-        
-
+   
         return view('main.order', compact('order'));
     }
     function orderInfo($orderID)
@@ -163,8 +158,6 @@ class OrderController extends Controller
         ->join('customer', 'customer.cid', '=', 'quotation.cid')
         ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
         ->find($orderID);
-
-        
 
         $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
         // dd($orderInfoid->qid);
@@ -186,7 +179,6 @@ class OrderController extends Controller
         ->where('order.oid', '=', $orderID)
         ->find($orderID);
 
-
         //撈明細資料
         $quotation = Detaillist::select('*')
         ->where('detaillist.qid', '=', $orderID)
@@ -199,8 +191,6 @@ class OrderController extends Controller
 
 
     public function orderUpdate(Request $request,$orderID){
-
-
         // dd($request->dlid);
 
         for ($i=0 ; $i<count($request->dlid); $i++){
@@ -235,11 +225,7 @@ class OrderController extends Controller
         $newMaufacture->mstatus = "N";
         $newMaufacture->mcomplete = "N";
 
-
-
-
         $newMaufacture->save();
-
 
         return redirect('/main/manufacture');
     }
