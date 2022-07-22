@@ -104,7 +104,7 @@
                                             echo round($tax);
                                         ?></td>
                                     </td>
-                                    <td name="remark"> Ай-ай-ай-ай-ай, что сейчас произошло!</td>
+                                    <td name="remark"> {{$item->remark}}</td>
                                 
                                 </tr>
                             @endforeach    
