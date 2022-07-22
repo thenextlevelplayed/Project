@@ -24,7 +24,7 @@
                                             <p>商品編號</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{-- {{ $info[0]->kmpid }} --}}
+                                            {{ $inventory->mnumber }}
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                             <p>商品名稱</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{-- {{ $info[0]->staffname }} --}}
+                                            {{ $inventory->mname }}
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                             <p>商品成本總計</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{-- {{ $info[0]->bookdate }} --}}
+                                            {{ $inventory->sumcost }}
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                                             <p>商品數量總計</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{-- {{ $info[0]->remark }} --}}
+                                            {{ $inventory->sumquantity }}
                                         </div>
                                     </div>
                                 </div>
@@ -76,15 +76,36 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col"></th>
-                                                <th scope="col">進貨單編號</th>
-                                                <th scope="col">公司名稱</th>
                                                 <th scope="col">進貨日期</th>
+                                                <th scope="col">供應商名稱</th>
                                                 <th scope="col">數量</th>
                                                 <th scope="col">成本</th>
                                                 <th scope="col">小計</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                            @foreach ($stockDetail as $sDtl)
+                                                <tr>
+                                                    <th  scope="row">{{$loop->index + 1}}</th>
+                                                    <td class="col-3">
+                                                        {{ $sDtl->bookdate }}
+                                                    </td>
+                                                    <td class="col-3">
+                                                        {{ $sDtl->sname }}
+                                                    </td>
+                                                    <td class="col-2">
+                                                        {{ $sDtl->quantity }}
+                                                    </td>
+                                                    <td class="col-2">
+                                                        {{ $sDtl->cost }}
+                                                    </td>
+                                                    <td class="col-2">
+                                                        {{ $sDtl->quantity * $sDtl->cost }}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -94,12 +115,12 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-3" href="/main/purchase">
+                <a class="btn btn-primary mr-3" href="/main/stock">
                     <span>回上頁</span>
                 </a>
-                <a class="btn btn-primary mr-3" href="/purchase/edit/">
+                {{-- <a class="btn btn-primary mr-3" href="/purchase/edit/">
                     <span>編輯</span>
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
