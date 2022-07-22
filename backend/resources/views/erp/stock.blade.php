@@ -36,7 +36,7 @@
                                     @foreach ($inventory as $int)
                                         <tr>
                                             <td>
-                                                <a href="/main/stock/{{ $int->iid }}">
+                                                <a href="/main/stock/{{ $int->mid }}">
                                                     {{ $int->mnumber }}
                                                 </a>
                                             </td>
