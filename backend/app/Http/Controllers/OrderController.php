@@ -108,9 +108,6 @@ class OrderController extends Controller
         //
     }
 
-
-
-
     function order()
     {
         //訂單
@@ -119,7 +116,7 @@ class OrderController extends Controller
         //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
         //     ->select('*')
         //     ->get();
-       
+
         // $order = Order::all();
 
             $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
@@ -140,7 +137,7 @@ class OrderController extends Controller
                             
             };
         // $order = Order::all();
-   
+
         return view('main.order', compact('order'));
     }
     function orderInfo($orderID)
@@ -232,8 +229,6 @@ class OrderController extends Controller
         return redirect('/main/manufacture');
     }
 
-
-
     //匯出訂單PDF
     public function createOrderPDF (Request $request,$orderID) {
         $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
@@ -270,10 +265,7 @@ class OrderController extends Controller
         ->where('detaillist.qid', '=', $orderInfoid->qid)
         ->get();
 
-         
         $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo','quotation'));
         return $pdf->stream();
     }
 }
-
-
