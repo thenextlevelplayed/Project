@@ -205,8 +205,9 @@ class purchaseController extends Controller
             ->first();
 
         //數量增加到庫存
-        $addQty = $inventory->sumquantity + $req->quantity;
-        $inventory->sumquantity = $addQty;
+        $inventory->sumquantity = $inventory->sumquantity + $req->quantity;
+        //總計加到庫存
+        $inventory->sumcost = $inventory->sumcost + $req->sumPrice;
         $inventory->save();
 
         $pstatus = Bookdetail::select('*')
@@ -219,10 +220,30 @@ class purchaseController extends Controller
         return response()->json(($pstatus->save()));
     }
 
+    //進銷存-庫存
     function stock()
     {
 
-        //進銷存-庫存
-        return view('erp.stock');
+        $inventory = Inventory::all();
+        // dd($inventory);
+
+        return view('erp.stock', compact('inventory'));
+    }
+
+    function stockInfo($mId)
+    {
+
+
+        $inventory = Inventory::select('*')
+        ->where('mid','=',$mId)
+        ->first();           
+
+        $stockDetail = Bookdetail::join('book','book.bid','=','bookdetail.bid')
+        ->where('mid','=',$mId)
+        ->get();
+
+        // dd($stockDetail);
+
+        return view('erp.stockInfo',compact('inventory','stockDetail'));
     }
 }
