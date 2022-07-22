@@ -197,6 +197,8 @@ class OrderController extends Controller
             $id = Detaillist::where('detaillist.dlid', '=' , $request->dlid[$i])->first();
             // dd($id);
             $id->quantity = $request->quantity[$i];
+            // dd($id);
+
             $id->save();
         }
 
