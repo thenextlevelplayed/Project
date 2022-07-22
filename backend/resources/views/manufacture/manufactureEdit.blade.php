@@ -192,14 +192,14 @@
                                 </div>
                                 <div class="row justify-content-center mt-5 mb-3">
                                     <div class="col-md-2 p-1">
-                                        <a href = "/main/manufacture/pdf/view/{manufactureId}">
+                                        <a href = "/manufacture/pdf/view/{{$manu->mid}}">
                                             <button class="btn btn-primary btn-block">
                                                 <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
                                             </button>
                                         </a>
                                     </div>
                                     <div class="col-md-2 p-1">
-                                        <a href = "/main/manufacture/pdf/{manufactureId}">
+                                        <a href = "/manufacture/pdf/{{$manu->mid}}">
                                             <button class="btn btn-primary btn-block">
                                                 <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
                                             </button>

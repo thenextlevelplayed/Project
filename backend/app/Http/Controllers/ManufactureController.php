@@ -41,10 +41,14 @@ class ManufactureController extends Controller
         ->join('quotation','quotation.qid','=','order.qid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.qid','=','quotation.qid')
-        
-        ->select('*')
+        ->join('delivery','delivery.did','=','manufacture.mid',)
+        ->select('manufacture.mid','manufacture.mstatus','manufacture.mremark','customer.cname')
         ->orderby('mid')
+        ->distinct('mid')
         ->get();
+
+        // dd($manufacture);
+        
         
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
@@ -53,10 +57,12 @@ class ManufactureController extends Controller
             ->join('quotation','quotation.qid','=','order.qid')
             ->join('customer','customer.cid','=','quotation.cid')
             ->join('detaillist','detaillist.qid','=','quotation.qid')
+            ->join('delivery','delivery.did','=','manufacture.mid',)
             ->where('cname','LIKE','%'.$search_text.'%')
             ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
             ->orWhere('mid','LIKE','%'.$search_text.'%')
             ->orderby('mid')
+            ->distinct('mid')
             ->get();
             
         }
@@ -65,8 +71,10 @@ class ManufactureController extends Controller
             ->join('quotation','quotation.qid','=','order.qid')
             ->join('customer','customer.cid','=','quotation.cid')
             ->join('detaillist','detaillist.qid','=','quotation.qid')
+            ->join('delivery','delivery.did','=','manufacture.mid',)
             ->select('*')
             ->orderby('mid')
+            ->distinct('mid')
             ->get();
                         
         };
@@ -133,6 +141,28 @@ class ManufactureController extends Controller
         // mstatus
         // dstatus
         // mremark
+    }
+    public function createManufacturePDF(Request $request,$manufactureId)
+    {
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($manufactureId);
+        $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
+        return $pdf->download();
+    }
+    public function viewManufacturePDF(Request $request,$manufactureId)
+    {
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+        ->join('quotation', 'quotation.qid', '=', 'order.qid')
+        ->join('customer', 'customer.cid', '=', 'quotation.cid')
+        ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+        ->select('*')
+        ->find($manufactureId);
+        $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
+        return $pdf->stream();
     }
 
     /**

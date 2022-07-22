@@ -128,7 +128,7 @@ class purchaseController extends Controller
 
         //進貨明細資訊
         $detail = Bookdetail::join('material', 'material.mid', '=', 'bookdetail.mid')
-            ->select('*')
+            ->select('bookdetail.mname','material.mnumber','bookdetail.quantity','bookdetail.cost','bookdetail.pstatus','bookdetail.bdetailid')
             ->where('bid', '=', $purchaseID)
             ->get();
 
@@ -198,7 +198,6 @@ class purchaseController extends Controller
     function stockIn(Request $req)
     {
 
-
         //庫存表
         $inventory = Inventory::all()
             ->where('mnumber', '=', $req->mNumber)
@@ -215,6 +214,7 @@ class purchaseController extends Controller
             ->first();
 
         $pstatus->pstatus = 'Y';
+        $pstatus->stockIn = date("Y-m-d");
         $pstatus->save();
 
         return response()->json(($pstatus->save()));
@@ -240,6 +240,7 @@ class purchaseController extends Controller
 
         $stockDetail = Bookdetail::join('book','book.bid','=','bookdetail.bid')
         ->where('mid','=',$mId)
+        ->where('pstatus','=','Y')
         ->get();
 
         // dd($stockDetail);

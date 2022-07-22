@@ -83,4 +83,10 @@ class memberController extends Controller
     }
 
 
+    //帳號管理頁面
+    function memberInfo($name){
+
+        return view('member.memberInfo');
+    }
+
 }

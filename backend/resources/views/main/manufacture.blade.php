@@ -21,7 +21,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card p-3">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -76,7 +76,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            {{$manu->dlid}}
+                                            {{$manu->drownumber}}
                                         </td>
                                     </tr>                               
                                     @endforeach
