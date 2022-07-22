@@ -8,10 +8,6 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
-use App\Models\Book;
-use App\Models\Bookdetail;
-use App\Models\Customer;
-use App\Models\Delivery;
 use App\Models\Detaillist;
 use App\Models\Inventory;
 use App\Models\Invoice;

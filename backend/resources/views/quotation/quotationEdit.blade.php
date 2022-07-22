@@ -37,49 +37,49 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">報價單編號</label>
-                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->qid }}"
-                                            readonly>
+                                        <input class="form-control" type="text" 
+                                            placeholder="{{ $quotationInfo->qrownumber }}" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">公司名稱</label>
-                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cname }}"
-                                            readonly>
+                                        <input class="form-control" type="text" 
+                                            placeholder="{{ $quotationInfo->cname }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">公司統編</label>
-                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cid }}"
-                                            readonly>
+                                        <input class="form-control" type="text" 
+                                            placeholder="{{ $quotationInfo->cid }}">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">公司電話</label>
-                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->ctel }}"
-                                            readonly>
+                                        <input class="form-control" type="text" 
+                                            placeholder="{{ $quotationInfo->ctel }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">報價日期</label>
-                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->qdate }}"
-                                            readonly>
+                                        <input class="form-control" type="text" 
+                                            placeholder="{{ $quotationInfo->qdate }}" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">聯絡人</label>
                                         <input class="form-control" type="text"
-                                            placeholder="{{ $quotationInfo->qcontact }}" readonly>
+                                            placeholder="{{ $quotationInfo->qcontact }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">聯絡人LINE ID</label>
                                         <input class="form-control" type="text"
-                                            placeholder="{{ $quotationInfo->clineid }}" readonly>
+                                            placeholder="{{ $quotationInfo->clineid }}">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">聯絡信箱</label>
-                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cmail }}"
-                                            readonly>
+                                        <input class="form-control" type="text" 
+                                            placeholder="{{ $quotationInfo->cmail }}">
                                     </div>
                                 </div>
                             </div>
@@ -136,11 +136,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-1">
-                                    <div class="col-lg-9 text-right">
-                                        <p style="font-size: 20px">總計</p>
+                                <div class="row mb-1 text-right" style="font-size: 20px">
+                                    <div class="col-lg-9">
+                                        <p>總計</p>
                                     </div>
-                                    <div class="col-lg-3 text-right" id="AllTot" style="font-size: 20px"></div>
+                                    <div class="col-lg-3" id="AllTot" ></div>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                                         <div class="col-lg-3">
                                             <p>企業方案</p>
                                         </div>
-                                        <div class="col-lg-8"><input type="text" required></div>
+                                        <div class="col-lg-8"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -179,14 +179,15 @@
                     </div>
                     <div class = "row container justify-content-center">
                         <div class="col-md-3 p-1">
-                            <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i
-                                    class="far fa-save"></i>&nbsp; 存檔</button>
+                            <a href="/main/quotation">
+                                <button type="submit" id="okOrCancel" class="btn btn-primary btn-block" >
+                                    <i class="far fa-save"></i>&nbsp; 存檔
+                                </button>
+                            </a>                            
                         </div>
                         <div class="col-md-3 p-1">
-                            <a href='/main/quotation'>
-                                <button class="btn btn-secondary btn-block">
-                                    <i class="fa-solid fa-x"></i> &nbsp; 返回
-                                </button>
+                            <a href='/main/quotation' class="btn btn-secondary btn-block">
+                                <i class="fa-solid fa-x"></i> &nbsp; 返回
                             </a>
                         </div>
                     </div>
@@ -224,16 +225,10 @@
 
 @section('script')
     <script>
-        //這個會從資料庫出來
-        let ListData = [
-            // 第一筆
-            {
-                mName: "",
-                mNumber: "",
-                quantity: "",
-                cost: "",
-            }
-        ];
+
+        var users = {!! json_encode($quotation->toArray()) !!};
+        let ListData = users;
+        // console.log(ListData);
 
         //頁面進來,更新畫面
         Refresh()
@@ -244,27 +239,17 @@
             //畫面清空
             $('#quotationtable').find('tbody').empty();
             // 明細至少一筆,這筆可更改不刪除
-            $('#quotationtable').find('tbody').append(`
-                    <tr>
-                        <th scope="row">1</th>
-                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[0].mName}"></td>
-                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[0].mNumber}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[0].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[0].cost}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[0].quantity*ListData[0].cost}" readonly></td>
-                    </tr>
-                `)
-            //從第2筆開始,可更改可刪除
-            for (let i = 1; i < ListData.length; i++) {
+            for (let i = 0; i < ListData.length; i++){
                 $('#quotationtable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mName}"></td>
-                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mNumber}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mname}"></td>
+                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mnumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].price}"></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].price}" readonly></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
+                        <input type="text" name="did[]" value="${ListData[i].dlid}">
                     </tr>
                 `)
             }
@@ -275,10 +260,6 @@
             Alltot()
             //給刪除Function
             Pdel()
-            //給公司資料庫搜尋
-            sNameChk()
-            //給商品名稱檢查
-            mNumber()
         }
 
         // 細項新增//******************************************************
@@ -286,12 +267,11 @@
 
             //矩陣增加
             ListData.push({
-                mName: "",
-                mNumber: "",
+                mname: "",
+                mnumber: "",
                 quantity: "",
-                cost: "",
-                PRtot: "",
-                stockIn: ""
+                price: "",
+                PRtot: ""
             })
 
             //更新畫面
@@ -351,10 +331,10 @@
                 let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array
-                ListData[(Pindex - 1)].mName = Pname;
-                ListData[(Pindex - 1)].mNumber = Pid;
+                ListData[(Pindex - 1)].mname = Pname;
+                ListData[(Pindex - 1)].mnumber = Pid;
                 ListData[(Pindex - 1)].quantity = qty;
-                ListData[(Pindex - 1)].cost = price;
+                ListData[(Pindex - 1)].price = price;
                 ListData[(Pindex - 1)].PRtot = Ptot;
 
                 //全部總和更新
@@ -371,14 +351,14 @@
             let totally = 0;
 
             ListData.forEach(item => {
-                totally += Number(item.quantity * item.cost);
+                totally += Number(item.quantity * item.price);
             });
 
             $('#AllTot').text(`NT.${totally}`);
         }
 
-        // function append(){
-        //     $("#table>tbody").append(`
+    // function append(){
+    //     $("#table>tbody").append(`
     //     <tr>
     //         <td></td>
     //         <td><input type="text" name="" value=""></td>
@@ -390,5 +370,6 @@
     //     </tr>
     //     `);
         // }
+
     </script>
 @endsection
