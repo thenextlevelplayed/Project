@@ -15,7 +15,7 @@
             height: 100vh;
             overflow:hidden;
             background-size: cover;
-            background-image: url('assets/img/skyline-1869214_1920.jpg');   
+            background-image: url('/assets/img/skyline-1869214_1920.jpg');   
         }
 
         .logo img{
