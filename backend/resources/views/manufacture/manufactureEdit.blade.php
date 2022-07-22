@@ -24,7 +24,7 @@
                             <div class="container p-5">
                                 <div>
                                     <div class="col-md-12 card-title text-center">
-                                        <h3>凱茂資訊 工單管理</h3>
+                                        <h3>楷模資訊 工單管理</h3>
                                     </div>
                                     <div class="container-fluid row justify-content-end" style="padding-right: 0px">
                                         <?php
@@ -134,31 +134,31 @@
 
                                         </thead>
                                         <tbody>
-                                            
+                                        @foreach ($dtl as $key => $item)
                                             <tr>
                                                 <td>
-                                                    {{ $manu->mname }}
+                                                    {{ $item->mname }}
                                                 </td>
                                                 <td>
-                                                    {{ $manu->mnumber }}
+                                                    {{ $item->mnumber }}
                                                 </td>
                                                 <td>
-                                                    {{ $manu->quantity }}
+                                                    {{ $item->quantity }}
                                                 </td>
                                                 <td>
                                                     <div style="width:300px">
-                                                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $dtl->remark }}</textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark">{{ $item->remark }}</textarea>
                                                     </div>
                                                 </td>
                                                 <?php
-                                                if($dtl->pstatus == 'Y'){
+                                                if($item->pstatus == 'Y'){
                                                 ?>
                                                 <td style="text-align: center">
                                                     <input class="form-check-input" type="checkbox" id="checkboxNoLabel" name="pstatus"
                                                         value="Y" checked>
                                                 </td>
                                                 <?php
-                                                }elseif($dtl->pstatus == 'N' || $dtl->pstatus == ""){
+                                                }elseif($item->pstatus == 'N' || $item->pstatus == ""){
                                                 ?>
                                                 <td style="text-align: center">
                                                     <input class="form-check-input" type="checkbox" id="checkboxNoLabel" name="pstatus"
@@ -168,6 +168,7 @@
                                                 }
                                                 ?>                                                                                                
                                             </tr>
+                                        @endforeach
                                             
 
                                         </tbody>

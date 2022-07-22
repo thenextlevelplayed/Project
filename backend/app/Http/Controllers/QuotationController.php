@@ -119,13 +119,13 @@ class QuotationController extends Controller
         return view('main.quotation', compact('quotation'));
     }    
     
-    //報價資訊
+    //報價單資訊
     function quotationInfo($quotationId)
     {
         // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
             ->find($quotationId);
         
         // 根據qid撈每一張報價單的明細
@@ -138,13 +138,13 @@ class QuotationController extends Controller
         return view('quotation.quotationInfo', compact('quotationInfo','quotation'));
     }
 
-    //報價編輯
+    //報價單編輯
     function quotationEdit($quotationId)
     {
         // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
             ->find($quotationId);
         
         // 根據qid撈每一張報價單的明細
@@ -157,9 +157,9 @@ class QuotationController extends Controller
         return view('quotation.quotationEdit',compact('quotationInfo','quotation','dtl'));
     }    
 
-    // 報價更新
+    // 報價單更新
     public function quotationUpdate(Request $request,$quotationId){
-        $dtl = Detaillist::join('quotation','quotation.dlid','=','detaillist.dlid')
+        $dtl = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
         ->select('*')
         ->find($quotationId);
         
@@ -189,7 +189,7 @@ class QuotationController extends Controller
         // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
             ->find($quotationId);
         
         // 根據qid撈每一張報價單的明細
@@ -208,7 +208,7 @@ class QuotationController extends Controller
         // 撈客戶資訊 楷模方案的資料
         $quotationInfo = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
             ->find($quotationId);
         
         // 根據qid撈每一張報價單的明細

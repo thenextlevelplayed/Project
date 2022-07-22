@@ -51,6 +51,7 @@ Route::post('/purchase/mNumber', "App\Http\Controllers\purchaseController@mNumbe
 Route::put('/purchase/edit/{purchaseID}', "App\Http\Controllers\purchaseController@purchaseEditPost"); //進貨單編輯更新
 Route::post('/purchase/stockIn', "App\Http\Controllers\purchaseController@stockIn"); //入庫寫入庫存表
 Route::get('/main/stock', "App\Http\Controllers\purchaseController@stock"); //庫存列表
+Route::get('/main/stock/{mId}', "App\Http\Controllers\purchaseController@stockInfo"); //庫存列表
 
 //報價
 Route::get('/main/quotation', "App\Http\Controllers\QuotationController@quotation"); //報價單列表
