@@ -235,29 +235,41 @@ class OrderController extends Controller
     //匯出訂單PDF
     public function createOrderPDF (Request $request,$orderID) {
         $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.qid','=','quotation.qid')
         ->select('*')
         ->find($orderID);
 
-        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo'));
+        $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
+        // dd($orderInfoid->qid);
+        $quotation = Detaillist::join('quotation','quotation.qid','=','order.qid')
+        ->join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $orderInfoid->qid)
+        ->get();
+
+        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo','quotation'));
         return $pdf->download();
     }
 
     //預覽訂單PDF
     public function viewOrderPDF (Request $request,$orderID) {
         $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('rebate','rebate.rid','=','quotation.rid')
         ->join('staff','staff.staffid','=','quotation.staffid')
         ->join('customer','customer.cid','=','quotation.cid')
         ->join('detaillist','detaillist.qid','=','quotation.qid')
-        ->select('*')
         ->find($orderID);
 
+        $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
+        // dd($orderInfoid->qid);
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+        ->select('*')
+        ->where('detaillist.qid', '=', $orderInfoid->qid)
+        ->get();
+
          
-        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo'));
+        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo','quotation'));
         return $pdf->stream();
     }
 }
