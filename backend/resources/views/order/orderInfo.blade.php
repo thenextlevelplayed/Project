@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <form class="card">
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 訂單明細</h4>
+                        <h4 class="card-title text-center"> 楷模資訊 訂單明細</h4>
                     </div>
                         <div class="card-body">
                             <div class="table-responsive">

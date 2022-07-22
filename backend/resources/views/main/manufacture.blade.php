@@ -46,7 +46,7 @@
                                     @foreach($manufacture as $manu)
                                     <tr>
                                         <td>
-                                            {{$manu->mid}}
+                                            {{$manu->mrownumber}}
                                         </td>
                                         <td>
                                             {{$manu->cname}}
@@ -76,7 +76,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            {{$manu->dlid}}
+                                            {{$manu->drownumber}}
                                         </td>
                                     </tr>                               
                                     @endforeach
