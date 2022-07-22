@@ -139,28 +139,19 @@ class DeliveryController extends Controller
 
     public function createPDF(Request $request,$id)
     {
-        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->find($id);
+        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->where('delivery.did','=',"$id")
+        ->get();
 
+        dd($deliveryInfo);
 
-        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo'));
         return $pdf->download();
     }
 
     public function viewPDF (Request $request,$id) {
-        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('detaillist','detaillist.dlid','=','quotation.dlid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->find($id);
-        $pdf = PDF::loadView('pdf.deliveryInfo', compact('deliveryInfo'));
+       
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo'));
         return $pdf->stream();
     }
 
@@ -236,5 +227,5 @@ foreach($count[0] as $qdatecount){
 
 $number=$qdatecount+1 ;// 報價單流水編號
 $head='KMD';
-echo generateid($number,$date,$head).'<br />';
+// echo generateid($number,$date,$head).'<br />';
 ///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me

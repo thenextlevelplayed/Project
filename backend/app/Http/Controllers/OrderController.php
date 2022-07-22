@@ -201,12 +201,14 @@ class OrderController extends Controller
     public function orderUpdate(Request $request,$orderID){
 
 
-        // dd($request->dlid);
+        // dd($request);
 
         for ($i=0 ; $i<count($request->dlid); $i++){
             $id = Detaillist::where('detaillist.dlid', '=' , $request->dlid[$i])->first();
             // dd($id);
             $id->quantity = $request->quantity[$i];
+            // dd($id);
+
             $id->save();
         }
 
