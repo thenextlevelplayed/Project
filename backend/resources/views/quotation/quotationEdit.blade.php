@@ -64,11 +64,7 @@
                                         <div class="col-lg-3">
                                             <p>報價日期</p>
                                         </div>
-                                        <div class="col-lg-8">
-                                            <fieldset disabled>
-                                                <input type="date" required value="{{ $quotationInfo->qdate }}">
-                                            </fieldset>
-                                        </div>
+                                        <div class="col-lg-8">{{ $quotationInfo->qdate }}</div>
                                     </div>
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
@@ -147,7 +143,13 @@
                                     <div class="col-lg-8 text-right">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4 text-right">
+                                        <?php                                        
+                                        // $alltotal = $total
+                                        // echo $alltotal;
+                                        var_dump($total);
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
