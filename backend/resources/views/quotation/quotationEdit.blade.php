@@ -137,10 +137,10 @@
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-8 text-right">
-                                        <p>總計</p>
+                                    <div class="col-lg-9 text-right">
+                                        <p style="font-size: 20px">總計</p>
                                     </div>
-                                    <div class="col-lg-4 text-right" id="AllTot"></div>
+                                    <div class="col-lg-3 text-right" id="AllTot" style="font-size: 20px"></div>
                                 </div>
                             </div>
                         </div>

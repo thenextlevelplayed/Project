@@ -281,7 +281,7 @@
 
     //進銷存, 控制 display 收合
     $path = $(location).attr('pathname');
-    if($path == '/main/purchase' || $path == '/main/sales' || $path == '/main/stock'){
+    if($path == '/main/purchase' || $path == '/main/stock'){
         console.log($(location).attr('pathname'))
         $('#testNav').css('display','normal');
     }else{
