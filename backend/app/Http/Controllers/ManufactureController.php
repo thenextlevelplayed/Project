@@ -37,49 +37,32 @@ class ManufactureController extends Controller
     function manufacture()
     {
         //製造
-        $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.qid','=','quotation.qid')
-        ->join('delivery','delivery.did','=','manufacture.mid',)
-        ->select('manufacture.mid','manufacture.mstatus','manufacture.mremark','customer.cname')
-        ->orderby('mid')
-        ->distinct('mid')
-        ->get();
+        $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('delivery', 'delivery.mid', '=', 'manufacture.mid',)
+            ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'delivery.drownumber','manufacture.mrownumber')
+            ->orderBy('manufacture.mid')
+            ->get();
 
-        // dd($manufacture);
-        
-        
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
-            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-            ->join('quotation','quotation.qid','=','order.qid')
-            ->join('customer','customer.cid','=','quotation.cid')
-            ->join('detaillist','detaillist.qid','=','quotation.qid')
-            ->join('delivery','delivery.did','=','manufacture.mid',)
-            ->where('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('detaillist.dlid','LIKE','%'.$search_text.'%')
-            ->orWhere('mid','LIKE','%'.$search_text.'%')
-            ->orderby('mid')
-            ->distinct('mid')
-            ->get();
-            
-        }
-        else{
-            $manufacture = Manufacture::join('order','order.oid','=','manufacture.oid')
-            ->join('quotation','quotation.qid','=','order.qid')
-            ->join('customer','customer.cid','=','quotation.cid')
-            ->join('detaillist','detaillist.qid','=','quotation.qid')
-            ->join('delivery','delivery.did','=','manufacture.mid',)
-            ->select('*')
-            ->orderby('mid')
-            ->distinct('mid')
-            ->get();
-                        
+        if ($search_text != "") {
+            $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->join('delivery', 'delivery.mid', '=', 'manufacture.mid',)
+                ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'delivery.drownumber','manufacture.mrownumber')
+                ->where('customer.cname', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('delivery.drownumber', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('manufacture.mid', 'LIKE', '%' . $search_text . '%')
+                ->orderBy('manufacture.mid')
+                ->get();
+        } else {
+            $manufacture;
         };
-        return view('main.manufacture',["manufacture"=>$manufacture]);
 
+        return view('main.manufacture', compact('manufacture'));
     }
     function manufactureEdit($manufactureId)
     {
@@ -93,18 +76,19 @@ class ManufactureController extends Controller
             ->find($manufactureId);
 
         $dtl = Detaillist::select('*')
-        ->where('detaillist.qid', '=', $manufactureId)
-        ->get();
-        
+            ->where('detaillist.qid', '=', $manufactureId)
+            ->get();
 
 
 
 
-        return view('manufacture.manufactureEdit',compact('manu','dtl'));
+
+        return view('manufacture.manufactureEdit', compact('manu', 'dtl'));
     }
 
 
-    public function manufactureUpdate(Request $request,$manufactureId){
+    public function manufactureUpdate(Request $request, $manufactureId)
+    {
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -113,36 +97,36 @@ class ManufactureController extends Controller
             ->find($manufactureId);
 
         $dtl = Detaillist::find($manufactureId);
-        
+
         $manu->mremark = $request->mremark;
         $manu->mstatus = $request->mstatus;
         $dtl->remark = $request->remark;
         $dtl->pstatus = $request->pstatus;
         if ($request->inlineRadioOptions == 'Y') {
             $manu->mstatus = 'Y';
-        } else{
+        } else {
             $manu->mstatus = 'N';
         }
 
         if ($request->pstatus == 'Y') {
             $dtl->pstatus = 'Y';
-        } else{
+        } else {
             $dtl->pstatus = 'N';
         }
         //撈畫面的資料
         $manu->save();
         $dtl->save();
-        
-        
+
+
         // dd($dtl);
         return redirect('/main/manufacture/');
-        
+
 
         // mstatus
         // dstatus
         // mremark
     }
-    public function createManufacturePDF(Request $request,$manufactureId)
+    public function createManufacturePDF(Request $request, $manufactureId)
     {
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
@@ -153,14 +137,14 @@ class ManufactureController extends Controller
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
         return $pdf->download();
     }
-    public function viewManufacturePDF(Request $request,$manufactureId)
+    public function viewManufacturePDF(Request $request, $manufactureId)
     {
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
-        ->join('quotation', 'quotation.qid', '=', 'order.qid')
-        ->join('customer', 'customer.cid', '=', 'quotation.cid')
-        ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-        ->select('*')
-        ->find($manufactureId);
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+            ->select('*')
+            ->find($manufactureId);
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
         return $pdf->stream();
     }

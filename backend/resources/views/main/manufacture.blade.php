@@ -43,17 +43,17 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    @foreach($manufacture as $manu)
+                                    @foreach($manufacture as $mInfo)
                                     <tr>
                                         <td>
-                                            {{$manu->mid}}
+                                            {{$mInfo->mrownumber}}
                                         </td>
                                         <td>
-                                            {{$manu->cname}}
+                                            {{$mInfo->cname}}
                                         </td>
                                         <td>
                                         <?php
-                                        if($manu->mstatus == 'Y'){
+                                        if($mInfo->mstatus == 'Y'){
                                         ?>
                                             <span class="badge bg-success">
                                                 已完成
@@ -70,13 +70,13 @@
 
                                         </td>
                                         <td>
-                                            <a href = "/manufacture/edit/{{$manu->mid}}">
+                                            <a href = "/manufacture/edit/{{$mInfo->mid}}">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
                                                 aria-hidden="true"></i></button>
                                             </a>
                                         </td>
                                         <td>
-                                            {{$manu->drownumber}}
+                                            {{$mInfo->drownumber}}
                                         </td>
                                     </tr>                               
                                     @endforeach
