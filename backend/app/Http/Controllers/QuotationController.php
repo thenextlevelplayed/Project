@@ -155,19 +155,33 @@ class QuotationController extends Controller
         //撈明細資料
         $dtl = Detaillist::find($quotationId);
         return view('quotation.quotationEdit',compact('quotationInfo','quotation','dtl'));
-    }    
+    }
 
-    // 報價單更新
-    public function quotationUpdate(Request $request,$quotationId){
-        $dtl = Detaillist::join('quotation','quotation.qid','=','detaillist.qid')
-        ->select('*')
-        ->find($quotationId);
-        
-        $dtl->quantity = $request->quantity;
-        $dtl->save();  
-        
-        // dd($dtl);
-        return redirect('/main/quotation');
+    // 報價單明細修改
+    function quotationEditPost(Request $req, $quotationId)
+    {
+        // 1.Drop 掉全部
+        Quotation::select('*')
+            ->where('quotation.qid', '=', $quotationId)
+            ->delete();
+        // 2.重新新增
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $mid = Material::select('mid')
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
+
+            Quotation::insert([
+                'qid' => $quotationId,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'cost' => $req->cost[$i],
+                'mid' => $mid->mid,
+                'pstatus' => $req->pStatus[$i]
+            ]);
+        }
+
+        return redirect("/main/quotation/$quotationId");
     }
 
     //新增報價單
