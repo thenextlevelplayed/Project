@@ -18,38 +18,35 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="/news/edit/{{ $newsEdit->newsid }}" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="post" action="/news" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
                             <div class="container p-5">
                                 <div>
                                     <div class="col-md-12 card-title text-center">
-                                        <h3>楷模資訊 最新消息編輯</h3>
+                                        <h3>楷模資訊 最新消息新增</h3>
                                     </div>
-                                    <div class="container-fluid row justify-content-end" style="padding-right: 0px">
-
-                                    </div>
+                                    {{-- <div class="container-fluid row justify-content-end" style="padding-right: 0px">
+                                    </div> --}}
                                     <div class="row ">
                                         <div class="col-md-12 mb-3">
                                             <label for="exampleFormControlTextarea1">消息標題</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="title">{{ $newsEdit->title }}</textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="title"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="row ">
                                         <div class="col-md-12 mb-3">
                                             <label for="exampleFormControlTextarea2">消息圖片</label><br>
-                                            <img src="\newsImg\{{ $newsEdit->img }}" alt="" id="showImg"
-                                                width="300px" height="300px"><br>
-                                            <input type="file" class="mt-3" title="請選擇圖片" id="mainImg"
-                                                name="mainImg" multiple accept="image/png,image/jpg,image/gif,image/JPEG" />
+                                            <img src="\assets\img\default-image.jpg" alt="" id="showImg" width="300px" height="300px" ><br>
+                                            <input type="file" class="mt-3" title="請選擇圖片" id="mainImg" name="mainImg" 
+                                                multiple accept="image/png,image/jpg,image/gif,image/JPEG" />
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
-                                            <label for="exampleFormControlTextarea2">消息內容</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="10" name="content">{{ $newsEdit->content }}</textarea>
+                                            <label for="exampleFormControlTextarea3">消息內容</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea3" rows="10" name="content"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -57,13 +54,13 @@
                                 <div class="row justify-content-center mt-5 mb-3">
                                     <div class="col-md-2 p-1">
                                         <button type="submit" id="okOrCancel" name="okOrCancel"
-                                            class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;存檔</button>
+                                            class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;新增</button>
                                     </div>
                                     <div class="col-md-2 p-1">
                                         <a href='/main/news'>
-                                            <button class="btn btn-danger btn-block">
+                                            <div class="btn btn-danger btn-block">
                                                 <i class="fa-solid fa-x"></i> &nbsp;取消
-                                            </button>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>

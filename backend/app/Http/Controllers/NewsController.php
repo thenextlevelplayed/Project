@@ -4,33 +4,9 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use App\Models\News;
-use App\Models\Book;
-use App\Models\Bookdetail;
-use App\Models\Customer;
-use App\Models\Delivery;
-use App\Models\Detaillist;
-use App\Models\Inventory;
-use App\Models\Invoice;
-use App\Models\Invoicedetail;
-use App\Models\Manufacture;
-use App\Models\Material;
-use App\Models\Order;
-use App\Models\Quotation;
-use App\Models\Rebate;
-use App\Models\Staff;
-use App\Models\Supplier;
-use Illuminate\Support\Carbon;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Stmt\Foreach_;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailable;
-use Illuminate\Support\Facades\File;
-use Mockery\Generator\StringManipulation\Pass\Pass;
+use Illuminate\Support\Facades\Storage;
+
 
 class NewsController extends Controller
 {
@@ -41,33 +17,43 @@ class NewsController extends Controller
         $news = News::all();
 
 
-        return view('main.news',compact('news'));
-
+        return view('main.news', compact('news'));
     }
     function newsEdit($newsId)
     {
-       //最新消息編輯
+        //最新消息編輯
 
         $newsEdit = News::all()
-        ->find($newsId);
+            ->find($newsId);
 
-        return view('news.newsEdit',compact('newsEdit'));
+        return view('news.newsEdit', compact('newsEdit'));
     }
 
 
-    public function newsUpdate(Request $request,$newsId){
+    public function newsUpdate(Request $request, $newsId)
+    {
+
         $newsEdit = News::all()
-        ->find($newsId);
-        
+            ->find($newsId);
         $newsEdit->title = $request->title;
         $newsEdit->content = $request->content;
 
+        $image = $request->file('mainImg');
 
-        //撈畫面的資料
+        if ($image) {
+
+            // **** 有圖片檔案 ****
+
+            $fileName = $request->file('mainImg')->getClientOriginalName();
+            //圖片存在裡面 public newsImg
+            $image->move(public_path('/newsImg'), $fileName);
+            $newsEdit->img = $fileName;
+        }
+
+        //存資料
         $newsEdit->save();
-        
+
         return redirect('/main/news');
-        
     }
 
     /**
@@ -88,6 +74,7 @@ class NewsController extends Controller
     public function create()
     {
         //
+        return view('news.newsCreate');
     }
 
     /**
@@ -98,16 +85,30 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $image = $request->file('mainImg');
+        $fileName = $request->file('mainImg')->getClientOriginalName();
+
+        //資料寫新增至資料庫
+        News::insert([
+            'title' => $request->title,
+            'content' => $request->content,
+            'img' => $fileName
+        ]);
+
+        //圖片存在裡面 public newsImg
+        $image->move(public_path('/newsImg'), $fileName);
+
+        return redirect('/main/news');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Manufacture  $manufacture
+     * @param  \App\Models\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function show(Manufacture $manufacture)
+    public function show(News $News)
     {
         //
     }
@@ -115,10 +116,10 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Manufacture  $manufacture
+     * @param  \App\Models\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function edit(Manufacture $manufacture)
+    public function edit(News $News)
     {
         //
     }
@@ -127,10 +128,10 @@ class NewsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Manufacture  $manufacture
+     * @param  \App\Models\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Manufacture $manufacture)
+    public function update(Request $request, News $News)
     {
         //
     }
@@ -138,11 +139,14 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Manufacture  $manufacture
+     * @param  \App\Models\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Manufacture $manufacture)
+    public function destroy($newsId)
     {
         //
+        News::find($newsId)->delete();
+
+        return response()->json(null, 204);
     }
 }

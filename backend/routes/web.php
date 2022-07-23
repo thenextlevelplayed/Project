@@ -79,7 +79,9 @@ Route::put('/manufacture/edit/{manufactureId}', "App\Http\Controllers\Manufactur
 Route::get('/main/news', "App\Http\Controllers\NewsController@news");
 Route::get('/news/edit/{newsId}', "App\Http\Controllers\NewsController@newsEdit");
 Route::put('/news/edit/{newsId}', "App\Http\Controllers\NewsController@newsUpdate"); //更新
-
+Route::get('/news/create', "App\Http\Controllers\NewsController@create"); //新增頁面
+Route::post('/news', "App\Http\Controllers\NewsController@store"); //新增處理
+Route::delete('/news/{newsId}', "App\Http\Controllers\NewsController@destroy");//news 刪除
 
 
 //出貨

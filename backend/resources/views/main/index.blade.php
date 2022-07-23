@@ -16,7 +16,7 @@
 <div class = "container-fluid vh100">
     <div class = "mainView">
         <h2>歡迎回來，{{ Session::get('name') }}<br>請點選左方選單列按鈕開始使用！</h2>
-        <img src="assets\img\teamwork.png" alt="">
+        <img src="\assets\img\teamwork.png" alt="">
     </div>
 </div>
 

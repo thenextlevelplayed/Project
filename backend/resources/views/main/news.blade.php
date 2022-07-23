@@ -11,9 +11,9 @@
     </h4>
 @endsection
 @section('searchBox')
-    <input type="search"  class="form-control" name="query" placeholder="輸入單號或客戶名稱">
-    <span class="input-group-addon" onclick="searchform.submit()">                                    
-        <i class="now-ui-icons ui-1_zoom-bold"></i>       
+    <input type="search" class="form-control" name="query" placeholder="輸入單號或客戶名稱">
+    <span class="input-group-addon" onclick="searchform.submit()">
+        <i class="now-ui-icons ui-1_zoom-bold"></i>
     </span>
 @endsection
 
@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class="text-primary" style = "white-space: nowrap">
+                                <thead class="text-primary" style="white-space: nowrap">
                                     <th>
                                         消息編號
                                     </th>
@@ -38,33 +38,54 @@
                                     </th>
 
                                     <th>
-                                    查看/編輯
+                                        查看/編輯
+                                    </th>
+
+                                    <th>
+                                        刪除
                                     </th>
                                 </thead>
                                 <tbody>
-                                    @foreach($news as $n)
-                                    <tr>
-                                        <td>
-                                            {{$n->newsid}}
-                                        </td>
-                                        <td>
-                                            {{$n->title}}
-                                        </td>
-                                        <td>
-                                        {{$n->content}}                         
-                                        </td>
-                                        <td>
-                                            <a href = "/news/edit/{{$n->newsid}}">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i></button>
-                                            </a>
-                                        </td>
+                                    @foreach ($news as $n)
+                                        <tr>
+                                            <td>
+                                                {{ $n->newsid }}
+                                            </td>
+                                            <td>
+                                                {{ $n->title }}
+                                            </td>
+                                            <td>
+                                                {{ $n->content }}
+                                            </td>
+                                            <td>
+                                                <a href="/news/edit/{{ $n->newsid }}">
+                                                    <button class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </button>
+                                                </a>
+                                            </td>
 
-                                    </tr>                               
+                                            <td>
+                                                <form action="/news/{{ $n->newsid }}" method="GET">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-danger btn-sm">
+                                                        <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="text-right mr-5 mb-3">
+                        <a class="btn btn-primary" href="/news/create">
+                            <i class="now-ui-icons files_single-copy-04"></i>
+                            <span>新增最新消息</span>
+                        </a>
                     </div>
                 </div>
             </div>
