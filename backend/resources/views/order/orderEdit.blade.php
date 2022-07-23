@@ -103,7 +103,7 @@
                                             <th scope="col">數量</th>
                                             <th scope="col">單價</th>
                                             <th scope="col">小計</th>
-                                            <th scope="col">備註</th>
+                                            {{-- <th scope="col">備註</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -123,8 +123,8 @@
                                                     echo $total;
                                                     ?>
                                                 </td>
-                                                <td>{{ $item->remark }}</td>
-                                                <input type="hidden" value="{{ $item->dlid }}" name="dlid[]">
+                                                {{-- <td>{{ $item->remark }}</td>
+                                                <input type="hidden" value="{{ $item->dlid }}" name="dlid[]"> --}}
                                             </tr>
                                         @endforeach
                                         {{-- <tr>
@@ -149,7 +149,7 @@
                                 </table>
                             </div>
                             <div class="row mb-1 text-right" style="font-size: 20px">
-                                <div class="col-lg-8">
+                                <div class="col-lg-10">
                                     <p>總計</p>
                                 </div>
                                 <div class="col-mb-3" id="AllTot" ></div>
@@ -164,7 +164,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-1 bg-light p-4 border border-white">
                                 企業方案：<br>
-                                週年慶滿千送百
+                                週年慶全面9折
                             </div>
                             <div class="col-md-6 mb-1 bg-light p-4 border border-white">
                                 業務專員：{{ $orderEdit->staffname}}<br>

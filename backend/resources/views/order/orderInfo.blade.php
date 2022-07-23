@@ -87,7 +87,7 @@
                                                     <th scope="col">數量</th>
                                                     <th scope="col">單價</th>
                                                     <th scope="col">小計</th>
-                                                    <th scope="col">備註</th>
+                                                    {{-- <th scope="col">備註</th> --}}
                                                 </tr>
                                             </thead>
                                             
@@ -106,7 +106,7 @@
                                                         $total=($item->quantity) * ($item->price);
                                                         echo $total;
                                                         ?></td>
-                                                    <td>{{$item->remark}}</td>
+                                                    {{-- <td>{{$item->remark}}</td> --}}
                                                 </tr>
                                             @endforeach 
                                                 {{-- <tr>
@@ -123,7 +123,7 @@
                                         </table> 
                                     </div>
                                     <div class="row mb-1 text-right" style="font-size: 20px">
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-10">
                                             <p>總計</p>
                                         </div>
                                         <div class="col-mb-3" id="AllTot" ></div>

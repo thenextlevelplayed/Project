@@ -67,7 +67,7 @@
                                             
                                             <td>
                                                 <span class="badge bg-success">
-                                                    已成立訂單
+                                                    已成立工單
                                                 </span>
                                             </td>
                                             <td>
