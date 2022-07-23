@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <form class="card p-5">
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 楷模資訊 訂單明細</h4>
+                        <h4 class="card-title text-center">訂單明細</h4>
                     </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -122,10 +122,12 @@
                                             </tbody>
                                         </table> 
                                     </div>
-                                    <div class="row mb-1">
-                                        <div class="col-lg-8 text-right"><p>總計</p></div>
-                                        <div class="col-lg-4 text-right" id="AllTot"></div>
-                                    </div>                                 
+                                    <div class="row mb-1 text-right" style="font-size: 20px">
+                                        <div class="col-lg-8">
+                                            <p>總計</p>
+                                        </div>
+                                        <div class="col-mb-3" id="AllTot" ></div>
+                                    </div>                                
                                 </div>
                             </div>
                             <div>
@@ -137,13 +139,13 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>企業方案</p></div>
-                                            <div class="col-lg-8">{{$orderInfo->rid}}</div>
+                                            <div class="col-lg-8">週年慶滿千送百</div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>業務專員</p></div>
-                                            <div class="col-lg-8">{{$orderInfo->staffid}}</div>
+                                            <div class="col-lg-8">{{$orderInfo->staffname}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>凱茂信箱</p></div>
