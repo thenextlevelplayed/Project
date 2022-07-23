@@ -83,6 +83,8 @@ class DeliveryController extends Controller
             ->select('*')
             ->find($deliveryId);
 
+            // dd($deliveryInfo->did);
+
         //Join Detaillist 資料
         $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
         ->select('*')
@@ -93,7 +95,7 @@ class DeliveryController extends Controller
 
 
 
-        return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo'));
+        return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo','deliveryId'));
     }
 
     public function deliveryInfoEdit($deliveryId)
@@ -142,38 +144,44 @@ class DeliveryController extends Controller
 
     public function createPDF($deliveryId)
     {
-        // $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        // ->join('order','order.oid','=','manufacture.oid')
-        // ->join('quotation','quotation.qid','=','order.qid')
-        // ->select('*')
-        // ->find($deliveryId);
-        // // dd($deliveryInfo);
+       //Join Delivery 資料
+       $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+       ->join('order', 'order.oid', '=', 'manufacture.oid')
+       ->join('quotation', 'quotation.qid', '=', 'order.qid')
+       ->join('customer', 'customer.cid', '=', 'quotation.cid')
+       ->select('*')
+       ->find($deliveryId);
 
-        // $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        // ->select('*')
-        // ->where('detaillist.qid','=',$deliveryInfo->qid)
-        // ->get();
+       //Join Detaillist 資料
+       $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+       ->select('*')
+       ->where('detaillist.qid','=',$deliveryInfo->qid)
+       ->get();
 
-        // $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
-        // return $pdf->download();
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
+        return $pdf->download();
     }
 
     public function viewPDF ($deliveryId) {
-        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
+        //Join Delivery 資料
+        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+        ->join('order', 'order.oid', '=', 'manufacture.oid')
+        ->join('quotation', 'quotation.qid', '=', 'order.qid')
+        ->join('customer', 'customer.cid', '=', 'quotation.cid')
         ->select('*')
         ->find($deliveryId);
-        dd($deliveryInfo);
 
+        //Join Detaillist 資料
         $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
         ->select('*')
         ->where('detaillist.qid','=',$deliveryInfo->qid)
         ->get();
 
-        // dd($detaillistInfo);
+
+
         $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
         return $pdf->stream();
+
     }
 
     //寄信

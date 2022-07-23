@@ -40,129 +40,141 @@
 </style>
 
 @section('content')
-<form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
-    @csrf
+
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="container-xl">
-                    <div class="customerInfo">
-                        <h4 class="text-center">凱 茂 資 訊 股 份 有 限 公 司 出 貨 單</h4>
-                    
-                        {{-- 出貨日期 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>出貨日期：{{$deliveryInfo->ddate}}</span></div>                                        
-                        </div>
-                        {{-- 客戶名稱 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->dcontact}}</span></div>                                        
-                        </div>
-                        {{-- 收貨地址 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>收貨地址：{{$deliveryInfo->daddress}}</span></div>                                        
-                        </div>
-                        {{-- 聯絡人 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->director}}</span></div>                                        
-                        </div>
-                        {{-- 聯絡電話 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：{{$deliveryInfo->dtel}}</span></div>
-                            
-                        </div>
-                        {{-- 出貨編號 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>出貨編號：{{$deliveryInfo->drownumber}}</span></div>                                        
-                        </div>
-                        {{-- 發票號碼 --}}
-                        <div class="row row-cols-auto">
-                            <div class="col pl-5 ml-5 mt-3"><span>發票號碼：</span></div>                                        
-                        </div>
-                    
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        商品名稱
-                                    </th>
-                                    <th>
-                                        商品型號
-                                    </th>
-                                    <th>
-                                        數量
-                                    </th>
-                                    <th>
-                                        單價
-                                    </th>
-                                    <th>
-                                        小計
-                                    </th>
-                                    <th>
-                                        稅額
-                                    </th>
-                                    <th>
-                                        備註
-                                    </th>                    
-                                </thead>
-                                <tbody>
-                                @foreach ($detaillistInfo as $deliveryInfo)
-                                    <tr>
-                                        {{-- {{$d->firstName}} --}}
-                                        {{-- {{$d->firstName}} --}}
-                                    
-                                            
-                                        
-                                        <td>{{$deliveryInfo->mname}}</td>
-                                        <td>{{$deliveryInfo->mspecification}}</td>
-                                        <td name="quantity">
-                                            {{$deliveryInfo->quantity}}
-                                        </td>
-                                        <td name="price">{{$deliveryInfo->price}}</td>
-                                        <td name="total">
-                                            <?php
-                                                $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
-                                                echo $total;
-                                            ?></td>
-                                        <td name="tax">
-                                            <?php
-                                                $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
-                                                $tax = $total*0.05;
-                                                echo round($tax);
-                                            ?></td>
-                                        </td>
-                                        <td name="remark"> Ай-ай-ай-ай-ай, что сейчас произошло!</td>
-                                    
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <div class=" row justify-content-end">
-                                <div class="col-md-1 text-center goods">總計</div>
-                                <div class="col-md-2 text-center goods">87878878877</div>
+            <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
+            @csrf
+                <div class="card">
+                    <div class="container-xl">
+                        <div class="customerInfo">
+                            <h4 class="text-center">凱 茂 資 訊 股 份 有 限 公 司 出 貨 單</h4>
+                        
+                            {{-- 出貨日期 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>出貨日期：{{$deliveryInfo->ddate}}</span></div>                                        
                             </div>
-                            <br />
-                            <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
-                            <br />
-                            <br />
-                            <div class=" row justify-content-end">
-                                <div class="col-md-4 text-center goods">收貨人簽章:   ___________________</div>
+                            {{-- 客戶名稱 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>客戶名稱：{{$deliveryInfo->dcontact}}</span></div>                                        
+                            </div>
+                            {{-- 收貨地址 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>收貨地址：{{$deliveryInfo->daddress}}</span></div>                                        
+                            </div>
+                            {{-- 聯絡人 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>聯絡人員：{{$deliveryInfo->director}}</span></div>                                        
+                            </div>
+                            {{-- 聯絡電話 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>聯絡電話：{{$deliveryInfo->dtel}}</span></div>
+                                
+                            </div>
+                            {{-- 出貨編號 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>出貨編號：{{$deliveryInfo->drownumber}}</span></div>                                        
+                            </div>
+                            {{-- 發票號碼 --}}
+                            <div class="row row-cols-auto">
+                                <div class="col pl-5 ml-5 mt-3"><span>發票號碼：</span></div>                                        
+                            </div>
+                        
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        <th>
+                                            商品名稱
+                                        </th>
+                                        <th>
+                                            商品型號
+                                        </th>
+                                        <th>
+                                            數量
+                                        </th>
+                                        <th>
+                                            單價
+                                        </th>
+                                        <th>
+                                            小計
+                                        </th>
+                                        <th>
+                                            稅額
+                                        </th>
+                                        <th>
+                                            備註
+                                        </th>                    
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($detaillistInfo as $deliveryInfo)
+                                        <tr>
+                                            {{-- {{$d->firstName}} --}}
+                                            {{-- {{$d->firstName}} --}}
+                                        
+                                                
+                                            
+                                            <td>{{$deliveryInfo->mname}}</td>
+                                            <td>{{$deliveryInfo->mspecification}}</td>
+                                            <td name="quantity">
+                                                {{$deliveryInfo->quantity}}
+                                            </td>
+                                            <td name="price">{{$deliveryInfo->price}}</td>
+                                            <td name="total">
+                                                <?php
+                                                    $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                                    echo $total;
+                                                ?></td>
+                                            <td name="tax">
+                                                <?php
+                                                    $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                                    $tax = $total*0.05;
+                                                    echo round($tax);
+                                                ?></td>
+                                            </td>
+                                            <td name="remark"> {{$deliveryInfo->remark}}</td>
+                                        
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                                <div class=" row justify-content-end">
+                                    <div class="col-md-1 text-center goods">總計</div>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" value =
+                                        <?php   $amount = 0; 
+                                            foreach ($detaillistInfo as $key => $deliveryInfo){
+                                                
+                                                $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
+                                                $amount = $amount+$total;
+                                            }
+                                            echo round($amount);
+                                        ?>  readonly >
+                                    </div>        
+                                </div>
+                                <br />
+                                <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
+                                <br />
+                                <br />
+                                <div class=" row justify-content-end">
+                                    <div class="col-md-4 text-center goods">收貨人簽章:   ___________________</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form> 
             {{-- 按鈕 --}}
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary " href="/main/delivery">
                     <span>返回</span>
                 </a>
-                <a class="btn btn-primary " href="/delivery/pdf/view/{{$deliveryInfo->did}}">
+                <a class="btn btn-primary " href="/delivery/pdf/view/{{$deliveryId}}">
                     <span>預覽PDF</span>
                 </a>
-                <a class="btn btn-primary " href="/delivery/pdf/{{$deliveryInfo->did}}">
+                <a class="btn btn-primary " href="/delivery/pdf/{{$deliveryId}}">
                     <span>匯出PDF</span>
                 </a>
             </div>
@@ -202,8 +214,8 @@
                             </div>
                             <div class="col-lg-5">
                                 <textarea name="content" id=""  cols="100" rows="10">
-出貨單編號:{{$deliveryInfo->did}}
-出貨日期:{{$deliveryInfo->ddate}}
+                                出貨單編號:{{$deliveryInfo->did}}
+                                出貨日期:{{$deliveryInfo->ddate}}
                                 </textarea>
                             </div>
                         </div>                                
@@ -220,7 +232,7 @@
             </div>
         </div>
     </div>
-</form>  
+ 
 @endsection
 
 
