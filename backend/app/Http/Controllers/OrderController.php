@@ -111,6 +111,15 @@ class OrderController extends Controller
     function order()
     {
         //訂單
+
+        // $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
+        //     ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
+        //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+        //     ->select('*')
+        //     ->get();
+
+        // $order = Order::all();
+
         $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
@@ -121,19 +130,45 @@ class OrderController extends Controller
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
         if ($search_text != ""){
 
-        $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
-            ->select('order.oid', 'order.ostatus','order.odate','customer.cname', 'order.orownumber','manufacture.mrownumber')
-            ->where('oid','LIKE','%'.$search_text.'%')
-            ->orWhere('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('manufacture.mrownumber', 'LIKE', '%' . $search_text . '%')
-            ->orderby('oid')
-            ->get();
+            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            //     ->where('oid','LIKE','%'.$search_text.'%')
+            //     ->orWhere('cname','LIKE','%'.$search_text.'%')
+            //     ->orderby('oid')
+            //     ->get();
 
+            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            //     ->where('oid','LIKE','%'.$search_text.'%')
+            //     ->orWhere('cname','LIKE','%'.$search_text.'%')
+            //     ->orderby('oid')
+            //     ->get();
+
+            // $order = Order::join('manufacture', 'manufacture.oid', '=', 'order.oid')
+            // ->get();
+            
+            $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
+                ->select('order.oid', 'order.ostatus','customer.cname', 'order.orownumber','manufacture.mrownumber')
+                ->where('oid','LIKE','%'.$search_text.'%')
+                ->orWhere('cname','LIKE','%'.$search_text.'%')
+                ->orWhere('manufacture.mrownumber', 'LIKE', '%' . $search_text . '%')
+                ->orderby('order.oid')
+                ->get();
         }
         else{
-            $order;            
+            $order;  
+
+            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            //     ->orderby('oid')
+            //     ->get();   
+            
+            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            //     ->orderby('oid')
+            //     ->get(); 
         };
     // $order = Order::all();
 

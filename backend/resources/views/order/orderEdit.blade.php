@@ -183,17 +183,17 @@
                             <i class="far fa-save"></i>&nbsp;存檔
                         </button>
                     </div>
+                </form>   
+            </div>
+            <div class="col-md-12 text-right">
+                <form class="form-horizontal" action="/manufacturecreate/{{ $orderEdit->oid }}" method="POST">
+                    @csrf
+                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
+                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
+                    </button>
                 </form>
             </div>
         </div>    
-    </div>
-    <div class="col-md-12 text-right">
-        <form class="form-horizontal" action="/manufacturecreate/{{ $orderEdit->oid }}" method="POST">
-            @csrf
-            <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
-                <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
-            </button>
-        </form>
     </div>
 @endsection
 
