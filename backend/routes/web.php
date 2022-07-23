@@ -64,11 +64,11 @@ Route::put('/main/quotation/edit/{quotationId}', "App\Http\Controllers\quotation
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增報價單
 
 //訂單
-Route::get('/main/order', "App\Http\Controllers\OrderController@order");
-Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderInfo");  //檢視
-Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //編輯
-Route::put('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderUpdate"); //更新
-Route::post('/manufacturecreate/{orderId}', "App\Http\Controllers\OrderController@ManufactureCreate");//新增表單
+Route::get('/main/order', "App\Http\Controllers\OrderController@order");//訂單列表
+Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderInfo");  //訂單檢視
+Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //訂單編輯
+Route::put('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderUpdate"); //訂單更新
+Route::post('/manufacturecreate/{orderId}', "App\Http\Controllers\OrderController@ManufactureCreate");//新增工單
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
