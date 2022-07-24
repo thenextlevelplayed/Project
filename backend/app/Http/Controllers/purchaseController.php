@@ -18,24 +18,31 @@ class purchaseController extends Controller
     //進銷存-進貨
     function purchase()
     {
-        $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+        // $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+        //     ->get();
+
+        $book = Bookdetail::join('book', 'book.bid', '=', 'bookdetail.bid')
+            ->selectRaw("count(bookdetail.pstatus) as DStock,count(bookdetail.stockIn) as NStock, book.bid , book.KMPid , book.sName , book.bookDate , book.staffName")
+            ->groupBy('book.bid')
             ->get();
-
-        // $detail = Bookdetail::select("")
-
 
         // dd($book);
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
         if ($search_text != "") {
-            $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            // $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
+            //     ->where('KMPid', 'LIKE', '%' . $search_text . '%')
+            //     ->orWhere('sname', 'LIKE', '%' . $search_text . '%')
+            //     ->orWhere('staffname', 'LIKE', '%' . $search_text . '%')
+            //     ->get();
+            $book = Bookdetail::join('book', 'book.bid', '=', 'bookdetail.bid')
+                ->selectRaw("count(bookdetail.pstatus) as DStock,count(bookdetail.stockIn) as NStock, book.bid , book.KMPid , book.sName , book.bookDate , book.staffName")
                 ->where('KMPid', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('sname', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('staffname', 'LIKE', '%' . $search_text . '%')
                 ->get();
         } else {
-            $book = Book::select("book.bid", "book.KMPid", "book.sName", "book.bookDate", "book.staffName", "book.remark")
-                ->get();
+            $book;
         };
 
         return view('erp.purchase', compact("book"));
@@ -128,7 +135,7 @@ class purchaseController extends Controller
 
         //進貨明細資訊
         $detail = Bookdetail::join('material', 'material.mid', '=', 'bookdetail.mid')
-            ->select('bookdetail.mname','material.mnumber','bookdetail.quantity','bookdetail.cost','bookdetail.pstatus','bookdetail.bdetailid')
+            ->select('bookdetail.mname', 'material.mnumber', 'bookdetail.quantity', 'bookdetail.cost', 'bookdetail.pstatus', 'bookdetail.bdetailid')
             ->where('bid', '=', $purchaseID)
             ->get();
 
@@ -235,16 +242,16 @@ class purchaseController extends Controller
 
 
         $inventory = Inventory::select('*')
-        ->where('mid','=',$mId)
-        ->first();           
+            ->where('mid', '=', $mId)
+            ->first();
 
-        $stockDetail = Bookdetail::join('book','book.bid','=','bookdetail.bid')
-        ->where('mid','=',$mId)
-        ->where('pstatus','=','Y')
-        ->get();
+        $stockDetail = Bookdetail::join('book', 'book.bid', '=', 'bookdetail.bid')
+            ->where('mid', '=', $mId)
+            ->where('pstatus', '=', 'Y')
+            ->get();
 
         // dd($stockDetail);
 
-        return view('erp.stockInfo',compact('inventory','stockDetail'));
+        return view('erp.stockInfo', compact('inventory', 'stockDetail'));
     }
 }

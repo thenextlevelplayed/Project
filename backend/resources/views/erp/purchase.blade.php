@@ -30,6 +30,9 @@
                                     <th>
                                         入庫進度
                                     </th>
+                                    {{-- <th>
+                                        編輯
+                                    </th> --}}
                                 </thead>
                                 <tbody>
 
@@ -50,7 +53,17 @@
                                                 {{ $bk->staffName }}
                                             </td>
                                             <td>
-                                                {{-- 入庫從明細裡面算出 --}}
+                                                {{ $bk->NStock }} / {{ $bk->DStock }}
+
+                                                <?php
+                                                if ($bk->NStock / $bk->DStock == 1) {
+                                                    echo "<span class='badge bg-success ml-3'>已完成入庫</span>";
+                                                } else {
+                                                    //點集 入庫並寫入庫存表
+                                                    echo "<span class='badge bg-danger ml-3'>尚未完成入庫</span>";
+                                                }
+                                                ?>
+
                                             </td>
 
                                             {{-- <td>
