@@ -147,6 +147,6 @@ class NewsController extends Controller
         //
         News::find($newsId)->delete();
 
-        return response()->json(null, 204);
+        return redirect('/main/news');
     }
 }
