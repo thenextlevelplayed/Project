@@ -102,9 +102,8 @@ class purchaseController extends Controller
             'staffname' => $req->staffname,
             'remark' => $req->remark,
             'bdate' => date("Y-m-d"),
-            'kmpid' => $req->KMPid
+            'kmpid' => $req->KMPid,
         ]);
-
 
         for ($i = 0; $i < count($req->mName); $i++) {
 
@@ -117,7 +116,8 @@ class purchaseController extends Controller
                 'mname' => $req->mName[$i],
                 'quantity' => $req->quantity[$i],
                 'cost' => $req->cost[$i],
-                'mid' => $mid->mid
+                'mid' => $mid->mid,
+                'pstatus' => 'N'
             ]);
         };
 
