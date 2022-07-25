@@ -586,12 +586,13 @@ CREATE TABLE `users` (
 DROP TABLE IF EXISTS `news`;
 
 CREATE TABLE `news` (
-  `newsid` int(11) NOT NULL,
+  `newsid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(300) NOT NULL,
   `content` varchar(300) NOT NULL,
   `img` varchar(300) NOT NULL,
+  `imgfile` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`newsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `news` WRITE;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
