@@ -95,8 +95,15 @@ class NewsController extends Controller
         $temp = file_get_contents($image);
         $blob = base64_encode($temp);
 
+        
+        $newsid = News::all();
+        foreach( $newsid as $key => $id){
+            $id = $id->newsid;
+        }
+
         //資料寫新增至資料庫
         News::insert([
+            'newsid' => $id +1,
             'title' => $request->title,
             'content' => $request->content,
             'img' => $fileName,
@@ -105,8 +112,7 @@ class NewsController extends Controller
 
         //圖片存在裡面 public newsImg
         $image->move(public_path('/newsImg'), $fileName);
-        $image->move(public_path('../../../../front-end/Project/img/news'), $fileName);
-
+        $path = base_path('public/newsImg');
         return redirect('/main/news');
     }
 

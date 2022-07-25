@@ -131,7 +131,6 @@ class ManufactureController extends Controller
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($manufactureId);
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
@@ -142,7 +141,6 @@ class ManufactureController extends Controller
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
             ->select('*')
             ->find($manufactureId);
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));

@@ -119,7 +119,7 @@
                             </tr>
                             <?php  
                             $tot += $q->quantity*$q->price;
-                            ?>                                         
+                            ?>                                        
                             @endforeach
                         </tbody>
                     </table> 
