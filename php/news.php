@@ -9,6 +9,7 @@ if($result1){
         $title1=$row1["title"];
         $content1=$row1["content"];
         $img1=$row1["img"];
+        $blob1=$row1["imgfile"];
         
         }
 }
@@ -21,6 +22,7 @@ if($result2){
         $title2=$row2["title"];
         $content2=$row2["content"];
         $img2=$row2["img"];
+        $blob2=$row2["imgfile"];
         
         }
 }
@@ -33,6 +35,7 @@ if($result3){
         $title3=$row3["title"];
         $content3=$row3["content"];
         $img3=$row3["img"];
+        $blob3=$row3["imgfile"];
         
         }
 }

@@ -50,14 +50,14 @@ include '../php/news.php';
         <input type="checkbox" id="active">
         <label for="active" class="menu-btn">
             <span></span>
-            <span></span>  <!-- 3個span-->
+            <span></span> <!-- 3個span-->
             <span></span>
         </label>
         <label for="active" class="close"></label>
         <div class="wrapper">
             <div class="wapperContent">
                 <img src="../img/logo/only-logo.png" style="width:80px;position: absolute;position:0px 0px;">
-    
+
                 <div class="wapperContentWord">
                     <a href="./index.html">HOME</a><br>
                     <a href="./aboutus.html">ABOUT</a><br>
@@ -80,9 +80,9 @@ include '../php/news.php';
                 <div class="mousey">
                     <div class="scroller"></div>
                 </div>
-                    <h4 class="indexp3">SCROLL</h4>
-                </div>
-            </div>    
+                <h4 class="indexp3">SCROLL</h4>
+            </div>
+        </div>
         </div>
 
         <div class="introContent">
@@ -151,13 +151,10 @@ include '../php/news.php';
         <div class="container-fluid indexNews">
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="col-lg-7 d-flex" style="background-color:#f3f3f3; height:400px; margin-top: 100px">
                         <!-- <img class = "show" src="../img/index/index-01.png" style = "width:100%; object-fit: contain;"> -->
-                        <iframe width="800" height="400" src="https://www.youtube.com/embed/sr_VSS_gnGE"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <iframe width="800" height="400" src="https://www.youtube.com/embed/sr_VSS_gnGE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div data-aos="fade-left" class="col-lg-5">
                         <div style="padding:80px; margin-top: 20px;margin-bottom: 10px;">
@@ -168,25 +165,26 @@ include '../php/news.php';
                         </div>
                     </div>
                 </div>
-
+                <?php echo '<div class="caption"><h3><img src="data:image/jpeg;base64,'.$blob1.'"/></h3>123123</div>';?>
+                
                 <div class="album">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
                         <div class="col">
                             <div class="card shadow-sm px-3 py-2" data-aos="fade-up" data-aos-delay="100">
                                 <div class="card-body">
                                     <h3 class="indexh3">
-                                    <?php
-                                    echo $title1;
-                                    ?>
+                                        <?php
+                                        echo $title1;
+                                        ?>
                                     </h3>
                                     <hr>
                                     <p class="indexp2">
-                                    <?php
-                                    echo $content1;
-                                    ?>
+                                        <?php
+                                        echo $content1;
+                                        ?>
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                    
+
                                         <!-- <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">查看更多</button>
                                         </div> -->
@@ -198,16 +196,16 @@ include '../php/news.php';
                             <div class="card shadow-sm px-3 py-2" data-aos="fade-up" data-aos-delay="200">
                                 <div class="card-body">
                                     <h3 class="indexh3"><?php
-                                    echo $title2;
-                                    ?></h3>
+                                                        echo $title2;
+                                                        ?></h3>
                                     <hr>
                                     <p class="indexp2">
-                                    <?php
-                                    echo $content2;
-                                    ?>
+                                        <?php
+                                        echo $content2;
+                                        ?>
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        
+
                                         <!-- <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">查看更多</button>
                                         </div> -->
@@ -219,16 +217,16 @@ include '../php/news.php';
                             <div class="card shadow-sm px-3 py-2" data-aos="fade-up" data-aos-delay="300">
                                 <div class="card-body">
                                     <h3 class="indexh3"><?php
-                                    echo $title3;
-                                    ?></h3>
+                                                        echo $title3;
+                                                        ?></h3>
                                     <hr>
                                     <p class="indexp2">
-                                    <?php
-                                    echo $content3;
-                                    ?>
+                                        <?php
+                                        echo $content3;
+                                        ?>
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        
+
                                         <!-- <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">查看更多</button>
                                         </div> -->
@@ -245,15 +243,17 @@ include '../php/news.php';
         <!-- aboutus -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center justify-content-center"
-                    style="background-color: #ffffff; ">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center" style="background-color: #ffffff; ">
                     <div data-aos="fade-right" class="m-5 p-4" style="width: 500px;">
 
                         <h1 class="indexh1">ABOUT<br>US.</h1>
-                            <h2 class="indexh2">關於我們</h2>
-                            <p class="indexp">青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今多少事，都付笑談中。
+                        <h2 class="indexh2">關於我們</h2>
+                        <p class="indexp">
+                                永遠站在客戶角度設想，帶給品牌形象更高的價值。以品牌定位規劃最佳方案，提供最高質感設計為使命，與您並肩拓展品牌視野。
+                                <br><br>    
+                                Make Everything, More Valuable, With Great Ideas.
                             </p>
-                            <button class="roundbutton" onclick="window.location.href='./aboutus.html'">認識楷模</button>
+                        <button class="roundbutton" onclick="window.location.href='./aboutus.html'">認識楷模</button>
 
 
                     </div>
@@ -293,6 +293,8 @@ include '../php/news.php';
     <script src="../js/app.js"></script>
     <script src="../js/navbarIndex.js"></script>
 
-    <script>AOS.init();</script>
+    <script>
+        AOS.init();
+    </script>
 
 </html>
