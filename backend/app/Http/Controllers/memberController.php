@@ -37,6 +37,7 @@ class memberController extends Controller
         try {
             $sql = Staff::where('staffmail', $account)->first();
             $name = $sql->staffname;
+            $permission = $sql->permission; 
             $pwdCheck = Hash::check($passwd, $sql->password);
             if ($pwdCheck === true) { //密碼正確
 
@@ -54,8 +55,10 @@ class memberController extends Controller
                 }
 
                 //登入Session記住帳號判斷
-                Session::put('account', $account);
-                Session::put('name', $name);
+                Session::put('account', $account); //email
+                Session::put('name', $name); // 員工名字
+                Session::put('permission', $permission); // 權限
+
 
                 return Redirect::to('/main');
 

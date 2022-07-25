@@ -40,8 +40,6 @@
 </style>
 
 @section('content')
-
-
     <div class="row">
         <div class="col-md-12">
             
@@ -184,10 +182,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title text-center"> E-mail</h4>
-                    </div>                            
-                    <form class="card-body">
-                        <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
-                            @csrf
+                    </div>
+                    <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
+                        @csrf                            
+                        <form class="card-body">
+                        
                             <div class="row mb-3">
                                 <div class="col-lg-2">
                                     <p>收件人</p>
@@ -218,8 +217,8 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <textarea name="content" id=""  cols="80" rows="10">
-    出貨單編號:{{$deliveryInfo->drownumber}}
-    出貨日期:{{$deliveryInfo->ddate}}
+                                出貨單編號:{{$deliveryInfo->drownumber}}
+                                出貨日期:{{$deliveryInfo->ddate}}
                                     </textarea>
                                 </div>
                             </div>

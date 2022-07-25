@@ -25,22 +25,50 @@
                     <p>0</p>
                     <p>進銷存管理</p>
                 </a>
-                <a class="col m-1 " href="/main/quotation">
+                <?php
+                    if ($permission==3 or $permission==1){
+                        echo "<a class='col m-1' href='/main/quotation'><p>1</p><p>報價</p></a>";
+                    }else{
+                        echo "<a class='col m-1' href='#' style='background-color : #C0C0C0';><p>1</p><p>報價</p></a>";
+                    }    
+                ?>
+                {{-- <a class="col m-1 " href="/main/quotation">
                     <p>1</p>
                     <p>報價</p>
-                </a>
-                <a class="col m-1" href="/main/order">
+                </a> --}}
+                <?php
+                    if ($permission==3 or $permission==1){
+                        echo "<a class='col m-1' href='/main/order'><p>2</p><p>訂單</p></a>";
+                    }else{
+                        echo "<a class='col m-1' href='#' style='background-color : #C0C0C0';><p>2</p><p>訂單</p></a>";
+                    }    
+                ?>
+                {{-- <a class="col m-1" href="/main/order">
                     <p>2</p>
                     <p>訂單</p>
-                </a>
-                <a class="col m-1" href="/main/manufacture">
+                </a> --}}
+                <?php
+                    if ($permission==2 or $permission==1){
+                        echo "<a class='col m-1' href='/main/manufacture'><p>3</p><p>製造</p></a>";
+                    }else{
+                        echo "<a class='col m-1' href='#' style='background-color : #C0C0C0';><p>3</p><p>製造</p></a>";
+                    }    
+                ?>
+                {{-- <a class="col m-1" href="/main/manufacture">
                     <p>3</p>
                     <p>製造</p>
-                </a>
-                <a class="col m-1" href="/main/delivery">
+                </a> --}}
+                <?php
+                    if ($permission==4 or $permission==1){
+                        echo "<a class='col m-1' href='/main/delivery'><p>4</p><p>出貨</p></a>";
+                    }else{
+                        echo "<a class='col m-1' href='#' style='background-color : #C0C0C0';><p>4</p><p>出貨</p></a>";
+                    }    
+                ?>
+                {{-- <a class="col m-1" href="/main/delivery">
                     <p>4</p>
                     <p>出貨</p>
-                </a>
+                </a> --}}
             </div>
             <div class="row row2">
                 <a class="col  m-1" href="">
@@ -62,7 +90,13 @@
             @if (session('power'))
                 <a href="/member/create">新增帳號</a>
             @endif
-            <a href="/member/logout">登出</a>
+            <div class="row">
+                <div class="col-8">員工:{{$name}}</div>
+                <div class="col-4"><a href="/member/logout">登出</a></div>
+
+                
+            </div>
+            
         </div>
     </div>
 
