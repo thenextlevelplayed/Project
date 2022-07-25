@@ -117,7 +117,7 @@
                                 <td>{{$q->price}}</td>
                                 <td>{{$q->quantity*$q->price}}</td>
                             </tr>
-                            <?php  
+                            <?php  <?php echo $tot ;?>
                             $tot += $q->quantity*$q->price;
                             ?>                                         
                             @endforeach
