@@ -109,6 +109,7 @@
                         </thead>
                         
                         <tbody>
+                            <?php $tot=0; ?>
                             @foreach ($quotation as $q)                                                  
                             <tr>
                                 {{-- <td scope="row">1</td> --}}
@@ -116,8 +117,12 @@
                                 <td>{{$q->mnumber}}</td>
                                 <td>{{$q->quantity}}</td>
                                 <td>{{$q->price}}</td>
+                                <td>{{$q->quantity*$q->price}}</td>
                                 {{-- <td>{{$q->remark}}</td> --}}
                             </tr>
+                            <?php  
+                            $tot += $q->quantity*$q->price;
+                            ?> 
                             @endforeach
                             {{-- <tr>
                                 <td scope="row">2</td>
@@ -142,7 +147,7 @@
                 </div>
                 <div>
                     <div class="text-right positionR50">總計</div>
-                    <div class="text-right positionR0">29999</div>
+                    <div class="text-right positionR0"><?php echo $tot ;?></div>
                 </div>                                 
             </div>
         </div>
