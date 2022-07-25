@@ -47,10 +47,13 @@
             <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
             @csrf
                 <div class="card">
-                    <div class="container-xl">
+                    <div class="container-xl p-5">
                         <div class="customerInfo">
-                            <h4 class="text-center">凱 茂 資 訊 股 份 有 限 公 司 出 貨 單</h4>
-                        
+                            <h4 class="text-center">楷 模 資 訊 股 份 有 限 公 司 出 貨 單</h4>
+                            <div class="mb-3">
+                                <h5>出貨資訊</h5>
+                                <hr>
+                            </div>
                             {{-- 出貨日期 --}}
                             <div class="row row-cols-auto">
                                 <div class="col pl-5 ml-5 mt-3"><span>出貨日期：{{$deliveryInfo->ddate}}</span></div>                                        
@@ -140,20 +143,20 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <div class=" row justify-content-end">
-                                    <div class="col-md-1 text-center goods">總計</div>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" value =
-                                        <?php   $amount = 0; 
-                                            foreach ($detaillistInfo as $key => $deliveryInfo){
-                                                
-                                                $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
-                                                $amount = $amount+$total;
-                                            }
-                                            echo round($amount);
-                                        ?>  readonly >
-                                    </div>        
-                                </div>
+                                <div class="row mb-1 justify-content-end">
+                                    <div class="col-lg-2"><p class="pt-1">總計</p></div>                                        
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" value =
+                                            <?php   $amount = 0; 
+                                                foreach ($detaillistInfo as $key => $deliveryInfo){
+                                                    
+                                                    $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
+                                                    $amount = $amount+$total;
+                                                }
+                                                echo round($amount);
+                                            ?>  readonly >
+                                        </div>                                    
+                            </div>
                                 <br />
                                 <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
                                 <br />

@@ -39,6 +39,8 @@ class NewsController extends Controller
         $newsEdit->content = $request->content;
 
         $image = $request->file('mainImg');
+        $temp = file_get_contents($image);
+
 
         if ($image) {
 
@@ -46,8 +48,10 @@ class NewsController extends Controller
 
             $fileName = $request->file('mainImg')->getClientOriginalName();
             //圖片存在裡面 public newsImg
-            $image->move(public_path('/newsImg'), $fileName);
+            $image->move(public_path('/newsImg'), $fileName);            
+            $blob = base64_encode($temp);
             $newsEdit->img = $fileName;
+            $newsEdit->imgfile = $blob;
         }
 
         //存資料
@@ -88,16 +92,20 @@ class NewsController extends Controller
 
         $image = $request->file('mainImg');
         $fileName = $request->file('mainImg')->getClientOriginalName();
+        $temp = file_get_contents($image);
+        $blob = base64_encode($temp);
 
         //資料寫新增至資料庫
         News::insert([
             'title' => $request->title,
             'content' => $request->content,
-            'img' => $fileName
+            'img' => $fileName,
+            'imgfile'=> $blob
         ]);
 
         //圖片存在裡面 public newsImg
         $image->move(public_path('/newsImg'), $fileName);
+        $image->move(public_path('../../../../front-end/Project/img/news'), $fileName);
 
         return redirect('/main/news');
     }
