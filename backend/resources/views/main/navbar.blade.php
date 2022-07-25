@@ -58,7 +58,7 @@
                     K
                 </a>
                 <a href="/main" class="simple-text logo-normal">
-                    凱茂資訊
+                    楷模資訊
                 </a>
             </div>
             <div class="sidebar-wrapper">
