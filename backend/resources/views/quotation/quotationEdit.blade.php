@@ -179,10 +179,8 @@
                     </div>
                     <div class = "row container justify-content-center">
                         <div class="col-md-3 p-1">
-                            <a href="/main/quotation">
-                                <button type="submit" id="okOrCancel" class="btn btn-primary btn-block" >
-                                    <i class="far fa-save"></i>&nbsp; 存檔
-                                </button>
+                            <a href="/main/quotation" class="btn btn-primary btn-block">
+                                <i class="far fa-save"></i> &nbsp; 存檔
                             </a>                            
                         </div>
                         <div class="col-md-3 p-1">
@@ -194,8 +192,9 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
+                <a class="btn btn-primary" href="main/order">
                     <i class="fa-solid fa-arrow-right"></i><span> &nbsp;轉為訂單</span>
+                    {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
                 </a>
             </div>
         </div>

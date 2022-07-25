@@ -52,19 +52,19 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
-                                            <div class="col-lg-3"><p>報價日期</p></div>                                              
+                                            <div class="col-lg-4"><p>報價日期</p></div>                                              
                                             <div class="col-lg-8">{{ $quotationInfo->qdate }}</div>
                                         </div>
                                         <div class="row mb-1">
-                                            <div class="col-lg-3"><p>聯絡人</p></div>
+                                            <div class="col-lg-4"><p>聯絡人</p></div>
                                             <div class="col-lg-8">{{$quotationInfo->qcontact}}</div>
                                         </div>
                                         <div class="row mb-1">
-                                            <div class="col-lg-3"><p>聯絡人LINE ID</p></div>
+                                            <div class="col-lg-4"><p>聯絡LINE ID</p></div>
                                             <div class="col-lg-8">{{$quotationInfo->clineid}}</div>
                                         </div>
                                         <div class="row mb-1">
-                                            <div class="col-lg-3"><p>聯絡信箱</p></div>
+                                            <div class="col-lg-4"><p>聯絡信箱</p></div>
                                             <div class="col-lg-8">{{$quotationInfo->cmail}}</div>
                                         </div>
                                     </div>

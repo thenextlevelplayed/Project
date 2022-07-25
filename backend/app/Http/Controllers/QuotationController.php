@@ -105,7 +105,7 @@ class QuotationController extends Controller
 
     //新增報價單
     function quotationCreate()
-    {
+    {                 
         return view('quotation.quotationCreate');
     }
 
