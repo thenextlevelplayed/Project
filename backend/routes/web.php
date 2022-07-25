@@ -118,7 +118,7 @@ Route::get('/main/order/pdf/{orderId}',"App\Http\Controllers\OrderController@cre
 Route::get('/order/pdf/view/{orderId}',"App\Http\Controllers\OrderController@viewOrderPDF"); // 預覽pdf
 
 //pdf manufacture
-Route::get('/manufacture/pdf/{manufactureId}',"App\Http\Controllers\ManufactureController@createManufacturePDF"); // 下載pdf
+Route::get('main/manufacture/pdf/{manufactureId}',"App\Http\Controllers\ManufactureController@createManufacturePDF"); // 下載pdf
 Route::get('/manufacture/pdf/view/{manufactureId}',"App\Http\Controllers\ManufactureController@viewManufacturePDF"); // 預覽pdf
 
 //寄信
@@ -131,7 +131,7 @@ Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryControll
 
 // 創建測試帳號密碼
 Route::get('/test', function(){
-    $get = Staff::find(2);
+    $get = Staff::find(1);
     $passwd = Hash::make('123456');  
     $get->password = $passwd;
     $get->save();

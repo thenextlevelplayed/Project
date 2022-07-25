@@ -192,10 +192,13 @@
                                 </div>
                                 <div class="row justify-content-center mt-5 mb-3">
                                     <div class="col-md-2 p-1">
-                                        <a href = "/manufacture/pdf/view/{{$manu->mid}}">
+                                        <a href = "/manufacture/view/pdf/{{$manu->mid}}">
                                             <button class="btn btn-primary btn-block">
                                                 <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
                                             </button>
+                                        </a>
+                                        <a class="btn btn-primary " href="/manufacture/view/pdf/{{$manu->mid}}">
+                                            <span>預覽PDF</span>
                                         </a>
                                     </div>
                                     <div class="col-md-2 p-1">
@@ -203,6 +206,9 @@
                                             <button class="btn btn-primary btn-block">
                                                 <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
                                             </button>
+                                        </a>
+                                        <a class="btn btn-primary " href="/manufacture/pdf/{{$manu->mid}}">
+                                            <span>匯出PDF</span>
                                         </a>
                                     </div>
                                     <div class="col-md-2 p-1">

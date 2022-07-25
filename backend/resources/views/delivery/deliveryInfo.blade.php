@@ -46,10 +46,13 @@
         <div class="col-md-12">
             
                 <div class="card">
-                    <div class="container-xl">
+                    <div class="container-xl p-5">
                         <div class="customerInfo">
-                            <h4 class="text-center">凱 茂 資 訊 股 份 有 限 公 司 出 貨 單</h4>
-                        
+                            <h4 class="text-center">楷 模 資 訊 股 份 有 限 公 司 出 貨 單</h4>
+                            <div class="mb-3">
+                                <h5>出貨資訊</h5>
+                                <hr>
+                            </div>
                             {{-- 出貨日期 --}}
                             <div class="row row-cols-auto">
                                 <div class="col pl-5 ml-5 mt-3"><span>出貨日期：{{$deliveryInfo->ddate}}</span></div>                                        

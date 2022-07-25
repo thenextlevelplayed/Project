@@ -32,7 +32,7 @@ CREATE TABLE `book` (
   `bdate` date NOT NULL,
   `kmpid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`bid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,1,'ASUS','2022-07-13','蔡明明','','2022-07-13','KMP-20220713001'),(2,2,'DELL','2022-07-23','陳澎澎','','2022-07-14','KMP-20220723002'),(3,3,'Acer','2022-07-16','',NULL,'2022-07-15','KMP-20220716001'),(4,4,'Msi','2022-07-16','',NULL,'2022-07-16','KMP-20220716002');
+INSERT INTO `book` VALUES (1,1,'ASUS','2022-07-13','蔡明明','','2022-07-13','KMP-20220713001'),(2,2,'DELL','2022-07-23','陳澎澎','','2022-07-14','KMP-20220723002'),(3,3,'Acer','2022-07-16','',NULL,'2022-07-15','KMP-20220716001'),(4,4,'Msi','2022-07-16','',NULL,'2022-07-16','KMP-20220716002'),(5,1,'ASUS','2022-07-30','蔡明明',NULL,'2022-07-22','KMP20220722001'),(6,1,'ASUS','2022-07-30','蔡明明',NULL,'2022-07-22','KMP20220722002'),(7,2,'DELL','2022-07-26','蔡明明',NULL,'2022-07-22','KMP20220722003'),(9,1,'ASUS','2022-07-30','蔡明明',NULL,'2022-07-24','KMP20220724001'),(10,2,'DELL','2022-07-30','蔡明明',NULL,'2022-07-25','KMP20220725001');
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +62,7 @@ CREATE TABLE `bookdetail` (
   `stockIn` date DEFAULT NULL,
   `pstatus` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`bdetailid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `bookdetail` (
 
 LOCK TABLES `bookdetail` WRITE;
 /*!40000 ALTER TABLE `bookdetail` DISABLE KEYS */;
-INSERT INTO `bookdetail` VALUES (1,1,1,'ASUS ZenScreen Go MB16AWP',30,13900,'2022-07-13','Y'),(2,2,2,'DELL　Inspiron 13',23,33899,'2022-07-23','Y'),(3,2,3,'PowerEdge R740xd 機架式伺服器',64,432000,'2022-07-14','Y'),(4,2,4,'Dell PowerEdge 2U 標準 Bezel',56,1003,'2022-07-14','Y'),(5,3,5,'Veriton K8',65,321554,'2022-07-16','Y'),(6,3,6,'H7550ST',17,22900,'2022-07-16','Y'),(7,4,7,'Prestige 14 - A12U',44,38900,'2022-07-16','Y'),(8,4,8,'Katana GF66 - 12U',91,45900,'2022-07-16','Y'),(9,4,9,'MSI Pen',100,3090,'2022-07-16',NULL);
+INSERT INTO `bookdetail` VALUES (1,1,1,'ASUS ZenScreen Go MB16AWP',30,13900,'2022-07-13','Y'),(2,2,2,'DELL　Inspiron 13',23,33899,'2022-07-23','Y'),(3,2,3,'PowerEdge R740xd 機架式伺服器',64,432000,'2022-07-14','Y'),(4,2,4,'Dell PowerEdge 2U 標準 Bezel',56,1003,'2022-07-14','Y'),(5,3,5,'Veriton K8',65,321554,'2022-07-16','Y'),(6,3,6,'H7550ST',17,22900,'2022-07-16','Y'),(7,4,7,'Prestige 14 - A12U',44,38900,'2022-07-16','Y'),(8,4,8,'Katana GF66 - 12U',91,45900,'2022-07-22','Y'),(9,4,9,'MSI Pen',100,3090,'2022-07-16','Y'),(10,5,2,'DELL　Inspiron 13',231,132,'0000-00-00','Y'),(11,6,2,'DELL　Inspiron 13',100,36000,'2022-07-25','Y'),(13,7,4,'Dell PowerEdge 2U 標準 Bezel',50,65000,'2022-07-22','Y'),(15,9,2,'DELL　Inspiron 13',10,68000,'2022-07-24','Y'),(16,10,3,'PowerEdge R740xd 機架式伺服器',30,56000,'2022-07-25','Y');
 /*!40000 ALTER TABLE `bookdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +150,6 @@ DROP TABLE IF EXISTS `detaillist`;
 CREATE TABLE `detaillist` (
   `dlid` int(11) NOT NULL AUTO_INCREMENT,
   `qid` int(11) DEFAULT NULL,
-  `oid` int(11) DEFAULT NULL,
   `iid` int(11) DEFAULT NULL,
   `rid` int(11) DEFAULT NULL,
   `mname` varchar(100) NOT NULL,
@@ -170,7 +169,7 @@ CREATE TABLE `detaillist` (
 
 LOCK TABLES `detaillist` WRITE;
 /*!40000 ALTER TABLE `detaillist` DISABLE KEYS */;
-INSERT INTO `detaillist` VALUES (1,1,NULL,1,89,'楷模MB16AWP',5,20000,'ASUS MB16AWP','KM-987654321','買五台螢幕','Y'),(2,2,NULL,2,50,'楷模Inspiron 13',12,78999,'Inspiron 13','KM-123214215','買十二台筆電','Y'),(3,2,NULL,1,89,'楷模MB16AWP',3,20000,'ASUS MB16AWP','KM-987654321','買三台螢幕','Y'),(4,4,NULL,3,NULL,'PowerEdge R740xd 機架式伺服器',2,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'Y'),(5,4,NULL,4,NULL,'Dell PowerEdge 2U 標準 Bezel',4,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'Y'),(6,4,NULL,5,NULL,'Veriton K8',7,577777,'Veriton K8','KM-725848506',NULL,'Y'),(7,5,NULL,6,NULL,'H7550ST',1,38999,'MR.JKY11.00J','KM-899364835',NULL,'Y'),(8,5,NULL,7,NULL,'Prestige 14 - A12U',5,76999,'Prestige 14 - A12U','KM-110808294',NULL,'Y'),(9,5,NULL,8,NULL,'Katana GF66 - 12U',2,73399,'Katana GF66 - 12U','KM-17516092',NULL,'Y'),(10,6,NULL,9,NULL,'MSI Pen',9,4500,'MSI Pen','KM-252609029',NULL,'Y'),(11,6,NULL,1,NULL,'ASUS ZenScreen Go MB16AWP',2,23200,'ASUS MB16AWP','KM-987654321',NULL,'Y'),(12,6,NULL,2,NULL,'DELL　Inspiron 13',5,48999,'Inspiron 13','KM-123214215',NULL,'Y'),(13,7,NULL,3,NULL,'PowerEdge R740xd 機架式伺服器',2,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'Y'),(14,7,NULL,4,NULL,'Dell PowerEdge 2U 標準 Bezel',5,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'Y'),(15,7,NULL,5,NULL,'Veriton K8',4,577777,'Veriton K8','KM-725848506',NULL,'Y'),(16,8,NULL,6,NULL,'H7550ST',10,38999,'MR.JKY11.00J','KM-899364835',NULL,'Y'),(17,8,NULL,7,NULL,'Prestige 14 - A12U',7,76999,'Prestige 14 - A12U','KM-110808294',NULL,'Y'),(18,8,NULL,8,NULL,'Katana GF66 - 12U',6,73399,'Katana GF66 - 12U','KM-175160920',NULL,'Y'),(19,9,NULL,9,NULL,'MSI Pen',12,4500,'MSI Pen','M-252609029',NULL,'Y'),(20,9,NULL,1,NULL,'ASUS ZenScreen Go MB16AWP',3,23200,'ASUS MB16AWP','KM-987654321',NULL,'Y'),(21,9,NULL,2,NULL,'DELL　Inspiron 13',8,48999,'Inspiron 13','KM-123214215',NULL,'Y'),(22,4,NULL,3,NULL,'PowerEdge R740xd 機架式伺服器',2,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'Y'),(23,10,NULL,4,NULL,'Dell PowerEdge 2U 標準 Bezel',1,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'N'),(24,10,NULL,5,NULL,'Veriton K8',5,577777,'Veriton K8','KM-725848506',NULL,'N'),(25,10,NULL,6,NULL,'H7550ST',10,38999,'MR.JKY11.00J','KM-899364835',NULL,'N'),(26,11,NULL,7,NULL,'Prestige 14 - A12U',15,76999,'Prestige 14 - A12U','KM-110808294',NULL,'N'),(27,11,NULL,8,NULL,'Katana GF66 - 12U',11,73399,'Katana GF66 - 12U','KM-175160920',NULL,'N'),(28,12,NULL,9,NULL,'MSI Pen',8,4500,'MSI Pen','KM-252609029',NULL,'N'),(29,12,NULL,1,NULL,'ASUS ZenScreen Go MB16AWP',25,23200,'ASUS MB16AWP','KM-987654321',NULL,'N'),(30,12,NULL,2,NULL,'DELL　Inspiron 13',17,48999,'Inspiron 13','KM-123214215',NULL,'N'),(31,13,NULL,3,NULL,'PowerEdge R740xd 機架式伺服器',1,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'N'),(32,13,NULL,4,NULL,'Dell PowerEdge 2U 標準 Bezel',30,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'N'),(33,13,NULL,5,NULL,'Veriton K8',577777,6,'Veriton K8','KM-725848506',NULL,'N');
+INSERT INTO `detaillist` VALUES (1,1,1,89,'楷模MB16AWP',5,20000,'ASUS MB16AWP','KM-987654321','買五台螢幕','Y'),(2,2,2,50,'楷模Inspiron 13',12,78999,'Inspiron 13','KM-123214215','買三台螢幕','Y'),(3,2,1,89,'楷模MB16AWP',3,20000,'ASUS MB16AWP','KM-987654321',NULL,'N'),(4,4,3,NULL,'PowerEdge R740xd 機架式伺服器',2,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'Y'),(5,4,4,NULL,'Dell PowerEdge 2U 標準 Bezel',4,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'Y'),(6,4,5,NULL,'Veriton K8',7,577777,'Veriton K8','KM-725848506',NULL,'Y'),(7,5,6,NULL,'H7550ST',1,38999,'MR.JKY11.00J','KM-899364835',NULL,'Y'),(8,5,7,NULL,'Prestige 14 - A12U',5,76999,'Prestige 14 - A12U','KM-110808294',NULL,'Y'),(9,5,8,NULL,'Katana GF66 - 12U',2,73399,'Katana GF66 - 12U','KM-17516092',NULL,'Y'),(10,6,9,NULL,'MSI Pen',9,4500,'MSI Pen','KM-252609029',NULL,'Y'),(11,6,1,NULL,'ASUS ZenScreen Go MB16AWP',2,23200,'ASUS MB16AWP','KM-987654321',NULL,'Y'),(12,6,2,NULL,'DELL　Inspiron 13',5,48999,'Inspiron 13','KM-123214215',NULL,'Y'),(13,7,3,NULL,'PowerEdge R740xd 機架式伺服器',2,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'Y'),(14,7,4,NULL,'Dell PowerEdge 2U 標準 Bezel',5,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'Y'),(15,7,5,NULL,'Veriton K8',4,577777,'Veriton K8','KM-725848506',NULL,'Y'),(16,8,6,NULL,'H7550ST',10,38999,'MR.JKY11.00J','KM-899364835',NULL,'Y'),(17,8,7,NULL,'Prestige 14 - A12U',7,76999,'Prestige 14 - A12U','KM-110808294',NULL,'Y'),(18,8,8,NULL,'Katana GF66 - 12U',6,73399,'Katana GF66 - 12U','KM-175160920',NULL,'Y'),(19,9,9,NULL,'MSI Pen',12,4500,'MSI Pen','M-252609029',NULL,'Y'),(20,9,1,NULL,'ASUS ZenScreen Go MB16AWP',3,23200,'ASUS MB16AWP','KM-987654321',NULL,'Y'),(21,9,2,NULL,'DELL　Inspiron 13',8,48999,'Inspiron 13','KM-123214215',NULL,'Y'),(22,4,3,NULL,'PowerEdge R740xd 機架式伺服器',2,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'Y'),(23,10,4,NULL,'Dell PowerEdge 2U 標準 Bezel',1,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'N'),(24,10,5,NULL,'Veriton K8',5,577777,'Veriton K8','KM-725848506',NULL,'N'),(25,10,6,NULL,'H7550ST',10,38999,'MR.JKY11.00J','KM-899364835',NULL,'N'),(26,11,7,NULL,'Prestige 14 - A12U',15,76999,'Prestige 14 - A12U','KM-110808294',NULL,'N'),(27,11,8,NULL,'Katana GF66 - 12U',11,73399,'Katana GF66 - 12U','KM-175160920',NULL,'N'),(28,12,9,NULL,'MSI Pen',8,4500,'MSI Pen','KM-252609029',NULL,'N'),(29,12,1,NULL,'ASUS ZenScreen Go MB16AWP',25,23200,'ASUS MB16AWP','KM-987654321',NULL,'N'),(30,12,2,NULL,'DELL　Inspiron 13',17,48999,'Inspiron 13','KM-123214215',NULL,'N'),(31,13,3,NULL,'PowerEdge R740xd 機架式伺服器',1,640000,'R740xd 機架式伺服器','KM-492120864',NULL,'N'),(32,13,4,NULL,'Dell PowerEdge 2U 標準 Bezel',30,1999,'PowerEdge 2U 標準 Bezel','KM-324823386',NULL,'N'),(33,13,5,NULL,'Veriton K8',577777,6,'Veriton K8','KM-725848506',NULL,'N');
 /*!40000 ALTER TABLE `detaillist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,7 +217,7 @@ CREATE TABLE `inventory` (
   `sid` int(11) NOT NULL,
   `mspecification` varchar(100) NOT NULL,
   `cost` int(11) NOT NULL,
-  `avgcost` int(11) DEFAULT NULL,
+  `sumcost` int(11) DEFAULT NULL,
   `sumquantity` int(11) NOT NULL,
   `bdetailid` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -232,7 +231,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,1,'ASUS ZenScreen Go MB16AWP','KM-987654321',1,'ASUS MB16AWP',13900,0,30,1,30),(2,2,'DELL　Inspiron 13','KM-123214215',2,'Inspiron 13',33899,0,23,2,23),(3,3,'PowerEdge R740xd 機架式伺服器','KM-492120864',2,'R740xd 機架式伺服器',432000,0,64,3,64),(4,4,'Dell PowerEdge 2U 標準 Bezel','KM-324823386',2,'PowerEdge 2U 標準 Bezel',1003,0,56,4,56),(5,5,'Veriton K8','KM-725848506',3,'Veriton K8',321554,0,65,5,65),(6,6,'H7550ST','KM-899364835',3,'MR.JKY11.00J',22900,0,17,6,17),(7,7,'Prestige 14 - A12U','KM-110808294',4,'Prestige 14 - A12U',38900,0,48,7,48),(8,8,'Katana GF66 - 12U','KM-175160920',4,'Katana GF66 - 12U',45900,0,91,8,91),(9,9,'MSI Pen','KM-252609029',4,'MSI Pen',3090,0,100,9,100);
+INSERT INTO `inventory` VALUES (1,1,'ASUS ZenScreen Go MB16AWP','KM-987654321',1,'ASUS MB16AWP',13900,417000,30,1,30),(2,2,'DELL　Inspiron 13','KM-123214215',2,'Inspiron 13',33899,8480069,464,2,23),(3,3,'PowerEdge R740xd 機架式伺服器','KM-492120864',2,'R740xd 機架式伺服器',432000,29328000,94,3,64),(4,4,'Dell PowerEdge 2U 標準 Bezel','KM-324823386',2,'PowerEdge 2U 標準 Bezel',1003,16306168,306,4,56),(5,5,'Veriton K8','KM-725848506',3,'Veriton K8',321554,20901010,65,5,65),(6,6,'H7550ST','KM-899364835',3,'MR.JKY11.00J',22900,389300,17,6,17),(7,7,'Prestige 14 - A12U','KM-110808294',4,'Prestige 14 - A12U',38900,1867200,48,7,48),(8,8,'Katana GF66 - 12U','KM-175160920',4,'Katana GF66 - 12U',45900,4176900,91,8,91),(9,9,'MSI Pen','KM-252609029',4,'MSI Pen',3090,309000,100,9,100);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,7 +300,7 @@ CREATE TABLE `manufacture` (
   `mstatus` varchar(100) DEFAULT NULL,
   `mrownumber` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`mid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,7 +309,7 @@ CREATE TABLE `manufacture` (
 
 LOCK TABLES `manufacture` WRITE;
 /*!40000 ALTER TABLE `manufacture` DISABLE KEYS */;
-INSERT INTO `manufacture` VALUES (1,'2022-07-17','Y',1,'無asdasdsad','Y',NULL),(2,'2022-08-13','Y',2,'無','Y',NULL),(3,'2022-07-20','Y',3,NULL,'Y','KMM-20220716001'),(4,'2022-07-21','Y',4,NULL,'Y','KMM-20220716002'),(5,'2022-07-31','Y',5,NULL,'Y','KMM-20220727001'),(6,'2022-08-01','Y',6,NULL,'Y','KMM-20220727002'),(7,'2022-08-03','Y',7,NULL,'Y','KMM-20220727003'),(8,'2022-07-29','Y',8,NULL,'Y','KMM-20220721001');
+INSERT INTO `manufacture` VALUES (1,'2022-07-17','Y',1,'無asdasdsad','Y',NULL),(2,'2022-08-13','Y',2,'無','Y',NULL),(3,'2022-07-20','Y',3,NULL,'Y','KMM-20220716001'),(4,'2022-07-21','Y',4,NULL,'Y','KMM-20220716002'),(5,'2022-07-31','Y',5,NULL,'Y','KMM-20220727001'),(6,'2022-08-01','Y',6,NULL,'Y','KMM-20220727002'),(7,'2022-08-03','Y',7,NULL,'Y','KMM-20220727003'),(8,'2022-07-29','Y',8,NULL,'Y','KMM-20220721001'),(18,'2022-07-23','N',9,NULL,'N',NULL),(19,'2022-07-23','N',10,NULL,'N',NULL);
 /*!40000 ALTER TABLE `manufacture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -375,12 +374,12 @@ DROP TABLE IF EXISTS `news`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `news` (
-  `newsid` int(11) NOT NULL,
+  `newsid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(300) NOT NULL,
   `content` varchar(300) NOT NULL,
-  `img` varchar(300) NOT NULL,
+  `img` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`newsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -504,7 +503,7 @@ CREATE TABLE `quotation` (
 
 LOCK TABLES `quotation` WRITE;
 /*!40000 ALTER TABLE `quotation` DISABLE KEYS */;
-INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',1,50,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',2,50,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',1,50,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',1,50,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',2,50,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',2,50,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',1,50,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',2,50,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',1,50,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',2,50,'N','KMQ-20220723002');
+INSERT INTO `quotation` VALUES (1,'2022-07-15',33,'張珊珊','hey_33@gmail.com',1,89,'Y','KMQ-20220715001'),(2,'2022-07-31',34,'祥老大','swen_0440@gmail.com',2,50,'Y','KMQ-20220731001'),(4,'2022-07-16',34,'祥老大','swen_0440@gmail.com',1,50,'Y','KMQ-20220716001'),(5,'2022-07-16',56,'宇哥','Lynn#3008@gmail.com',2,50,'Y','KMQ-20220716002'),(6,'2022-07-27',66,'南瓜','Pumpkin@gmail.com',1,50,'Y','KMQ-20220727001'),(7,'2022-07-27',33,'張珊珊','hey_33@gmail.com',1,50,'Y','KMQ-20220727002'),(8,'2022-07-27',34,'祥老大','swen_0440@gmail.com',2,50,'Y','KMQ-20220727003'),(9,'2022-07-21',56,'宇哥','Lynn#3008@gmail.com',2,50,'Y','KMQ-20220721001'),(10,'2022-07-21',66,'南瓜','Pumpkin@gmail.com',1,50,'Y','KMQ-20220721002'),(11,'2022-07-21',33,'張珊珊','hey_33@gmail.com',2,50,'Y','KMQ-20220721003'),(12,'2022-07-23',34,'祥老大','swen_0440@gmail.com',NULL,50,'Y','KMQ-20220723001'),(13,'2022-07-23',56,'宇哥','Lynn#3008@gmail.com',NULL,50,'N','KMQ-20220723002');
 /*!40000 ALTER TABLE `quotation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -556,7 +555,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES (1,'123456','蔡明明','047777777','MingMing@gmail.com'),(2,'654321','陳澎澎','048787878','pengpeng@gmail.com');
+INSERT INTO `staff` VALUES (1,'$2y$10$ltc43gBRVFhstSlqzEOvy.uV594e2V9epPcUWrOCNQaqHSy0.FACq','蔡明明','047777777','MingMing@gmail.com'),(2,'$2y$10$W0geaBTDDOeff5EuZclSqOdOlBcMipGrkZPw6rnREEyPVqsl84LWO','陳澎澎','048787878','pengpeng@gmail.com');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -611,22 +610,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-CREATE TABLE `news` (
-  `newsid` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(300) NOT NULL,
-  `content` varchar(300) NOT NULL,
-  `img` varchar(300) NOT NULL,
-  `imgfile` LONGBLOB NULL DEFAULT NULL,
-  PRIMARY KEY (`newsid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
-
-LOCK TABLES `news` WRITE;
-/*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` (`newsid`, `title`, `content`, `img`) VALUES
-(1, '這是標題01', '這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101', ''),
-(2, '標題標題02', '內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02', ''),
-(3, '標題標題03', '內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03', '');
-/*!40000 ALTER TABLE `news` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -638,4 +624,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-25 14:47:53
+-- Dump completed on 2022-07-25 13:18:29
