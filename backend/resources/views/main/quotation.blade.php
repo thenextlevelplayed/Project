@@ -100,3 +100,10 @@
 
 </script>
 @endsection
+
+{{-- 
+main/quotation: 
+
+狀態欄位用qstatus去判斷
+
+新增報價單button按下後,跳轉到quotationCreate頁面,要生成資料庫流水號,且資料庫新增一筆報價單資料 --}}

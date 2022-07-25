@@ -125,7 +125,7 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>業務專員</p></div>
-                                            <div class="col-lg-8">{{$quotationInfo->staffid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->staffname}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>楷模信箱</p></div>

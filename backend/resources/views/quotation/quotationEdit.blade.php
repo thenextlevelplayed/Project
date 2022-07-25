@@ -163,7 +163,7 @@
                                         <div class="col-lg-3">
                                             <p>業務專員</p>
                                         </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->staffid }}</div>
+                                        <div class="col-lg-8">{{ $quotationInfo->staffname }}</div>
                                     </div>
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
@@ -372,3 +372,11 @@
 
     </script>
 @endsection
+
+{{-- 
+Edit:
+
+存檔button按下之後,資料庫更新(刪除,新增資料)
+
+轉為訂單button按下後,跳轉到訂單管理頁面,且新增一筆訂單編號進資料庫 --}}
+
