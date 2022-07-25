@@ -140,20 +140,20 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                <div class=" row justify-content-end">
-                                    <div class="col-md-1 text-center goods">總計</div>
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control" value =
-                                        <?php   $amount = 0; 
-                                            foreach ($detaillistInfo as $key => $deliveryInfo){
-                                                
-                                                $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
-                                                $amount = $amount+$total;
-                                            }
-                                            echo round($amount);
-                                        ?>  readonly >
-                                    </div>        
-                                </div>
+                                <div class="row mb-1 justify-content-end">
+                                    <div class="col-lg-2"><p class="pt-1">總計</p></div>                                        
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" value =
+                                            <?php   $amount = 0; 
+                                                foreach ($detaillistInfo as $key => $deliveryInfo){
+                                                    
+                                                    $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
+                                                    $amount = $amount+$total;
+                                                }
+                                                echo round($amount);
+                                            ?>  readonly >
+                                        </div>                                    
+                            </div>
                                 <br />
                                 <p class="text-center">※請協助回簽出貨單, FAX:04-23759399 or E-mail: service@kmau.com.tw ※</p>
                                 <br />
