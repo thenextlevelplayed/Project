@@ -91,7 +91,7 @@ class DeliveryController extends Controller
         ->where('detaillist.qid','=',$deliveryInfo->qid)
         ->get();
 
-
+        // dd($deliveryInfo->drownumber);
 
 
 
@@ -198,7 +198,7 @@ class DeliveryController extends Controller
         $name = $request->file('file')->getClientOriginalName(); //檔案
         $request->file->move(public_path('files'), $name); // 將檔案搬到public\images
         $path = base_path('public/files'); //檔案搬到的路徑
-        dd($path);
+        // dd($path);
         // https://laravel.com/api/5.8/Illuminate/Http/UploadedFile.html
 
         Mail::send('email.deliveryMail', compact('data'), function ($message) use ($data, $name, $path) { //Mail::send(html畫面,夾帶的資料,回呼函式 使用 許多物件)
