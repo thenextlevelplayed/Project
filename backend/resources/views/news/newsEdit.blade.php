@@ -29,28 +29,33 @@
                                     <div class="container-fluid row justify-content-end" style="padding-right: 0px">
 
                                     </div>
-                                    <div class="row ">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exampleFormControlTextarea1">消息標題</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="title">{{ $newsEdit->title }}</textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="row ">
-                                        <div class="col-md-12 mb-3">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
                                             <label for="exampleFormControlTextarea2">消息圖片</label><br>
                                             <img src="\newsImg\{{ $newsEdit->img }}" alt="" id="showImg"
-                                                width="300px" height="300px"><br>
+                                                style="max-height:300px"><br>
                                             <input type="file" class="mt-3" title="請選擇圖片" id="mainImg"
                                                 name="mainImg" multiple accept="image/png,image/jpg,image/gif,image/JPEG" />
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="exampleFormControlTextarea1">消息標題</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="title">{{ $newsEdit->title }}</textarea><br>
+                                            </div>
+
+                                            <div class="col-md-12 mb-3">
+                                                <label for="exampleFormControlTextarea2">消息內容</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="11" name="content">{{ $newsEdit->content }}</textarea>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="exampleFormControlTextarea2">消息內容</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="10" name="content">{{ $newsEdit->content }}</textarea>
-                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
                                     </div>
                                 </div>
 
