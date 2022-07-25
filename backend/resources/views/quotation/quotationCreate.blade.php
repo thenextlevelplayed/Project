@@ -111,8 +111,8 @@
                                     </div>
                                 </div>
                                 <div class="row mb-1">
-                                    <div class="col-lg-2"><p>總計</p></div>
-                                    <div class="col-lg-5">
+                                    <div class="col-lg-8 text-right"><p>總計</p></div>
+                                    <div class="col-lg-4 text-right">
                                         <input type="text" class="form-control" required>
                                     </div>
                                 </div>                                 
@@ -129,7 +129,6 @@
                                             <p>企業方案</p>
                                         </div>
                                         <div class="col-lg-12">
-                                            <input type="text" required>
                                         </div>
                                     </div>
                                 </div>
@@ -154,17 +153,12 @@
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
-                    <span>存檔</span>     {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
+                    確定新增     {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
                 </a>
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary" href="">
-                    <span>匯出PDF</span>
-                </a>
-            </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
-                    <span>報價成立，轉為訂單</span>
+                    匯出PDF
                 </a>
             </div>
         </div>

@@ -53,7 +53,6 @@ class QuotationController extends Controller
         ->select('*')
         ->where('detaillist.qid', '=', $quotationInfo->qid)
         ->get();
-        
 
         return view('quotation.quotationInfo', compact('quotationInfo','quotation'));
     }

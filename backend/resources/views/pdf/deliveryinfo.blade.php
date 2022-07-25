@@ -113,7 +113,14 @@
                         <div class=" row justify-content-end">
                             <div class="row">
                                 <div class="col-md-2" style="float: left !important; margin-left:70%">總計</div>
-                                <div class="col-md-2" style="float: left !important; margin-left:80%">500000</div>
+                                <div class="col-md-2" style="float: left !important; margin-left:80%"><?php   $amount = 0; 
+                                    foreach ($detaillistInfo as $key => $deliveryInfo){
+                                        
+                                        $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
+                                        $amount = $amount+$total;
+                                    }
+                                    echo round($amount);
+                                ?></div>
                             </div>
                             
                         </div>
