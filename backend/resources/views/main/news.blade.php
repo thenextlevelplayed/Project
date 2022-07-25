@@ -11,34 +11,37 @@
     </h4>
 @endsection
 @section('searchBox')
-    <input type="search" class="form-control" name="query" placeholder="輸入單號或客戶名稱">
-    <span class="input-group-addon" onclick="searchform.submit()">
-        <i class="now-ui-icons ui-1_zoom-bold"></i>
-    </span>
+
 @endsection
 
 @section('content')
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card p-3">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="text-primary" style="white-space: nowrap">
                                     <th>
-                                        消息編號
+                                        <div class="justify-content-center">
+                                            消息編號
+                                        </div>
+                                        
                                     </th>
                                     <th>
                                         消息標題
                                     </th>
 
-                                    <th style="width: 65%">
+                                    <th>
+                                        消息圖片
+                                    </th>
+                                    <th>
                                         消息內容
                                     </th>
 
                                     <th>
-                                        查看/編輯
+                                        編輯
                                     </th>
 
                                     <th>
@@ -49,13 +52,24 @@
                                     @foreach ($news as $n)
                                         <tr>
                                             <td>
-                                                {{ $n->newsid }}
+                                            <div class="text-primary"style="text-align:center;font-weight:600;">
+                                            {{ $n->newsid }}
+                                            </div>
+                                                
                                             </td>
                                             <td>
                                                 {{ $n->title }}
                                             </td>
                                             <td>
+                                                <div>
+                                                <img src="\newsImg\{{ $n->img }}" alt="" id="showImg"
+                                                style="max-height:150px"><br>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class ="p-4">
                                                 {{ $n->content }}
+                                                </div>
                                             </td>
                                             <td>
                                                 <a href="/news/edit/{{ $n->newsid }}">
