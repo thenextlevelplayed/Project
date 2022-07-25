@@ -11,6 +11,16 @@ class CustomerController extends Controller
     {
         $d = Customer::all();
 
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != "") {
+            $d = Customer::select('*')
+                ->where('customer.cname', 'LIKE', '%' . $search_text . '%')
+                ->get();
+        } else {
+            $d;
+        };
+
+
         foreach($d as$key =>$customer){
 
         }
