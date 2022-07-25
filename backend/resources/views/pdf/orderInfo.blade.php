@@ -99,13 +99,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <td scope="col"></td>
                                 <td scope="col">商品名稱</td>
                                 <td scope="col">商品編號</td>
                                 <td scope="col">數量</td>
                                 <td scope="col">單價</td>
                                 <td scope="col">小計</td>
-                                <td scope="col">備註</td>
+                                {{-- <td scope="col">備註</td> --}}
                             </tr>
                         </thead>
                         
@@ -117,7 +116,7 @@
                                 <td>{{$q->mnumber}}</td>
                                 <td>{{$q->quantity}}</td>
                                 <td>{{$q->price}}</td>
-                                <td>{{$q->remark}}</td>
+                                {{-- <td>{{$q->remark}}</td> --}}
                             </tr>
                             @endforeach
                             {{-- <tr>
