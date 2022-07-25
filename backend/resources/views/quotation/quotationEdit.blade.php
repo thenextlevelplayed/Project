@@ -163,7 +163,7 @@
                                         <div class="col-lg-3">
                                             <p>業務專員</p>
                                         </div>
-                                        <div class="col-lg-8">{{ $quotationInfo->staffid }}</div>
+                                        <div class="col-lg-8">{{ $quotationInfo->staffname }}</div>
                                     </div>
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
@@ -179,10 +179,8 @@
                     </div>
                     <div class = "row container justify-content-center">
                         <div class="col-md-3 p-1">
-                            <a href="/main/quotation">
-                                <button type="submit" id="okOrCancel" class="btn btn-primary btn-block" >
-                                    <i class="far fa-save"></i>&nbsp; 存檔
-                                </button>
+                            <a href="/main/quotation" class="btn btn-primary btn-block">
+                                <i class="far fa-save"></i> &nbsp; 存檔
                             </a>                            
                         </div>
                         <div class="col-md-3 p-1">
@@ -194,8 +192,9 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="">
+                <a class="btn btn-primary" href="main/order">
                     <i class="fa-solid fa-arrow-right"></i><span> &nbsp;轉為訂單</span>
+                    {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
                 </a>
             </div>
         </div>
@@ -373,3 +372,11 @@
 
     </script>
 @endsection
+
+{{-- 
+Edit:
+
+存檔button按下之後,資料庫更新(刪除,新增資料)
+
+轉為訂單button按下後,跳轉到訂單管理頁面,且新增一筆訂單編號進資料庫 --}}
+

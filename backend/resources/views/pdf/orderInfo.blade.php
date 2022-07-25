@@ -99,26 +99,32 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <td scope="col"></td>
                                 <td scope="col">商品名稱</td>
                                 <td scope="col">商品編號</td>
                                 <td scope="col">數量</td>
                                 <td scope="col">單價</td>
                                 <td scope="col">小計</td>
-                                <td scope="col">備註</td>
+                                {{-- <td scope="col">備註</td> --}}
                             </tr>
                         </thead>
                         
-                        <tbody>                                                
+                        <tbody>
+                            <?php $tot=0; ?>
+                            @foreach ($quotation as $q)                                                  
                             <tr>
-                                <td scope="row">1</td>
-                                <td>{{$orderInfo->mname}}</td>
-                                <td>{{$orderInfo->mnumber}}</td>
-                                <td>{{$orderInfo->quantity}}</td>
-                                <td>{{$orderInfo->price}}</td>
-                                <td>{{$orderInfo->remark}}</td>
+                                {{-- <td scope="row">1</td> --}}
+                                <td>{{$q->mname}}</td>
+                                <td>{{$q->mnumber}}</td>
+                                <td>{{$q->quantity}}</td>
+                                <td>{{$q->price}}</td>
+                                <td>{{$q->quantity*$q->price}}</td>
+                                {{-- <td>{{$q->remark}}</td> --}}
                             </tr>
-                            <tr>
+                            <?php  
+                            $tot += $q->quantity*$q->price;
+                            ?> 
+                            @endforeach
+                            {{-- <tr>
                                 <td scope="row">2</td>
                                 <td></td>
                                 <td></td>
@@ -135,13 +141,13 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                            </tr>                                            
+                            </tr>                                             --}}
                         </tbody>
                     </table> 
                 </div>
                 <div>
                     <div class="text-right positionR50">總計</div>
-                    <div class="text-right positionR0">29999</div>
+                    <div class="text-right positionR0"><?php echo $tot ;?></div>
                 </div>                                 
             </div>
         </div>

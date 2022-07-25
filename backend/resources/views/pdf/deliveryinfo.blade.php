@@ -45,12 +45,12 @@
                     </div>
                     {{-- 出貨編號 --}}
                     <div class="row row-cols-auto">
-                        <div class="col pl-5 ml-5 mt-3"><span>出貨編號：</span></div>                                        
+                        <div class="col pl-5 ml-5 mt-3"><span>出貨編號：{{$deliveryInfo->drownumber}}</span></div>                                        
                     </div>
                     {{-- 發票號碼 --}}
-                    <div class="row row-cols-auto">
+                    {{-- <div class="row row-cols-auto">
                         <div class="col pl-5 ml-5 mt-3"><span>發票號碼：</span></div>                                        
-                    </div>
+                    </div> --}}
                 
                 </div>
                 <div class="card-body">

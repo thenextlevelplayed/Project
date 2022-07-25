@@ -69,36 +69,36 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">工單編號</label>
-                                            <input class="form-control" type="text" placeholder="{{ $manu->mid }}"
+                                            <input class="form-control" type="text" value="{{ $manu->mid }}"
                                                 readonly>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">客戶聯絡人</label>
-                                            <input class="form-control" type="text" placeholder="{{ $manu->qcontact }}"
+                                            <input class="form-control" type="text" value="{{ $manu->qcontact }}"
                                                 readonly>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">客戶名稱</label>
-                                            <input class="form-control" type="text" placeholder="{{ $manu->cname }}"
+                                            <input class="form-control" type="text" value="{{ $manu->cname }}"
                                                 readonly>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">客戶信箱</label>
-                                            <input class="form-control" type="text" placeholder="{{ $manu->cmail }}"
+                                            <input class="form-control" type="text" value="{{ $manu->cmail }}"
                                                 readonly>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">客戶統編</label>
-                                            <input class="form-control" type="text" placeholder="{{ $manu->cid }}"
+                                            <input class="form-control" type="text" value="{{ $manu->cid }}"
                                                 readonly>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">工單成立日期</label>
-                                            <input class="form-control" type="text" placeholder="{{ $manu->mDate }}"
+                                            <input class="form-control" type="text" value="{{ $manu->mDate }}"
                                                 readonly>
                                         </div>
                                     </div>
@@ -192,27 +192,21 @@
                                 </div>
                                 <div class="row justify-content-center mt-5 mb-3">
                                     <div class="col-md-2 p-1">
-                                        <a href = "/manufacture/pdf/view/{{$manu->mid}}">
-                                            <button class="btn btn-primary btn-block">
-                                                <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
-                                            </button>
+                                        <a class="btn btn-primary btn-block" href="/manufacture/pdf/view/{{$manu->mid}}">
+                                            <i class="fa-regular fa-eye"></i><span> &nbsp;預覽PDF</span>
                                         </a>
                                     </div>
                                     <div class="col-md-2 p-1">
-                                        <a href = "/manufacture/pdf/{{$manu->mid}}">
-                                            <button class="btn btn-primary btn-block">
-                                                <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出pdf
-                                            </button>
+                                        <a class="btn btn-primary btn-block" href="/manufacture/pdf/{{$manu->mid}}">
+                                            <i class="fa-solid fa-arrow-up-from-bracket"></i><span> &nbsp;匯出PDF</span>
                                         </a>
                                     </div>
                                     <div class="col-md-2 p-1">
                                             <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;存檔</button>
                                     </div>
                                     <div class="col-md-2 p-1">
-                                        <a href='/main/manufacture/'>
-                                            <button class="btn btn-danger btn-block">
-                                                <i class="fa-solid fa-x"></i> &nbsp;取消
-                                            </button>
+                                        <a class="btn btn-danger btn-block" href='/main/manufacture/'>
+                                            <i class="fa-solid fa-x"></i><span> &nbsp;取消</span>
                                         </a>
                                     </div>
                                 </div>
