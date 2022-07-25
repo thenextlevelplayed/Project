@@ -9,13 +9,17 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
-use App\Models\Quotation;
+use Illuminate\Support\Facades\Session;
+
 
 
 class DeliveryController extends Controller
 {
     function delivery(Request $request)
     {
+        $permission = Session::get('permission');
+
+
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
         if ($search_text != ""){
@@ -66,10 +70,15 @@ class DeliveryController extends Controller
         //     }
         //     array_push($number, $did);
         // }
-
-
-       
-        return view('main.delivery', compact('d'));
+        
+        if($permission== 4 or $permission== 1){         
+            return view('main.delivery', compact('d','permission'));
+        }
+        else{
+            return view("main.index");
+        }
+    
+        
 
     }
 
@@ -94,8 +103,14 @@ class DeliveryController extends Controller
         // dd($deliveryInfo->drownumber);
 
 
-
-        return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo','deliveryId'));
+        $permission = Session::get('permission');
+        if($permission== 4 or $permission== 1){         
+            return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo','deliveryId'));
+        }
+        else{
+            return view("main.index");
+        }
+        
     }
 
     public function deliveryInfoEdit($deliveryId)
@@ -113,7 +128,14 @@ class DeliveryController extends Controller
         ->select('*')
         ->where('detaillist.qid','=',$deliveryInfo->qid)
         ->get();
-        return view('delivery.deliveryInfoEdit', compact('deliveryInfo','detaillistInfo'));
+
+        $permission = Session::get('permission');
+        if($permission== 4 or $permission== 1){         
+            return view('delivery.deliveryInfoEdit', compact('deliveryInfo','detaillistInfo'));
+        }
+        else{
+            return view("main.index");
+        }
     }
 
     public function deliveryInfoUpdate(Request $request, $deliveryId)

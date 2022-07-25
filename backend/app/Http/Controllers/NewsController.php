@@ -39,8 +39,7 @@ class NewsController extends Controller
         $newsEdit->content = $request->content;
 
         $image = $request->file('mainImg');
-        $temp = file_get_contents($image);
-
+        
 
         if ($image) {
 
@@ -48,7 +47,8 @@ class NewsController extends Controller
 
             $fileName = $request->file('mainImg')->getClientOriginalName();
             //圖片存在裡面 public newsImg
-            $image->move(public_path('/newsImg'), $fileName);            
+            $image->move(public_path('/newsImg'), $fileName);
+            $temp = file_get_contents($image);            
             $blob = base64_encode($temp);
             $newsEdit->img = $fileName;
             $newsEdit->imgfile = $blob;

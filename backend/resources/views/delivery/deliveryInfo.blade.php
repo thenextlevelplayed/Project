@@ -40,12 +40,11 @@
 </style>
 
 @section('content')
-
-
     <div class="row">
         <div class="col-md-12">
             
                 <div class="card">
+                <div class="card-body">
                     <div class="container-xl p-5">
                         <div class="customerInfo">
                             <h4 class="text-center">楷 模 資 訊 股 份 有 限 公 司 出 貨 單</h4>
@@ -84,7 +83,11 @@
                             </div>
                         
                         </div>
-                        <div class="card-body">
+                       
+                            <div class="mb-2 mt-5">
+                                <h5>出貨資訊</h5>
+                                <hr>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
@@ -184,10 +187,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title text-center"> E-mail</h4>
-                    </div>                            
-                    <form class="card-body">
-                        <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
-                            @csrf
+                    </div>
+                    <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
+                        @csrf                            
+                        <form class="card-body">
+                        
                             <div class="row mb-3">
                                 <div class="col-lg-2">
                                     <p>收件人</p>
@@ -218,8 +222,8 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <textarea name="content" id=""  cols="80" rows="10">
-    出貨單編號:{{$deliveryInfo->drownumber}}
-    出貨日期:{{$deliveryInfo->ddate}}
+                                出貨單編號:{{$deliveryInfo->drownumber}}
+                                出貨日期:{{$deliveryInfo->ddate}}
                                     </textarea>
                                 </div>
                             </div>

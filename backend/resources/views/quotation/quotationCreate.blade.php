@@ -35,7 +35,8 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>報價單編號</p></div>
                                         <div class="col-lg-8">
-                                            <input type="text" required>
+                                            {{ $KMQid }}
+                                            <input type="hidden" value="{{ $KMQid }}" name="KMQid">
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -272,4 +273,5 @@
     </div>
 @endsection
 
-{{-- 報價單編號根據當天日期自動帶入欄位 --}}
+
+{{-- 按下新增存檔btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
