@@ -37,4 +37,28 @@ if($result3){
         }
 }
 
+$sql4="Select * from news where newsid='4'";
+$result4=mysqli_query($con,$sql4);
+if($result4){
+    while($row4 = $result4->fetch_assoc()) {
+        $id4=$row4["newsid"];
+        $title4=$row4["title"];
+        $content4=$row4["content"];
+        $img4=$row4["img"];
+        
+        }
+}
+
+$sql5="Select * from news where newsid='5'";
+$result5=mysqli_query($con,$sql5);
+if($result5){
+    while($row5 = $result5->fetch_assoc()) {
+        $id5=$row5["newsid"];
+        $title5=$row5["title"];
+        $content5=$row5["content"];
+        $img5=$row5["img"];
+        
+        }
+}
+
 ?>
