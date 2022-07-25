@@ -165,7 +165,7 @@ include '../php/news.php';
                         </div>
                     </div>
                 </div>
-                <?php echo '<div class="caption"><h3><img src="data:image/jpeg;base64,'.$blob1.'"/></h3>123123</div>';?>
+                
                 
                 <div class="album">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">

@@ -1,3 +1,5 @@
+
+
 <?php
 include '../php/news.php';
 ?>
@@ -71,7 +73,8 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                        <img src="../資訊圖庫/A01.jpg">
+                    <?php echo '<img src="data:image/jpeg;base64,'.$blob1.'"/>';?>
+                        <!-- <img src="../資訊圖庫/A01.jpg"> -->
                     </div>
                     <div class="col-lg-6 carouselContent">
                         <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
