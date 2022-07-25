@@ -44,8 +44,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
-            @csrf
+            
                 <div class="card">
                     <div class="container-xl">
                         <div class="customerInfo">
@@ -109,32 +108,32 @@
                                         </th>                    
                                     </thead>
                                     <tbody>
-                                    @foreach ($detaillistInfo as $deliveryInfo)
+                                    @foreach ($detaillistInfo as $item)
                                         <tr>
                                             {{-- {{$d->firstName}} --}}
                                             {{-- {{$d->firstName}} --}}
                                         
                                                 
                                             
-                                            <td>{{$deliveryInfo->mname}}</td>
-                                            <td>{{$deliveryInfo->mspecification}}</td>
+                                            <td>{{$item->mname}}</td>
+                                            <td>{{$item->mspecification}}</td>
                                             <td name="quantity">
-                                                {{$deliveryInfo->quantity}}
+                                                {{$item->quantity}}
                                             </td>
-                                            <td name="price">{{$deliveryInfo->price}}</td>
+                                            <td name="price">{{$item->price}}</td>
                                             <td name="total">
                                                 <?php
-                                                    $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                                    $total = ($item->quantity)*($item->price);
                                                     echo $total;
                                                 ?></td>
                                             <td name="tax">
                                                 <?php
-                                                    $total = ($deliveryInfo->quantity)*($deliveryInfo->price);
+                                                    $total = ($item->quantity)*($item->price);
                                                     $tax = $total*0.05;
                                                     echo round($tax);
                                                 ?></td>
                                             </td>
-                                            <td name="remark"> {{$deliveryInfo->remark}}</td>
+                                            <td name="remark"> {{$item->remark}}</td>
                                         
                                         </tr>
                                     @endforeach
@@ -145,9 +144,9 @@
                                         <div class="col-lg-3">
                                             <input type="text" class="form-control" value =
                                             <?php   $amount = 0; 
-                                                foreach ($detaillistInfo as $key => $deliveryInfo){
+                                                foreach ($detaillistInfo as $key => $item){
                                                     
-                                                    $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
+                                                    $total = ($item->price)*($item->quantity)*1.05;
                                                     $amount = $amount+$total;
                                                 }
                                                 echo round($amount);
@@ -165,7 +164,7 @@
                         </div>
                     </div>
                 </div>
-            </form> 
+            
             {{-- 按鈕 --}}
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary " href="/main/delivery">
@@ -184,52 +183,56 @@
                         <h4 class="card-title text-center"> E-mail</h4>
                     </div>                            
                     <form class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人</p>
+                        <form action="/getMailFile/sendMail/{{$deliveryInfo->did}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row mb-3">
+                                <div class="col-lg-2">
+                                    <p>收件人</p>
+                                </div>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="addressee" value="{{$deliveryInfo->dcontact}}" required>
+                                </div>
                             </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" name="addressee" value="{{$deliveryInfo->dcontact}}" required>
+                            <div class="row mb-3">
+                                <div class="col-lg-2">
+                                    <p>主旨</p>
+                                </div>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="subject" value="出貨單" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>主旨</p>
+                            <div class="row mb-3">
+                                <div class="col-lg-2">
+                                    <p>收件人信箱</p>
+                                </div>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="email" value="{{$deliveryInfo->cmail}}" required>
+                                </div>
                             </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" name="subject" value="出貨單" required>
+                            <div class="row mb-3">
+                                <div class="col-lg-2">
+                                    <p>內容</p>
+                                </div>
+                                <div class="col-lg-5">
+                                    <textarea name="content" id=""  cols="80" rows="10">
+    出貨單編號:{{$deliveryInfo->drownumber}}
+    出貨日期:{{$deliveryInfo->ddate}}
+                                    </textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>收件人信箱</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" name="email" value="{{$deliveryInfo->cmail}}" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-lg-2">
-                                <p>內容</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <textarea name="content" id=""  cols="100" rows="10">
-                                出貨單編號:{{$deliveryInfo->did}}
-                                出貨日期:{{$deliveryInfo->ddate}}
-                                </textarea>
-                            </div>
-                        </div>                                
+                            {{-- 按鈕 --}}
+                            <div class="col-md-12 text-right">
+                                <div class="mb-2">
+                                    <input type="file" name="file" accept="file/*">
+                                </div>
+                                <button class="btn btn-info" type="submit">發送信箱</button>
+
+                            </div>      
+                        </form>                          
                     </form>
                 </div>
             </div>
-            {{-- 按鈕 --}}
-            <div class="col-md-12 text-right">
-                <div class="mb-2">
-                    <input type="file" name="file" accept="file/*">
-                </div>
-                <button class="btn btn-info" type="submit">發送信箱</button>
-
-            </div>
+            
         </div>
     </div>
  
