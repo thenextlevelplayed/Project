@@ -21,14 +21,13 @@
 @endsection
 
 @section('content')
-<form action="" method="">
 
 <div class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"> 出貨單管理</h4>
+                    {{-- <h4 class="card-title"> 出貨單管理</h4> --}}
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -41,10 +40,10 @@
                                     客戶名稱
                                 </th>
                                 <th>
-                                    編輯
+                                    查看/編輯
                                 </th>
                                 <th>
-                                    狀態
+                                    出貨狀態
                                 </th>
                             </thead>
                             <tbody>
@@ -58,9 +57,9 @@
                                     <td>{{$delivery->cname}}</td>
                                      <td >
                                         <div class="btn-group">
-                                            {{-- {{ url('/home') }} --}}
-                                            <a href="/delivery/edit/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                            <a href = "/delivery/edit/{{$delivery->did}}">
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></button>
                                             </a>
                                           </div>
                                     </td>
@@ -88,7 +87,6 @@
         </div>
     </div>
 </div>
-</form>
 
 
 
