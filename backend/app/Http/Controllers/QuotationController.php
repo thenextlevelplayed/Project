@@ -103,11 +103,33 @@ class QuotationController extends Controller
         return redirect("/main/quotation/$quotationId");
     }
 
-    //新增報價單
+    //新增報價單 依照當日日期產生流水號
     function quotationCreate()
-    {                 
-        return view('quotation.quotationCreate');
+    {
+        //今日日期跟Sql比較 (YYYY-MM-DD)
+        $day = date("Y-m-d");
+        //從資料庫讀取當天進貨單數量有幾筆
+        $qDay = count(Quotation::all()->where('qdate', '=', $day));
+
+        //資料庫今天有幾筆
+        if ($qDay > 0) {
+            //計算今天有幾筆後加一
+
+            //轉編號的format
+            $day = date("Ymd");
+            $qDay += 1;
+            $qDay = sprintf("%03d", $qDay);
+            $KMQid =  "KMQ" .  $day . $qDay;
+        } else {
+            //今天第一筆 001
+
+            //轉編號的format
+            $day = date("Ymd");
+            $KMQid = "KMQ" .  $day . "001";
+        }
+        return view('quotation.quotationCreate', compact('KMQid'));
     }
+
 
     //轉為訂單
     public function orderCreate(Request $request,)
