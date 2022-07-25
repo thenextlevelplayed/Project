@@ -123,8 +123,8 @@
                                                     echo $total;
                                                     ?>
                                                 </td>
-                                                {{-- <td>{{ $item->remark }}</td>
-                                                <input type="hidden" value="{{ $item->dlid }}" name="dlid[]"> --}}
+                                                {{-- <td>{{ $item->remark }}</td> --}}
+                                                <input type="hidden" value="{{ $item->dlid }}" name="dlid[]">
                                             </tr>
                                         @endforeach
                                         {{-- <tr>

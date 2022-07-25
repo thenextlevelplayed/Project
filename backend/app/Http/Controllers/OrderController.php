@@ -28,85 +28,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\File;
+use LDAP\Result;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
 
     //訂單
     function order()
@@ -210,8 +136,7 @@ class OrderController extends Controller
 
         //撈明細資料
         $quotation = Detaillist::select('*')
-            ->join()
-            ->where('detaillist.qid', '=', $orderID)
+            ->where('detaillist.qid', '=', $orderEdit->qid)
             ->get();
 
         // dd($quotation);
@@ -223,7 +148,7 @@ class OrderController extends Controller
     function orderSplit($orderID)
     {
 
-        dd($orderID);
+        // dd($orderID);
         $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -233,13 +158,63 @@ class OrderController extends Controller
             ->find($orderID);
 
         //撈明細資料
-        $quotation = Detaillist::select('*')
-            ->where('detaillist.qid', '=', $orderID)
+        $quotation = Detaillist::select('mname', 'mnumber', 'price', 'quantity', 'dlid')
+            ->where('detaillist.qid', '=', $orderEdit->qid)
             ->get();
 
         // dd($quotation);
 
         return view('order.orderSplit', compact('orderEdit', 'quotation'));
+    }
+
+    //訂單拆單表單傳送
+    function orderSplitPost(Request $req, $orderID)
+    {
+
+        // dd($req);
+
+        $Orig = Detaillist::where('detaillist.dlid', '=', $req->dlid[0])->first();
+        // dd($Orig);
+
+        //原訂單  改明細數量
+        for ($i = 0; $i < count($req->dlid); $i++) {
+            $Orig = Detaillist::where('detaillist.dlid', '=', $req->dlid[$i])->first();
+            $Orig->quantity = $req->OrigNum[$i];
+            $Orig->save();
+        }
+
+        //子訂單
+        // 1.取得原訂單資訊
+        $orderInfo = Order::find($orderID);
+
+        // 2.產生子訂單編號 原訂單編號後加上A
+        $oid = Order::insertGetId([
+            'odate' => date("Y-m-d"),
+            'qid' => $orderInfo->qid,
+            'ostatus' => 'N',
+            'orownumber' => $orderInfo->orownumber . 'A'
+        ]);
+
+        // 3.子訂單明細新增
+        for ($i = 0; $i < count($req->dlid); $i++) {
+            // 3-1. 取得原訂單產品資訊
+            $Orig = Detaillist::where('detaillist.dlid', '=', $req->dlid[$i])->first();
+
+            // 3-2. 新增 detail 
+            Detaillist::insert([
+                'qid' => $Orig->qid,
+                'oid' => $oid,
+                'iid' => $Orig->iid,
+                'rid' => $Orig->rid,
+                'mname' => $Orig->mname,
+                'quantity' => $req->splitNum[$i],
+                'price' => $Orig->price,
+                'mspecification' => $Orig->mspecification,
+                'mnumber' => $Orig->mnumber,
+            ]);
+        }
+
+        return  redirect('/main/order');
     }
 
 
@@ -259,6 +234,7 @@ class OrderController extends Controller
         return redirect('/main/order');
     }
 
+    // 轉為工單
     public function ManufactureCreate(Request $request, $orderID)
     {
 
