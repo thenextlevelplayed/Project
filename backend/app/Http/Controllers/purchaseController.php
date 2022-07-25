@@ -234,6 +234,19 @@ class purchaseController extends Controller
         $inventory = Inventory::all();
         // dd($inventory);
 
+        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+        if ($search_text != "") {
+
+            $inventory =Inventory::select('*')
+                ->Where('mnumber', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('mname', 'LIKE', '%' . $search_text . '%')
+                ->get();
+        } else {
+            $inventory;
+        };
+
+
+
         return view('erp.stock', compact('inventory'));
     }
 
