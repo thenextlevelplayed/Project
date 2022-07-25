@@ -108,9 +108,10 @@ class OrderController extends Controller
         //
     }
 
+    //訂單
     function order()
     {
-        //訂單
+
 
         // $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
         //     ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
@@ -123,12 +124,12 @@ class OrderController extends Controller
         $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
-            ->select('order.oid', 'order.ostatus','order.odate','customer.cname', 'order.orownumber','manufacture.mrownumber')
+            ->select('order.oid', 'order.ostatus', 'order.odate', 'customer.cname', 'order.orownumber', 'manufacture.mrownumber')
             ->orderby('order.oid')
             ->get();
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
+        if ($search_text != "") {
 
             // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -146,80 +147,108 @@ class OrderController extends Controller
 
             // $order = Order::join('manufacture', 'manufacture.oid', '=', 'order.oid')
             // ->get();
-            
+
             $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
                 ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
-                ->select('order.oid', 'order.ostatus','customer.cname', 'order.orownumber','manufacture.mrownumber')
-                ->where('oid','LIKE','%'.$search_text.'%')
-                ->orWhere('cname','LIKE','%'.$search_text.'%')
+                ->select('order.oid', 'order.ostatus', 'customer.cname', 'order.orownumber', 'manufacture.mrownumber')
+                ->where('oid', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('cname', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('manufacture.mrownumber', 'LIKE', '%' . $search_text . '%')
                 ->orderby('order.oid')
                 ->get();
-        }
-        else{
-            $order;  
+        } else {
+            $order;
 
             // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
             //     ->orderby('oid')
             //     ->get();   
-            
+
             // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
             //     ->orderby('oid')
             //     ->get(); 
         };
-    // $order = Order::all();
+        // $order = Order::all();
 
         return view('main.order', compact('order'));
     }
 
+    //訂單明細管理
     function orderInfo($orderID)
     {
-        //訂單明細管理
+
         $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-        ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-        ->join('customer', 'customer.cid', '=', 'quotation.cid')
-        ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-        ->find($orderID);
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+            ->find($orderID);
 
         $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
         // dd($orderInfoid->qid);
         $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid', '=', $orderInfoid->qid)
-        ->get();
+            ->select('*')
+            ->where('detaillist.qid', '=', $orderInfoid->qid)
+            ->get();
 
-        
-        return view('order.orderInfo', compact('orderInfo','quotation'));
+
+        return view('order.orderInfo', compact('orderInfo', 'quotation'));
     }
-    function orderEdit($orderID){
-        //訂單編輯
-        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.qid','=','quotation.qid')
-        ->select('*')
-        ->where('order.oid', '=', $orderID)
-        ->find($orderID);
+
+    //訂單編輯
+    function orderEdit($orderID)
+    {
+
+        $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+            ->select('*')
+            ->where('order.oid', '=', $orderID)
+            ->find($orderID);
 
         //撈明細資料
         $quotation = Detaillist::select('*')
-        ->where('detaillist.qid', '=', $orderID)
-        ->get();
-        
+            ->join()
+            ->where('detaillist.qid', '=', $orderID)
+            ->get();
+
         // dd($quotation);
 
-        return view('order.orderEdit', compact('orderEdit','quotation'));
+        return view('order.orderEdit', compact('orderEdit', 'quotation'));
+    }
+
+    //訂單拆單
+    function orderSplit($orderID)
+    {
+
+        dd($orderID);
+        $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+            ->select('*')
+            ->where('order.oid', '=', $orderID)
+            ->find($orderID);
+
+        //撈明細資料
+        $quotation = Detaillist::select('*')
+            ->where('detaillist.qid', '=', $orderID)
+            ->get();
+
+        // dd($quotation);
+
+        return view('order.orderSplit', compact('orderEdit', 'quotation'));
     }
 
 
-    public function orderUpdate(Request $request,$orderID){
+    public function orderUpdate(Request $request, $orderID)
+    {
         // dd($request->dlid);
 
-        for ($i=0 ; $i<count($request->dlid); $i++){
-            $id = Detaillist::where('detaillist.dlid', '=' , $request->dlid[$i])->first();
+        for ($i = 0; $i < count($request->dlid); $i++) {
+            $id = Detaillist::where('detaillist.dlid', '=', $request->dlid[$i])->first();
             // dd($id);
             $id->quantity = $request->quantity[$i];
             // dd($id);
@@ -229,15 +258,16 @@ class OrderController extends Controller
 
         return redirect('/main/order');
     }
-    
-    public function ManufactureCreate(Request $request,$orderID){
 
-        $orderEdit = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.qid','=','quotation.qid')
-        ->select('*')
-        ->find($orderID);
+    public function ManufactureCreate(Request $request, $orderID)
+    {
+
+        $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+            ->select('*')
+            ->find($orderID);
 
         // dd($orderEdit);
 
@@ -258,42 +288,44 @@ class OrderController extends Controller
     }
 
     //匯出訂單PDF
-    public function createOrderPDF (Request $request,$orderID) {
-        $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.qid','=','quotation.qid')
-        ->select('*')
-        ->find($orderID);
+    public function createOrderPDF(Request $request, $orderID)
+    {
+        $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+            ->select('*')
+            ->find($orderID);
 
         $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
         // dd($orderInfoid->qid);
-        $quotation = Detaillist::join('quotation','quotation.qid','=','order.qid')
-        ->join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid', '=', $orderInfoid->qid)
-        ->get();
+        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+            ->select('*')
+            ->where('detaillist.qid', '=', $orderInfoid->qid)
+            ->get();
 
-        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo','quotation'));
+        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo', 'quotation'));
         return $pdf->download();
     }
 
     //預覽訂單PDF
-    public function viewOrderPDF (Request $request,$orderID) {
-        $orderInfo = Order::join('quotation','quotation.qid','=','order.qid')
-        ->join('staff','staff.staffid','=','quotation.staffid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->join('detaillist','detaillist.qid','=','quotation.qid')
-        ->find($orderID);
+    public function viewOrderPDF(Request $request, $orderID)
+    {
+        $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
+            ->find($orderID);
 
         $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
         // dd($orderInfoid->qid);
         $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid', '=', $orderInfoid->qid)
-        ->get();
+            ->select('*')
+            ->where('detaillist.qid', '=', $orderInfoid->qid)
+            ->get();
 
-        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo','quotation'));
+        $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo', 'quotation'));
         return $pdf->stream();
     }
 }

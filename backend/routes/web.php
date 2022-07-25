@@ -69,6 +69,7 @@ Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderI
 Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //訂單編輯
 Route::put('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderUpdate"); //訂單更新
 Route::post('/manufacturecreate/{orderId}', "App\Http\Controllers\OrderController@ManufactureCreate");//新增工單
+Route::get('/main/order/Split/{orderId}', "App\Http\Controllers\OrderController@orderSplit"); //拆單
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");

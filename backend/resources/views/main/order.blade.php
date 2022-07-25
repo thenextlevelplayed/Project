@@ -36,9 +36,9 @@
                                     <th>
                                         客戶名稱
                                     </th>
-                                    <th>
+                                    {{-- <th>
                                         訂單建立日期
-                                    </th>
+                                    </th> --}}
                                     <th>
                                         工單編號
                                     </th>
@@ -58,9 +58,9 @@
                                             <td>
                                                 {{$od->cname}}
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 {{$od->odate}}
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 {{$od->mrownumber}}
                                             </td>
