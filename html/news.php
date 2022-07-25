@@ -77,11 +77,9 @@ include '../php/news.php';
                         <!-- <img src="../資訊圖庫/A01.jpg"> -->
                     </div>
                     <div class="col-lg-6 carouselContent">
-                        <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
+                        <h3 class="indexh3"><?php echo $title1; ?></h3>
                         <p class="indexp">
-                            數位轉型已然企業追求永續成長的必要策略，在全新的商業模式與工作型態中，網路所扮演的角色越來越吃重，企業對連網機制的高度依賴，也同時升高了駭客的攻擊慾望。
-                            <br />除了持續增強的外部威脅，為了降低資安攻擊對產業帶來的衝擊，多國政府也制定了相關法規，像是台灣證交所近期就發布了「上市上櫃公司資通安全管控指引」，要求上市櫃公司必須配置適當的人力資源與設備，並有完整的資通安全制度與作為。
-                            <br />對大型企業來說，推動資安的關鍵力量已經從內部 IT 規劃，升級到法遵層級。
+                        <?php echo $content1; ?>
                         </p>
                     </div>
                 </div>
@@ -89,15 +87,12 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                        <img src="../資訊圖庫/A10.jpg">
+                    <?php echo '<img src="data:image/jpeg;base64,'.$blob2.'"/>';?>
                     </div>
                     <div class="col-lg-6 carouselContent">
-                        <h3 class="indexh3">微軟推出個人版Defender，同時支援Windows、macOS、Android與iPhone裝置。</h3>
+                        <h3 class="indexh3"><?php echo $title2; ?></h3>
                         <p class="indexp">
-                            微軟近期發表的Microsoft Defender for individuals個人安全工具，將成為Microsoft 365 Personal（個人版）與
-                            Family（家用版）的內建功能。
-                            <br />Microsoft
-                            Defender提供持續的防毒與防網釣保護，用戶自單一的儀表板就能管理及檢視不同裝置的安全性，也能辨識及檢視系統上諸如Norton或McAfee等既有的安全保護，並把對Windows的支援延伸到macOS、Android與iPhone等裝置上，用戶還可接收即時的安全通知、解決策略或是專家提示。
+                        <?php echo $content2; ?>
                         </p>
                     </div>
                 </div>
@@ -105,15 +100,12 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                        <img src="../資訊圖庫/A20.jpg">
+                    <?php echo '<img src="data:image/jpeg;base64,'.$blob3.'"/>';?>
                     </div>
                     <div class="col-lg-6 carouselContent">
-                        <h3 class="indexh3">PC用戶注意！駭客勒索病毒假冒「Windows Update」更新檔入侵電腦！</h3>
+                        <h3 class="indexh3"><?php echo $title3; ?></h3>
                         <p class="indexp">
-                            Magniber 勒索軟體近日再度現身流竄，且這次瞄準的是一般消費者用戶，而非企業用戶，且發動攻擊的範圍遍及全球各地。
-                            <br />據外媒 BleepingComputer 報導，近日已接獲數起遭勒索病毒 Magniber惡意感染的案例。
-                            <br />此次Magniber 勒索軟體是利用偽裝成由 Windows 10 作業系統提供的「Windows Update」更新檔名義，並透過如 Warez
-                            這類專門提供盜版軟體下載的非法網站進行惡意散播。
+                        <?php echo $content3; ?>
                         </p>
                     </div>
                 </div>
@@ -121,30 +113,22 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                        <img src="../資訊圖庫/A03.jpg">
+                    <?php echo '<img src="data:image/jpeg;base64,'.$blob4.'"/>';?>
                     </div>
                     <div class="col-lg-6 carouselContent">
-                        <h3 class="indexh3">思科打造Cisco Security Cloud開放的安全雲端平台。</h3>
-                        <p class="indexp">
-                            思科公布將建立一個全球雲端交付綜合平台，以確保所有大小、規模的企業安全和連接。思科正打造思科安全雲端（Cisco Security
-                            Cloud），使其成為開放的平台，保護整個IT生態圈的完整性，避免公有雲的框限。
-                            <br />思科安全雲端將提供整合體驗，使各地的用戶及設備能安全地連接到任何地方的應用程式和資料。透過統一管理，開放平台將提供大規模的威脅預防、檢測、響應和修復能力。思科也將持續致力實現安全雲端，分享其安全產品組合的創新進展。
-                        </p>
+                        <h3 class="indexh3"><?php echo $title4; ?></h3>
+                        <?php echo $content4; ?>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                        <img src="../資訊圖庫/A21.jpg">
+                    <?php echo '<img src="data:image/jpeg;base64,'.$blob5.'"/>';?>
                     </div>
                     <div class="col-lg-6 carouselContent">
-                        <h3 class="indexh3">企業遭網路攻擊次數狂增！如何打造最強資安之盾？</h3>
-                        <p class="indexp">
-                            數位轉型已然企業追求永續成長的必要策略，在全新的商業模式與工作型態中，網路所扮演的角色越來越吃重，企業對連網機制的高度依賴，也同時升高了駭客的攻擊慾望。
-                            <br />除了持續增強的外部威脅，為了降低資安攻擊對產業帶來的衝擊，多國政府也制定了相關法規，像是台灣證交所近期就發布了「上市上櫃公司資通安全管控指引」，要求上市櫃公司必須配置適當的人力資源與設備，並有完整的資通安全制度與作為。
-                            <br />對大型企業來說，推動資安的關鍵力量已經從內部 IT 規劃，升級到法遵層級。
-                        </p>
+                        <h3 class="indexh3"><?php echo $title5; ?></h3>
+                        <?php echo $content5; ?>
                     </div>
                 </div>
             </div>

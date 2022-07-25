@@ -7,7 +7,7 @@ if($result1){
     while($row1 = $result1->fetch_assoc()) {
         $id1=$row1["newsid"];
         $title1=$row1["title"];
-        $content1=$row1["content"];
+        $content1=nl2br($row1["content"]);
         $img1=$row1["img"];
         $blob1=$row1["imgfile"];
         
@@ -48,6 +48,7 @@ if($result4){
         $title4=$row4["title"];
         $content4=$row4["content"];
         $img4=$row4["img"];
+        $blob4=$row4["imgfile"];
         
         }
 }
@@ -60,6 +61,7 @@ if($result5){
         $title5=$row5["title"];
         $content5=$row5["content"];
         $img5=$row5["img"];
+        $blob5=$row5["imgfile"];
         
         }
 }
