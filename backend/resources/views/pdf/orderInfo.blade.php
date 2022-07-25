@@ -109,16 +109,18 @@
                             </tr>
                         </thead>
                         
-                        <tbody>                                                
+                        <tbody>
+                            @foreach ($quotation as $q)                                                  
                             <tr>
-                                <td scope="row">1</td>
-                                <td>{{$orderInfo->mname}}</td>
-                                <td>{{$orderInfo->mnumber}}</td>
-                                <td>{{$orderInfo->quantity}}</td>
-                                <td>{{$orderInfo->price}}</td>
-                                <td>{{$orderInfo->remark}}</td>
+                                {{-- <td scope="row">1</td> --}}
+                                <td>{{$q->mname}}</td>
+                                <td>{{$q->mnumber}}</td>
+                                <td>{{$q->quantity}}</td>
+                                <td>{{$q->price}}</td>
+                                <td>{{$q->remark}}</td>
                             </tr>
-                            <tr>
+                            @endforeach
+                            {{-- <tr>
                                 <td scope="row">2</td>
                                 <td></td>
                                 <td></td>
@@ -135,7 +137,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                            </tr>                                            
+                            </tr>                                             --}}
                         </tbody>
                     </table> 
                 </div>
