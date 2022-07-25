@@ -218,7 +218,7 @@ include '../php/news.php';
             <div class="row mt-5">
                 <div class="col-lg-6 newsCard">
                     <div class="center2">
-                        <img class="card-img w-100 h-auto" src="../資訊圖庫/合作夥伴logo/ASUS.png" alt="1">
+                        <img class="card-img w-100 h-auto" src="../img/news/Logoslogan_sm.png" alt="1">
                     </div>
 
                     <div class="card-img-overlay mx-3 p-5">
