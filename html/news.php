@@ -223,7 +223,7 @@ include '../php/news.php';
 
                     <div class="card-img-overlay mx-3 p-5">
                         <a href="#">
-                            <h2 class="card-title indexh2">華碩ASUS</h2>
+                            <h2 class="card-title indexh2">資展國際</h2>
                             <p class="card-text indexp txtIn">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                                 Obcaecati,
                                 odio ducimus nobis sapiente porro modi. Error doloribus recusandae reiciendis unde vitae
