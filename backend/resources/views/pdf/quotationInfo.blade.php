@@ -98,7 +98,6 @@
                     <table class="table" id="quotationtable">
                         <thead>
                             <tr>
-                                <td scope="col"></td>
                                 <td scope="col">商品名稱</td>
                                 <td scope="col">商品編號</td>
                                 <td scope="col">數量</td>
@@ -108,6 +107,7 @@
                         </thead>
                         
                         <tbody>
+                            <?php $tot=0; ?>
                             @foreach ($quotation as $q)                                            
                             <tr>
                                 {{-- <td scope="row"></td> --}}
@@ -115,16 +115,18 @@
                                 <td>{{$q->mnumber}}</td>
                                 <td>{{$q->quantity}}</td>
                                 <td>{{$q->price}}</td>
-                                <td></td>
-                                <td>{{$q->remark}}</td>
-                            </tr>                                         
+                                <td>{{$q->quantity*$q->price}}</td>
+                            </tr>
+                            <?php  
+                            $tot += $q->quantity*$q->price;
+                            ?>                                        
                             @endforeach
                         </tbody>
                     </table> 
                 </div>
                 <div>
                     <div class="text-right positionR50">總計</div>
-                    <div class="text-right positionR0"></div>
+                    <div class="text-right positionR0"><?php echo $tot ;?></div>
                 </div>                                 
             </div>
         </div>
@@ -138,7 +140,7 @@
                 <div class="col">
                     <div>
                         <div class="col-inline">業務專員</div>
-                        <div class="col-inline">{{$quotationInfo->staffid}}</div>
+                        <div class="col-inline">{{$quotationInfo->staffname}}</div>
                     </div>
                     <div>
                         <div class="col-inline">楷模信箱</div>

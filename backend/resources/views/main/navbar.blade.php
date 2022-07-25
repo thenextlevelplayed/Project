@@ -130,16 +130,23 @@
                             <p>出貨單管理</p>
                         </a>
                     </li>
-                    <li <?php
-                    if ($_SERVER['REQUEST_URI'] == '/main/receipt') {
-                        echo "class='active'";
-                    }
-                    ?>>
+
+
+                    {{-- <li 
+                    <?php
+                    // if ($_SERVER['REQUEST_URI'] == '/main/receipt') {
+                    //     echo "class='active'";
+                    // }
+                    ?>
+                    >
                         <a href="/main/receipt">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>發票管理</p>
                         </a>
-                    </li>
+                    </li> --}}
+
+
+                    
                     <li <?php
                     if ($_SERVER['REQUEST_URI'] == '/main/customer') {
                         echo "class='active'";
