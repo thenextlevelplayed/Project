@@ -63,7 +63,11 @@
                                                 <?php
                                                 for ($i = 0; $i < count($manu); $i++) {
                                                     if ($manu[$i]->oid == $od->oid) {
+                                                        $mid = $manu[$i]->mid;
+                                                
+                                                        echo "<a href=/manufacture/edit/${mid}>";
                                                         echo $manu[$i]->mrownumber;
+                                                        
                                                     }
                                                 }
                                                 
@@ -71,7 +75,19 @@
 
                                             </td>
                                             <td>
-                                                {{-- {{ $od-> }} --}}
+
+                                                <?php
+                                                for ($i = 0; $i < count($deli); $i++) {
+                                                    if ($deli[$i]->oid == $od->oid) {
+                                                        $did = $deli[$i]->did;
+
+                                                        echo "<a href=/delivery/${did}>";
+                                                        echo $deli[$i]->drownumber;
+                                                    }
+                                                }
+                                                
+                                                ?>
+
                                             </td>
 
                                             <td>
@@ -119,14 +135,14 @@
 
 @section('script')
     <script>
-        let bodytr = $('#otr > tr')
+        // let bodytr = $('#otr > tr')
 
 
-        for (let i = 0; i < bodytr.length; i++) {
-            let tr = $(`#otr  > tr:nth-child(${i+1})`)
-            let oNumber = tr.find('.oNumber').text();
-            
-        }
+        // for (let i = 0; i < bodytr.length; i++) {
+        //     let tr = $(`#otr  > tr:nth-child(${i+1})`)
+        //     let oNumber = tr.find('.oNumber').text();
+
+        // }
         // $('.oNumber')
 
         // for (let i = 1; i <= bodytr.length - 2; i++) {

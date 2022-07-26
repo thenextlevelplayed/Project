@@ -64,7 +64,10 @@ class OrderController extends Controller
 
         // dd($manu);
         //出貨單編號
-        $deli = Delivery::all();
+        $deli = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
+        ->join('order','order.oid','=','manufacture.oid')
+        ->get();
+        // dd($deli);
 
         return view('main.order', compact('order', 'manu', 'deli'));
     }
