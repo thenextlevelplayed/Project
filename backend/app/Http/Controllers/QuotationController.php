@@ -165,12 +165,11 @@ class QuotationController extends Controller
                 ->first();
 
             Detaillist::insert([
-                'bid' => $qid,
+                'qid' => $qid,
                 'mname' => $req->mName[$i],
                 'quantity' => $req->quantity[$i],
                 'price' => $req->price[$i],
-                'mid' => $mid->mid,
-                'pstatus' => 'N'
+                'mid' => $mid->mid
             ]);
         };
 

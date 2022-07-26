@@ -101,7 +101,6 @@
                                                 <th scope="col">數量</th>
                                                 <th scope="col">單價</th>
                                                 <th scope="col">小計</th>
-                                                <th scope="col">備註</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -119,7 +118,7 @@
                                     {{-- 新增欄位功能 --}}
                                     <div class="row mb-1">
                                         <div class="col-md-12 text-right">
-                                            <input type="button" class="btn btn-primary mr-3" value="新增" onclick="PCreate()">
+                                            <input type="button" class="btn btn-primary" value="新增" onclick="PCreate()">
                                         </div>
                                     </div>
                                 </div>                                
@@ -160,16 +159,11 @@
             </div>
             <div class = "row container justify-content-center">
                 <div class="col-md-3 p-1">
-                    <a href="/main/quotation">
-                        <button type="submit" id="okOrCancel" class="btn btn-primary btn-block" >
-                            <i class="far fa-save"></i>&nbsp; 新增存檔
-                            {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
-                        </button>
-                    </a>                            
+                    <input type="submit" class="btn btn-primary btn-block" value="新增存檔">                      
                 </div>
                 <div class="col-md-3 p-1">
                     <a href='/main/quotation' class="btn btn-secondary btn-block">
-                        <i class="fa-solid fa-x"></i> &nbsp; 返回
+                        <i class="fa-solid fa-x"></i> &nbsp; 取消返回
                     </a>
                 </div>
             </div>
@@ -207,24 +201,25 @@
 
 
         let TitleDate = [{
-            bid: "",
-            staffName: "",
-            bookDate: "",
-            remark: "",
-            sname: "",
-            sid: "",
-            smail: "",
-            stel: "",
+            qid: "",
+            cname: "",
+            cid: "",
+            ctel: "",
+            qdate: "",
+            qcontact: "",            
+            clineid: "",
+            cmail: "",
+            staffid:"",
         }];
 
         //這個會從資料庫出來
         let ListData = [
             // 第一筆
             {
-                mName: "",
-                mNumber: "",
+                mname: "",
+                mnumber: "",
                 quantity: "",
-                cost: "",
+                price: "",
             }
         ];
 
@@ -235,29 +230,19 @@
         function Refresh() {
 
             //畫面清空
-            $('#quotationTable').find('tbody').empty();
+            $('#quotationtable').find('tbody').empty();
             // 明細至少一筆,這筆可更改不刪除
-            $('#quotationTable').find('tbody').append(`
-                    <tr>
-                        <th scope="row">1</th>
-                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[0].mName}"></td>
-                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[0].mNumber}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[0].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[0].cost}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[0].quantity*ListData[0].cost}" readonly></td>
-                    </tr>
-                `)
-            //從第2筆開始,可更改可刪除
-            for (let i = 1; i < ListData.length; i++) {
-                $('#quotationTable').find('tbody').append(`
+            for (let i = 0; i < ListData.length; i++){
+                $('#quotationtable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mName}"></td>
-                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mNumber}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mname}"></td>
+                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mnumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].price}"></td>
+                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].price}" readonly></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
+                        <input type="text" name="did[]" value="${ListData[i].dlid}">
                     </tr>
                 `)
             }
@@ -268,10 +253,6 @@
             Alltot()
             //給刪除Function
             Pdel()
-            //給公司資料庫搜尋
-            sNameChk()
-            //給商品名稱檢查
-            mNumber()
         }
 
         // 細項新增//******************************************************
@@ -279,10 +260,10 @@
 
             //矩陣增加
             ListData.push({
-                mName: "",
-                mNumber: "",
+                mname: "",
+                mnumber: "",
                 quantity: "",
-                cost: "",
+                price: "",
                 PRtot: "",
                 stockIn: ""
             })
@@ -368,109 +349,6 @@
             });
 
             $('#AllTot').text(`NT.${totally}`);
-        }
-
-        //[公司名稱]輸入後,先去庫存表搜尋是否存在。存在:自動填完廠商資訊;不存在:要自己輸入。
-        function sNameChk() {
-            $('#sNameChk').on('blur', function(e) {
-
-                e.preventDefault();
-
-                console.log('ok')
-
-                let sName = $(this).val();
-                let _token = $("input[name=_token]").val();
-
-                $.ajax({
-                    type: "post",
-                    url: "/purchase/supplier",
-                    data: {
-                        sName: sName,
-                        _token: _token
-                    },
-                    success: function(response) {
-                        if (response) {
-                            $('#sId').val(response.sid);
-                            $('#sMail').val(response.smail);
-                            $('#sTel').val(response.stel);
-                        }
-                    },
-                    error: function() {}
-                })
-
-
-            })
-
-
-            //[商品名稱]輸入後,先去庫存表搜尋是否存在。存在:[商品編號]讀取資料庫資料;不存在:[商品編號]要自己輸入。
-            function mNumber() {
-                $('.mNumChk').on('blur', function(e) {
-
-                    e.preventDefault();
-
-                    let mName = $(this).val();
-                    let _token = $("input[name=_token]").val();
-
-                    // console.log(mName);
-
-                    let row = $(this).closest('tr');
-                    let Pindex = ($(row).find('th').text());
-
-                    $.ajax({
-                        type: "post",
-                        url: "/purchase/mNumber",
-                        data: {
-                            mName: mName,
-                            _token: _token
-                        },
-                        success: function(response) {
-                            if (response) {
-
-                                ListData[(Pindex - 1)].mNumber = response.mnumber;
-                                Refresh()
-                            }
-                        },
-                        error: function() {}
-                    })
-
-
-                })
-            }
-        }
-
-        //[商品名稱]輸入後,先去庫存表搜尋是否存在。存在:[商品編號]讀取資料庫資料;不存在:[商品編號]要自己輸入。
-        function mNumber() {
-            $('.mNumChk').on('blur', function(e) {
-
-                e.preventDefault();
-
-                let mName = $(this).val();
-                let _token = $("input[name=_token]").val();
-
-                // console.log(mName);
-
-                let row = $(this).closest('tr');
-                let Pindex = ($(row).find('th').text());
-
-                $.ajax({
-                    type: "post",
-                    url: "/purchase/mNumber",
-                    data: {
-                        mName: mName,
-                        _token: _token
-                    },
-                    success: function(response) {
-                        if (response) {
-
-                            ListData[(Pindex - 1)].mNumber = response.mnumber;
-                            Refresh()
-                        }
-                    },
-                    error: function() {}
-                })
-
-
-            })
         }
     </script>
 @endsection
