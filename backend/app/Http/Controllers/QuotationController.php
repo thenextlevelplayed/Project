@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Quotation;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -89,33 +90,6 @@ class QuotationController extends Controller
         return view('quotation.quotationEdit',compact('quotationInfo','quotation','dtl'));
     }
 
-    // 報價單明細修改
-    function quotationEditPost(Request $req, $quotationId)
-    {
-        // 1.Drop 掉全部
-        Quotation::select('*')
-            ->where('quotation.qid', '=', $quotationId)
-            ->delete();
-        // 2.重新新增
-        for ($i = 0; $i < count($req->mName); $i++) {
-
-            $mid = Material::select('mid')
-                ->where('mname', '=', $req->mName[$i])
-                ->first();
-
-            Quotation::insert([
-                'qid' => $quotationId,
-                'mname' => $req->mName[$i],
-                'quantity' => $req->quantity[$i],
-                'cost' => $req->cost[$i],
-                'mid' => $mid->mid,
-                'pstatus' => $req->pStatus[$i]
-            ]);
-        }
-
-        return redirect("/main/quotation/$quotationId");
-    }
-
     //新增報價單 依照當日日期產生流水號
     function quotationCreate()
     {
@@ -147,6 +121,8 @@ class QuotationController extends Controller
     function quotationCreatePost(Request $req)
     {
 
+        // dd($req);
+        // 報價單號
         $qid = Quotation::insertGetId([
             'qdate' => date("Y-m-d"),
             'cid' => $req->cid,
@@ -155,27 +131,63 @@ class QuotationController extends Controller
             'staffid' => $req->staffid,
             'rid' => $req->rid,
             'qstatus' => $req->qstatus,
-            'qrownumber' => $req->qrownumber,
+            'qrownumber' => $req->KMQid,
         ]);
 
-        for ($i = 0; $i < count($req->mName); $i++) {
+        // dd( $req->mname[0]);
+        // 報價單的明細內容(i項)
+        for ($i = 0; $i < count($req->mname); $i++) {
 
-            $mid = Material::select('*')
-                ->where('mname', '=', $req->mName[$i])
+            $iid = Inventory::select('*')
+                ->where('mname', '=', $req->mname[$i])
                 ->first();
+
+                // dd($iid);
 
             Detaillist::insert([
                 'qid' => $qid,
-                'mname' => $req->mName[$i],
+                'mname' => $req->mname[$i],
                 'quantity' => $req->quantity[$i],
                 'price' => $req->price[$i],
-                'mid' => $mid->mid
+                'iid'=>$iid->iid,
+                'mspecification' =>$iid->mspecification,
+                'mnumber' =>$iid->mnumber
             ]);
         };
 
         return redirect('/main/quotation');
     }
+// ----------------------------------------------------------------------------------------------------------
 
+    // 報價單明細修改
+    function quotationEditPost(Request $req, $quotationId)
+    {
+        // 1.Drop 掉全部
+        Quotation::select('*')
+            ->where('quotation.qid', '=', $quotationId)
+            ->delete();
+        // 2.重新新增
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $iid = Inventory::select('*')
+            ->where('mname', '=', $req->mname[$i])
+            ->first();
+
+            Detaillist::insert([
+                'qid' => $req->qid,
+                'mname' => $req->mname[$i],
+                'quantity' => $req->quantity[$i],
+                'price' => $req->price[$i],
+                'iid'=>$iid->iid,
+                'mspecification' =>$iid->mspecification,
+                'mnumber' =>$iid->mnumber
+            ]);
+        }
+
+        return redirect("/quotation/$quotationId");
+    }
+
+    
 
     //轉為訂單
     public function orderCreate(Request $request,)
@@ -183,6 +195,7 @@ class QuotationController extends Controller
         return redirect('/main/order');
     }
 
+// --------------------------------------------------------------------------------------------
 
     //匯出報價PDF
     public function createQuotationPDF(Request $request,$quotationId)
