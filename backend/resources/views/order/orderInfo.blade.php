@@ -108,6 +108,7 @@
                                         </thead>
 
                                         <tbody>
+                                            <?php $tot = 0;?>
                                             @foreach ($quotation as $key => $item)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
@@ -121,6 +122,8 @@
                                                         echo $total;
                                                         ?></td>
                                                     {{-- <td>{{$item->remark}}</td> --}}
+
+                                                    <?php $tot +=  $item->quantity * $item->price?>
                                                 </tr>
                                             @endforeach
                                             {{-- <tr>
@@ -140,7 +143,7 @@
                                     <div class="col-lg-10">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-mb-3" id="AllTot"></div>
+                                    <div class="col-mb-3" id="AllTot"><?php echo $tot ?></div>
                                 </div>
                             </div>
                         </div>

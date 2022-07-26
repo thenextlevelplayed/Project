@@ -129,8 +129,8 @@
                                     {{-- 新增明細項目 --}}
                                     <div class="row mb-1">
                                         <div class="col-md-12 text-right">
-                                            <button class="btn btn-primary" value="新增" onclick="qCreate()"><i
-                                                    class="fa-solid fa-plus"></i> &nbsp;新增</button>
+                                            <button type="button" class="btn btn-primary" value="新增"
+                                                onclick="qCreate()"><i class="fa-solid fa-plus"></i> &nbsp;新增</button>
                                         </div>
                                     </div>
                                 </div>
@@ -187,11 +187,21 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="main/order">
-                    <i class="fa-solid fa-arrow-right"></i><span> &nbsp;轉為訂單</span>
-                    {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
-                </a>
+            <div class="col-md-12 text-right" 
+                <?php
+                    if ($quotationInfo->qstatus == 'Y') {
+                        echo 'hidden';
+                    }
+                ?>
+            >
+                {{-- 按下btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
+                <form class="form-horizontal" action="/orderCreate/{{ $quotationInfo->qid }}" method="POST">
+                    @csrf
+                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
+                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為訂單
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>

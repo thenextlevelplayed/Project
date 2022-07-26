@@ -203,7 +203,7 @@ class OrderController extends Controller
         //今日日期跟Sql比較 (YYYY-MM-DD)
         $day = date("Y-m-d");
         //從資料庫讀取當天進貨單數量有幾筆
-        $mDay = count(Manufacture::all()->where('qdate', '=', $day));
+        $mDay = count(Manufacture::all()->where('mdate', '=', $day));
 
         //資料庫今天有幾筆
         if ($mDay > 0) {
@@ -213,7 +213,7 @@ class OrderController extends Controller
             $day = date("Ymd");
             $mDay += 1;
             $mDay = sprintf("%03d", $mDay);
-            $KMMid =  "KMM" .  $day . $mDay;
+            $KMMid =  "KMM-" .  $day . $mDay;
         } else {
             //今天第一筆 001
 
@@ -222,11 +222,11 @@ class OrderController extends Controller
             $KMMid = "KMM-" .  $day . "001";
         }
 
-        $orderEdit = Order::select('*')
+        $order = Order::select('*')
             ->find($orderID);
 
-        $orderEdit->ostatus = 'Y';
-        $orderEdit->save();
+        $order->ostatus = 'Y';
+        $order->save();
 
         //工單新增(轉為工單)
         $newMaufacture = new Manufacture();

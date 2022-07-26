@@ -8,6 +8,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Models\Detaillist;
 use App\Models\Inventory;
+use App\Models\Order;
 
 class QuotationController extends Controller
 {
@@ -56,7 +57,7 @@ class QuotationController extends Controller
     function quotationEdit($quotationId)
     {
         // 撈客戶資訊 楷模方案的資料
-        $quotationInfo = Quotation::select('customer.cname', 'customer.cid', 'customer.ctel', 'customer.clineid', 'customer.cmail', 'quotation.qid', 'quotation.qdate', 'quotation.qcontact', 'quotation.rid', 'quotation.qrownumber', 'staff.staffname')
+        $quotationInfo = Quotation::select('customer.cname', 'customer.cid', 'customer.ctel', 'customer.clineid', 'customer.cmail', 'quotation.qid', 'quotation.qdate', 'quotation.qcontact', 'quotation.rid', 'quotation.qrownumber', 'quotation.qstatus', 'staff.staffname')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->find($quotationId);
@@ -173,8 +174,58 @@ class QuotationController extends Controller
 
 
     //轉為訂單
-    public function orderCreate(Request $request,)
+    public function orderCreate(Request $request, $quotationId)
     {
+        //今日日期跟Sql比較 (YYYY-MM-DD)
+        $day = date("Y-m-d");
+        //從資料庫讀取當天進貨單數量有幾筆
+        $oDay = count(Order::all()->where('odate', '=', $day));
+
+        //資料庫今天有幾筆
+        if ($oDay > 0) {
+            //計算今天有幾筆後加一
+
+            //轉編號的format
+            $day = date("Ymd");
+            $oDay += 1;
+            $oDay = sprintf("%03d", $oDay);
+            $KMOid =  "KMO-" .  $day . $oDay;
+        } else {
+            //今天第一筆 001
+
+            //轉編號的format
+            $day = date("Ymd");
+            $KMOid = "KMO-" .  $day . "001";
+        }
+
+        $quotation = Quotation::select('*')
+            ->find($quotationId);
+
+        $quotation->qstatus = 'Y';
+        $quotation->save();
+
+        //訂單新增(報價轉為訂單)
+
+        $oid = Order::insertGetId([
+            'orownumber' => $KMOid,
+            'odate' => date('Y-m-d'),
+            'qid' => $quotationId,
+            'ostatus' =>  "N"
+        ]);
+
+
+        $detOid = Detaillist::select('*')
+            ->where('qid', '=', $quotationId)
+            ->get();
+
+        // dd(count($detOid));
+        for ($i = 0; $i < count($detOid); $i++) {
+            $detOid[$i]->oid = $oid;
+            $detOid[$i]->save();
+
+            // dd($detOid[$i]);
+        }
+
         return redirect('/main/order');
     }
 

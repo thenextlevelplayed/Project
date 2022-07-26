@@ -61,7 +61,9 @@ Route::get('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationContr
 Route::put('/quotation/edit/{quotationId}', "App\Http\Controllers\QuotationController@quotationEditPost"); //編輯報價單-明細更新
 
 Route::get('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreate"); //新增報價單
-Route::post('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreatePost"); //進貨單編輯更新
+Route::post('/quotation/quotationCreate', "App\Http\Controllers\QuotationController@quotationCreatePost"); //新增報價單處理
+
+Route::post('/orderCreate/{quotationId}', "App\Http\Controllers\QuotationController@orderCreate"); //報價轉為訂單
 
 //訂單
 Route::get('/main/order', "App\Http\Controllers\OrderController@order"); //訂單列表
@@ -70,7 +72,7 @@ Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@o
 Route::put('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderUpdate"); //訂單更新
 Route::post('/manufacturecreate/{orderId}', "App\Http\Controllers\OrderController@ManufactureCreate"); //新增工單
 Route::get('/main/order/Split/{orderId}', "App\Http\Controllers\OrderController@orderSplit"); //拆單
-Route::post('/order/Split/{orderId}', "App\Http\Controllers\OrderController@orderSplitPost"); //拆單
+Route::post('/order/Split/{orderId}', "App\Http\Controllers\OrderController@orderSplitPost"); //拆單處理
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
