@@ -169,24 +169,25 @@ class QuotationController extends Controller
         // 2.重新新增
         for ($i = 0; $i < count($req->mName); $i++) {
 
-            $mid = Material::select('mid')
-                ->where('mname', '=', $req->mName[$i])
-                ->first();
+            $iid = Inventory::select('*')
+            ->where('mname', '=', $req->mname[$i])
+            ->first();
 
-            Quotation::insert([
-                'qid' => $quotationId,
-                'mname' => $req->mName[$i],
+            Detaillist::insert([
+                'qid' => $req->qid,
+                'mname' => $req->mname[$i],
                 'quantity' => $req->quantity[$i],
-                'cost' => $req->cost[$i],
-                'mid' => $mid->mid,
-                'pstatus' => $req->pStatus[$i]
+                'price' => $req->price[$i],
+                'iid'=>$iid->iid,
+                'mspecification' =>$iid->mspecification,
+                'mnumber' =>$iid->mnumber
             ]);
         }
 
-        return redirect("/main/quotation/$quotationId");
+        return redirect("/quotation/$quotationId");
     }
 
-
+    
 
     //轉為訂單
     public function orderCreate(Request $request,)

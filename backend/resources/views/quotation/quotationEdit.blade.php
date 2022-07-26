@@ -21,7 +21,8 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card p-5" action="/main/quotation/edit/{{ $quotationInfo->qid }}" method="POST">
+                {{-- /quotation/edit/{{ $quotationInfo->qid }} --}}
+                <form class="card p-5" action="" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="card-header">
@@ -179,14 +180,12 @@
                     </div>
                     <div class = "row container-fluid justify-content-center mt-5">
                         <div class="col-md-2 p-1">
-                            <a href="/main/quotation" class="btn btn-primary btn-block">
-                                <i class="far fa-save"></i> &nbsp; 存檔
-                            </a>                            
-                        </div>
-                        <div class="col-md-2 p-1">
                             <a href='/main/quotation' class="btn btn-secondary btn-block">
                                 <i class="fa-solid fa-x"></i> &nbsp; 返回
                             </a>
+                        </div>
+                        <div class="col-md-2 p-1">
+                            <input type="submit" class="btn btn-primary btn-block" value="存檔">                     
                         </div>
                     </div>
                 </form>
