@@ -610,7 +610,7 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
-
+DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `newsid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(300) NOT NULL,

@@ -31,6 +31,7 @@ Route::post('/member/login', "App\Http\Controllers\memberController@loginPost");
 Route::get('/member/logout', "App\Http\Controllers\memberController@logout");
 //帳號管理頁
 Route::get('/member/memberInfo/{name}', "App\Http\Controllers\memberController@memberInfo");
+Route::get('/member/memberEdit/{name}', "App\Http\Controllers\memberController@memberEdit");
 //管理員新增帳號
 Route::get('/member/create', "App\Http\Controllers\memberController@create");
 
@@ -69,6 +70,7 @@ Route::get('/main/order/{orderId}', "App\Http\Controllers\OrderController@orderI
 Route::get('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderEdit"); //訂單編輯
 Route::put('/main/order/edit/{orderId}', "App\Http\Controllers\OrderController@orderUpdate"); //訂單更新
 Route::post('/manufacturecreate/{orderId}', "App\Http\Controllers\OrderController@ManufactureCreate");//新增工單
+Route::get('/main/order/Split/{orderId}', "App\Http\Controllers\OrderController@orderSplit"); //拆單
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
@@ -131,7 +133,7 @@ Route::post('/getMailFile/sendMail/{id}', "App\Http\Controllers\DeliveryControll
 
 // 創建測試帳號密碼
 Route::get('/test', function(){
-    $get = Staff::find(1);
+    $get = Staff::find(2);
     $passwd = Hash::make('123456');  
     $get->password = $passwd;
     $get->save();

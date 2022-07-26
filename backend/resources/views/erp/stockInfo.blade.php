@@ -159,8 +159,5 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="search" class="form-control" name="query" placeholder="輸入單號或客戶名稱">
-    <span class="input-group-addon" onclick="searchform.submit()">
-        <i class="now-ui-icons ui-1_zoom-bold"></i>
-    </span>
+
 @endsection

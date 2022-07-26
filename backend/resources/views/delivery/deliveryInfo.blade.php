@@ -17,7 +17,7 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
+    
 @endsection
 
 <style>
@@ -46,6 +46,7 @@
         <div class="col-md-12">
             
                 <div class="card">
+                <div class="card-body">
                     <div class="container-xl p-5">
                         <div class="customerInfo">
                             <h4 class="text-center">楷 模 資 訊 股 份 有 限 公 司 出 貨 單</h4>
@@ -84,7 +85,11 @@
                             </div>
                         
                         </div>
-                        <div class="card-body">
+                       
+                            <div class="mb-2 mt-5">
+                                <h5>出貨資訊</h5>
+                                <hr>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">

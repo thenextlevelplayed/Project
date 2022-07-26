@@ -15,7 +15,7 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
+    
 @endsection
 
 @section('content')
@@ -126,8 +126,9 @@
                             </div>
                             <div class="row mb-3">
                                 {{-- 商品明細 --}}
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 mt-5">
                                     <h5>商品明細</h5>
+                                    <hr>
                                 </div>
                                 <div class="col-lg-12"> 
                                     <div>
