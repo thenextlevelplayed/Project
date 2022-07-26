@@ -379,6 +379,7 @@ CREATE TABLE `news` (
   `title` varchar(300) NOT NULL,
   `content` varchar(300) NOT NULL,
   `img` varchar(300) DEFAULT NULL,
+  `imgfile` longblob DEFAULT NULL,
   PRIMARY KEY (`newsid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -389,7 +390,7 @@ CREATE TABLE `news` (
 
 LOCK TABLES `news` WRITE;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` VALUES (1,'這是標題01','這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101',''),(2,'標題標題02','內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02',''),(3,'標題標題03','內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03','');
+INSERT INTO `news` VALUES (1,'這是標題01','這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101這是內文0101','',NULL),(2,'標題標題02','內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02內文內文02','',NULL),(3,'標題標題03','內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03內文內文03','',NULL);
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -606,7 +607,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client 22222 */;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -626,4 +627,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-25 23:35:26
+-- Dump completed on 2022-07-26 10:41:35
