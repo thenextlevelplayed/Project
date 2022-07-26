@@ -143,6 +143,40 @@ class QuotationController extends Controller
         return view('quotation.quotationCreate', compact('KMQid'));
     }
 
+    //新增的報價單內容寫入資料庫
+    function quotationCreatePost(Request $req)
+    {
+
+        $qid = Quotation::insertGetId([
+            'qdate' => date("Y-m-d"),
+            'cid' => $req->cid,
+            'qcontact' => $req->qcontact,
+            'cmail' => $req->cmail,
+            'staffid' => $req->staffid,
+            'rid' => $req->rid,
+            'qstatus' => $req->qstatus,
+            'qrownumber' => $req->qrownumber,
+        ]);
+
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $mid = Material::select('*')
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
+
+            Detaillist::insert([
+                'bid' => $qid,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'price' => $req->price[$i],
+                'mid' => $mid->mid,
+                'pstatus' => 'N'
+            ]);
+        };
+
+        return redirect('/main/quotation');
+    }
+
 
     //轉為訂單
     public function orderCreate(Request $request,)

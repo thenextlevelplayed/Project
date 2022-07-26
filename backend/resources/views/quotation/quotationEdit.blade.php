@@ -146,7 +146,7 @@
                         </div>
                         <div>
                             <div class="mb-3">
-                                <h4>凱茂方案</h4>
+                                <h4>楷模方案</h4>
                                 <hr>
                             </div>
                             <div class="row mb-3">
