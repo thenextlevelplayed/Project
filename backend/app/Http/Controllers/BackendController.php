@@ -38,14 +38,20 @@ class BackendController extends Controller
     function index()
     {
 
-        return view('main.index');
+        // return view('main.index');
 
         // 每個操作頁面都要判斷Session
         $account = Session::get('account', 'Guest');
+        // dd($account);// gmail
+        $name = Session::get('name');
+        $permission = Session::get('permission');
+
+
+
         if ($account == 'Guest') {
             return redirect('/member/login');
         } else {
-            return view('main.index');
+            return view('main.indexbk',compact('name','permission'));
         }
     }
 

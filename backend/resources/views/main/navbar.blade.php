@@ -91,44 +91,74 @@
                         </li>
                     </ul>
                     <li <?php
-                    if ($_SERVER['REQUEST_URI'] == '/main/quote') {
+                    if ($_SERVER['REQUEST_URI'] == '/main/quotation') {
                         echo "class='active'";
                     }
                     ?>>
-                        <a href="/main/quotation">
+                        <?php 
+                            $permission = Session::get('permission');
+
+                           if ($permission==3 or $permission==1){
+                                echo "<a href='/main/quotation'><i class='now-ui-icons files_paper'></i><p>報價單管理</p></a>";
+                            }else{
+                                echo "<a href='#'><i class='now-ui-icons files_paper'></i><p>報價單管理</p></a>";
+                            }   
+                        ?>
+                        {{-- <a href="/main/quotation">
                             <i class="now-ui-icons files_paper"></i>
                             <p>報價單管理</p>
-                        </a>
+                        </a> --}}
                     </li>
                     <li <?php
                     if ($_SERVER['REQUEST_URI'] == '/main/order') {
                         echo "class='active'";
                     }
                     ?>>
-                        <a href="/main/order">
+                        <?php
+                            if ($permission==3 or $permission==1){
+                                echo "<a href='/main/order'><i class='now-ui-icons education_paper'></i><p>訂單管理</p></a>";
+                            }else{
+                                echo "<a href='#'><i class='now-ui-icons files_paper'></i><p>訂單管理</p></a>";
+                            }   
+                        ?>
+                        {{-- <a href="/main/order">
                             <i class="now-ui-icons education_paper"></i>
                             <p>訂單管理</p>
-                        </a>
+                        </a> --}}
                     </li>
                     <li <?php
                     if (substr($_SERVER['REQUEST_URI'], 0, 17) == '/main/manufacture') {
                         echo "class='active'";
                     }
                     ?>>
-                        <a href="/main/manufacture">
+                        <?php
+                            if ($permission==2 or $permission==1){
+                                echo "<a href='/main/manufacture'><i class='now-ui-icons ui-2_settings-90'></i><p>工單管理</p></a>";
+                            }else{
+                                echo "<a href='#'><i class='now-ui-icons ui-2_settings-90'></i><p>工單管理</p></a>";
+                            }   
+                        ?>
+                        {{-- <a href="/main/manufacture">
                             <i class="now-ui-icons ui-2_settings-90"></i>
                             <p>工單管理</p>
-                        </a>
+                        </a> --}}
                     </li>
                     <li <?php
                     if ($_SERVER['REQUEST_URI'] == '/main/delivery') {
                         echo "class='active'";
                     }
                     ?>>
-                        <a href="/main/delivery">
+                    <?php
+                        if ($permission==4 or $permission==1){
+                            echo "<a href='/main/delivery'><i class='now-ui-icons shopping_delivery-fast'></i><p>出貨單管理</p></a>";
+                        }else{
+                            echo "<a href='#'><i class='now-ui-icons shopping_delivery-fast'></i><p>出貨單管理</p></a>";
+                        }   
+                    ?>
+                        {{-- <a href="/main/delivery">
                             <i class="now-ui-icons shopping_delivery-fast"></i>
-                            <p>出貨單管理</p>
-                        </a>
+                            <>出貨單管理<//p>
+                        </a> --}}
                     </li>
 
 
