@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 
 class NewsController extends Controller
@@ -47,15 +48,22 @@ class NewsController extends Controller
 
             $fileName = $request->file('mainImg')->getClientOriginalName();
             //圖片存在裡面 public newsImg
+            $temp = file_get_contents($image);
+
             $image->move(public_path('/newsImg'), $fileName);
-            $temp = file_get_contents($image);            
+            
             $blob = base64_encode($temp);
             $newsEdit->img = $fileName;
             $newsEdit->imgfile = $blob;
+
+
+            
         }
 
         //存資料
         $newsEdit->save();
+        // $path = base_path('public/newsImg');
+        // File::delete($path . "/" . $fileName);
 
         return redirect('/main/news');
     }
@@ -147,7 +155,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $News)
     {
-        //
+        
     }
 
     /**
