@@ -102,7 +102,7 @@ include '../php/news.php';
                                 <h2 class="indexh2">服務項目</h2>
                                 <p class="indexp">楷模資訊為
                                 </p>
-                                <button class="roundbutton" onclick="window.location.href='./news.html'">查看更多</button>
+                                <button class="roundbutton" onclick="window.location.href='./news.php'">查看更多</button>
                         </div>
                         <div id="Service01" class="indexContent">
                             <img class="indexicon" src="../img/index/icon01.png">
@@ -154,14 +154,14 @@ include '../php/news.php';
 
                     <div class="col-lg-7 d-flex" style="background-color:#f3f3f3; height:400px; margin-top: 100px">
                         <!-- <img class = "show" src="../img/index/index-01.png" style = "width:100%; object-fit: contain;"> -->
-                        <iframe width="800" height="400" src="https://www.youtube.com/embed/sr_VSS_gnGE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="800" height="400" src="https://www.youtube.com/embed/5Y1GpL768Sk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div data-aos="fade-left" class="col-lg-5">
                         <div style="padding:80px; margin-top: 20px;margin-bottom: 10px;">
                             <h1 class="indexh1">WHAT's<br>NEWS.
                                 <h2 class="indexh2">最新消息</h2>
                                 <p class="indexp">青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢。</p>
-                                <button class="roundbutton" onclick="window.location.href='./news.html'">查看更多</button>
+                                <button class="roundbutton" onclick="window.location.href='./news.php'">查看更多</button>
                         </div>
                     </div>
                 </div>
