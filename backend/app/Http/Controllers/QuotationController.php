@@ -90,33 +90,6 @@ class QuotationController extends Controller
         return view('quotation.quotationEdit',compact('quotationInfo','quotation','dtl'));
     }
 
-    // 報價單明細修改
-    function quotationEditPost(Request $req, $quotationId)
-    {
-        // 1.Drop 掉全部
-        Quotation::select('*')
-            ->where('quotation.qid', '=', $quotationId)
-            ->delete();
-        // 2.重新新增
-        for ($i = 0; $i < count($req->mName); $i++) {
-
-            $mid = Material::select('mid')
-                ->where('mname', '=', $req->mName[$i])
-                ->first();
-
-            Quotation::insert([
-                'qid' => $quotationId,
-                'mname' => $req->mName[$i],
-                'quantity' => $req->quantity[$i],
-                'cost' => $req->cost[$i],
-                'mid' => $mid->mid,
-                'pstatus' => $req->pStatus[$i]
-            ]);
-        }
-
-        return redirect("/main/quotation/$quotationId");
-    }
-
     //新增報價單 依照當日日期產生流水號
     function quotationCreate()
     {
@@ -184,6 +157,35 @@ class QuotationController extends Controller
 
         return redirect('/main/quotation');
     }
+// ----------------------------------------------------------------------------------------------------------
+
+    // 報價單明細修改
+    function quotationEditPost(Request $req, $quotationId)
+    {
+        // 1.Drop 掉全部
+        Quotation::select('*')
+            ->where('quotation.qid', '=', $quotationId)
+            ->delete();
+        // 2.重新新增
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $mid = Material::select('mid')
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
+
+            Quotation::insert([
+                'qid' => $quotationId,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'cost' => $req->cost[$i],
+                'mid' => $mid->mid,
+                'pstatus' => $req->pStatus[$i]
+            ]);
+        }
+
+        return redirect("/main/quotation/$quotationId");
+    }
+
 
 
     //轉為訂單
@@ -192,6 +194,7 @@ class QuotationController extends Controller
         return redirect('/main/order');
     }
 
+// --------------------------------------------------------------------------------------------
 
     //匯出報價PDF
     public function createQuotationPDF(Request $request,$quotationId)
