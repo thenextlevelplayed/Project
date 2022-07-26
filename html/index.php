@@ -59,9 +59,9 @@ include '../php/news.php';
                 <img src="../img/logo/only-logo.png" style="width:80px;position: absolute;position:0px 0px;">
 
                 <div class="wapperContentWord">
-                    <a href="./index.html">HOME</a><br>
+                    <a href="./index.php">HOME</a><br>
                     <a href="./aboutus.html">ABOUT</a><br>
-                    <a href="./news.html">NEWS</a><br>
+                    <a href="./news.php">NEWS</a><br>
                     <a href="./contact.html">CONTACT</a>
                 </div>
             </div>
@@ -274,9 +274,9 @@ include '../php/news.php';
                 <div style="text-align:center; width:100% ;margin:auto;">
                     <img src="../img/logo/logo-gray.png" style="height: 40px; margin:20px">
                     <hr>
-                    <a href="./index.html" class="m-2">HOME</a>
+                    <a href="./index.php" class="m-2">HOME</a>
                     <a href="./aboutus.html" class="m-2">ABOUT</a>
-                    <a href="./news.html" class="m-2">NEWS</a>
+                    <a href="./news.php" class="m-2">NEWS</a>
                     <a href="./contact.html" class="m-2">CONTACT</a>
                     <br>
                     <br>
