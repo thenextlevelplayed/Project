@@ -48,9 +48,9 @@ include '../php/news.php';
             <img src="../img/logo/only-logo.png" style="width:80px;position: absolute;position:0px 0px;">
 
             <div class="wapperContentWord">
-                <a href="./index.html">HOME</a><br>
+                <a href="./index.php">HOME</a><br>
                 <a href="./aboutus.html">ABOUT</a><br>
-                <a href="./news.html">NEWS</a><br>
+                <a href="./news.php">NEWS</a><br>
                 <a href="./contact.html">CONTACT</a>
             </div>
         </div>
