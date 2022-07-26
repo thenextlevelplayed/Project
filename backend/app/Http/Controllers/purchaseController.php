@@ -95,6 +95,8 @@ class purchaseController extends Controller
     function purchaseCreatePost(Request $req)
     {
 
+        dd($req);
+
         $bid = Book::insertGetId([
             'sname' => $req->sname,
             'sid' => $req->sid,

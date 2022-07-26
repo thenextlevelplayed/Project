@@ -65,10 +65,10 @@
                                             class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;存檔</button>
                                     </div>
                                     <div class="col-md-2 p-1">
-                                        <a href='/main/news'>
-                                            <button class="btn btn-danger btn-block">
+                                        <a href='/main/news' class="btn btn-danger btn-block">
+                                            
                                                 <i class="fa-solid fa-x"></i> &nbsp;取消
-                                            </button>
+                                            
                                         </a>
                                     </div>
                                 </div>
