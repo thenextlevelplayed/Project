@@ -30,6 +30,9 @@
                     <form class="card" method="post" action="/customer/edit/{{ $customerInfo->cid }}" class="form-horizontal">
                         @csrf
                         @method('PUT')
+                        <div class="mb-3"></div>                        
+                        <div class="mb-2"></div>                        
+                        <div class="mb-5"></div>                        
                         <div class="col-md-12 card-title text-center">
                             <h3>楷模資訊 客戶資訊</h3>
                         </div>
