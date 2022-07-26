@@ -38,65 +38,25 @@ class OrderController extends Controller
     function order()
     {
 
-
-        // $order = Order::join('quotation', 'quotation.qid', '=', 'order.oid')
-        //     ->join('detaillist', 'detaillist.dlid', '=', 'quotation.dlid')
-        //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
-        //     ->select('*')
-        //     ->get();
-
-        // $order = Order::all();
-
         $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
-            ->select('order.oid', 'order.ostatus', 'order.odate', 'customer.cname', 'order.orownumber', 'manufacture.mrownumber')
+            ->select('order.oid', 'order.ostatus', 'order.odate', 'customer.cname', 'order.orownumber')
             ->orderby('order.oid')
             ->get();
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
         if ($search_text != "") {
 
-            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            //     ->where('oid','LIKE','%'.$search_text.'%')
-            //     ->orWhere('cname','LIKE','%'.$search_text.'%')
-            //     ->orderby('oid')
-            //     ->get();
-
-            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            //     ->where('oid','LIKE','%'.$search_text.'%')
-            //     ->orWhere('cname','LIKE','%'.$search_text.'%')
-            //     ->orderby('oid')
-            //     ->get();
-
-            // $order = Order::join('manufacture', 'manufacture.oid', '=', 'order.oid')
-            // ->get();
-
             $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
-                ->join('manufacture', 'manufacture.oid', '=', 'order.oid')
-                ->select('order.oid', 'order.ostatus', 'customer.cname', 'order.orownumber', 'manufacture.mrownumber')
+                ->select('order.oid', 'order.ostatus', 'customer.cname', 'order.orownumber')
                 ->where('oid', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('cname', 'LIKE', '%' . $search_text . '%')
-                ->orWhere('manufacture.mrownumber', 'LIKE', '%' . $search_text . '%')
                 ->orderby('order.oid')
                 ->get();
         } else {
             $order;
-
-            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            //     ->orderby('oid')
-            //     ->get();   
-
-            // $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            //     ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            //     ->orderby('oid')
-            //     ->get(); 
         };
-        // $order = Order::all();
 
         return view('main.order', compact('order'));
     }
@@ -153,16 +113,20 @@ class OrderController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('*')
+            ->select('order.orownumber','customer.cname','customer.cid','quotation.qcontact','order.odate','customer.ctel','customer.clineid','customer.cmail','staff.staffname','order.oid')
             ->where('order.oid', '=', $orderID)
-            ->find($orderID);
+            ->first();
+
+        dd($orderEdit);
 
         //撈明細資料
-        $quotation = Detaillist::select('mname', 'mnumber', 'price', 'quantity', 'dlid')
-            ->where('detaillist.qid', '=', $orderEdit->qid)
+        $quotation = Detaillist::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
+            ->join('quotation','quotation.qid','=','detaillist.qid')
+            ->join('order','order.qid','=','quotation.qid')
+            ->where('order.oid', '=', $orderID)
             ->get();
 
-        // dd($quotation);
+        dd($quotation);
 
         return view('order.orderSplit', compact('orderEdit', 'quotation'));
     }
