@@ -94,17 +94,18 @@ class OrderController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'customer.ctel', 'order.odate', 'quotation.qcontact', 'customer.clineid', 'customer.cmail', 'staff.staffname')
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'customer.ctel', 'order.odate', 'quotation.qcontact', 'customer.clineid', 'customer.cmail', 'staff.staffname', 'order.ostatus')
             ->where('order.oid', '=', $orderID)
             ->first();
 
+        // dd($orderEdit);
         //撈明細資料
         $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
             ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $orderID)
             ->get();
 
-        return view('order.orderEdit', compact('orderEdit', 'quotation','orderID'));
+        return view('order.orderEdit', compact('orderEdit', 'quotation', 'orderID'));
     }
 
     //訂單拆單
@@ -179,7 +180,6 @@ class OrderController extends Controller
         return  redirect('/main/order');
     }
 
-
     public function orderUpdate(Request $request, $orderID)
     {
         // dd($request->dlid);
@@ -200,23 +200,17 @@ class OrderController extends Controller
     public function ManufactureCreate(Request $request, $orderID)
     {
 
-        $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('*')
+        $orderEdit = Order::select('*')
             ->find($orderID);
 
-        // dd($orderEdit);
+        $orderEdit->ostatus = 'Y';
+        $orderEdit->save();
 
         //工單新增(轉為工單)
         $newMaufacture = new Manufacture();
 
-        // dd( $newMaufacture);
-        // $newMaufacture->mid = 3; //後面數字照理來說接{{$orderEdit->oid}} 先用3測試
         $newMaufacture->mdate = date('Y-m-d');
-        // dd(date('Y-m-d'));
-        $newMaufacture->oid = $orderEdit->oid;
+        $newMaufacture->oid = $orderID;
         $newMaufacture->mstatus = "N";
         $newMaufacture->mcomplete = "N";
 

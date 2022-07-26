@@ -14,9 +14,9 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-<input type="search"  class="form-control" name="query" placeholder="輸入單號或客戶名稱">
-    <span class="input-group-addon" onclick="searchform.submit()">                                    
-        <i class="now-ui-icons ui-1_zoom-bold"></i>       
+    <input type="search" class="form-control" name="query" placeholder="輸入單號或客戶名稱">
+    <span class="input-group-addon" onclick="searchform.submit()">
+        <i class="now-ui-icons ui-1_zoom-bold"></i>
     </span>
 @endsection
 
@@ -36,11 +36,11 @@
                                     <th>
                                         客戶名稱
                                     </th>
-                                    {{-- <th>
-                                        訂單建立日期
-                                    </th> --}}
                                     <th>
                                         工單編號
+                                    </th>
+                                    <th>
+                                        出貨單編號
                                     </th>
                                     <th>
                                         訂單狀態
@@ -53,30 +53,37 @@
                                     @foreach ($order as $od)
                                         <tr>
                                             <td>
-                                                <a href="/main/order/{{$od->oid}}">{{$od->orownumber}}
+                                                <a href="/main/order/{{ $od->oid }}">{{ $od->orownumber }}
                                             </td>
                                             <td>
-                                                {{$od->cname}}
+                                                {{ $od->cname }}
                                             </td>
-                                            {{-- <td>
-                                                {{$od->odate}}
-                                            </td> --}}
                                             <td>
-                                                {{$od->mrownumber}}
+                                                {{-- {{$od->mrownumber}} --}}
                                             </td>
-                                            
                                             <td>
-                                                <span class="badge bg-success">
-                                                    已成立工單
-                                                </span>
+                                                {{-- {{ $od-> }} --}}
+                                            </td>
+
+                                            <td>
+                                                <?php
+                                                
+                                                if ($od->ostatus == 'Y') {
+                                                    echo "<span class='badge bg-success'>已成立工單</span>";
+                                                } else {
+                                                    //點集 入庫並寫入庫存表
+                                                    // echo "<span class='badge bg-danger stockin' style='cursor:pointer; '>未入庫</span>";
+                                                }
+                                                ?>
                                             </td>
                                             <td>
                                                 <div class="btn-group">
                                                     {{-- {{ url('/home') }} --}}
-                                                    <a href="/main/order/edit/{{$od->oid}}" class="btn"
+                                                    <a href="/main/order/edit/{{ $od->oid }}" class="btn"
                                                         style="background: 0 ; color:rgb(122, 122, 122)">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-pencil-square"
+                                                            viewBox="0 0 16 16">
                                                             <path
                                                                 d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                             <path fill-rule="evenodd"
@@ -86,8 +93,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach 
-                    {{-- <div class="text-right">
+                                    @endforeach
+                                    {{-- <div class="text-right">
                                 <a class="btn btn-primary" href="">
                                     <i class="now-ui-icons design_bullet-list-67"></i>
                                     <span>新增訂單</span>

@@ -134,7 +134,7 @@
 
                                         </thead>
                                         <tbody>
-                                        @foreach ($dtl as $key => $item)
+                                        @foreach ($quotation as $key => $item)
                                             <tr>
                                                 <td>
                                                     {{ $item->mname }}

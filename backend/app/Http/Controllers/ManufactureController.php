@@ -2,34 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use App\Models\Book;
-use App\Models\Bookdetail;
-use App\Models\Customer;
-use App\Models\Delivery;
 use App\Models\Detaillist;
-use App\Models\Inventory;
-use App\Models\Invoice;
-use App\Models\Invoicedetail;
-use App\Models\Manufacture;
-use App\Models\Material;
 use App\Models\Order;
-use App\Models\Quotation;
-use App\Models\Rebate;
-use App\Models\Staff;
-use App\Models\Supplier;
-use Illuminate\Support\Carbon;
+use App\Models\Manufacture;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Stmt\Foreach_;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Bus\Queueable;
-use Illuminate\Mail\Mailable;
-use Illuminate\Support\Facades\File;
-use Mockery\Generator\StringManipulation\Pass\Pass;
+
 
 class ManufactureController extends Controller
 {
@@ -40,21 +18,17 @@ class ManufactureController extends Controller
         $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('delivery', 'delivery.mid', '=', 'manufacture.mid',)
-            ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'delivery.drownumber','manufacture.mrownumber')
+            ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber')
             ->orderBy('manufacture.mid')
             ->get();
-
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
         if ($search_text != "") {
             $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
                 ->join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
-                ->join('delivery', 'delivery.mid', '=', 'manufacture.mid',)
-                ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'delivery.drownumber','manufacture.mrownumber')
+                ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber')
                 ->where('customer.cname', 'LIKE', '%' . $search_text . '%')
-                ->orWhere('delivery.drownumber', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('manufacture.mid', 'LIKE', '%' . $search_text . '%')
                 ->orderBy('manufacture.mid')
                 ->get();
@@ -64,26 +38,36 @@ class ManufactureController extends Controller
 
         return view('main.manufacture', compact('manufacture'));
     }
+
     function manufactureEdit($manufactureId)
     {
         // 製造編輯
+        $manuOid = Manufacture::select('oid')
+            ->where('mid', '=', $manufactureId)
+            ->first();
+
+        // dd( $manuOid)
 
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('quotation','quotation.qid','=','order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('*')
+            ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
             ->find($manufactureId);
 
-        $dtl = Detaillist::select('*')
-            ->where('detaillist.qid', '=', $manufactureId)
+        // dd($manu);
+
+        // $dtl = Detaillist::select('*')
+        //     ->where('detaillist.oid', '=', $manu->oid)
+        //     ->get();
+
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.pstatus')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
+            ->where('order.oid', '=', $manuOid->oid)
             ->get();
 
+        // dd($quotation);
 
-
-
-
-        return view('manufacture.manufactureEdit', compact('manu', 'dtl'));
+        return view('manufacture.manufactureEdit', compact('manu', 'quotation'));
     }
 
 
@@ -117,14 +101,7 @@ class ManufactureController extends Controller
         $manu->save();
         $dtl->save();
 
-
-        // dd($dtl);
         return redirect('/main/manufacture/');
-
-
-        // mstatus
-        // dstatus
-        // mremark
     }
     public function createManufacturePDF(Request $request, $manufactureId)
     {
@@ -134,8 +111,8 @@ class ManufactureController extends Controller
             ->select('*')
             ->find($manufactureId);
         $dtl = Detaillist::select('*')
-        ->where('detaillist.qid', '=', $manufactureId)
-        ->get();
+            ->where('detaillist.qid', '=', $manufactureId)
+            ->get();
 
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu', 'dtl'));
         return $pdf->download();
@@ -148,86 +125,10 @@ class ManufactureController extends Controller
             ->select('*')
             ->find($manufactureId);
         $dtl = Detaillist::select('*')
-        ->where('detaillist.qid', '=', $manufactureId)
-        ->get();
+            ->where('detaillist.qid', '=', $manufactureId)
+            ->get();
 
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu', 'dtl'));
         return $pdf->stream();
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Manufacture  $manufacture
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Manufacture $manufacture)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Manufacture  $manufacture
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Manufacture $manufacture)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Manufacture  $manufacture
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Manufacture $manufacture)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Manufacture  $manufacture
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Manufacture $manufacture)
-    {
-        //
     }
 }

@@ -38,9 +38,9 @@
                                     <th>
                                         查看/編輯
                                     </th>
-                                    <th>
+                                    {{-- <th>
                                         出貨單號
-                                    </th>
+                                    </th> --}}
                                 </thead>
                                 <tbody>
                                     @foreach($manufacture as $mInfo)
@@ -75,9 +75,9 @@
                                                 aria-hidden="true"></i></button>
                                             </a>
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             {{$mInfo->drownumber}}
-                                        </td>
+                                        </td> --}}
                                     </tr>                               
                                     @endforeach
                                 </tbody>

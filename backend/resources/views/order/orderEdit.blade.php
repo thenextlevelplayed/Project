@@ -168,13 +168,20 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-12 text-right">
-                <form class="form-horizontal" action="/manufacturecreate/{{ $orderEdit->oid }}" method="POST">
+            <div class="col-md-12 text-right" 
+                <?php
+                    if ($orderEdit->ostatus == 'Y') {
+                        echo 'hidden';
+                    }
+                ?>
+            >
+                <form class="form-horizontal" action="/manufacturecreate/{{ $orderID }}" method="POST">
                     @csrf
                     <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
                         <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
                     </button>
                 </form>
+
             </div>
         </div>
     </div>
