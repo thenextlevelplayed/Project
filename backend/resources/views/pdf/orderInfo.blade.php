@@ -57,7 +57,7 @@
                 <div class="col">
                     <div>
                         <div class="col-inline">訂單編號</div>
-                        <div class="col-inline">{{$orderInfo->oid}}</div>
+                        <div class="col-inline">{{$orderInfo->orownumber}}</div>
                     </div>
                     <div>
                         <div class="col-inline">客戶名稱</div>

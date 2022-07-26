@@ -65,70 +65,68 @@ class OrderController extends Controller
     function orderInfo($orderID)
     {
 
+        //客戶資訊
+        //1.訂單編號 2.公司名稱 3.公司統編 4.公司電話 5.訂單日期 6.聯絡人 7.聯絡人LINE ID 8.聯絡信箱
         $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->find($orderID);
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'customer.ctel', 'order.odate', 'quotation.qcontact', 'customer.clineid', 'customer.cmail', 'staff.staffname')
+            ->where('order.oid', '=', $orderID)
+            ->first();
 
-        $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
-        // dd($orderInfoid->qid);
-        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-            ->select('*')
-            ->where('detaillist.qid', '=', $orderInfoid->qid)
+        //訂單明細
+        // 1.商品名稱 2.商品編號 3.數量 4.單價 5.明細PK
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
+            ->where('order.oid', '=', $orderID)
             ->get();
 
-
-        return view('order.orderInfo', compact('orderInfo', 'quotation'));
+        return view('order.orderInfo', compact('orderInfo', 'quotation', 'orderID'));
     }
 
     //訂單編輯
     function orderEdit($orderID)
     {
 
+        //客戶資訊
         $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('*')
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'customer.ctel', 'order.odate', 'quotation.qcontact', 'customer.clineid', 'customer.cmail', 'staff.staffname')
             ->where('order.oid', '=', $orderID)
-            ->find($orderID);
+            ->first();
 
         //撈明細資料
-        $quotation = Detaillist::select('*')
-            ->where('detaillist.qid', '=', $orderEdit->qid)
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
+            ->where('order.oid', '=', $orderID)
             ->get();
 
-        // dd($quotation);
-
-        return view('order.orderEdit', compact('orderEdit', 'quotation'));
+        return view('order.orderEdit', compact('orderEdit', 'quotation','orderID'));
     }
 
     //訂單拆單
     function orderSplit($orderID)
     {
 
-        // dd($orderID);
+        //客戶資訊
         $orderEdit = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('order.orownumber','customer.cname','customer.cid','quotation.qcontact','order.odate','customer.ctel','customer.clineid','customer.cmail','staff.staffname','order.oid')
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'quotation.qcontact', 'order.odate', 'customer.ctel', 'customer.clineid', 'customer.cmail', 'staff.staffname', 'order.oid')
             ->where('order.oid', '=', $orderID)
             ->first();
 
-        dd($orderEdit);
-
         //撈明細資料
-        $quotation = Detaillist::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
-            ->join('quotation','quotation.qid','=','detaillist.qid')
-            ->join('order','order.qid','=','quotation.qid')
+        $order = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid', 'order.oid')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $orderID)
             ->get();
 
-        dd($quotation);
-
-        return view('order.orderSplit', compact('orderEdit', 'quotation'));
+        return view('order.orderSplit', compact('orderEdit', 'order'));
     }
 
     //訂單拆單表單傳送
@@ -234,15 +232,14 @@ class OrderController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('*')
-            ->find($orderID);
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'quotation.qcontact', 'order.odate', 'customer.ctel', 'customer.clineid', 'customer.cmail', 'staff.staffname', 'order.oid')
+            ->where('order.oid', '=', $orderID)
+            ->first();
 
-        $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
-        // dd($orderInfoid->qid);
-        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-            ->select('*')
-            ->where('detaillist.qid', '=', $orderInfoid->qid)
+
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid', 'order.oid')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
+            ->where('order.oid', '=', $orderID)
             ->get();
 
         $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo', 'quotation'));
@@ -252,17 +249,19 @@ class OrderController extends Controller
     //預覽訂單PDF
     public function viewOrderPDF(Request $request, $orderID)
     {
+
+
         $orderInfo = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->find($orderID);
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'quotation.qcontact', 'order.odate', 'customer.ctel', 'customer.clineid', 'customer.cmail', 'staff.staffname', 'order.oid')
+            ->where('order.oid', '=', $orderID)
+            ->first();
 
-        $orderInfoid = Order::join('quotation', 'quotation.qid', '=', 'order.qid')->find($orderID);
-        // dd($orderInfoid->qid);
-        $quotation = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-            ->select('*')
-            ->where('detaillist.qid', '=', $orderInfoid->qid)
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid', 'order.oid')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
+            ->where('order.oid', '=', $orderID)
             ->get();
 
         $pdf = PDF::loadView('pdf.orderInfo', compact('orderInfo', 'quotation'));
