@@ -15,7 +15,7 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
+    
 @endsection
 
 @section('content')

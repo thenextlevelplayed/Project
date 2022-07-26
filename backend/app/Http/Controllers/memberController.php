@@ -87,9 +87,17 @@ class memberController extends Controller
 
 
     //帳號管理頁面
-    function memberInfo($name){
+    function memberInfo($memberId){
 
-        return view('member.memberInfo');
+        $memberInfo = Staff::select('*')
+        ->find($memberId);
+
+        return view('member.memberInfo',compact('memberInfo'));
+    }
+
+    function memberEdit($name){
+
+        return view('member.memberEdit');
     }
 
 }

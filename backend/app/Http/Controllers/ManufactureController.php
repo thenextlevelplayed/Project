@@ -133,7 +133,11 @@ class ManufactureController extends Controller
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
             ->find($manufactureId);
-        $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
+        $dtl = Detaillist::select('*')
+        ->where('detaillist.qid', '=', $manufactureId)
+        ->get();
+
+        $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu', 'dtl'));
         return $pdf->download();
     }
     public function viewManufacturePDF(Request $request, $manufactureId)
@@ -143,7 +147,11 @@ class ManufactureController extends Controller
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
             ->find($manufactureId);
-        $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu'));
+        $dtl = Detaillist::select('*')
+        ->where('detaillist.qid', '=', $manufactureId)
+        ->get();
+
+        $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu', 'dtl'));
         return $pdf->stream();
     }
 
