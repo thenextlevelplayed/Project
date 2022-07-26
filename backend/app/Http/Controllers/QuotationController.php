@@ -35,18 +35,19 @@ class QuotationController extends Controller
         $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
             ->get();
-
-        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != "") {
-            $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-                ->where('quotation.qrownumber', 'LIKE', '%' . $search_text . '%')
-                ->orWhere('customer.cname', 'LIKE', '%' . $search_text . '%')
-                ->orderBy('quotation.qrownumber')
-                ->get();
-        } else {
-            $quotation;
-        };
+            
+            $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+            if ($search_text != "") {
+                $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->select('*')
+                    ->where('quotation.qrownumber', 'LIKE', '%' . $search_text . '%')
+                    ->orWhere('customer.cname', 'LIKE', '%' . $search_text . '%')
+                    ->orderBy('quotation.qrownumber')
+                    ->get();
+            } else {
+                $quotation;
+            };
+    
 
         return view('main.quotation', compact('quotation'));
     }    
