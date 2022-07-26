@@ -35,18 +35,19 @@ class QuotationController extends Controller
         $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
             ->select('*')
             ->get();
-
-        $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != "") {
-            $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-                ->where('quotation.qrownumber', 'LIKE', '%' . $search_text . '%')
-                ->orWhere('customer.cname', 'LIKE', '%' . $search_text . '%')
-                ->orderBy('quotation.qrownumber')
-                ->get();
-        } else {
-            $quotation;
-        };
+            
+            $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
+            if ($search_text != "") {
+                $quotation = Quotation::join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->select('*')
+                    ->where('quotation.qrownumber', 'LIKE', '%' . $search_text . '%')
+                    ->orWhere('customer.cname', 'LIKE', '%' . $search_text . '%')
+                    ->orderBy('quotation.qrownumber')
+                    ->get();
+            } else {
+                $quotation;
+            };
+    
 
         return view('main.quotation', compact('quotation'));
     }    
@@ -140,6 +141,39 @@ class QuotationController extends Controller
             $KMQid = "KMQ" .  $day . "001";
         }
         return view('quotation.quotationCreate', compact('KMQid'));
+    }
+
+    //新增的報價單內容寫入資料庫
+    function quotationCreatePost(Request $req)
+    {
+
+        $qid = Quotation::insertGetId([
+            'qdate' => date("Y-m-d"),
+            'cid' => $req->cid,
+            'qcontact' => $req->qcontact,
+            'cmail' => $req->cmail,
+            'staffid' => $req->staffid,
+            'rid' => $req->rid,
+            'qstatus' => $req->qstatus,
+            'qrownumber' => $req->qrownumber,
+        ]);
+
+        for ($i = 0; $i < count($req->mName); $i++) {
+
+            $mid = Material::select('*')
+                ->where('mname', '=', $req->mName[$i])
+                ->first();
+
+            Detaillist::insert([
+                'qid' => $qid,
+                'mname' => $req->mName[$i],
+                'quantity' => $req->quantity[$i],
+                'price' => $req->price[$i],
+                'mid' => $mid->mid
+            ]);
+        };
+
+        return redirect('/main/quotation');
     }
 
 

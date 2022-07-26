@@ -120,7 +120,7 @@ Route::get('/main/order/pdf/{orderId}', "App\Http\Controllers\OrderController@cr
 Route::get('/order/pdf/view/{orderId}', "App\Http\Controllers\OrderController@viewOrderPDF"); // 預覽pdf
 
 //pdf manufacture
-Route::get('main/manufacture/pdf/{manufactureId}', "App\Http\Controllers\ManufactureController@createManufacturePDF"); // 下載pdf
+Route::get('manufacture/pdf/{manufactureId}', "App\Http\Controllers\ManufactureController@createManufacturePDF"); // 下載pdf
 Route::get('/manufacture/pdf/view/{manufactureId}', "App\Http\Controllers\ManufactureController@viewManufacturePDF"); // 預覽pdf
 
 //寄信

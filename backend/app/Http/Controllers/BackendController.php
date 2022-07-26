@@ -51,7 +51,7 @@ class BackendController extends Controller
         if ($account == 'Guest') {
             return redirect('/member/login');
         } else {
-            return view('main.indexbk',compact('name','permission'));
+            return view('main.index',compact('name','permission'));
         }
     }
 
