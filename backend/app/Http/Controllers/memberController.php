@@ -57,7 +57,7 @@ class memberController extends Controller
                 //登入Session記住帳號判斷
                 Session::put('account', $account); //email
                 Session::put('name', $name); // 員工名字
-                Session::put('permission', $permission); // 權限
+                Session::put('permission', $permission); // 權限permission
 
 
                 return Redirect::to('/main');
@@ -87,9 +87,17 @@ class memberController extends Controller
 
 
     //帳號管理頁面
-    function memberInfo($name){
+    function memberInfo($memberId){
 
-        return view('member.memberInfo');
+        $memberInfo = Staff::select('*')
+        ->find($memberId);
+
+        return view('member.memberInfo',compact('memberInfo'));
+    }
+
+    function memberEdit($name){
+
+        return view('member.memberEdit');
     }
 
 }

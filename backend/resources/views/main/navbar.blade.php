@@ -58,7 +58,7 @@
                     K
                 </a>
                 <a href="/main" class="simple-text logo-normal">
-                    凱茂資訊
+                    楷模資訊
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -157,7 +157,7 @@
                     ?>
                         {{-- <a href="/main/delivery">
                             <i class="now-ui-icons shopping_delivery-fast"></i>
-                            <p>出貨單管理</p>
+                            <>出貨單管理<//p>
                         </a> --}}
                     </li>
 

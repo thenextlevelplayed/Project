@@ -72,7 +72,7 @@ class DeliveryController extends Controller
         // }
         
         if($permission== 4 or $permission== 1){         
-            return view('main.delivery', compact('d','permission'));
+            return view('main.delivery', compact('d','permission')); //permission
         }
         else{
             return view("main.index");

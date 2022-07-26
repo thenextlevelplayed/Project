@@ -15,7 +15,7 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
+    
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@
 
                             <div class="table-responsive">
                                 <div class="col-md-12 card-title text-center">
-                                    <h3>楷模資訊 出貨單單資訊</h3>
+                                    <h3>楷模資訊 出貨單資訊</h3>
                                 </div>
                                 <div class="container-fluid row justify-content-end" style="padding-right: 0px">
                                     <?php

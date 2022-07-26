@@ -17,7 +17,7 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-    <input type="text" value="" class="form-control" placeholder="輸入出貨單號或客戶名稱">
+    
 @endsection
 
 <style>
@@ -222,8 +222,8 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <textarea name="content" id=""  cols="80" rows="10">
-                                出貨單編號:{{$deliveryInfo->drownumber}}
-                                出貨日期:{{$deliveryInfo->ddate}}
+                                    出貨單編號:{{$deliveryInfo->drownumber}}
+                                    出貨日期:{{$deliveryInfo->ddate}}
                                     </textarea>
                                 </div>
                             </div>

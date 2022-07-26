@@ -42,7 +42,7 @@ class BackendController extends Controller
 
         // 每個操作頁面都要判斷Session
         $account = Session::get('account', 'Guest');
-        // dd($account);//gmail
+        // dd($account);// gmail
         $name = Session::get('name');
         $permission = Session::get('permission');
 
