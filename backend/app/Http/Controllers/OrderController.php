@@ -200,6 +200,28 @@ class OrderController extends Controller
     public function ManufactureCreate(Request $request, $orderID)
     {
 
+        //今日日期跟Sql比較 (YYYY-MM-DD)
+        $day = date("Y-m-d");
+        //從資料庫讀取當天進貨單數量有幾筆
+        $mDay = count(Manufacture::all()->where('qdate', '=', $day));
+
+        //資料庫今天有幾筆
+        if ($mDay > 0) {
+            //計算今天有幾筆後加一
+
+            //轉編號的format
+            $day = date("Ymd");
+            $mDay += 1;
+            $mDay = sprintf("%03d", $mDay);
+            $KMMid =  "KMM" .  $day . $mDay;
+        } else {
+            //今天第一筆 001
+
+            //轉編號的format
+            $day = date("Ymd");
+            $KMMid = "KMM-" .  $day . "001";
+        }
+
         $orderEdit = Order::select('*')
             ->find($orderID);
 
@@ -209,6 +231,7 @@ class OrderController extends Controller
         //工單新增(轉為工單)
         $newMaufacture = new Manufacture();
 
+        $newMaufacture->mrownumber =  $KMMid;
         $newMaufacture->mdate = date('Y-m-d');
         $newMaufacture->oid = $orderID;
         $newMaufacture->mstatus = "N";

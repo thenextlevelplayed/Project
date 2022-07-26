@@ -69,7 +69,7 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">工單編號</label>
-                                            <input class="form-control" type="text" value="{{ $manu->mid }}"
+                                            <input class="form-control" type="text" value="{{ $manu->mrownumber }}"
                                                 readonly>
                                         </div>
                                         <div class="col-md-6 mb-3">

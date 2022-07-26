@@ -35,7 +35,7 @@
                                     <div class="col-lg-6">
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>報價單編號</p></div>
-                                            <div class="col-lg-8">{{$quotationInfo->qid}}</div>
+                                            <div class="col-lg-8">{{$quotationInfo->qrownumber}}</div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-lg-3"><p>公司名稱</p></div>

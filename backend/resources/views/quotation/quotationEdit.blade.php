@@ -14,7 +14,6 @@
 
 {{-- 搜尋框 --}}
 @section('searchBox')
-   
 @endsection
 
 @section('content')
@@ -22,7 +21,7 @@
         <div class="row">
             <div class="col-md-12">
                 {{-- /quotation/edit/{{ $quotationInfo->qid }} --}}
-                <form class="card p-5" action="" method="POST">
+                <form class="card p-5" action="/quotation/edit/{{ $quotationInfo->qid }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="card-header">
@@ -38,32 +37,30 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">報價單編號</label>
-                                        <input class="form-control" type="text" 
+                                        <input class="form-control" type="text"
                                             placeholder="{{ $quotationInfo->qrownumber }}" readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">公司名稱</label>
-                                        <input class="form-control" type="text" 
+                                        <input class="form-control" type="text"
                                             placeholder="{{ $quotationInfo->cname }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">公司統編</label>
-                                        <input class="form-control" type="text" 
-                                            placeholder="{{ $quotationInfo->cid }}">
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->cid }}">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">公司電話</label>
-                                        <input class="form-control" type="text" 
-                                            placeholder="{{ $quotationInfo->ctel }}">
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->ctel }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">報價日期</label>
-                                        <input class="form-control" type="text" 
-                                            placeholder="{{ $quotationInfo->qdate }}" readonly>
+                                        <input class="form-control" type="text" placeholder="{{ $quotationInfo->qdate }}"
+                                            readonly>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">聯絡人</label>
@@ -79,7 +76,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="validationCustom01">聯絡信箱</label>
-                                        <input class="form-control" type="text" 
+                                        <input class="form-control" type="text"
                                             placeholder="{{ $quotationInfo->cmail }}">
                                     </div>
                                 </div>
@@ -141,7 +138,7 @@
                                     <div class="col-lg-9">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-lg-3" id="AllTot" ></div>
+                                    <div class="col-lg-3" id="AllTot"></div>
                                 </div>
                             </div>
                         </div>
@@ -178,14 +175,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class = "row container-fluid justify-content-center mt-5">
+                    <div class="row container-fluid justify-content-center mt-5">
                         <div class="col-md-2 p-1">
                             <a href='/main/quotation' class="btn btn-secondary btn-block">
                                 <i class="fa-solid fa-x"></i> &nbsp; 返回
                             </a>
                         </div>
                         <div class="col-md-2 p-1">
-                            <input type="submit" class="btn btn-primary btn-block" value="存檔">                     
+                            <input type="submit" class="btn btn-primary btn-block" value="存檔">
                         </div>
                     </div>
                 </form>
@@ -223,7 +220,6 @@
 
 @section('script')
     <script>
-
         var users = {!! json_encode($quotation->toArray()) !!};
         let ListData = users;
         // console.log(ListData);
@@ -237,7 +233,7 @@
             //畫面清空
             $('#quotationtable').find('tbody').empty();
             // 明細至少一筆,這筆可更改不刪除
-            for (let i = 0; i < ListData.length; i++){
+            for (let i = 0; i < ListData.length; i++) {
                 $('#quotationtable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
@@ -355,8 +351,8 @@
             $('#AllTot').text(`NT.${totally}`);
         }
 
-    // function append(){
-    //     $("#table>tbody").append(`
+        // function append(){
+        //     $("#table>tbody").append(`
     //     <tr>
     //         <td></td>
     //         <td><input type="text" name="" value=""></td>
@@ -368,14 +364,11 @@
     //     </tr>
     //     `);
         // }
-
     </script>
 @endsection
 
-{{-- 
-Edit:
+{{-- Edit:
 
 存檔button按下之後,資料庫更新(刪除,新增資料)
 
 轉為訂單button按下後,跳轉到訂單管理頁面,且新增一筆訂單編號進資料庫 --}}
-

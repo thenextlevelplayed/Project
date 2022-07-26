@@ -51,7 +51,7 @@ class ManufactureController extends Controller
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation','quotation.qid','=','order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
+            ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark','manufacture.mrownumber', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
             ->find($manufactureId);
 
         // dd($manu);
