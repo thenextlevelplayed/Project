@@ -163,18 +163,23 @@ class OrderController extends Controller
             // 3-1. 取得原訂單產品資訊
             $Orig = Detaillist::where('detaillist.dlid', '=', $req->dlid[$i])->first();
 
-            // 3-2. 新增 detail 
-            Detaillist::insert([
-                'qid' => $Orig->qid,
-                'oid' => $oid,
-                'iid' => $Orig->iid,
-                'rid' => $Orig->rid,
-                'mname' => $Orig->mname,
-                'quantity' => $req->splitNum[$i],
-                'price' => $Orig->price,
-                'mspecification' => $Orig->mspecification,
-                'mnumber' => $Orig->mnumber,
-            ]);
+            // 3-2. 判斷數量是否為0, 0 不新增
+            if ($req->splitNum[$i] != 0) {
+                // 3-3. 新增 detail 
+                Detaillist::insert([
+                    'qid' => $Orig->qid,
+                    'oid' => $oid,
+                    'iid' => $Orig->iid,
+                    'rid' => $Orig->rid,
+                    'mname' => $Orig->mname,
+                    'quantity' => $req->splitNum[$i],
+                    'price' => $Orig->price,
+                    'mspecification' => $Orig->mspecification,
+                    'mnumber' => $Orig->mnumber,
+                ]);
+            }else{
+                continue;
+            }
         }
 
         return  redirect('/main/order');
