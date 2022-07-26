@@ -21,7 +21,8 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card">
+                <form class="card" action="/quotation/quotationCreate" method="POST">
+                    @csrf
                     <div class="card-header">
                         <h4 class="card-title text-center"> 楷模資訊 報價單</h4>
                     </div>                            
@@ -62,7 +63,7 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>報價日期</p></div>
                                         <div class="col-lg-8">
-                                            <input id="qdate" type="text" value="" name="qdate" required>
+                                            <input id="qdate" type="date" value="" name="qdate" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -115,13 +116,19 @@
                                             </tr> --}}
                                         </tbody>
                                     </table>
-                                    {{-- 新增欄位功能 --}}
+                                    {{-- 新增明細項目 --}}
                                     <div class="row mb-1">
                                         <div class="col-md-12 text-right">
                                             <input type="button" class="btn btn-primary" value="新增" onclick="PCreate()">
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
+                                <div class="row mb-1 text-right" style="font-size: 20px">
+                                    <div class="col-lg-9">
+                                        <p>總計</p>
+                                    </div>
+                                    <div class="col-lg-3" id="AllTot" ></div>
+                                </div>                              
                             </div>
                         </div>
                         <div>
@@ -155,18 +162,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row container justify-content-center">
+                        <div class="col-md-3 p-1">
+                            <input type="submit" class="btn btn-primary btn-block" value="新增存檔">                      
+                        </div>
+                        <div class="col-md-3 p-1">
+                            <a href='/main/quotation' class="btn btn-secondary btn-block">
+                                <i class="fa-solid fa-x"></i> &nbsp; 取消返回
+                            </a>
+                        </div>
+                    </div>
                 </form>
-            </div>
-            <div class = "row container justify-content-center">
-                <div class="col-md-3 p-1">
-                    <input type="submit" class="btn btn-primary btn-block" value="新增存檔">                      
-                </div>
-                <div class="col-md-3 p-1">
-                    <a href='/main/quotation' class="btn btn-secondary btn-block">
-                        <i class="fa-solid fa-x"></i> &nbsp; 取消返回
-                    </a>
-                </div>
-            </div>
+            </div>            
         </div>
     </div>
 
@@ -192,8 +199,6 @@
     </div>
 @endsection
 
-
-{{-- 按下新增存檔btn後，返回報價單管理頁面，並在報價單管理頁面新增一筆報價單資料 --}}
 
 @section('script')
     <script>
@@ -236,13 +241,12 @@
                 $('#quotationtable').find('tbody').append(`
                     <tr>
                         <th scope="row">${i+1}</th>
-                        <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mname}"></td>
-                        <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mnumber}"></td>
+                        <td> <input type="text" class="form-control mNumChk" required name="mname[]" value="${ListData[i].mname}"></td>
+                        <td> <input type="text" class="form-control" required name="mnumber[]" value="${ListData[i].mnumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].price}"></td>
+                        <td> <input type="number" min="0" class="form-control" required name="price[]" value="${ListData[i].price}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].price}" readonly></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
-                        <input type="text" name="did[]" value="${ListData[i].dlid}">
                     </tr>
                 `)
             }
@@ -264,8 +268,7 @@
                 mnumber: "",
                 quantity: "",
                 price: "",
-                PRtot: "",
-                stockIn: ""
+                PRtot: ""
             })
 
             //更新畫面
@@ -316,7 +319,7 @@
                 let row = $(this).closest('tr');
 
                 let Pname = $(row).find('input').eq(0).val();
-                let Pid = $(row).find('input').eq(1).val();
+                let qid = $(row).find('input').eq(1).val();
                 let qty = $(row).find('input').eq(2).val();
                 let price = $(row).find('input').eq(3).val();
                 let Ptot = qty * price;
@@ -325,10 +328,10 @@
                 let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array
-                ListData[(Pindex - 1)].mName = Pname;
-                ListData[(Pindex - 1)].mNumber = Pid;
+                ListData[(Pindex - 1)].mname = Pname;
+                ListData[(Pindex - 1)].mnumber = qid;
                 ListData[(Pindex - 1)].quantity = qty;
-                ListData[(Pindex - 1)].cost = price;
+                ListData[(Pindex - 1)].price = price;
                 ListData[(Pindex - 1)].PRtot = Ptot;
 
                 //全部總和更新
@@ -342,13 +345,13 @@
         //全部總和更新//******************************************************
         function Alltot() {
 
-            let totally = 0;
+            let total = 0;
 
             ListData.forEach(item => {
-                totally += Number(item.quantity * item.cost);
+                total += Number(item.quantity * item.price);
             });
 
-            $('#AllTot').text(`NT.${totally}`);
+            $('#AllTot').text(`NT.${total}`);
         }
     </script>
 @endsection
