@@ -23,9 +23,8 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card p-5" action="/main/order/edit/{{ $orderEdit->oid }}" method="POST">
+                <form class="card p-5" action="/order/Split/{{ $orderEdit->oid }}" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="card-header">
                         <h4 class="card-title text-center">訂單管理</h4>
                     </div>
@@ -92,7 +91,7 @@
                             <h5>訂單明細</h5>
                             <hr>
                         </div>
-                        <div class="col-lg-12 ">
+                        <div class="col-lg-12">
                             <div>
                                 <table class="table">
                                     <thead>
@@ -100,60 +99,61 @@
                                             <th scope="col"></th>
                                             <th scope="col">商品名稱</th>
                                             <th scope="col">商品編號</th>
-                                            <th scope="col">數量</th>
                                             <th scope="col">單價</th>
-                                            <th scope="col">小計</th>
-                                            {{-- <th scope="col">備註</th> --}}
+                                            <th scope="col">總數量</th>
+                                            <th scope="col">原單數量</th>
+                                            <th scope="col">拆單數量</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach ($quotation as $key => $item)
-                                            {{-- dd($item) --}}
+                                    <tbody id="splitDet">
+                                        <?php $tot = 0; ?>
 
+                                        @foreach ($quotation as $key => $item)
                                             <tr>
                                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                                 <td>{{ $item->mname }}</td>
                                                 <td>{{ $item->mnumber }}</td>
-                                                <td><input type="text" name="quantity[]" value="{{ $item->quantity }}">
-                                                </td>
                                                 <td>{{ $item->price }}</td>
-                                                <td>
-                                                    <?php
-                                                    $total = $item->quantity * $item->price;
-                                                    echo $total;
-                                                    ?>
+                                                <td>{{ $item->quantity }}</td>
+                                                <td><input type="text"class="OrigNum form-control" name="OrigNum[]"
+                                                        value="{{ $item->quantity }}" readonly>
                                                 </td>
-                                                {{-- <td>{{ $item->remark }}</td>
-                                                <input type="hidden" value="{{ $item->dlid }}" name="dlid[]"> --}}
+                                                <td><input type="number" class="splitNum form-control" name="splitNum[]"
+                                                        min="0" max="{{ $item->quantity }}" value="0"></td>
+                                                <input type="hidden" value="{{ $item->dlid }}" name="dlid[]">
+
                                             </tr>
+                                            <?php $tot += $item->price * $item->quantity; ?>
                                         @endforeach
-                                        {{-- <tr>
-                                                    <th scope="row">2</th>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                    <td> <input type="text" class="form-control" required></td>
-                                                </tr> --}}
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>原訂單</td>
+                                            <td>子訂單</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>小計</td>
+                                            <td>NT. <?php echo $tot; ?> &nbsp;&nbsp;-></td>
+                                            <td id="OrigPrice">NT. <?php echo $tot; ?></td>
+                                            <td id="splitPrice">NT. 0</td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="row mb-1 text-right" style="font-size: 20px">
+                            {{-- <div class="row mb-1 text-right" style="font-size: 20px">
                                 <div class="col-lg-10">
                                     <p>總計</p>
                                 </div>
                                 <div class="col-mb-3" id="AllTot"></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div>
@@ -176,21 +176,10 @@
                         <a class="btn btn-primary mr-2" href="/main/order">
                             <i class="fa fa-undo"></i>&nbsp;返回
                         </a>
-                        {{-- <a class="btn btn-primary mr-2" href="">
-                                            <span>預覽</span>
-                                        </a> --}}
                         <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">
-                            <i class="far fa-save"></i>&nbsp;存檔
+                            <i class="far fa-save"></i>&nbsp;拆單
                         </button>
                     </div>
-                </form>
-            </div>
-            <div class="col-md-12 text-right">
-                <form class="form-horizontal" action="/manufacturecreate/{{ $orderEdit->oid }}" method="POST">
-                    @csrf
-                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
-                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
-                    </button>
                 </form>
             </div>
         </div>
@@ -199,5 +188,38 @@
 
 @section('script')
     <script>
+        $('.splitNum').on('input', function() {
+
+            let price = $(this).closest('tr').find('td').eq(2).text();
+            let splitNum = $(this).val();
+            let totNum = $(this).closest('tr').find('td').eq(3).text();
+            let orgiNum = totNum - splitNum;
+
+            $(this).closest('tr').find('.OrigNum').val(orgiNum);
+
+
+
+            // 原訂單小計*********************************************
+            let bodytr = $('#splitDet > tr');
+            let OrigPrice = 0;
+            let totPrice = 0;
+
+            for (let i = 1; i <= bodytr.length - 2; i++) {
+
+                let tr = $(`#splitDet > tr:nth-child(${i})`)
+                let trPrice = tr.find('td').eq(2).text();
+                let trNum = tr.find('.OrigNum').val();
+                let totNum = tr.find('td').eq(3).text();
+
+                OrigPrice += trPrice * trNum;
+                totPrice += trPrice * totNum;
+            }
+
+            $('#OrigPrice').text(`NT. ${OrigPrice}`)
+
+            // 子訂單小計 = 總計 - 原訂單小計
+            $('#splitPrice').text(`NT. ${totPrice - OrigPrice}`)
+
+        })
     </script>
 @endsection
