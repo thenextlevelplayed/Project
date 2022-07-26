@@ -21,118 +21,75 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="card">
-                    <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 客戶資訊</h4>
-                    </div>                            
+                <div class="card">
                     <div class="card-body">
-                        {{-- 客戶資訊 --}}
-                        <div class="table-responsive">
-                            <div  class="mb-3">
+                        <div class="container-xl p-5">
+                            <div class="customerInfo">
+                                {{-- <h4 class="text-center">楷 模 資 訊 股 份 有 限 公 司 出 貨 單</h4> --}}
+                                <div class="mb-3">
+                                    <h5>客戶資訊</h5>
+                                    <hr>
+                                </div>
+                                {{-- 出貨日期 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>統一編號：{{$customerInfo->cid}}</span></div>                                        
+                                </div>
+                                {{-- 客戶名稱 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>交易暗語：{{$customerInfo->tradecode}}</span></div>                                        
+                                </div>
+                                {{-- 收貨地址 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>開立形式：{{$customerInfo->legalletter}}</span></div>                                        
+                                </div>
+                                {{-- 聯絡人 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>公司負責人：{{$customerInfo->director}}</span></div>                                        
+                                </div>
+                                {{-- 聯絡電話 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>公司傳真：{{$customerInfo->fax}}</span></div>
+                                    
+                                </div>
+                                {{-- 業務負責人編號 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>業務負責人：{{$customerInfo->salesrep}}</span></div>                                        
+                                </div>
+                                {{-- 發票號碼 --}}
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>公司名稱：{{$customerInfo->cname}}</span></div>                                        
+                                </div>
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>LineID：{{$customerInfo->clineid}}</span></div>                                        
+                                </div>
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>交易對象：{{$customerInfo->instruments}}</span></div>                                        
+                                </div>
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>公司信箱：{{$customerInfo->cmail}}</span></div>                                        
+                                </div>
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>公司電話：{{$customerInfo->ctel}}</span></div>                                        
+                                </div>
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>公司地址：{{$customerInfo->caddress}}</span></div>                                        
+                                </div>
+                                <div class="row row-cols-auto">
+                                    <div class="col pl-5 ml-5 mt-3"><span>通訊地址：{{$customerInfo->location}}</span></div>                                        
+                                </div>
+                            
                             </div>
-                            <div  class="row mb-3">
-                                <div class="col-lg-6">
-                                    <fieldset disabled>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>*統一編號</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->cid}}" name="cid" required>
-                                            </div>
-                                        </div>
-                                    
-                                    
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>*交易暗語</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->tradecode}}" name="tradecode" required>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>*開立形式</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text"  value="{{$customerInfo->legalletter}}" name="legalletter" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>公司負責人</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text"  value="{{$customerInfo->director}}" name="director" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>公司傳真</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text"  value="{{$customerInfo->fax}}" name="fax" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>業務負責人</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text"  value="{{$customerInfo->salesrep}}" name="salesrep" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>LineID</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text"  value="{{$customerInfo->clineid}}" name="clineid" required>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6">
-                                    <fieldset disabled>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>*公司名稱</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->cname}}" name="cname" required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>*交易對象</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->instruments}}" name="instruments"required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>*公司信箱</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->cmail}}" name="cmail"required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>公司電話</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->ctel}}" name="ctel"required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>公司地址</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->caddress}}" name="caddress"required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1">
-                                            <div class="col-lg-3"><p>通訊地址</p></div>
-                                            <div class="col-lg-8">
-                                                <input type="text" value="{{$customerInfo->location}}" name="location"required>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>                                    
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-primary " href="/main/customer">
+                                    <span>返回</span>
+                                </a>
+                            </div>                           
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-            <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/main/customer">
-                    <span>返回</span>
-                </a>
-            </div>
-            
-            
         </div>
     </div>
+            
 @endsection
 
