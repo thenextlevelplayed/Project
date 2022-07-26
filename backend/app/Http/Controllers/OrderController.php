@@ -50,7 +50,7 @@ class OrderController extends Controller
             $order = Order::join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
                 ->select('order.oid', 'order.ostatus', 'customer.cname', 'order.orownumber')
-                ->where('oid', 'LIKE', '%' . $search_text . '%')
+                ->where('orownumber', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('cname', 'LIKE', '%' . $search_text . '%')
                 ->orderby('order.oid')
                 ->get();
@@ -58,7 +58,15 @@ class OrderController extends Controller
             $order;
         };
 
-        return view('main.order', compact('order'));
+
+        //工單編號
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')->get();
+
+        // dd($manu);
+        //出貨單編號
+        $deli = Delivery::all();
+
+        return view('main.order', compact('order', 'manu', 'deli'));
     }
 
     //訂單明細管理
@@ -177,7 +185,7 @@ class OrderController extends Controller
                     'mspecification' => $Orig->mspecification,
                     'mnumber' => $Orig->mnumber,
                 ]);
-            }else{
+            } else {
                 continue;
             }
         }

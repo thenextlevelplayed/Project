@@ -49,17 +49,26 @@
                                         編輯
                                     </th>
                                 </thead>
-                                <tbody>
+                                <tbody id="otr">
                                     @foreach ($order as $od)
                                         <tr>
-                                            <td>
+                                            <td class="oNumber">
                                                 <a href="/main/order/{{ $od->oid }}">{{ $od->orownumber }}
                                             </td>
                                             <td>
                                                 {{ $od->cname }}
                                             </td>
                                             <td>
-                                                {{-- {{$od->mrownumber}} --}}
+
+                                                <?php
+                                                for ($i = 0; $i < count($manu); $i++) {
+                                                    if ($manu[$i]->oid == $od->oid) {
+                                                        echo $manu[$i]->mrownumber;
+                                                    }
+                                                }
+                                                
+                                                ?>
+
                                             </td>
                                             <td>
                                                 {{-- {{ $od-> }} --}}
@@ -106,4 +115,29 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        let bodytr = $('#otr > tr')
+
+
+        for (let i = 0; i < bodytr.length; i++) {
+            let tr = $(`#otr  > tr:nth-child(${i+1})`)
+            let oNumber = tr.find('.oNumber').text();
+            
+        }
+        // $('.oNumber')
+
+        // for (let i = 1; i <= bodytr.length - 2; i++) {
+
+        //     let tr = $(`#splitDet > tr:nth-child(${i})`)
+        //     let trPrice = tr.find('td').eq(2).text();
+        //     let trNum = tr.find('.OrigNum').val();
+        //     let totNum = tr.find('td').eq(3).text();
+
+        //     OrigPrice += trPrice * trNum;
+        //     totPrice += trPrice * totNum;
+        // }
+    </script>
 @endsection
