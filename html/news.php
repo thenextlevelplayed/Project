@@ -266,10 +266,10 @@ include '../php/news.php';
 
 
             <div class="col-lg-7 videobox">
-                <iframe class="show100" src="https://www.youtube.com/embed/sr_VSS_gnGE" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                <iframe width="800" height="400" 
+                    src="https://www.youtube.com/embed/5Y1GpL768Sk" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
         </div>
