@@ -67,7 +67,6 @@
                                                 
                                                         echo "<a href=/main/manufacture/${mid}>";
                                                         echo $manu[$i]->mrownumber;
-                                                        
                                                     }
                                                 }
                                                 
@@ -80,7 +79,7 @@
                                                 for ($i = 0; $i < count($deli); $i++) {
                                                     if ($deli[$i]->oid == $od->oid) {
                                                         $did = $deli[$i]->did;
-
+                                                
                                                         echo "<a href=/delivery/${did}>";
                                                         echo $deli[$i]->drownumber;
                                                     }
@@ -93,12 +92,34 @@
                                             <td>
                                                 <?php
                                                 
-                                                if ($od->ostatus == 'Y') {
-                                                    echo "<span class='badge bg-success'>已成立工單</span>";
-                                                } else {
-                                                    //點集 入庫並寫入庫存表
-                                                    // echo "<span class='badge bg-danger stockin' style='cursor:pointer; '>未入庫</span>";
+                                                $host = 'localhost';
+                                                $dbuser = 'root';
+                                                $dbpassword = '';
+                                                $dbname = 'backend';
+                                                $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
+                                                $conn->set_charset('utf8');
+                                                
+                                                $sql = "SELECT `mstatus` FROM `manufacture` WHERE `oid`=  $od->oid";
+                                                $result = $conn->query($sql);
+                                                $m = $result->fetch_object();
+                                                
+                                                $sql = "SELECT delivery.dstatus FROM delivery INNER JOIN manufacture on delivery.mid = manufacture.mid WHERE manufacture.oid=  $od->oid";
+                                                $result = $conn->query($sql);
+                                                $d = $result->fetch_object();
+                                                
+                                                // echo $m->mstatus;
+                                                // echo $d->dstatus;
+                                                
+                                                $conn->close();
+                                                
+                                                if ($d->dstatus == 'Y') {
+                                                    echo "<span class='badge bg-success'>已出貨</span>";
+                                                } elseif ($m->mstatus == 'Y') {
+                                                    echo "<span class='badge bg-warning'>已成立出貨單</span>";
+                                                } elseif ($od->ostatus == 'Y') {
+                                                    echo "<span class='badge bg-primary'>已成立工單</span>";
                                                 }
+
                                                 ?>
                                             </td>
                                             <td>
