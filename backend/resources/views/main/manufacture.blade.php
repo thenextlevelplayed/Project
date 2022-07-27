@@ -11,9 +11,9 @@
     </h4>
 @endsection
 @section('searchBox')
-    <input type="search"  class="form-control" name="query" placeholder="輸入單號或客戶名稱">
-    <span class="input-group-addon" onclick="searchform.submit()">                                    
-        <i class="now-ui-icons ui-1_zoom-bold"></i>       
+    <input type="search" class="form-control" name="query" placeholder="輸入單號或客戶名稱">
+    <span class="input-group-addon" onclick="searchform.submit()">
+        <i class="now-ui-icons ui-1_zoom-bold"></i>
     </span>
 @endsection
 
@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class="text-primary" style = "white-space: nowrap">
+                                <thead class="text-primary" style="white-space: nowrap">
                                     <th>
                                         工單編號
                                     </th>
@@ -43,42 +43,42 @@
                                     </th> --}}
                                 </thead>
                                 <tbody>
-                                    @foreach($manufacture as $mInfo)
-                                    <tr>
-                                        <td>
-                                            {{$mInfo->mrownumber}}
-                                        </td>
-                                        <td>
-                                            {{$mInfo->cname}}
-                                        </td>
-                                        <td>
-                                        <?php
+                                    @foreach ($manufacture as $mInfo)
+                                        <tr>
+                                            <td>
+                                                <a href="/main/manufacture/{{ $mInfo->mid }}">
+                                                    {{ $mInfo->mrownumber }}
+                                            </td>
+                                            <td>
+                                                {{ $mInfo->cname }}
+                                            </td>
+                                            <td>
+                                                <?php
                                         if($mInfo->mstatus == 'Y'){
                                         ?>
-                                            <span class="badge bg-success">
-                                                已完成
-                                            </span>                                        
-                                        <?php
+                                                <span class="badge bg-success">
+                                                    已完成
+                                                </span>
+                                                <?php
                                         }else{
                                         ?>
-                                            <span class="badge bg-danger">
-                                                未完成
-                                            </span>                                        
-                                        <?php
+                                                <span class="badge bg-danger">
+                                                    未完成
+                                                </span>
+                                                <?php
                                         }
-                                        ?>                                        
+                                        ?>
 
-                                        </td>
-                                        <td>
-                                            <a href = "/manufacture/edit/{{$mInfo->mid}}">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i></button>
-                                            </a>
-                                        </td>
-                                        {{-- <td>
-                                            {{$mInfo->drownumber}}
-                                        </td> --}}
-                                    </tr>                               
+                                            </td>
+                                            <td>
+                                                <a href="/manufacture/edit/{{ $mInfo->mid }}">
+                                                    <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
+                                                            aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+
+
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

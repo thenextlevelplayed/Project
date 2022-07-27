@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Models\Detaillist;
 use App\Models\Order;
 use App\Models\Manufacture;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Svg\Tag\Rect;
 
 class ManufactureController extends Controller
 {
@@ -49,9 +50,9 @@ class ManufactureController extends Controller
         // dd( $manuOid)
 
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation','quotation.qid','=','order.qid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark','manufacture.mrownumber', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
+            ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark', 'manufacture.mrownumber', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
             ->find($manufactureId);
 
         // dd($manu);
@@ -60,19 +61,21 @@ class ManufactureController extends Controller
         //     ->where('detaillist.oid', '=', $manu->oid)
         //     ->get();
 
-        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.pstatus')
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.pstatus', 'detaillist.dlid','detaillist.remark')
             ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $manuOid->oid)
             ->get();
 
         // dd($quotation);
 
-        return view('manufacture.manufactureEdit', compact('manu', 'quotation'));
+        return view('manufacture.manufactureEdit', compact('manu', 'quotation', 'manufactureId'));
     }
 
 
     public function manufactureUpdate(Request $request, $manufactureId)
     {
+        // dd($request);
+
         $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
@@ -80,26 +83,23 @@ class ManufactureController extends Controller
             ->select('*')
             ->find($manufactureId);
 
-        $dtl = Detaillist::find($manufactureId);
+
+
 
         $manu->mremark = $request->mremark;
         $manu->mstatus = $request->mstatus;
-        $dtl->remark = $request->remark;
-        $dtl->pstatus = $request->pstatus;
-        if ($request->inlineRadioOptions == 'Y') {
-            $manu->mstatus = 'Y';
-        } else {
-            $manu->mstatus = 'N';
+
+        $manu->save();
+        for ($i = 0; $i < count($request->did); $i++) {
+            $dtl = Detaillist::where('dlid', '=', $request->did[$i])->first();
+            $dtl->remark = $request->remark[$i];
+            $dtl->save();
         }
 
-        if ($request->pstatus == 'Y') {
-            $dtl->pstatus = 'Y';
-        } else {
-            $dtl->pstatus = 'N';
-        }
+
         //撈畫面的資料
-        $manu->save();
-        $dtl->save();
+
+
 
         return redirect('/main/manufacture/');
     }
@@ -130,5 +130,80 @@ class ManufactureController extends Controller
 
         $pdf = PDF::loadView('pdf.manufactureEdit', compact('manu', 'dtl'));
         return $pdf->stream();
+    }
+
+    function deliveryCreate(Request $req, $manufactureId)
+    {
+        //今日日期跟Sql比較 (YYYY-MM-DD)
+        $day = date("Y-m-d");
+        //從資料庫讀取當天進貨單數量有幾筆
+        $dDay = count(Delivery::all()->where('dcdate', '=', $day));
+
+        //資料庫今天有幾筆
+        if ($dDay > 0) {
+            //計算今天有幾筆後加一
+
+            //轉編號的format
+            $day = date("Ymd");
+            $dDay += 1;
+            $dDay = sprintf("%03d", $dDay);
+            $KMDid =  "KMD-" .  $day . $dDay;
+        } else {
+            //今天第一筆 001
+
+            //轉編號的format
+            $day = date("Ymd");
+            $KMDid = "KMD-" .  $day . "001";
+        }
+
+        $manufacture = Manufacture::select('*')
+            ->find($manufactureId);
+
+        $manufacture->mstatus = 'Y';
+        $manufacture->save();
+
+        //訂單新增(報價轉為訂單)
+
+        $oid = Delivery::insert([
+            'drownumber' => $KMDid,
+            'dcdate' => date('Y-m-d'),
+            'mid' => $manufactureId,
+            'dstatus' =>  "N"
+        ]);
+
+        return redirect('/main/delivery');
+    }
+
+    function manufactureInfo($manufactureId)
+    {
+
+        // 製造編輯
+        $manuOid = Manufacture::select('oid')
+            ->where('mid', '=', $manufactureId)
+            ->first();
+
+        $manu = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark', 'manufacture.mrownumber', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
+            ->find($manufactureId);
+
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.pstatus')
+            ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
+            ->where('order.oid', '=', $manuOid->oid)
+            ->get();
+
+        // dd($quotation);
+
+        return view('manufacture.manufactureInfo', compact('manu', 'quotation', 'manufactureId'));
+    }
+
+    function pComplete(Request $req)
+    {
+        $det = Detaillist::where('dlid', '=', $req->did)->first();
+        $det->pstatus = 'Y';
+        $det->save();
+
+        return response()->json(($det->save()));
     }
 }

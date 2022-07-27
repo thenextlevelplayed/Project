@@ -22,26 +22,23 @@ class DeliveryController extends Controller
 
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
-        if ($search_text != ""){
+        if ($search_text != "") {
             $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->where('cname','LIKE','%'.$search_text.'%')
-            ->orWhere('drownumber','LIKE','%'.$search_text.'%')
-            ->orderby('delivery.did')
-            ->get();
-            
-        }
-        else{
+                ->join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->where('cname', 'LIKE', '%' . $search_text . '%')
+                ->orWhere('drownumber', 'LIKE', '%' . $search_text . '%')
+                ->orderby('delivery.did')
+                ->get();
+        } else {
             $d = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-            ->join('order', 'order.oid', '=', 'manufacture.oid')
-            ->join('quotation', 'quotation.qid', '=', 'order.qid')
-            ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('*')
-            ->orderby('delivery.did')
-            ->get();
-                        
+                ->join('order', 'order.oid', '=', 'manufacture.oid')
+                ->join('quotation', 'quotation.qid', '=', 'order.qid')
+                ->join('customer', 'customer.cid', '=', 'quotation.cid')
+                ->select('*')
+                ->orderby('delivery.did')
+                ->get();
         };
         // Delivery::all() 為二維陣列 要用foreach
         // 接上一張表主鍵的表,上張表主鍵,'=',目前這張表和上一張相同主鍵
@@ -70,16 +67,12 @@ class DeliveryController extends Controller
         //     }
         //     array_push($number, $did);
         // }
-        
-        if($permission== 4 or $permission== 1){         
-            return view('main.delivery', compact('d','permission')); //permission
-        }
-        else{
+
+        if ($permission == 4 or $permission == 1) {
+            return view('main.delivery', compact('d', 'permission')); //permission
+        } else {
             return view("main.index");
         }
-    
-        
-
     }
 
     function deliveryInfo($deliveryId)
@@ -92,48 +85,45 @@ class DeliveryController extends Controller
             ->select('*')
             ->find($deliveryId);
 
-            // dd($deliveryInfo->did);
+        // dd($deliveryInfo->did);
 
         //Join Detaillist 資料
         $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid','=',$deliveryInfo->qid)
-        ->get();
+            ->select('*')
+            ->where('detaillist.oid', '=', $deliveryInfo->oid)
+            ->get();
 
         // dd($deliveryInfo->drownumber);
 
 
         $permission = Session::get('permission');
-        if($permission== 4 or $permission== 1){         
-            return view('delivery.deliveryInfo', compact('deliveryInfo','detaillistInfo','deliveryId'));
-        }
-        else{
+        if ($permission == 4 or $permission == 1) {
+            return view('delivery.deliveryInfo', compact('deliveryInfo', 'detaillistInfo', 'deliveryId'));
+        } else {
             return view("main.index");
         }
-        
     }
 
     public function deliveryInfoEdit($deliveryId)
     {
         //Join Delivery 資料
         $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-        ->join('order', 'order.oid', '=', 'manufacture.oid')
-        ->join('quotation', 'quotation.qid', '=', 'order.qid')
-        ->join('customer', 'customer.cid', '=', 'quotation.cid')
-        ->select('*')
-        ->find($deliveryId);
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->find($deliveryId);
 
         //Join Detaillist 資料
         $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid','=',$deliveryInfo->qid)
-        ->get();
+            ->select('*')
+            ->where('detaillist.oid', '=', $deliveryInfo->oid)
+            ->get();
 
         $permission = Session::get('permission');
-        if($permission== 4 or $permission== 1){         
-            return view('delivery.deliveryInfoEdit', compact('deliveryInfo','detaillistInfo'));
-        }
-        else{
+        if ($permission == 4 or $permission == 1) {
+            return view('delivery.deliveryInfoEdit', compact('deliveryInfo', 'detaillistInfo'));
+        } else {
             return view("main.index");
         }
     }
@@ -141,17 +131,17 @@ class DeliveryController extends Controller
     public function deliveryInfoUpdate(Request $request, $deliveryId)
     {
         //Join Delivery 資料
-        $deliveryInfo = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->join('quotation','quotation.qid','=','order.qid')
-        ->join('customer','customer.cid','=','quotation.cid')
-        ->select('*')
-        ->find($deliveryId);
+        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->find($deliveryId);
 
         //更新 Delivery 資料
         $deliveryInfo->dcontact = $request->dcontact;
-        $deliveryInfo->dtel = $request->dtel;     
-        $deliveryInfo->daddress = $request->daddress;        
+        $deliveryInfo->dtel = $request->dtel;
+        $deliveryInfo->daddress = $request->daddress;
         $deliveryInfo->ddate = $request->ddate;
 
         // 判斷出貨按鈕
@@ -166,44 +156,44 @@ class DeliveryController extends Controller
 
     public function createPDF($deliveryId)
     {
-       //Join Delivery 資料
-       $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-       ->join('order', 'order.oid', '=', 'manufacture.oid')
-       ->join('quotation', 'quotation.qid', '=', 'order.qid')
-       ->join('customer', 'customer.cid', '=', 'quotation.cid')
-       ->select('*')
-       ->find($deliveryId);
-
-       //Join Detaillist 資料
-       $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-       ->select('*')
-       ->where('detaillist.qid','=',$deliveryInfo->qid)
-       ->get();
-
-        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
-        return $pdf->download();
-    }
-
-    public function viewPDF ($deliveryId) {
         //Join Delivery 資料
         $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
-        ->join('order', 'order.oid', '=', 'manufacture.oid')
-        ->join('quotation', 'quotation.qid', '=', 'order.qid')
-        ->join('customer', 'customer.cid', '=', 'quotation.cid')
-        ->select('*')
-        ->find($deliveryId);
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->find($deliveryId);
 
         //Join Detaillist 資料
         $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
-        ->select('*')
-        ->where('detaillist.qid','=',$deliveryInfo->qid)
-        ->get();
+            ->select('*')
+            ->where('detaillist.qid', '=', $deliveryInfo->qid)
+            ->get();
+
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo', 'detaillistInfo'));
+        return $pdf->download();
+    }
+
+    public function viewPDF($deliveryId)
+    {
+        //Join Delivery 資料
+        $deliveryInfo = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            ->select('*')
+            ->find($deliveryId);
+
+        //Join Detaillist 資料
+        $detaillistInfo = Detaillist::join('quotation', 'quotation.qid', '=', 'detaillist.qid')
+            ->select('*')
+            ->where('detaillist.qid', '=', $deliveryInfo->qid)
+            ->get();
 
 
 
-        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo','detaillistInfo'));
+        $pdf = PDF::loadView('pdf.deliveryinfo', compact('deliveryInfo', 'detaillistInfo'));
         return $pdf->stream();
-
     }
 
     //寄信
@@ -233,8 +223,6 @@ class DeliveryController extends Controller
 
         return redirect('/main/delivery');
     }
-
-    
 }
 
 ///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me
@@ -267,17 +255,17 @@ function generateid($id, $date, $head)
 //現在時間
 $unix = strtotime(date('Ymd'));
 $utc8 = $unix + 28800;
-$date =date("Ymd", $utc8);
-$date_ =date("Y-m-d", $utc8);
+$date = date("Ymd", $utc8);
+$date_ = date("Y-m-d", $utc8);
 $number = 0;
 
 //同一天生成的訂單給num++方式流水號
-    
-$count = DB::select("SELECT count(qdate) FROM `quotation` WHERE qdate = '$date_' ") ;
-foreach($count[0] as $qdatecount){
+
+$count = DB::select("SELECT count(qdate) FROM `quotation` WHERE qdate = '$date_' ");
+foreach ($count[0] as $qdatecount) {
 }
 
-$number=$qdatecount+1 ;// 報價單流水編號
-$head='KMD';
+$number = $qdatecount + 1; // 報價單流水編號
+$head = 'KMD';
 // echo generateid($number,$date,$head).'<br />';
 ///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me///copy me

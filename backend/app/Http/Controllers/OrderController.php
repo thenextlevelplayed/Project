@@ -64,9 +64,9 @@ class OrderController extends Controller
 
         // dd($manu);
         //出貨單編號
-        $deli = Delivery::join('manufacture','manufacture.mid','=','delivery.mid')
-        ->join('order','order.oid','=','manufacture.oid')
-        ->get();
+        $deli = Delivery::join('manufacture', 'manufacture.mid', '=', 'delivery.mid')
+            ->join('order', 'order.oid', '=', 'manufacture.oid')
+            ->get();
         // dd($deli);
 
         return view('main.order', compact('order', 'manu', 'deli'));
@@ -162,12 +162,14 @@ class OrderController extends Controller
         $orderInfo = Order::find($orderID);
 
         // 2.產生子訂單編號 原訂單編號後加上A
-        $oid = Order::insertGetId([
+        $Moid = Order::insertGetId([
             'odate' => date("Y-m-d"),
             'qid' => $orderInfo->qid,
             'ostatus' => 'N',
             'orownumber' => $orderInfo->orownumber . 'A'
         ]);
+
+        // dd($oid);
 
         // 3.子訂單明細新增
         for ($i = 0; $i < count($req->dlid); $i++) {
@@ -179,7 +181,7 @@ class OrderController extends Controller
                 // 3-3. 新增 detail 
                 Detaillist::insert([
                     'qid' => $Orig->qid,
-                    'oid' => $oid,
+                    'oid' => $Moid,
                     'iid' => $Orig->iid,
                     'rid' => $Orig->rid,
                     'mname' => $Orig->mname,

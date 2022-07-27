@@ -76,8 +76,13 @@ Route::post('/order/Split/{orderId}', "App\Http\Controllers\OrderController@orde
 
 //製造
 Route::get('/main/manufacture', "App\Http\Controllers\ManufactureController@manufacture");
+Route::get('/main/manufacture/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureInfo");  //訂單檢視
 Route::get('/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureEdit");
 Route::put('/manufacture/edit/{manufactureId}', "App\Http\Controllers\ManufactureController@manufactureUpdate"); //更新
+
+Route::post('/deliveryCreate/{manufactureId}', "App\Http\Controllers\ManufactureController@deliveryCreate"); //訂單轉為出貨
+
+Route::post('/manufacture/pComplete', "App\Http\Controllers\ManufactureController@pComplete"); //入庫寫入庫存表
 
 //news
 Route::get('/main/news', "App\Http\Controllers\NewsController@news");
