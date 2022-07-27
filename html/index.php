@@ -260,7 +260,7 @@ include '../php/news.php';
                 </div>
 
                 <!-- 到時候替換動畫效果 -->
-                <div class="col-lg-6 d-flex indexAbout">
+                <div class="col-lg-6 indexAbout">
                 </div>
             </div>
 

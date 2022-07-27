@@ -1,5 +1,3 @@
-
-
 <?php
 include '../php/news.php';
 ?>
@@ -73,13 +71,13 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                    <?php echo '<img src="data:image/jpeg;base64,'.$blob1.'"/>';?>
+                        <?php echo '<img src="data:image/jpeg;base64,' . $blob1 . '"/>'; ?>
                         <!-- <img src="../資訊圖庫/A01.jpg"> -->
                     </div>
                     <div class="col-lg-6 carouselContent">
                         <h3 class="indexh3"><?php echo $title1; ?></h3>
                         <p class="indexp">
-                        <?php echo $content1; ?>
+                            <?php echo $content1; ?>
                         </p>
                     </div>
                 </div>
@@ -87,12 +85,12 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                    <?php echo '<img src="data:image/jpeg;base64,'.$blob2.'"/>';?>
+                        <?php echo '<img src="data:image/jpeg;base64,' . $blob2 . '"/>'; ?>
                     </div>
                     <div class="col-lg-6 carouselContent">
                         <h3 class="indexh3"><?php echo $title2; ?></h3>
                         <p class="indexp">
-                        <?php echo $content2; ?>
+                            <?php echo $content2; ?>
                         </p>
                     </div>
                 </div>
@@ -100,12 +98,12 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                    <?php echo '<img src="data:image/jpeg;base64,'.$blob3.'"/>';?>
+                        <?php echo '<img src="data:image/jpeg;base64,' . $blob3 . '"/>'; ?>
                     </div>
                     <div class="col-lg-6 carouselContent">
                         <h3 class="indexh3"><?php echo $title3; ?></h3>
                         <p class="indexp">
-                        <?php echo $content3; ?>
+                            <?php echo $content3; ?>
                         </p>
                     </div>
                 </div>
@@ -113,7 +111,7 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                    <?php echo '<img src="data:image/jpeg;base64,'.$blob4.'"/>';?>
+                        <?php echo '<img src="data:image/jpeg;base64,' . $blob4 . '"/>'; ?>
                     </div>
                     <div class="col-lg-6 carouselContent">
                         <h3 class="indexh3"><?php echo $title4; ?></h3>
@@ -124,7 +122,7 @@ include '../php/news.php';
             <div class="container">
                 <div class="row border carouselCard">
                     <div class="col-lg-6 carouselImage">
-                    <?php echo '<img src="data:image/jpeg;base64,'.$blob5.'"/>';?>
+                        <?php echo '<img src="data:image/jpeg;base64,' . $blob5 . '"/>'; ?>
                     </div>
                     <div class="col-lg-6 carouselContent">
                         <h3 class="indexh3"><?php echo $title5; ?></h3>
@@ -222,13 +220,13 @@ include '../php/news.php';
                     </div>
 
                     <div class="card-img-overlay mx-3 p-5">
-                        <a href="#">
-                            <h2 class="card-title indexh2">資展國際</h2>
-                            <p class="card-text indexp txtIn">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                Obcaecati,
-                                odio ducimus nobis sapiente porro modi. Error doloribus recusandae reiciendis unde vitae
-                                laudantium, eos adipisci omnis soluta rerum atque, voluptas id.</p>
-                        </a>
+
+                        <h2 class="card-title indexh2">資展國際</h2>
+                        <p class="card-text indexp txtIn">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Obcaecati,
+                            odio ducimus nobis sapiente porro modi. Error doloribus recusandae reiciendis unde vitae
+                            laudantium, eos adipisci omnis soluta rerum atque, voluptas id.</p>
+
                     </div>
                 </div>
                 <div class="col-lg-6 newsCard">
@@ -237,12 +235,12 @@ include '../php/news.php';
                     </div>
 
                     <div class="card-img-overlay mx-3 p-5">
-                        <a href="#">
-                            <h2 class="card-title indexh2">戴爾DELL</h2>
-                            <p class="card-text indexp">Doloribus
-                                temporibus nisi qui fuga, adipisci enim nam repudiandae beatae laboriosam reiciendis
-                                nihil facere hic cumque quo minus, fugit exercitationem accusantium! Placeat?</p>
-                        </a>
+
+                        <h2 class="card-title indexh2">戴爾DELL</h2>
+                        <p class="card-text indexp">Doloribus
+                            temporibus nisi qui fuga, adipisci enim nam repudiandae beatae laboriosam reiciendis
+                            nihil facere hic cumque quo minus, fugit exercitationem accusantium! Placeat?</p>
+
                     </div>
                 </div>
             </div>
@@ -266,10 +264,7 @@ include '../php/news.php';
 
 
             <div class="col-lg-7 videobox">
-                <iframe width="800" height="400" 
-                    src="https://www.youtube.com/embed/5Y1GpL768Sk" 
-                    title="YouTube video player" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                <iframe width="800" height="400" src="https://www.youtube.com/embed/5Y1GpL768Sk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
         </div>
@@ -444,8 +439,7 @@ include '../php/news.php';
                             <div class="row Cooperate">
                                 <div class="col-lg-6  rec300">
                                     <div class="center">
-                                        <img class="w-100 h-auto"
-                                            src="../資訊圖庫/合作夥伴logo/checkpoint-logo-stacked-large.png" alt="" />
+                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/checkpoint-logo-stacked-large.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 pl-4">
@@ -464,8 +458,7 @@ include '../php/news.php';
                             <div class="row Cooperate">
                                 <div class="col-lg-6 rec300">
                                     <div class="center">
-                                        <img class="w-100 h-auto"
-                                            src="../資訊圖庫/合作夥伴logo/Hewlett_Packard_Enterprise_logo.svg.png" alt="" />
+                                        <img class="w-100 h-auto" src="../資訊圖庫/合作夥伴logo/Hewlett_Packard_Enterprise_logo.svg.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 pl-4">
@@ -598,7 +591,7 @@ include '../php/news.php';
     <script src="../js/newsRouter.js"></script>
     <script type="text/javascript" src="../js/slick.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.slick').slick({
                 dots: true,
             });

@@ -137,15 +137,33 @@
     .indexImgDiv{
         display:none !important;
     }
+    .indexAbout {
+        height:auto;
+        background-size: contain;
+    }
     
 }
 
 .indexAbout {
-    height: 700px;
+    height: auto;
     width: 100%;
     background-image: url(../img/aboutUs/group.jpg);
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+@media only screen and (max-width: 992px) {
+
+
+    .indexAbout {
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+}
+
 
 .indexNews{
     background-image: url(../img/index/earth.png);
