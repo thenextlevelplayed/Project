@@ -104,9 +104,9 @@
                                                     }
                                                 }
                                                 
-                                                echo $dstatus;
-                                                echo $mstatus;
-                                                echo $od->ostatus;
+                                                // echo $dstatus;
+                                                // echo $mstatus;
+                                                // echo $od->ostatus;
                                                 
                                                 if ($dstatus == 'Y') {
                                                     echo "<span class='badge bg-success'>已完成出貨</span>";
