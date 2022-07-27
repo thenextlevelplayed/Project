@@ -170,17 +170,18 @@
             </div>
 
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary " href="/main/order/Split/{{ $orderID }}" <?php if ($orderEdit->ostatus == 'Y') {
-                    echo 'hidden';
-                } ?>>
-                    <i class="fa fa-undo"></i>&nbsp;拆單
-                </a>
                 <span>
-                    <form class="form-horizontal" action="/manufacturecreate/{{ $orderID }}" method="POST">
+                    <a class="btn btn-primary " href="/main/order/Split/{{ $orderID }}" <?php if ($orderEdit->ostatus == 'Y') {
+                        echo 'hidden';
+                    } ?>>
+                        <i class="fa-solid fa-file-export"></i>&nbsp;拆單
+                    </a>
+                </span>
+                
+                <span>
+                    <form class=" btn btn-primary" action="/manufacturecreate/{{ $orderID }}" method="POST">
                         @csrf
-                        <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
                             <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
-                        </button>
                     </form>
                 </span>
             </div>

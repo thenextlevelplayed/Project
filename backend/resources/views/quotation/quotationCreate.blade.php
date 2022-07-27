@@ -164,12 +164,10 @@
                     </div>
                     <div class="row container justify-content-center">
                         <div class="col-md-3 p-1">
-                            <input type="submit" class="btn btn-primary btn-block" value="新增存檔">                      
+                            <input type="submit" class="btn btn-primary btn-block" value="新增存檔">                                                
                         </div>
                         <div class="col-md-3 p-1">
-                            <a href='/main/quotation' class="btn btn-secondary btn-block">
-                                <i class="fa-solid fa-x"></i> &nbsp; 取消返回
-                            </a>
+                            <a href='/main/quotation' class="btn btn-secondary btn-block">取消返回</a>
                         </div>
                     </div>
                 </form>

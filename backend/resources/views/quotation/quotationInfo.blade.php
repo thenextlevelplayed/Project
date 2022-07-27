@@ -139,13 +139,13 @@
             </div>
             <div class="col-md-12 text-right">
                 <a class="btn btn-primary " href="/main/quotation">
-                    <span>返回</span>
+                    <span><i class="fa fa-undo" aria-hidden="true"></i>返回</span>
                 </a>
                 <a class="btn btn-primary " href="/quotation/pdf/view/{{$quotationInfo->qid}}">
-                    <span>預覽PDF</span>
+                    <span><i class="fa-regular fa-eye"></i> &nbsp;預覽PDF</span>
                 </a>
                 <a class="btn btn-primary" href="/main/quotation/pdf/{{$quotationInfo->qid}}">
-                    <span>匯出PDF</span>
+                    <span><i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;匯出PDF</span>
                 </a>
             </div>
         </div>
