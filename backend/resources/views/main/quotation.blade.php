@@ -54,7 +54,7 @@
                                                 {{ $q->cname }}
                                             </td>
                                             <td>
-                                                <a href="/quotation/edit/{{ $q->qid }}">
+                                                <a href="/quotation/edit/{{ $q->qid }}" <?php if ($q->qstatus == 'Y'){ echo 'hidden';}  ?>>
                                                     <button class="btn btn-primary btn-sm">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </button>

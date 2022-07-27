@@ -83,23 +83,14 @@ class ManufactureController extends Controller
             ->select('*')
             ->find($manufactureId);
 
-
-
-
         $manu->mremark = $request->mremark;
-        $manu->mstatus = $request->mstatus;
-
         $manu->save();
+
         for ($i = 0; $i < count($request->did); $i++) {
             $dtl = Detaillist::where('dlid', '=', $request->did[$i])->first();
             $dtl->remark = $request->remark[$i];
             $dtl->save();
         }
-
-
-        //撈畫面的資料
-
-
 
         return redirect('/main/manufacture/');
     }

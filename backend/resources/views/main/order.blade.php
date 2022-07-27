@@ -119,7 +119,7 @@
                                                 ?>
                                             </td>
                                             <td>
-                                                <div class="btn-group">
+                                                <div class="btn-group" <?php if($od->ostatus == 'Y'){ echo 'hidden';} ?>>
                                                     {{-- {{ url('/home') }} --}}
                                                     <a href="/main/order/edit/{{ $od->oid }}" class="btn"
                                                         style="background: 0 ; color:rgb(122, 122, 122)">
