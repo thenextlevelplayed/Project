@@ -186,6 +186,7 @@
                 <a class="btn btn-primary " href="/main/order">
                     <i class="fa fa-undo"></i>&nbsp;返回
                 </a>
+               
                 <a class="btn btn-primary " href="/order/pdf/view/{{ $orderID }}">
                     <i class="fa-regular fa-eye"></i> &nbsp;預覽pdf
                 </a>
