@@ -160,9 +160,9 @@
                         </div>
                     </div>
                     <div class="col-md-12 text-right">
-                        <a class="btn btn-primary mr-3" href="/main/purchase/{{ $info[0]->bid }}">
+                        <div class="btn btn-primary mr-3" onclick="history.back()">
                             <span>取消</span>
-                        </a>
+                        </div>
                         <input type="submit" class="btn btn-primary" value="存檔">
                     </div>
                 </form>
