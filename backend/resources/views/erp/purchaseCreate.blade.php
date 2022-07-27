@@ -50,7 +50,7 @@
                                             <p>進貨日期</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            <input type="text" value="" name="bookdate" required>
+                                            <input type="date" value="" name="bookdate" required>
                                         </div>
                                     </div>
                                 </div>

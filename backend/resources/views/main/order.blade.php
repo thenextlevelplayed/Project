@@ -92,34 +92,30 @@
                                             <td>
                                                 <?php
                                                 
-                                                $host = 'localhost';
-                                                $dbuser = 'root';
-                                                $dbpassword = '';
-                                                $dbname = 'backend';
-                                                $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
-                                                $conn->set_charset('utf8');
+                                                for ($i = 0; $i < count($manu); $i++) {
+                                                    if ($manu[$i]->oid == $od->oid) {
+                                                        $mstatus = $manu[$i]->mstatus;
+                                                    }
+                                                }
                                                 
-                                                $sql = "SELECT `mstatus` FROM `manufacture` WHERE `oid`=  $od->oid";
-                                                $result = $conn->query($sql);
-                                                $m = $result->fetch_object();
+                                                for ($i = 0; $i < count($deli); $i++) {
+                                                    if ($deli[$i]->oid == $od->oid) {
+                                                        $dstatus = $deli[$i]->dstatus;
+                                                    }
+                                                }
                                                 
-                                                $sql = "SELECT delivery.dstatus FROM delivery INNER JOIN manufacture on delivery.mid = manufacture.mid WHERE manufacture.oid=  $od->oid";
-                                                $result = $conn->query($sql);
-                                                $d = $result->fetch_object();
+                                                echo $dstatus;
+                                                echo $mstatus;
+                                                echo $od->ostatus;
                                                 
-                                                // echo $m->mstatus;
-                                                // echo $d->dstatus;
-                                                
-                                                $conn->close();
-                                                
-                                                if ($d->dstatus == 'Y') {
-                                                    echo "<span class='badge bg-success'>已出貨</span>";
-                                                } elseif ($m->mstatus == 'Y') {
+                                                if ($dstatus == 'Y') {
+                                                    echo "<span class='badge bg-success'>已完成出貨</span>";
+                                                } elseif ($mstatus == 'Y') {
                                                     echo "<span class='badge bg-warning'>已成立出貨單</span>";
                                                 } elseif ($od->ostatus == 'Y') {
                                                     echo "<span class='badge bg-primary'>已成立工單</span>";
                                                 }
-
+                                                
                                                 ?>
                                             </td>
                                             <td>
