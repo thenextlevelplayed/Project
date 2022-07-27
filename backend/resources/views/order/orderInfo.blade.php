@@ -108,7 +108,7 @@
                                         </thead>
 
                                         <tbody>
-                                            <?php $tot = 0;?>
+                                            <?php $tot = 0; ?>
                                             @foreach ($quotation as $key => $item)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
@@ -123,7 +123,7 @@
                                                         ?></td>
                                                     {{-- <td>{{$item->remark}}</td> --}}
 
-                                                    <?php $tot +=  $item->quantity * $item->price?>
+                                                    <?php $tot += $item->quantity * $item->price; ?>
                                                 </tr>
                                             @endforeach
                                             {{-- <tr>
@@ -143,7 +143,7 @@
                                     <div class="col-lg-10">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-mb-3" id="AllTot"><?php echo $tot ?></div>
+                                    <div class="col-mb-3" id="AllTot"><?php echo $tot; ?></div>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,9 @@
                 <a class="btn btn-primary " href="/main/order">
                     <i class="fa fa-undo"></i>&nbsp;返回
                 </a>
-                <a class="btn btn-primary " href="/main/order/Split/{{ $orderID }}">
+                <a class="btn btn-primary " href="/main/order/Split/{{ $orderID }}" <?php if ($orderInfo->ostatus == 'Y') {
+                    echo 'hidden';
+                } ?> >
                     <i class="fa fa-undo"></i>&nbsp;拆單
                 </a>
                 <a class="btn btn-primary " href="/order/pdf/view/{{ $orderID }}">

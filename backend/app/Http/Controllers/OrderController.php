@@ -82,7 +82,7 @@ class OrderController extends Controller
             ->join('staff', 'staff.staffid', '=', 'quotation.staffid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
             ->join('detaillist', 'detaillist.qid', '=', 'quotation.qid')
-            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'customer.ctel', 'order.odate', 'quotation.qcontact', 'customer.clineid', 'customer.cmail', 'staff.staffname')
+            ->select('order.orownumber', 'customer.cname', 'customer.cid', 'customer.ctel', 'order.odate', 'quotation.qcontact', 'customer.clineid', 'customer.cmail', 'staff.staffname','order.ostatus')
             ->where('order.oid', '=', $orderID)
             ->first();
 
