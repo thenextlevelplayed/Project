@@ -138,6 +138,7 @@ class purchaseController extends Controller
             ->select('bookdetail.mname', 'material.mnumber', 'bookdetail.quantity', 'bookdetail.cost', 'bookdetail.pstatus', 'bookdetail.bdetailid')
             ->where('bid', '=', $purchaseID)
             ->get();
+            
 
         return view('erp.purchaseInfo', compact("info", "detail"));
     }

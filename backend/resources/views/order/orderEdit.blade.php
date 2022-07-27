@@ -159,29 +159,30 @@
                         <a class="btn btn-primary mr-2" href="/main/order">
                             <i class="fa fa-undo"></i>&nbsp;返回
                         </a>
-                        {{-- <a class="btn btn-primary mr-2" href="">
-                                            <span>預覽</span>
-                                        </a> --}}
+
+
+
                         <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">
                             <i class="far fa-save"></i>&nbsp;存檔
                         </button>
                     </div>
                 </form>
             </div>
-            <div class="col-md-12 text-right" 
-                <?php
-                    if ($orderEdit->ostatus == 'Y') {
-                        echo 'hidden';
-                    }
-                ?>
-            >
-                <form class="form-horizontal" action="/manufacturecreate/{{ $orderID }}" method="POST">
-                    @csrf
-                    <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
-                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
-                    </button>
-                </form>
 
+            <div class="col-md-12 text-right">
+                <a class="btn btn-primary " href="/main/order/Split/{{ $orderID }}" <?php if ($orderEdit->ostatus == 'Y') {
+                    echo 'hidden';
+                } ?>>
+                    <i class="fa fa-undo"></i>&nbsp;拆單
+                </a>
+                <span>
+                    <form class="form-horizontal" action="/manufacturecreate/{{ $orderID }}" method="POST">
+                        @csrf
+                        <button type="submit" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
+                            <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
+                        </button>
+                    </form>
+                </span>
             </div>
         </div>
     </div>
