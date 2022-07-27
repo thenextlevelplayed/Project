@@ -52,7 +52,7 @@
                            
                                 <tr>
                                     {{-- {{$d->firstName}} --}}
-                                    <td><a href="/delivery/{{$delivery->did}}" class="btn" style="background: 0 ; color:black">{{$delivery->drownumber}}</a></td>
+                                    <td><a href="/delivery/{{$delivery->did}}" >{{$delivery->drownumber}}</a></td>
                                     {{-- {{$d->firstName}} --}}
                                     <td>{{$delivery->cname}}</td>
                                      <td >

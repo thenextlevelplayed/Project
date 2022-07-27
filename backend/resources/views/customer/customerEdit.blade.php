@@ -115,9 +115,11 @@
                                 </div>
                                 <div class="col-md-12 text-right">
                                     <a class="btn btn-primary" type="submit" href="/main/customer">
-                                        <span>返回</span>
+                                        <span><i class="fa fa-undo"></i>&nbsp;返回</span>
                                     </a>
-                                    <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-success">OK</button>
+                                    <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">
+                                        <i class="far fa-save"></i>&nbsp;存檔
+                                    </button>
                                 </div>
                             </div>
                         </div>
