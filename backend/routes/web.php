@@ -32,6 +32,8 @@ Route::get('/member/logout', "App\Http\Controllers\memberController@logout");
 //帳號管理頁
 Route::get('/member/memberInfo/{name}', "App\Http\Controllers\memberController@memberInfo");
 Route::get('/member/memberEdit/{name}', "App\Http\Controllers\memberController@memberEdit");
+Route::put('/member/memberEdit/{name}', "App\Http\Controllers\memberController@memberUpdate");
+
 //管理員新增帳號
 Route::get('/member/create', "App\Http\Controllers\memberController@create");
 

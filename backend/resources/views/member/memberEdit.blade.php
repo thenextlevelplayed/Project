@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="container">
-                        <form id="loginForm" action="/member/memberInfo/{{ Session::get('name') }}" method="post">
+                        <form id="loginForm" action="/member/memberEdit/{{ Session::get('name') }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="logoMember">
@@ -40,15 +40,15 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">姓名</label>
-                                <input class="form-control" type="text" value="">
+                                <input class="form-control" type="text" value="{{$memberInfo->staffname}}" readonly>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">聯絡電話</label>
-                                <input class="form-control" type="text" value="">
+                                <input class="form-control" type="text" value="{{$memberInfo->stafftel}}" name="stafftel">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">信箱</label>
-                                <input class="form-control" type="text" value="">
+                                <input class="form-control" type="text" value="{{$memberInfo->staffmail}}" name="staffmail">
                             </div>
                             <div class="row p-3">
                                 <div class="col-md-6">

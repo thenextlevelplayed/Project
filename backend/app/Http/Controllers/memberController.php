@@ -88,16 +88,26 @@ class memberController extends Controller
 
     //帳號管理頁面
     function memberInfo($memberId){
-
         $memberInfo = Staff::select('*')
-        ->find($memberId);
-
+        ->where('staffname','=',"$memberId")
+        ->first();
         return view('member.memberInfo',compact('memberInfo'));
     }
 
-    function memberEdit($name){
-
-        return view('member.memberEdit');
+    function memberEdit(Request $request ,$memberId){
+        $memberInfo = Staff::select('*')
+        ->where('staffname','=',"$memberId")
+        ->first();
+        return view("member.memberEdit",compact("memberInfo"));
     }
 
+    function memberUpdate(Request $request ,$memberId){
+        $memberInfo = Staff::select('*')
+        ->where('staffname','=',"$memberId")
+        ->first();
+        $memberInfo->stafftel = $request->stafftel;
+        $memberInfo->staffmail = $request->staffmail;
+        $memberInfo->save();
+        return redirect("/member/memberInfo/$memberId");
+    }
 }
