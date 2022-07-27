@@ -38,15 +38,15 @@
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom01">姓名</label>
-                            <input class="form-control" type="text" value="" readonly>
+                            <input class="form-control" type="text" value="{{$memberInfo->staffname}}" readonly>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom01">聯絡電話</label>
-                            <input class="form-control" type="text" value="" readonly>
+                            <input class="form-control" type="text" value="{{$memberInfo->stafftel}}" readonly>
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="validationCustom01">信箱</label>
-                            <input class="form-control" type="text" value="" readonly>
+                            <input class="form-control" type="text" value="{{$memberInfo->staffmail}}" readonly>
                         </div>
                         <div class="row p-3">
                             <div class="col-md-12">
