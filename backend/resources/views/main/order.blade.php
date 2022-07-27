@@ -93,20 +93,20 @@
                                                 <?php
                                                 
                                                 for ($i = 0; $i < count($manu); $i++) {
+                                                    $mstatus = 'N';
                                                     if ($manu[$i]->oid == $od->oid) {
                                                         $mstatus = $manu[$i]->mstatus;
+                                                        break;
                                                     }
                                                 }
                                                 
                                                 for ($i = 0; $i < count($deli); $i++) {
+                                                    $dstatus = 'N';
                                                     if ($deli[$i]->oid == $od->oid) {
                                                         $dstatus = $deli[$i]->dstatus;
+                                                        break;
                                                     }
                                                 }
-                                                
-                                                // echo $dstatus;
-                                                // echo $mstatus;
-                                                // echo $od->ostatus;
                                                 
                                                 if ($dstatus == 'Y') {
                                                     echo "<span class='badge bg-success'>已完成出貨</span>";

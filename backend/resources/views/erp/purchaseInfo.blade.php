@@ -129,7 +129,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $totPstatus = ''; ?>
                                             @foreach ($detail as $det)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
@@ -139,8 +138,6 @@
                                                     <td class="col-2"> {{ $det->cost }}</td>
                                                     <td class="col-2"> {{ $det->quantity * $det->cost }}</td>
                                                     <td class="col-2"> <?php
-                                                    
-                                                    $totPstatus .= $det->pstatus;
                                                     
                                                     if ($det->pstatus == 'Y') {
                                                         echo "<span class='badge bg-success'>已入庫</span>";
@@ -183,16 +180,9 @@
                 <a class="btn btn-primary mr-3" href="/main/purchase">
                     <span>回上頁</span>
                 </a>
-                <?php
-                echo $totPstatus;
-                if (strpos($totPstatus, 'YYY')) {
-                    echo 'ok';
-                }
-                ?>
                 <a class="btn btn-primary mr-3" href="/purchase/edit/{{ $info[0]->bid }}">
                     <span>編輯</span>
                 </a>
-
             </div>
         </div>
     </div>
@@ -238,8 +228,8 @@
 
             $('#exampleModal').modal('show');
             $('#exampleModalLabel').text(`確定第${dindex}要入庫?`)
-
-            console.log(mNumber, quantity, did, row, dindex, sumPrice);
+            
+            console.log(mNumber, quantity, did,row,dindex ,sumPrice);
         })
 
         $('#okBtn').on('click', function() {
@@ -255,7 +245,7 @@
                     mNumber: mNumber,
                     quantity: quantity,
                     did: did,
-                    sumPrice: sumPrice,
+                    sumPrice:sumPrice,
                     _token: _token
                 },
                 success: function(response) {
