@@ -54,15 +54,18 @@
                                             </td>
                                             <td>
                                                 <?php
+                                                
                                                 if ($mInfo->mstatus == 'Y') {
-                                                    echo `<span class="badge bg-success">
-                                                            已成立出貨單
-                                                        </span>`;
+                                                    echo "<span class='badge bg-success'>已成立出貨單</span>";
+                                                } else {
+                                                    //沒有不秀
                                                 }
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="/manufacture/edit/{{ $mInfo->mid }}" <?php if ($mInfo->mstatus == 'Y'){ echo 'hidden';} ?>>
+                                                <a href="/manufacture/edit/{{ $mInfo->mid }}" <?php if ($mInfo->mstatus == 'Y') {
+                                                    echo 'hidden';
+                                                } ?>>
                                                     <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
                                                             aria-hidden="true"></i></button>
                                                 </a>
