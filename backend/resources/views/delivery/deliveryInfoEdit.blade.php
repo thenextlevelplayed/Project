@@ -181,12 +181,12 @@
                             </div>
                             <div class="col-md-12 text-right">
                                 <a class="btn btn-primary " href="/main/delivery">
-                                    <span>返回</span>
+                                    <span><i class="fa fa-undo"></i>&nbsp;返回</span>
                                 </a>
                                 <a class="btn btn-primary " href="/main/delivery/{{$deliveryInfo->did}}">
-                                    <span>預覽</span>
+                                    <span><i class="fa-regular fa-eye"></i> &nbsp;預覽</span>
                                 </a>
-                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary">存檔</button>
+                                <button type="submit" id="okOrCancel" name="okOrCancel" class="btn btn-primary"><i class="far fa-save"></i>&nbsp;存檔</button>
                                 {{-- <a class="btn btn-primary" href="/main/delivery">
                                     <span>存檔</span>
                                 </a> --}}
