@@ -100,8 +100,7 @@ include '../php/news.php';
                         <div class="ServiceContent">
                             <h1 class="indexh1">WHAT WE<br>DO.
                                 <h2 class="indexh2">服務項目</h2>
-                                <p class="indexp">楷模資訊為
-                                </p>
+                                <p class="indexp"></p>
                                 <button class="roundbutton" onclick="window.location.href='./news.php'">查看更多</button>
                         </div>
                         <div id="Service01" class="indexContent">
@@ -160,7 +159,7 @@ include '../php/news.php';
                         <div style="padding:80px; margin-top: 20px;margin-bottom: 10px;">
                             <h1 class="indexh1">WHAT's<br>NEWS.
                                 <h2 class="indexh2">最新消息</h2>
-                                <p class="indexp">青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢。</p>
+                                <p class="indexp"></p>
                                 <button class="roundbutton" onclick="window.location.href='./news.php'">查看更多</button>
                         </div>
                     </div>
