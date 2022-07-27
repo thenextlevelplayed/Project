@@ -181,13 +181,9 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary mr-3" href="/main/purchase">
+                <div class="btn btn-primary mr-3" onclick="history.back()">
                     <span>回上頁</span>
-                </a>
-                <?php echo $totstatus; ?>
-                <a class="btn btn-primary mr-3" href="/purchase/edit/{{ $info[0]->bid }}">
-                    <span>編輯</span>
-                </a>
+                </div>
             </div>
         </div>
     </div>
