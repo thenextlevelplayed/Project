@@ -18,54 +18,13 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="/manufacture/edit/{{ $manufactureId }}" class="form-horizontal">
-                            @csrf
-                            @method('PUT')
+                        <form method="" action="" class="form-horizontal">
                             <div class="container p-5">
                                 <div>
                                     <div class="col-md-12 card-title text-center">
                                         <h3>楷模資訊 工單管理</h3>
                                     </div>
-                                    {{-- <div class="container-fluid row justify-content-end" style="padding-right: 0px">
-                                        <?php
-                                        if($manu->mstatus == 'Y'){
-                                        ?>
-                                        <div class="form-check" style="margin-right: 30px">
-                                            <input type="radio" name="inlineRadioOptions" id="flexRadioDefault1"
-                                                value="Y" checked>
-                                            <label for="flexRadioDefault1" style="font-size: 20px">
-                                                已完成
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="radio" name="inlineRadioOptions" id="flexRadioDefault2"
-                                                value="N">
-                                            <label for="flexRadioDefault2" style="font-size: 20px">
-                                                未完成
-                                            </label>
-                                        </div>
-                                        <?php
-                                        }
-                                        elseif($manu->mstatus == 'N' or $manu->mstatus ==''){
-                                        ?>
-                                        <div class="form-check" style="margin-right: 30px">
-                                            <input type="radio" name="inlineRadioOptions" id="flexRadioDefault1"
-                                                value="Y">
-                                            <label for="flexRadioDefault1" style="font-size: 20px">
-                                                已完成
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="radio" name="inlineRadioOptions" id="flexRadioDefault2"
-                                                value="N" checked>
-                                            <label for="flexRadioDefault2" style="font-size: 20px">
-                                                未完成
-                                            </label>
-                                        </div>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div> --}}
+
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="validationCustom01">工單編號</label>
@@ -101,7 +60,7 @@
                                     <div class="row ">
                                         <div class="col-md-12 mb-3">
                                             <label for="exampleFormControlTextarea1">工單備註</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="mremark">{{ $manu->mremark }}</textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="mremark" readonly>{{ $manu->mremark }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +88,7 @@
                                             </th>
 
                                         </thead>
-                                        <tbody id="mtr">
+                                        <tbody>
                                             @foreach ($quotation as $key => $item)
                                                 <tr>
                                                     <td>
@@ -143,21 +102,21 @@
                                                     </td>
                                                     <td>
                                                         <div style="width:300px">
-                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark[]">{{ $item->remark }}</textarea>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark" readonly>{{ $item->remark }}</textarea>
                                                         </div>
                                                     </td>
-                                                    <td> <?php
-                                                    
-                                                    if ($item->pstatus == 'Y') {
-                                                        echo "<span class='badge bg-success mComplete'>已完成</span>";
-                                                    } else {
-                                                        //點集 入庫並寫入庫存表
-                                                        echo "<span class='badge bg-danger mComplete' style='cursor:pointer; '>未完成</span>";
-                                                    }
-                                                    ?>
+
+                                                    <td style="text-align: center">
+                                                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel"
+                                                            name="pstatus" value="Y" 
+                                                            <?php
+                                                                if ($item->pstatus == 'Y') {
+                                                                    echo 'checked';
+                                                                } 
+                                                            ?>
+                                                            onclick="return false" >
                                                     </td>
 
-                                                    <input type="hidden" name="did[]" value="{{ $item->dlid }} ">
                                                 </tr>
                                             @endforeach
 
@@ -193,14 +152,11 @@
                                             <i class="fa-solid fa-arrow-up-from-bracket"></i><span> &nbsp;匯出PDF</span>
                                         </a>
                                     </div>
+
                                     <div class="col-md-2 p-1">
-                                        <button type="submit" id="okOrCancel" name="okOrCancel"
-                                            class="btn btn-primary btn-block"><i class="far fa-save"></i>&nbsp;存檔</button>
-                                    </div>
-                                    <div class="col-md-2 p-1">
-                                        <a class="btn btn-danger btn-block" href='/main/manufacture/'>
+                                        <button type="button" class="btn btn-danger btn-block" onclick="history.back()">
                                             <i class="fa-solid fa-x"></i><span> &nbsp;取消</span>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -210,111 +166,6 @@
 
                 </div>
             </div>
-            <div class="col-md-12 text-right">
-
-                <form id="delForm" class="form-horizontal" action="/deliveryCreate/{{ $manufactureId }}" method="POST">
-                    @csrf
-                    <button type="button" id="okOrCancel1" name="okOrCancel1" class="btn btn-primary">
-                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為出貨單
-                    </button>
-                </form>
-
-            </div>
         </div>
     </div>
-    {{-- bootstrap對話框 --}}
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">確定要刪除?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                    <button type="button" id="okBtn" class="btn btn-primary">確定</button>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
-
-
-@section('script')
-    <script>
-        var did;
-        var row;
-
-        $('.mComplete').on('click', function(e) {
-
-            row = $(this).closest('tr');
-
-            let mName = $(row).find('td').eq(0).text();
-            did = $(row).find('input').eq(0).val();
-
-            $('#exampleModal').modal('show');
-            $('#exampleModalLabel').text(`確定${mName}已完成?`)
-
-        })
-
-        $('#okBtn').on('click', function() {
-
-            $('#exampleModal').modal('hide');
-
-            let _token = $("input[name=_token]").val();
-
-            $.ajax({
-                type: "post",
-                url: "/manufacture/pComplete",
-                data: {
-                    did: did,
-                    _token: _token
-                },
-                success: function(response) {
-
-                    //變更狀態 未入庫->已入庫
-                    $(row).find('td').eq(4).html("<span class='badge bg-success'>已完成</span>");
-                    console.log(response);
-
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert(XMLHttpRequest.status);
-                    alert(XMLHttpRequest.readyState);
-                    alert(textStatus);
-                }
-            })
-
-        })
-
-
-        $('#okOrCancel1').on('click', function() {
-
-            let totComplete = true;
-            let bodytr = $('#mtr > tr')
-            // console.log(bodytr)
-            for (let i = 0; i < bodytr.length; i++) {
-
-                let tr = $(`#mtr  > tr:nth-child(${i+1})`);
-                let mComplete = tr.find('.mComplete').text();
-
-                if (mComplete == "未完成") {
-                    totComplete = false;
-                    console.log('ok');
-                    break;
-                }
-            }
-
-            if (totComplete) {
-                $('#delForm').submit();
-            } else {
-                alert("有未完成項目")
-            }
-
-        })
-    </script>
 @endsection

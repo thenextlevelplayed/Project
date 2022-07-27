@@ -1,5 +1,6 @@
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 {{-- 字型 --}}
@@ -10,37 +11,50 @@
         font-weight: normal;
         src: url({{ storage_path('fonts/NotoSansTC-Regular.otf') }}) format('truetype');
     }
-    *{
+
+    * {
         position: relative;
         box-sizing: borderInfo-box;
         /* borderInfo: 1px solid red; */
         padding: 0;
         margin: 0;
     }
-    body{
-        font-family: NotoSansTC-Regular, DejaVu Sans,sans-serif;      
+
+    body {
+        font-family: NotoSansTC-Regular, DejaVu Sans, sans-serif;
     }
-    .paddingY{
-        padding-top: 30px; 
+
+    .paddingY {
+        padding-top: 30px;
         padding-bottom: 10px;
     }
-    .paddingL{
+
+    .paddingL {
         padding-left: 50px;
     }
-    .col{
+
+    .col {
         width: 45%;
         float: left;
     }
-    .col-inline{
+
+    .col-inlineT {
         width: 35%;
         display: inline-block;
     }
-    .positionR0{
+
+    .col-inline {
+        width: 45%;
+        display: inline-block;
+    }
+
+    .positionR0 {
         position: absolute;
         right: 5%;
         display: inline-block;
     }
-    .positionR50{
+
+    .positionR50 {
         position: absolute;
         right: 50%;
         display: inline-block;
@@ -53,48 +67,48 @@
     <div>
         <div>
             <div class="paddingY paddingL">||客戶資訊</div>
-            <div  class="paddingL">
+            <div class="paddingL">
                 <div class="col">
                     <div>
-                        <div class="col-inline">訂單編號</div>
-                        <div class="col-inline">{{$orderInfo->orownumber}}</div>
+                        <div class="col-inlineT">訂單編號</div>
+                        <div class="col-inline">{{ $orderInfo->orownumber }}</div>
                     </div>
                     <div>
-                        <div class="col-inline">客戶名稱</div>
-                        <div class="col-inline">{{$orderInfo->cname}}</div>
+                        <div class="col-inlineT">客戶名稱</div>
+                        <div class="col-inline">{{ $orderInfo->cname }}</div>
                     </div>
                     <div>
-                        <div class="col-inline">公司統編</div>
-                        <div class="col-inline">{{$orderInfo->cid}}</div>
+                        <div class="col-inlineT">公司統編</div>
+                        <div class="col-inline">{{ $orderInfo->cid }}</div>
                     </div>
                     <div>
-                        <div class="col-inline">公司電話</div>
-                        <div class="col-inline">{{$orderInfo->ctel}}</div>
+                        <div class="col-inlineT">公司電話</div>
+                        <div class="col-inline">{{ $orderInfo->ctel }}</div>
                     </div>
                 </div>
                 <div class="col">
                     <div>
-                        <div class="col-inline">訂單日期</div>
-                        <div class="col-inline">{{$orderInfo->odate}}</div>
+                        <div class="col-inlineT">訂單日期</div>
+                        <div class="col-inline">{{ $orderInfo->odate }}</div>
                     </div>
                     <div>
-                        <div class="col-inline">聯絡人</div>
-                        <div class="col-inline">{{$orderInfo->qcontact}}</div>
+                        <div class="col-inlineT">聯絡人</div>
+                        <div class="col-inline">{{ $orderInfo->qcontact }}</div>
                     </div>
                     <div>
-                        <div class="col-inline">聯絡人LINE ID</div>
-                        <div class="col-inline">{{$orderInfo->clineid}}</div>
+                        <div class="col-inlineT">聯絡人LINE ID</div>
+                        <div class="col-inline">{{ $orderInfo->clineid }}</div>
                     </div>
                     <div>
-                        <div class="col-inline">聯絡信箱</div>
-                        <div class="col-inline">{{$orderInfo->cmail}}</div>
+                        <div class="col-inlineT">聯絡信箱</div>
+                        <div class="col-inline">{{ $orderInfo->cmail }}</div>
                     </div>
                 </div>
-            </div>                                    
+            </div>
         </div>
         <div>
             <div class="paddingY paddingL">||訂單明細</div>
-            <div> 
+            <div>
                 <div>
                     <table class="table">
                         <thead>
@@ -107,22 +121,22 @@
                                 {{-- <td scope="col">備註</td> --}}
                             </tr>
                         </thead>
-                        
+
                         <tbody>
-                            <?php $tot=0; ?>
-                            @foreach ($quotation as $q)                                                  
-                            <tr>
-                                {{-- <td scope="row">1</td> --}}
-                                <td>{{$q->mname}}</td>
-                                <td>{{$q->mnumber}}</td>
-                                <td>{{$q->quantity}}</td>
-                                <td>{{$q->price}}</td>
-                                <td>{{$q->quantity*$q->price}}</td>
-                                {{-- <td>{{$q->remark}}</td> --}}
-                            </tr>
-                            <?php  
-                            $tot += $q->quantity*$q->price;
-                            ?> 
+                            <?php $tot = 0; ?>
+                            @foreach ($quotation as $q)
+                                <tr>
+                                    {{-- <td scope="row">1</td> --}}
+                                    <td>{{ $q->mname }}</td>
+                                    <td>{{ $q->mnumber }}</td>
+                                    <td>{{ $q->quantity }}</td>
+                                    <td>{{ $q->price }}</td>
+                                    <td>{{ $q->quantity * $q->price }}</td>
+                                    {{-- <td>{{$q->remark}}</td> --}}
+                                </tr>
+                                <?php
+                                $tot += $q->quantity * $q->price;
+                                ?>
                             @endforeach
                             {{-- <tr>
                                 <td scope="row">2</td>
@@ -141,14 +155,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                            </tr>                                             --}}
+                            </tr> --}}
                         </tbody>
-                    </table> 
+                    </table>
                 </div>
                 <div>
                     <div class="text-right positionR50">總計</div>
-                    <div class="text-right positionR0"><?php echo $tot ;?></div>
-                </div>                                 
+                    <div class="text-right positionR0"><?php echo $tot; ?></div>
+                </div>
             </div>
         </div>
         <div class="paddingY">
@@ -156,12 +170,12 @@
             <div class="paddingL">
                 <div class="col">
                     <div class="col-inline">企業方案</div>
-                    <div class="col-inline">{{$orderInfo->rid}}</div>
+                    <div class="col-inline">{{ $orderInfo->rid }}</div>
                 </div>
                 <div class="col">
                     <div>
                         <div class="col-inline">業務專員</div>
-                        <div class="col-inline">{{$orderInfo->staffid}}</div>
+                        <div class="col-inline">{{ $orderInfo->staffname }}</div>
                     </div>
                     <div>
                         <div class="col-inline">楷模信箱</div>
@@ -172,8 +186,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-

@@ -65,7 +65,7 @@
                                                     if ($manu[$i]->oid == $od->oid) {
                                                         $mid = $manu[$i]->mid;
                                                 
-                                                        echo "<a href=/manufacture/edit/${mid}>";
+                                                        echo "<a href=/main/manufacture/${mid}>";
                                                         echo $manu[$i]->mrownumber;
                                                         
                                                     }
