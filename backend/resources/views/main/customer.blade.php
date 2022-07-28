@@ -43,7 +43,7 @@
                                 @foreach ($d as $customer)                               
                                 <tr>
                                     <td>
-                                        <a href="/customer/{{$customer->cid}}" class="btn" style="background: 0 ; color:black">{{$customer->cname}}
+                                        <a href="/customer/{{$customer->cid}}" >{{$customer->cname}}
                                     </td>
                                     <td >
                                         <div class="btn-group">
