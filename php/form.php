@@ -16,7 +16,7 @@
         if ($captcha == $_SESSION['check_word']) {
 
             //發送email
-            $to = "a159856a@gmail.com";
+            $to = "kaimooo888@gmail.com";
             $subject = "諮詢表單";
             $msg = "
                 表單日期:{$date} \n
@@ -41,10 +41,10 @@
 
             // echo "驗證碼正確,$msg";
             
-            header('Location: http://localhost:3000/html/contact.html');
+            header('Location: http://localhost:3000/Project/html/contact.html');
         } else {
             // echo "驗證碼錯誤";
-            header('Location: http://localhost:3000/html/contact.html');
+            header('Location: http://localhost:3000/Project/html/contact.html');
         }
     }
 ?>
