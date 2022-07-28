@@ -143,13 +143,15 @@
                                                     </td>
                                                     <td>
                                                         <div style="width:300px">
-                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark[]">{{ $item->remark }}</textarea>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1" name="remark[]" <?php if ($item->pstatus == 'Y') {
+                                                                echo 'readonly';
+                                                            } ?>>{{ $item->remark }}</textarea>
                                                         </div>
                                                     </td>
                                                     <td> <?php
                                                     
                                                     if ($item->pstatus == 'Y') {
-                                                        echo "<span class='badge bg-success mComplete'>已完成</span>";
+                                                        echo "<span class='badge bg-success'>已完成</span>";
                                                     } else {
                                                         //點集 入庫並寫入庫存表
                                                         echo "<span class='badge bg-danger mComplete' style='cursor:pointer; '>未完成</span>";
