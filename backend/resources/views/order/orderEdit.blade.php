@@ -179,11 +179,14 @@
                 </span>
                 
                 <span>
-                    <form class=" btn btn-primary" action="/manufacturecreate/{{ $orderID }}" method="POST">
-                        @csrf
-                            <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
-                    </form>
+                    <div class=" btn btn-primary manuC" >
+                        <i class="now-ui-icons ui-2_settings-90"></i>&nbsp;轉為工單
+                    </div>
+                  
                 </span>
+                <form id="manuF" action="/manufacturecreate/{{ $orderID }}" method="POST">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>
@@ -216,6 +219,10 @@
             }
             $('#AllTot').text(`NT. ${totPrice}`)
 
+        })
+
+        $('.manuC').on('click',function(){
+            $('#manuF').submit();
         })
     </script>
 @endsection

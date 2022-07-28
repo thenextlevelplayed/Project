@@ -25,6 +25,7 @@
     }
 
     .paddingY {
+        margin-top: 30px;
         padding-top: 30px;
         padding-bottom: 10px;
     }
@@ -36,6 +37,10 @@
     .col {
         width: 45%;
         float: left;
+    }
+    .colR {
+        width: 45%;
+        float: right;
     }
 
     .col-inlineT {
@@ -57,6 +62,11 @@
     .positionR50 {
         position: absolute;
         right: 50%;
+        display: inline-block;
+    }
+    .positionR30 {
+        position: absolute;
+        right: 30%;
         display: inline-block;
     }
 </style>
@@ -110,7 +120,7 @@
             <div class="paddingY paddingL">||訂單明細</div>
             <div>
                 <div>
-                    <table class="table">
+                    <table class="table paddingL">
                         <thead>
                             <tr>
                                 <td scope="col">商品名稱</td>
@@ -183,6 +193,13 @@
                     </div>
                 </div>
             </div>
+        </div>        
+        <div class="paddingY">
+            <div class="paddingY paddingL"></div>
+            <div class="paddingL">
+                <div class="colR">簽章:</div>
+                <p class="text-center">※請協助回簽訂單, FAX:04-23759399※</p>
+            </div>            
         </div>
     </div>
 </div>
