@@ -176,7 +176,7 @@
             var formData = $("form").serializeArray();
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/front-end/Project/php/check.php',
+                url: 'http://localhost:3000/Project/php/check.php',
                 data: formData,
                 success: function (res) {
                     alert(res)
@@ -191,7 +191,7 @@
 
             $('#refresh').on({
                 'click': function () {
-                    $('#check').attr("src", "http://localhost/front-end/Project/php/captcha.php"); // 使用VScode PHP server
+                    $('#check').attr("src", "http://localhost:3000/Project/php/captcha.php"); // 使用VScode PHP server
                     $('#refreshIcon').css('transform', `rotateZ(${-d * 360}deg)`);
                     d++;
                 },
