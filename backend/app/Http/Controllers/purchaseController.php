@@ -195,7 +195,7 @@ class purchaseController extends Controller
                 'quantity' => $req->quantity[$i],
                 'cost' => $req->cost[$i],
                 'mid' => $mid->mid,
-                'pstatus' => $req->pStatus[$i]
+                'pstatus' => 'N'
             ]);
         }
 

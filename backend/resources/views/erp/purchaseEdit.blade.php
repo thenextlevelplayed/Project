@@ -126,7 +126,7 @@
                                                 <th scope="col">數量</th>
                                                 <th scope="col">成本</th>
                                                 <th scope="col">小計</th>
-                                                <th scope="col">入庫狀態 (Y/N)</th>
+                                                {{-- <th scope="col">入庫狀態 (Y/N)</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -239,13 +239,14 @@
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}" ></td>
                         <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}" ></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
-                        <td> <input type="text" class="form-control"  maxlength="1" pattern="Y|N" required name="pStatus[]" value="${ListData[i].pStatus}"></td>
+                      
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                         <input type="hidden" name="did[]" value="${ListData[i].bDetailId}">
                     </tr>
                 `)
             }
 
+            // <td> <input type="text" class="form-control"  maxlength="1" pattern="Y|N" required name="pStatus[]" value="${ListData[i].pStatus}"></td>
 
             //給細項欄位更新Function
             Ptot()

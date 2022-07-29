@@ -181,9 +181,9 @@
                 </form>
             </div>
             <div class="col-md-12 text-right">
-                <div class="btn btn-primary mr-3" onclick="history.back()">
+                <a class="btn btn-primary mr-3" href="/main/purchase">
                     <span>回上頁</span>
-                </div>
+                </a>
             </div>
         </div>
     </div>
