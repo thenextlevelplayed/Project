@@ -78,7 +78,7 @@
         <div class="row mt-5">
             <div id="contactForm" class="col-xl rounded border p-3 shadow m-3 ">
                 <p class="indexh3"> 諮詢與服務表單：</p>
-                <form method="post" action="http://localhost:3000/Project/php/form.php" onsubmit="SubmitForm()">
+                <form method="post" action="http://localhost/front-end/Project/php/form.php" onsubmit="SubmitForm()">
                     <!-- 使用VScode PHP server -->
                     <div class="form-group">
                         <label for="FormName" class="pl-2 titleFont">姓名 <span>*</span><span id="NameIfo"></span></label>
@@ -111,10 +111,10 @@
 
                     </div>
                     <div class="form-group">
-                        <img class="border" id="check" src="http://localhost:3000/Project/php/captcha.php">
+                        <img class="border" id="check" src="http://localhost/front-end/Project/php/captcha.php">
                         <!-- 使用VScode PHP server -->
                         <div id="refresh" class="ml-2">
-                            <img id="refreshIcon" src="/Project/資訊圖庫/icon/refresh-1.png" width="20px" height="20px">
+                            <img id="refreshIcon" src="../資訊圖庫/icon/refresh-1.png" width="20px" height="20px">
                             <span class="CaptchaFont ml-2 ">更新驗證碼</span>
                         </div>
                     </div>
@@ -139,11 +139,11 @@
                 </div>
                 <div id="mapContent" class="m-3">
                     <span class="m-2">
-                        <img src="/Project/資訊圖庫/icon/phone.png" width="30px" height="30px">
+                        <img src="../資訊圖庫/icon/phone.png" width="30px" height="30px">
                         <span class="mapContentFont">TEL:04-2375 8388</span>
                     </span>
                     <span class="m-2">
-                        <img src="/Project/資訊圖庫/icon/fax.png" width="30px" height="30px">
+                        <img src="../資訊圖庫/icon/fax.png" width="30px" height="30px">
                         <span class="mapContentFont">FAX:04-23759399</span>
                     </span>
                 </div>
@@ -176,7 +176,7 @@
             var formData = $("form").serializeArray();
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:3000/Project/php/check.php',
+                url: 'http://localhost/front-end/Project/php/check.php',
                 data: formData,
                 success: function (res) {
                     alert(res)
@@ -191,7 +191,7 @@
 
             $('#refresh').on({
                 'click': function () {
-                    $('#check').attr("src", "http://localhost:3000/Project/php/captcha.php"); // 使用VScode PHP server
+                    $('#check').attr("src", "http://localhost/front-end/Project/php/captcha.php"); // 使用VScode PHP server
                     $('#refreshIcon').css('transform', `rotateZ(${-d * 360}deg)`);
                     d++;
                 },
