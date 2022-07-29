@@ -36,12 +36,12 @@
                                         客戶名稱
                                     </th>
                                     <th>
-                                        編輯
+                                        狀態
                                     </th>
                                     {{-- <th>
                                     </th> --}}
                                     <th>
-                                        狀態
+                                        編輯
                                     </th>
                                 </thead>
                                 <tbody>
@@ -52,13 +52,6 @@
                                             </td>
                                             <td>
                                                 {{ $q->cname }}
-                                            </td>
-                                            <td>
-                                                <a href="/quotation/edit/{{ $q->qid }}" <?php if ($q->qstatus == 'Y'){ echo 'hidden';}  ?>>
-                                                    <button class="btn btn-primary btn-sm">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </button>
-                                                </a>
                                             </td>
                                             {{-- <td>
                                                 <input type="hidden" class="orderId" value="{{ $q->qstatus }}">
@@ -77,6 +70,15 @@
                                                     已成立訂單
                                                 </span> --}}
 
+                                            </td>
+                                            <td>
+                                                <a href="/quotation/edit/{{ $q->qid }}" <?php if ($q->qstatus == 'Y') {
+                                                    echo 'hidden';
+                                                } ?>>
+                                                    <button class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

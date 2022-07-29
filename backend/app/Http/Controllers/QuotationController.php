@@ -140,7 +140,8 @@ class QuotationController extends Controller
                 'price' => $req->price[$i],
                 'iid' => $iid->iid,
                 'mspecification' => $iid->mspecification,
-                'mnumber' => $iid->mnumber
+                'mnumber' => $iid->mnumber,
+                'remark'=> $req->remark[$i],
             ]);
         };
 
@@ -170,7 +171,8 @@ class QuotationController extends Controller
                 'price' => $req->cost[$i],
                 'iid' => $iid->iid,
                 'mspecification' => $iid->mspecification,
-                'mnumber' => $iid->mnumber
+                'mnumber' => $iid->mnumber,
+                'remark'=> $req->remark[$i],
             ]);
         }
 

@@ -102,6 +102,7 @@
                                                 <th scope="col">數量</th>
                                                 <th scope="col">單價</th>
                                                 <th scope="col">小計</th>
+                                                <th scope="col">備註</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -223,6 +224,7 @@
                 mnumber: "",
                 quantity: "",
                 price: "",
+                remark:""
             }
         ];
 
@@ -244,6 +246,7 @@
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="price[]" value="${ListData[i].price}"></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].price}" readonly></td>
+                        <td> <input type="text" class="form-control" required name="remark[]" value="${ListData[i].remark}" ></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
                 `)
@@ -266,7 +269,8 @@
                 mnumber: "",
                 quantity: "",
                 price: "",
-                PRtot: ""
+                PRtot: "",
+                remark:""
             })
 
             //更新畫面
@@ -321,6 +325,7 @@
                 let qty = $(row).find('input').eq(2).val();
                 let price = $(row).find('input').eq(3).val();
                 let Ptot = qty * price;
+                let remark =  $(row).find('input').eq(5).val();
 
                 $(row).find('input').eq(4).val(Ptot);
                 let Pindex = ($(row).find('th').text());
@@ -331,6 +336,7 @@
                 ListData[(Pindex - 1)].quantity = qty;
                 ListData[(Pindex - 1)].price = price;
                 ListData[(Pindex - 1)].PRtot = Ptot;
+                ListData[(Pindex - 1)].remark = remark;
 
                 //全部總和更新
                 Alltot()
