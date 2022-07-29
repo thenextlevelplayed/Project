@@ -66,13 +66,13 @@ class purchaseController extends Controller
             $day = date("Ymd");
             $bDay += 1;
             $bDay = sprintf("%03d", $bDay);
-            $KMPid =  "KMP" .  $day . $bDay;
+            $KMPid =  "KMP-" .  $day . $bDay;
         } else {
             //今天第一筆 001
 
             //轉編號的format
             $day = date("Ymd");
-            $KMPid = "KMP" .  $day . "001";
+            $KMPid = "KMP-" .  $day . "001";
         }
 
         //進貨單編號************************************************************************* 
