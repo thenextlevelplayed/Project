@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Detaillist;
 use App\Models\Inventory;
 use App\Models\Order;
+use App\Models\Staff;
 
 class QuotationController extends Controller
 {
@@ -105,13 +106,18 @@ class QuotationController extends Controller
     {
 
         // dd($req);
+        // 員工名字
+        $staffid = Staff::select('staffid')
+        ->where('staffname','=',$req->staffname)
+        ->first();
+
         // 報價單號
         $qid = Quotation::insertGetId([
             'qdate' => date("Y-m-d"),
             'cid' => $req->cid,
             'qcontact' => $req->qcontact,
             'cmail' => $req->cmail,
-            'staffid' => $req->staffid,
+            'staffid' =>$staffid->staffid,
             'rid' => $req->rid,
             'qstatus' => $req->qstatus,
             'qrownumber' => $req->KMQid,

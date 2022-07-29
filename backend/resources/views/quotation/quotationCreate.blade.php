@@ -149,7 +149,7 @@
                                     <div class="row mb-1">
                                         <div class="col-lg-3"><p>業務專員</p></div>
                                         <div class="col-lg-8">
-                                            <input id="staffid" type="text" value="" name="staffid" required>
+                                            <input id="staffname" type="text" value="" name="staffname" required>
                                         </div>
                                     </div>
                                     <div class="row mb-1">
@@ -212,7 +212,7 @@
             qcontact: "",            
             clineid: "",
             cmail: "",
-            staffid:"",
+            staffname:"",
         }];
 
         //這個會從資料庫出來
