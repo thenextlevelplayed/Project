@@ -54,16 +54,41 @@
                                             </td>
                                             <td>
                                                 <?php
+                                                $host = 'localhost';
+                                                $username = 'root';
+                                                $password = '';
+                                                $dbname = 'backend';
                                                 
-                                                if ($mInfo->mstatus == 'Y') {
+                                                $conn = new mysqli($host, $username, $password, $dbname);
+                                                
+                                                $conn->query("CALL manufactureStatus($mInfo->oid ,@mDStatus,@mNStatus)");
+                                                $result = $conn->query('SELECT @mDStatus as MDS,@mNStatus as MNS');
+                                                $row = $result->fetch_assoc();
+                                                
+                                                $mDStatus = $row['MDS'];
+                                                $mNStatus = $row['MNS'];
+                                                
+                                                echo $mNStatus . '/' . $mDStatus . '   ';
+                                                
+                                                if ($mNStatus / $mDStatus == 1 && $mInfo->mstatus == 'Y') {
                                                     echo "<span class='badge bg-success'>已成立出貨單</span>";
-                                                } else {
-                                                    //沒有不秀
+                                                } elseif ($mNStatus / $mDStatus == 1){
+                                                    echo "<span class='badge bg-warning'>工單已完成</span>";
                                                 }
+                                                else {
+                                                    echo "<span class='badge bg-danger'>工單未完成</span>";
+                                                }
+                                                
+                                                // if ($mInfo->mstatus == 'Y') {
+                                                //     echo "<span class='badge bg-success'>已成立出貨單</span>";
+                                                // } else {
+                                                //     //沒有不秀
+                                                // }
+                                                
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="/manufacture/edit/{{ $mInfo->mid }}" <?php if ($mInfo->mstatus == 'Y') {
+                                                <a href="/manufacture/edit/{{ $mInfo->mid }}" <?php if ($mNStatus / $mDStatus == 1 && $mInfo->mstatus == 'Y') {
                                                     echo 'hidden';
                                                 } ?>>
                                                     <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"

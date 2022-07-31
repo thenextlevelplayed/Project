@@ -19,16 +19,24 @@ class ManufactureController extends Controller
         $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
             ->join('quotation', 'quotation.qid', '=', 'order.qid')
             ->join('customer', 'customer.cid', '=', 'quotation.cid')
-            ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber')
+            ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber', 'order.oid')
             ->orderBy('manufacture.mid')
             ->get();
+
+
+            // $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
+            // ->join('quotation', 'quotation.qid', '=', 'order.qid')
+            // ->join('customer', 'customer.cid', '=', 'quotation.cid')
+            // ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber')
+            // ->orderBy('manufacture.mid')
+            // ->get();
 
         $search_text = $_GET['query'] ?? ""; //判斷第一個變數有沒有存在，若沒有則回傳空字串
         if ($search_text != "") {
             $manufacture = Manufacture::join('order', 'order.oid', '=', 'manufacture.oid')
                 ->join('quotation', 'quotation.qid', '=', 'order.qid')
                 ->join('customer', 'customer.cid', '=', 'quotation.cid')
-                ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber')
+                ->select('manufacture.mid', 'manufacture.mstatus', 'manufacture.mremark', 'customer.cname', 'manufacture.mrownumber', 'order.oid')
                 ->where('customer.cname', 'LIKE', '%' . $search_text . '%')
                 ->orWhere('manufacture.mid', 'LIKE', '%' . $search_text . '%')
                 ->orderBy('manufacture.mid')
