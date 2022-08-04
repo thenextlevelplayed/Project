@@ -222,10 +222,7 @@ include '../php/news.php';
                     <div class="card-img-overlay mx-3 p-5">
 
                         <h2 class="card-title indexh2">資展國際</h2>
-                        <p class="card-text indexp txtIn">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Obcaecati,
-                            odio ducimus nobis sapiente porro modi. Error doloribus recusandae reiciendis unde vitae
-                            laudantium, eos adipisci omnis soluta rerum atque, voluptas id.</p>
+                        <p class="card-text indexp txtIn">這家教育機構使用我們提供的筆電來建置教學環境，以度過新冠疫情，應付多雲端和資料合規性等挑戰、協助領導者運用他們的資料。提供學生更完善的教育環境與設備。</p>
 
                     </div>
                 </div>
@@ -237,9 +234,7 @@ include '../php/news.php';
                     <div class="card-img-overlay mx-3 p-5">
 
                         <h2 class="card-title indexh2">戴爾DELL</h2>
-                        <p class="card-text indexp">Doloribus
-                            temporibus nisi qui fuga, adipisci enim nam repudiandae beatae laboriosam reiciendis
-                            nihil facere hic cumque quo minus, fugit exercitationem accusantium! Placeat?</p>
+                        <p class="card-text indexp">數位轉型資料庫展示部分最大規模的品牌如何實現他們的構想，並將產品投入市面。提供硬體伺服器以供應大數據的資料做使用及API資料交換，讓他們能服務更多的商家，匹配更多的解決方案。</p>
 
                     </div>
                 </div>
