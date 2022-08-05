@@ -175,8 +175,7 @@
                                 </div> --}}
                                 <div class="row">
                                     <div class="col-md-6 mb-1 bg-light p-4 border border-white">
-                                        企業方案：<br>
-                                        週年慶滿千送百
+                                        企業方案：
                                     </div>
                                     <div class="col-md-6 mb-1 bg-light p-4 border border-white">
                                         業務專員：林小姐<br>
