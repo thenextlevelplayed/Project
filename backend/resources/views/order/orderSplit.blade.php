@@ -158,17 +158,16 @@
                     </div>
                     <div>
                         <div class="mb-3">
-                            <h4>凱茂方案</h4>
+                            <h4>楷模方案</h4>
                             <hr>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-1 bg-light p-4 border border-white">
-                                企業方案：<br>
-                                週年慶全面9折
+                                企業方案：
                             </div>
                             <div class="col-md-6 mb-1 bg-light p-4 border border-white">
                                 業務專員：{{ $orderEdit->staffname }}<br>
-                                凱茂信箱：kaimooo888.gmail.com@gmail.com
+                                楷模信箱：kaimooo888@gmail.com
                             </div>
                         </div>
                     </div>
