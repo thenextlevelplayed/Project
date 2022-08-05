@@ -244,8 +244,8 @@
                         <td> <input type="text" class="form-control mNumChk" required name="mname[]" value="${ListData[i].mname}"></td>
                         <td> <input type="text" class="form-control" required name="mnumber[]" value="${ListData[i].mnumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="price[]" value="${ListData[i].price}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].price}" readonly></td>
+                        <td> <input type="number" min="0" class="form-control" required name="price[]" value="${(ListData[i].price).toLocaleString('en-US')}"></td>
+                        <td> <input type="text" class="form-control" required value="${(ListData[i].quantity*ListData[i].price).toLocaleString('en-US')}" readonly></td>
                         <td> <input type="text" class="form-control" required name="remark[]" value="${ListData[i].remark}" ></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
@@ -327,7 +327,7 @@
                 let Ptot = qty * price;
                 let remark =  $(row).find('input').eq(5).val();
 
-                $(row).find('input').eq(4).val(Ptot);
+                $(row).find('input').eq(4).val(Ptot.toLocaleString('en-US'));
                 let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array

@@ -236,8 +236,8 @@
                         <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[0].mName}"></td>
                         <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[0].mNumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[0].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[0].cost}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[0].quantity*ListData[0].cost}" readonly></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${(ListData[0].cost)}"></td>
+                        <td> <input type="text" class="form-control" required value="${(ListData[0].quantity*ListData[0].cost).toLocaleString('en-US')}" readonly></td>
                     </tr>
                 `)
             //從第2筆開始,可更改可刪除
@@ -248,8 +248,8 @@
                         <td> <input type="text" class="form-control mNumChk" required name="mName[]" value="${ListData[i].mName}"></td>
                         <td> <input type="text" class="form-control" required name="mNumber[]" value="${ListData[i].mNumber}"></td>
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}"></td>
-                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}"></td>
-                        <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
+                        <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${(ListData[i].cost)}"></td>
+                        <td> <input type="text" class="form-control" required value="${(ListData[i].quantity*ListData[i].cost).toLocaleString('en-US')}" readonly></td>
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
                 `)
@@ -337,7 +337,7 @@
                 let price = $(row).find('input').eq(3).val();
                 let Ptot = qty * price;
 
-                $(row).find('input').eq(4).val(Ptot);
+                $(row).find('input').eq(4).val(Ptot.toLocaleString('en-US'));
                 let Pindex = ($(row).find('th').text());
 
                 //資料寫進Array
