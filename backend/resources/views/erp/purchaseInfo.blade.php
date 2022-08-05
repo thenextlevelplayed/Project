@@ -246,7 +246,7 @@
                     mNumber: mNumber,
                     quantity: quantity,
                     did: did,
-                    sumPrice: sumPrice,
+                    sumPrice: sumPrice.replace(/,/g, ""),
                     _token: _token
                 },
                 success: function(response) {
