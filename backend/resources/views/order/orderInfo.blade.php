@@ -8,7 +8,7 @@
 {{-- 藍藍navbar title --}}
 @section('navTitle')
     <h4>
-        <a class="navbar-brand" href="">訂單明細</a>
+        <a class="navbar-brand" href="">訂單管理</a>
     </h4>
 @endsection
 
@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <form class="card p-5">
                     <div class="card-header">
-                        <h4 class="card-title text-center">訂單明細</h4>
+                        <h4 class="card-title text-center">楷模資訊 訂單明細</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -149,7 +149,7 @@
                         </div>
                         <div>
                             <div class="mb-3 mt-3">
-                                <h4>凱茂方案</h4>
+                                <h4>楷模方案</h4>
                                 <hr>
                             </div>
                             <div class="row mb-3">
@@ -158,7 +158,7 @@
                                         <div class="col-lg-3">
                                             <p>企業方案</p>
                                         </div>
-                                        <div class="col-lg-8">週年慶滿千送百</div>
+                                        <div class="col-lg-8"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -170,7 +170,7 @@
                                     </div>
                                     <div class="row mb-1">
                                         <div class="col-lg-3">
-                                            <p>凱茂信箱</p>
+                                            <p>楷模信箱</p>
                                         </div>
                                         <div class="col-lg-8">
                                             <p>kaimoo888.gmail.com</p>

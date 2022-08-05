@@ -24,7 +24,7 @@
                             <div class="container p-5">
                                 <div>
                                     <div class="col-md-12 card-title text-center">
-                                        <h3>楷模資訊 工單管理</h3>
+                                        <h3>楷模資訊 工單明細</h3>
                                     </div>
                                     {{-- <div class="container-fluid row justify-content-end" style="padding-right: 0px">
                                         <?php
@@ -180,7 +180,7 @@
                                     </div>
                                     <div class="col-md-6 mb-1 bg-light p-4 border border-white">
                                         業務專員：林小姐<br>
-                                        凱茂信箱：km2468@gmail.com
+                                        楷模信箱：km2468@gmail.com
                                     </div>
                                 </div>
                                 <div class="row justify-content-center mt-5 mb-3">
