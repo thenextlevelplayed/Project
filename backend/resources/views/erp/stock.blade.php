@@ -47,10 +47,10 @@
                                                 {{ $int->sumquantity }}
                                             </td>
                                             <td>
-                                                {{ round($int->sumcost / $int->sumquantity)}}
+                                                {{ number_format(round($int->sumcost / $int->sumquantity))}}
                                             </td>
                                             <td>
-                                                {{ $int->sumcost }}
+                                                {{ number_format($int->sumcost) }}
                                             </td>
                                         </tr>
                                     @endforeach

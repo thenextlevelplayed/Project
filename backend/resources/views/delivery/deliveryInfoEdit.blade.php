@@ -154,9 +154,9 @@
                                                     <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->mname}}' required></fieldset></td>
                                                     <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->mspecification}}' required></fieldset></td>
                                                     <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->quantity}}'  required></fieldset></td>
-                                                    <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->price}}'  required></fieldset></td>
-                                                    <td> <fieldset disabled><input type="text" class="form-control" value=<?php echo ($deliveryInfo->price)*($deliveryInfo->quantity) ?>  required></fieldset></td>
-                                                    <td> <fieldset disabled><input type="text" class="form-control" value=<?php echo round(($deliveryInfo->price)*($deliveryInfo->quantity)*0.05) ?>  required></fieldset></td>
+                                                    <td> <fieldset disabled><input type="text" class="form-control" value='{{number_format($deliveryInfo->price)}}'  required></fieldset></td>
+                                                    <td> <fieldset disabled><input type="text" class="form-control" value=<?php echo number_format($deliveryInfo->price*$deliveryInfo->quantity) ?>  required></fieldset></td>
+                                                    <td> <fieldset disabled><input type="text" class="form-control" value=<?php echo number_format(round(($deliveryInfo->price)*($deliveryInfo->quantity)*0.05)) ?>  required></fieldset></td>
                                                     <td> <fieldset disabled><input type="text" class="form-control" value='{{$deliveryInfo->remark}}'></fieldset></td>
                                                 </tr>
                                             @endforeach
@@ -173,7 +173,7 @@
                                                                 $total = ($deliveryInfo->price)*($deliveryInfo->quantity)*1.05;
                                                                 $amount = $amount+$total;
                                                             }
-                                                            echo round($amount);
+                                                            echo number_format(round($amount));
                                                         ?>  readonly >
                                                     </div>                                    
                                         </div>

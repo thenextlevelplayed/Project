@@ -135,11 +135,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-1 text-right" style="font-size: 20px">
-                                    <div class="col-lg-9">
+                                <div class="row mb-1 " style="font-size: 20px">
+                                    <div class="col-lg-8 text-right">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-lg-3" id="AllTot"></div>
+                                    <div class="col-lg-4" id="AllTot"></div>
                                 </div>
                             </div>
                         </div>
@@ -363,7 +363,7 @@
                 totally += Number(item.quantity * item.price);
             });
 
-            $('#AllTot').text(`NT.${totally}`);
+            $('#AllTot').text(`${totally.toLocaleString('en-US')}`);
         }
 
         // function append(){

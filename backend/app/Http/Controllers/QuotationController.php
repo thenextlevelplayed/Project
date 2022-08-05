@@ -90,13 +90,13 @@ class QuotationController extends Controller
             $day = date("Ymd");
             $qDay += 1;
             $qDay = sprintf("%03d", $qDay);
-            $KMQid =  "KMQ" .  $day . $qDay;
+            $KMQid =  "KMQ-" .  $day . $qDay;
         } else {
             //今天第一筆 001
 
             //轉編號的format
             $day = date("Ymd");
-            $KMQid = "KMQ" .  $day . "001";
+            $KMQid = "KMQ-" .  $day . "001";
         }
         return view('quotation.quotationCreate', compact('KMQid'));
     }

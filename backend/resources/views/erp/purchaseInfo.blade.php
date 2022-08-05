@@ -137,8 +137,8 @@
                                                     <td class="col-2"> {{ $det->mname }}</td>
                                                     <td class="col-2"> {{ $det->mnumber }}</td>
                                                     <td class="col-2"> {{ $det->quantity }}</td>
-                                                    <td class="col-2"> {{ $det->cost }}</td>
-                                                    <td class="col-2"> {{ $det->quantity * $det->cost }}</td>
+                                                    <td class="col-2"> {{ number_format($det->cost) }}</td>
+                                                    <td class="col-2"> {{ number_format($det->quantity * $det->cost) }}</td>
                                                     <td class="col-2"> <?php
                                                     
                                                     $totstatus .= $det->pstatus;
@@ -163,13 +163,13 @@
                                     <div class="col-lg-10" style="font-size: 24px">
                                         <span class="mr-1">總計:</span>
                                         <span>
-                                            NT.
+                                            
                                             <?php
                                             $tot = 0;
                                             foreach ($detail as $det) {
                                                 $tot += $det->quantity * $det->cost;
                                             }
-                                            echo $tot;
+                                            echo number_format($tot);
                                             ?>
 
                                         </span>

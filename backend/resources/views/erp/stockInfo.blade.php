@@ -49,7 +49,7 @@
                                             <p>商品成本總計</p>
                                         </div>
                                         <div class="col-lg-8">
-                                            {{ $inventory->sumcost }}
+                                            {{ number_format($inventory->sumcost) }}
                                         </div>
                                     </div>
                                 </div>
@@ -100,10 +100,10 @@
                                                         {{ $sDtl->quantity }}
                                                     </td>
                                                     <td class="col-2">
-                                                        {{ $sDtl->cost }}
+                                                        {{ number_format($sDtl->cost) }}
                                                     </td>
                                                     <td class="col-2">
-                                                        {{ $sDtl->quantity * $sDtl->cost }}
+                                                        {{ number_format($sDtl->quantity * $sDtl->cost) }}
                                                     </td>
                                                 </tr>
                                             @endforeach

@@ -114,8 +114,8 @@
                                 <td>{{$q->mname}}</td>
                                 <td>{{$q->mnumber}}</td>
                                 <td>{{$q->quantity}}</td>
-                                <td>{{$q->price}}</td>
-                                <td>{{$q->quantity*$q->price}}</td>
+                                <td>{{number_format($q->price)}}</td>
+                                <td>{{number_format($q->quantity*$q->price)}}</td>
                             </tr>
                             <?php  
                             $tot += $q->quantity*$q->price;
@@ -126,7 +126,7 @@
                 </div>
                 <div>
                     <div class="text-right positionR50">總計</div>
-                    <div class="text-right positionR0"><?php echo $tot ;?></div>
+                    <div class="text-right positionR0"><?php echo number_format($tot) ;?></div>
                 </div>                                 
             </div>
         </div>

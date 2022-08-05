@@ -122,17 +122,17 @@
                                             <td name="quantity">
                                                 {{$item->quantity}}
                                             </td>
-                                            <td name="price">{{$item->price}}</td>
+                                            <td name="price">{{number_format($item->price)}}</td>
                                             <td name="total">
                                                 <?php
                                                     $total = ($item->quantity)*($item->price);
-                                                    echo $total;
+                                                    echo number_format($total);
                                                 ?></td>
                                             <td name="tax">
                                                 <?php
                                                     $total = ($item->quantity)*($item->price);
                                                     $tax = $total*0.05;
-                                                    echo round($tax);
+                                                    echo number_format(round($tax));
                                                 ?></td>
                                             </td>
                                             <td name="remark"> {{$item->remark}}</td>
@@ -151,7 +151,7 @@
                                                     $total = ($item->price)*($item->quantity)*1.05;
                                                     $amount = $amount+$total;
                                                 }
-                                                echo round($amount);
+                                                echo number_format(round($amount));
                                             ?>  readonly >
                                         </div>                                    
                             </div>

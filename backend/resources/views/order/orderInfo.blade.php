@@ -115,11 +115,11 @@
                                                     <td>{{ $item->mname }}</td>
                                                     <td>{{ $item->mnumber }}</td>
                                                     <td>{{ $item->quantity }}</td>
-                                                    <td>{{ $item->price }}</td>
+                                                    <td>{{ number_format($item->price) }}</td>
                                                     <td>
                                                         <?php
                                                         $total = $item->quantity * $item->price;
-                                                        echo $total;
+                                                        echo number_format($total);
                                                         ?></td>
                                                     {{-- <td>{{$item->remark}}</td> --}}
 
@@ -143,7 +143,7 @@
                                     <div class="col-lg-10">
                                         <p>總計</p>
                                     </div>
-                                    <div class="col-mb-3" id="AllTot"><?php echo $tot; ?></div>
+                                    <div class="col-mb-3" id="AllTot"><?php echo number_format($tot); ?></div>
                                 </div>
                             </div>
                         </div>

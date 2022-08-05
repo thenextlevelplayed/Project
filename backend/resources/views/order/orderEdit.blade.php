@@ -107,6 +107,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="oDet">
+                                        <?php $tot = 0; ?>
                                         @foreach ($quotation as $key => $item)
                                             {{-- dd($item) --}}
 
@@ -117,15 +118,16 @@
                                                 <td><input class="Oqty" type="number" min="0" name="quantity[]"
                                                         value="{{ $item->quantity }}">
                                                 </td>
-                                                <td>{{ $item->price }}</td>
+                                                <td>{{ number_format($item->price) }}</td>
                                                 <td>
                                                     <?php
                                                     $total = $item->quantity * $item->price;
-                                                    echo $total;
+                                                    echo number_format($total);
                                                     ?>
                                                 </td>
                                                 {{-- <td>{{ $item->remark }}</td> --}}
                                                 <input type="hidden" value="{{ $item->dlid }}" name="dlid[]">
+                                                <?php $tot += $item->quantity * $item->price; ?>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -135,7 +137,7 @@
                                 <div class="col-lg-10">
                                     <p>總計</p>
                                 </div>
-                                <div class="col-mb-3" id="AllTot"></div>
+                                <div class="col-mb-3" id="AllTot"><?php echo number_format($tot); ?></div>
                             </div>
                         </div>
                     </div>
@@ -199,9 +201,11 @@
             let price = $(this).closest('tr').find('td').eq(3).text();
             let oNum = $(this).val();
 
+            price = Number(price.replace(/,/g, ""));
+
             // console.log(price,oNum,$(this).closest('tr'));
 
-            $(this).closest('tr').find('td').eq(4).text(oNum * price);
+            $(this).closest('tr').find('td').eq(4).text((oNum * price).toLocaleString('en-US'));
 
 
 
@@ -214,10 +218,12 @@
                 let tr = $(`#oDet > tr:nth-child(${i})`)
                 let trPrice = tr.find('td').eq(4).text();
 
+                trPrice = trPrice.replace(/,/g, "");
+
                 totPrice += Number(trPrice);
 
             }
-            $('#AllTot').text(`NT. ${totPrice}`)
+            $('#AllTot').text(`${totPrice.toLocaleString('en-US')}`)
 
         })
 

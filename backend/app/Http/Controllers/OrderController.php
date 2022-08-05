@@ -271,7 +271,6 @@ class OrderController extends Controller
             ->where('order.oid', '=', $orderID)
             ->first();
 
-
         $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid', 'order.oid')
             ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $orderID)

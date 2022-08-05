@@ -10,7 +10,7 @@
                 <form class="card" action="/main/purchaseCreate" method="POST">
                     @csrf
                     <div class="card-header">
-                        <h4 class="card-title text-center"> 凱茂資訊 進貨單</h4>
+                        <h4 class="card-title text-center"> 楷模資訊 進貨單</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -23,7 +23,7 @@
                                         <div class="col-lg-3">
                                             <p>進貨單編號</p>
                                         </div>
-                                        <div class="col-lg-8" >
+                                        <div class="col-lg-8">
                                             {{ $KMPid }}
                                             <input type="hidden" value="{{ $KMPid }}" name="KMPid">
                                         </div>
@@ -253,7 +253,11 @@
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                     </tr>
                 `)
+
+                console.log(typeof(ListData[i].cost))
             }
+
+
 
             //給細項欄位更新Function
             Ptot()
@@ -283,7 +287,7 @@
             //更新畫面
             Refresh()
 
-            console.log(ListData)
+            // console.log(ListData)
         }
 
         var dindex;
@@ -310,7 +314,7 @@
 
             ListData.splice((dindex - 1), 1);
 
-            console.log((dindex - 1), ListData);
+            // console.log((dindex - 1), ListData);
 
             //關閉Bootstrap對話框
             $('#exampleModal').modal('hide');
@@ -346,7 +350,7 @@
                 //全部總和更新
                 Alltot()
 
-                console.log(ListData)
+                // console.log(ListData)
             })
 
         }
@@ -360,7 +364,7 @@
                 totally += Number(item.quantity * item.cost);
             });
 
-            $('#AllTot').text(`NT.${totally}`);
+            $('#AllTot').text(`${totally.toLocaleString('en-US')}`);
         }
 
         //[公司名稱]輸入後,先去庫存表搜尋是否存在。存在:自動填完廠商資訊;不存在:要自己輸入。
@@ -369,7 +373,7 @@
 
                 e.preventDefault();
 
-                console.log('ok')
+                // console.log('ok')
 
                 let sName = $(this).val();
                 let _token = $("input[name=_token]").val();

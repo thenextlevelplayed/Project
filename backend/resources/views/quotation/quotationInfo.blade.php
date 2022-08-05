@@ -90,23 +90,26 @@
                                                 </tr>
                                             </thead>
                                             
-                                            <tbody>                                                
-                                                {{-- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>{{$quotationInfo->mname}}</td>
-                                                    <td>{{$quotationInfo->mnumber}}</td>
-                                                    <td>{{$quotationInfo->quantity}}</td>
-                                                    <td>{{$quotationInfo->price}}</td>
-                                                    <td>
-                                                    </td>
-                                                    <td>{{$quotationInfo->remark}}</td>
-                                                </tr>                                         --}}
+                                            <tbody>
+                                                <?php $totprice = 0; ?>
+                                                @foreach($quotation as $quo)                                          
+                                                <tr>
+                                                    <th scope="row">{{ $loop->index + 1 }}</th>
+                                                    <td class="col-2">{{$quo->mname}}</td>
+                                                    <td class="col-2">{{$quo->mnumber}}</td>
+                                                    <td class="col-2">{{$quo->quantity}}</td>
+                                                    <td class="col-2">{{ number_format($quo->price)}}</td>
+                                                    <td class="col-2">{{ number_format($quo->quantity*$quo->price)}}</td>
+                                                    <td class="col-2">{{$quo->remark}}</td>
+                                                </tr> 
+                                                <?php $totprice += $quo->quantity*$quo->price; ?>
+                                                @endforeach                                     
                                             </tbody>
                                         </table> 
                                     </div>
                                     <div class="row mb-1">
                                         <div class="col-lg-8 text-right"><p>總計</p></div>
-                                        <div class="col-lg-4 text-right" id="AllTot"></div>
+                                        <div class="col-lg-4 " id="AllTot"><?php echo number_format($totprice);?></div>
                                     </div>                                 
                                 </div>
                             </div>
@@ -154,14 +157,14 @@
 
 
 @section('script')
-    <script>
+    {{-- <script>
 
         var users = {!! json_encode($quotation->toArray()) !!};
         let ListData = users;
         // console.log(ListData);
 
         //頁面進來,更新畫面
-        Refresh()
+        // Refresh()
 
         //更新頁面//******************************************************
         function Refresh() {
@@ -290,5 +293,5 @@
             $('#AllTot').text(`NT.${totally}`);
         }
 
-    </script>
+    </script> --}}
 @endsection

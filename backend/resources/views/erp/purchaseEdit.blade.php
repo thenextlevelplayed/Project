@@ -239,7 +239,6 @@
                         <td> <input type="number" min="0" class="form-control" required name="quantity[]" value="${ListData[i].quantity}" ></td>
                         <td> <input type="number" min="0" class="form-control" required name="cost[]" value="${ListData[i].cost}" ></td>
                         <td> <input type="text" class="form-control" required value="${ListData[i].quantity*ListData[i].cost}" readonly></td>
-                      
                         <td class="Pdel"><i class="fa-solid fa-trash-can" style="color: rgb(79, 75, 75)"></i></td>
                         <input type="hidden" name="did[]" value="${ListData[i].bDetailId}">
                     </tr>
