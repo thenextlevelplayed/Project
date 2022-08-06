@@ -187,7 +187,7 @@ class ManufactureController extends Controller
             ->select('manufacture.mstatus', 'manufacture.mid', 'manufacture.mDate', 'manufacture.mremark', 'manufacture.mrownumber', 'quotation.qcontact', 'customer.cname', 'customer.cmail', 'customer.cid')
             ->find($manufactureId);
 
-        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.pstatus')
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.pstatus','detaillist.remark')
             ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $manuOid->oid)
             ->get();
