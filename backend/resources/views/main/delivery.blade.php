@@ -56,7 +56,7 @@
                                     {{-- {{$d->firstName}} --}}
                                     <td>{{$delivery->cname}}</td>
                                      <td >
-                                        <div class="btn-group">
+                                        <div class="btn-group" <?php if($delivery->dstatus == 'Y'){ echo 'hidden';} ?>>
                                             <a href = "/delivery/edit/{{$delivery->did}}">
                                                 <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"
                                                 aria-hidden="true"></i></button>
