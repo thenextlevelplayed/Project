@@ -189,6 +189,7 @@ class OrderController extends Controller
                     'price' => $Orig->price,
                     'mspecification' => $Orig->mspecification,
                     'mnumber' => $Orig->mnumber,
+                    'remark' => $Orig->remark
                 ]);
             } else {
                 continue;
