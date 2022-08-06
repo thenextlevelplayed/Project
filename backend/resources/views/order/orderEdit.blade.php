@@ -103,7 +103,7 @@
                                             <th scope="col">數量</th>
                                             <th scope="col">單價</th>
                                             <th scope="col">小計</th>
-                                            {{-- <th scope="col">備註</th> --}}
+                                            <th scope="col">備註</th>
                                         </tr>
                                     </thead>
                                     <tbody id="oDet">
@@ -125,7 +125,7 @@
                                                     echo number_format($total);
                                                     ?>
                                                 </td>
-                                                {{-- <td>{{ $item->remark }}</td> --}}
+                                                <td>{{ $item->remark }}</td>
                                                 <input type="hidden" value="{{ $item->dlid }}" name="dlid[]">
                                                 <?php $tot += $item->quantity * $item->price; ?>
                                             </tr>

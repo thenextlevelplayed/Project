@@ -113,7 +113,7 @@
                                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                                 <td>{{ $item->mname }}</td>
                                                 <td>{{ $item->mnumber }}</td>
-                                                <td>{{ $item->price }}</td>
+                                                <td>{{ number_format($item->price) }}</td>
                                                 <td>{{ $item->quantity }}</td>
                                                 <td><input type="text"class="OrigNum form-control" name="OrigNum[]"
                                                         value="{{ $item->quantity }}" readonly>
@@ -140,9 +140,9 @@
                                             <td></td>
                                             <td></td>
                                             <td>小計</td>
-                                            <td>NT. <?php echo $tot; ?> &nbsp;&nbsp;-></td>
-                                            <td id="OrigPrice">NT. <?php echo $tot; ?></td>
-                                            <td id="splitPrice">NT. 0</td>
+                                            <td> <?php echo number_format($tot); ?> &nbsp;&nbsp;-></td>
+                                            <td id="OrigPrice"> <?php echo number_format($tot); ?></td>
+                                            <td id="splitPrice"> 0</td>
                                         </tr>
 
                                     </tbody>
@@ -206,7 +206,7 @@
             for (let i = 1; i <= bodytr.length - 2; i++) {
 
                 let tr = $(`#splitDet > tr:nth-child(${i})`)
-                let trPrice = tr.find('td').eq(2).text();
+                let trPrice = (tr.find('td').eq(2).text()).replace(/,/g, "");
                 let trNum = tr.find('.OrigNum').val();
                 let totNum = tr.find('td').eq(3).text();
 
@@ -214,10 +214,10 @@
                 totPrice += trPrice * totNum;
             }
 
-            $('#OrigPrice').text(`NT. ${OrigPrice}`)
+            $('#OrigPrice').text(` ${OrigPrice.toLocaleString('en-US')}`)
 
             // 子訂單小計 = 總計 - 原訂單小計
-            $('#splitPrice').text(`NT. ${totPrice - OrigPrice}`)
+            $('#splitPrice').text(` ${(totPrice - OrigPrice).toLocaleString('en-US')}`)
 
         })
     </script>

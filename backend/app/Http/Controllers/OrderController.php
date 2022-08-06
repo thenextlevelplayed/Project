@@ -87,8 +87,8 @@ class OrderController extends Controller
             ->first();
 
         //訂單明細
-        // 1.商品名稱 2.商品編號 3.數量 4.單價 5.明細PK
-        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
+        // 1.商品名稱 2.商品編號 3.數量 4.單價 5.明細PK 6.備註
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid','detaillist.remark')
             ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $orderID)
             ->get();
@@ -111,7 +111,7 @@ class OrderController extends Controller
 
         // dd($orderEdit);
         //撈明細資料
-        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid')
+        $quotation = Order::select('detaillist.mname', 'detaillist.mnumber', 'detaillist.price', 'detaillist.quantity', 'detaillist.dlid','detaillist.remark')
             ->join('detaillist', 'detaillist.oid', '=', 'order.oid')
             ->where('order.oid', '=', $orderID)
             ->get();
